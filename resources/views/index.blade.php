@@ -4,8 +4,6 @@
 
 @section('content')
 <div class="hero_area">
-    @include('layouts._header')
-
     <!-- slider section -->
     <section class="slider_section p-0">
         <div class="slider_container">
@@ -252,11 +250,9 @@
         </div>
     </div>
 </section>
-
 <!-- end portfolio section -->
 
 <!-- logo section -->
-
 <section class="logo_section layout_padding">
     <div class="container">
         <div class="heading_container">
@@ -511,7 +507,4 @@
     </div>
 </section>
 <!-- end client section -->
-
-@include('layouts._footer')
-
 @endsection
