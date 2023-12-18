@@ -18,20 +18,20 @@
                     </h6>
                     <div class="info_link-box">
                         <a href="https://www.instagram.com/yellow.tech.953/" target="blank">
-                            <img src="{{ asset('assets/images/instagram.svg') }}" alt="">
-                            <span> YellowTech </span>
+                            <img src="{{ asset('assets/images/instagram.svg') }}" alt="Instagram Icon">
+                            <span>yellow.tech.953</span>
                         </a>
                         <a href="https://www.facebook.com/people/Yellowtech/100089876063961/" target="blank">
-                            <img src="{{ asset('assets/images/facebook.svg') }}" alt="">
-                            <span> YellowTech</span>
+                            <img src="{{ asset('assets/images/facebook.svg') }}" alt="Facebook Icon">
+                            <span>yellow.tech</span>
                         </a>
                         <a href="https://www.linkedin.com/company/yellow-tech-953/" target="blank">
-                            <img src="{{ asset('assets/images/linkedin.svg') }}" alt="">
-                            <span> YellowTech </span>
+                            <img src="{{ asset('assets/images/linkedin.svg') }}" alt="LinkedIn Icon">
+                            <span>yellow.tech</span>
                         </a>
                         <a href="https://www.tiktok.com/@yellow.tech" target="blank">
-                            <img src="{{ asset('assets/images/twitter.svg') }}" alt="">
-                            <span> YellowTech</span>
+                            <img src="{{ asset('assets/images/twitter.svg') }}" alt="TikTok Icon">
+                            <span>yellow.tech</span>
                         </a>
                     </div>
                 </div>
@@ -77,5 +77,4 @@
     </section>
     <!-- footer section -->
 </section>
-
 <!-- end info section -->

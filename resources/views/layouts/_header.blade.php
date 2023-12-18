@@ -3,7 +3,8 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('assets/images/logo.png') }}" alt="" />
+                <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" />
+                <span class="text-dark">YellowTech</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +39,6 @@
                             </a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                        <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                    </form>
                 </div>
             </div>
         </nav>
