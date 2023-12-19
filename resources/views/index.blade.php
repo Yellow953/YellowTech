@@ -125,7 +125,7 @@
                 Ser<span>vi</span>ces
             </h2>
             <p>
-                adipiscingelit,sed do eiusmod tempor incididunt ut labore et dolore magn
+                Explore our services for a comprehensive overview of what we offer.
             </p>
         </div>
         <div class="row">
@@ -133,15 +133,59 @@
                 <div class="img-container tab-content">
                     <div class="img-box tab-pane fade show active" id="img1" role="tabpanel">
                         <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <div class="service-description">
+                            <p>
+                                Tailored systems for diverse business needs.
+                            <p>
+                            <ul>
+                                <li><span>Custom Software Development</span></li>
+                                <li><span>Software Maintenance and Support</span></li>
+                                <li><span>API Development</span></li>
+                                <li><span>Content Management Systems (CMS)</span></li>
+                                <li><span>Inventory Management Systems (IMS)</span></li>
+                                <li><span>Accounting Systems</span></li>
+                                <li><span>Invoicing Systems</span></li>
+                                <li><span>Point Of Sales (POS)</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="img-box tab-pane fade  " id="img2" role="tabpanel">
+                    <div class="img-box tab-pane fade" id="img2" role="tabpanel">
                         <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <div class="service-description">
+                            <p>
+                                Implementing artificial intelligence to enhance services and customer interactions.
+                            </p>
+                            <ul>
+                                <li><span>Machine Learning and AI Services</span></li>
+                                <li><span>Customer Service AI Bot (leveraging Chat GPT intelligence)</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="img-box tab-pane fade  " id="img3" role="tabpanel">
+                    <div class="img-box tab-pane fade" id="img3" role="tabpanel">
                         <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <div class="service-description">
+                            <p>
+                                Crafting responsive websites with intuitive user interfaces for optimal experiences.
+                            </p>
+                            <ul>
+                                <li><span>Web Development</span></li>
+                                <li><span>UI/UX Design Services</span></li>
+                                <li><span>E-commerce Solutions</span></li>
+                                <li><span>Content Management Systems (CMS)</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="img-box tab-pane fade  " id="img4" role="tabpanel">
+                    <div class="img-box tab-pane fade" id="img4" role="tabpanel">
                         <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <div>
+                            <p>
+                                Building cross-platform mobile apps for seamless user experiences and functionality.
+                            </p>
+                            <ul>
+                                <li><span>Mobile App Development</span></li>
+                                <li><span>E-commerce Solutions</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,38 +194,33 @@
                     <div class="detail-box active" id="img1-tab" data-toggle="tab" href="#img1" role="tab"
                         aria-selected="true">
                         <h4>
-                            Website <br />
-                            design
+                            Software<br />
+                            Solutions
                         </h4>
                     </div>
                     <div class="detail-box" id="img2-tab" data-toggle="tab" href="#img2" role="tab"
-                        aria-selected="false">
+                        aria-selected="true">
                         <h4>
-                            Logo <br />
-                            design
+                            AI <br />
+                            Integrations
                         </h4>
                     </div>
-                    <div class="detail-box" id="img2-tab" data-toggle="tab" href="#img3" role="tab"
+                    <div class="detail-box" id="img3-tab" data-toggle="tab" href="#img3" role="tab"
                         aria-selected="false">
                         <h4>
-                            brochure <br />
-                            design
+                            Web <br />
+                            Development
                         </h4>
                     </div>
-                    <div class="detail-box" id="img2-tab" data-toggle="tab" href="#img4" role="tab"
+                    <div class="detail-box" id="img4-tab" data-toggle="tab" href="#img4" role="tab"
                         aria-selected="false">
                         <h4>
-                            visiting card <br />
-                            design
+                            Mobile <br />
+                            Development
                         </h4>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="btn-box">
-            <a href="">
-                Read More
-            </a>
         </div>
     </div>
 </section>
@@ -196,7 +235,7 @@
             Por<span>tf</span>olio
         </h2>
         <p>
-            adipiscingelit,sed do eiusmod tempor incididunt ut labore et dolore magn
+            Check out our portfolio for a glimpse of our past projects.
         </p>
     </div>
     <div class="portfolio_container mx-0 layout_padding">
@@ -257,11 +296,10 @@
     <div class="container">
         <div class="heading_container">
             <h2>
-                A N<span>EW</span> Logo <br>
-                FOR YOUR COMPANY
+                Elevate Your <span>Brand</span> with a Striking Logo
             </h2>
             <p>
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magn
+                Design a distinctive logo with YellowTech — crafted to stand out in today's competitive landscape.
             </p>
         </div>
     </div>

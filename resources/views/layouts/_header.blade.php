@@ -13,27 +13,27 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-                    <ul class="navbar-nav  ">
-                        <li class="nav-item active">
+                    <ul class="navbar-nav">
+                        <li class="nav-item  {{ request()->is('/') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">Home <span
                                     class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('about') }}">
                                 About
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->is('service') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('service') }}">
                                 Services
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->is('portfolio') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('portfolio') }}">
                                 Portfolio
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('contact') }}">
                                 Contact Us
                             </a>

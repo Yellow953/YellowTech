@@ -333,6 +333,7 @@ a:focus {
       -ms-flex-align: center;
           align-items: center;
   margin: 15px;
+  border-radius: 25px;
 }
 
 .service_section .detail-container .detail-box h4 {
@@ -341,6 +342,7 @@ a:focus {
 
 .service_section .detail-container .detail-box:hover, .service_section .detail-container .detail-box.active {
   background-color: #f6dc00;
+  color: #373636;
   cursor: pointer;
 }
 
@@ -949,3 +951,10 @@ a:focus {
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+
+.service-description ul{
+color: #f6dc00;
+}
+.service-description ul li span{
+color:#000000;
+}
