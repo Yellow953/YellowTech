@@ -8,8 +8,10 @@
                         ABOUT US
                     </h6>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                        <span class="text-yellow">YellowTech</span> is a freelancing initiative aimed to help
+                        small/medium businesses to excell in the
+                        new digital world. From Cutting edge software solutions to advanced AI tools, all you need to
+                        manage your business.
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -37,11 +39,12 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <h6>
-                        NEED HELP
+                        NEED HELP?
                     </h6>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
-                        consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+                        Book a <a href="https://calendly.com/yellowtech/30min" target="blank"
+                            class="text-yellow">FREE</a> meeting to explore how we can
+                        bring it to life for you.
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-3">
@@ -71,7 +74,7 @@
         <div class="container">
             <p>
                 &copy; <span id="displayYear"></span> All Rights Reserved By
-                <a href="#">YellowTech</a>
+                <a href="#" class="text-yellow">YellowTech</a>
             </p>
         </div>
     </section>

@@ -720,19 +720,19 @@ a:focus {
 }
 
 .contact_section form {
-  padding-right: 35px;
   padding: 45px 20px;
 }
 
 .contact_section input {
   width: 100%;
   border: 1px solid #919191;
-  height: 50px;
+  height: 40px;
   margin-bottom: 25px;
   padding-left: 25px;
   background-color: transparent;
   outline: none;
   color: #101010;
+  border-radius: 5px;
 }
 
 .contact_section input::-webkit-input-placeholder {
@@ -752,23 +752,23 @@ a:focus {
 }
 
 .contact_section input.message-box {
-  height: 120px;
+  height: 70px;
 }
 
 .contact_section button {
   display: inline-block;
   padding: 12px 45px;
   background-color: #f6dc00;
-  color: #ffffff;
+  color: black;
   border: 1.5px solid #f6dc00;
-  border-radius: 0;
+  border-radius: 5px;
   display: block;
-  color: #fff;
   margin: 35px auto 0 auto;
 }
 
 .contact_section button:hover {
-  background-color: transparent;
+  background-color: black;
+  border: 1.5px solid black;
   color: #f6dc00;
 }
 
@@ -953,8 +953,13 @@ a:focus {
 /*# sourceMappingURL=style.css.map */
 
 .service-description ul{
-color: #f6dc00;
+  color: #f6dc00;
 }
+
 .service-description ul li span{
-color:#000000;
+  color:#000000;
+}
+
+.text-yellow{
+  color: #f6dc00 !important;
 }

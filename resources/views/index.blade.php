@@ -132,7 +132,7 @@
             <div class="col-lg-6 ">
                 <div class="img-container tab-content">
                     <div class="img-box tab-pane fade show active" id="img1" role="tabpanel">
-                        <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <img src="{{ asset('assets/images/software.png') }}" alt="" />
                         <div class="service-description">
                             <p>
                                 Tailored systems for diverse business needs.
@@ -150,7 +150,7 @@
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img2" role="tabpanel">
-                        <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <img src="{{ asset('assets/images/ai.png') }}" alt="" />
                         <div class="service-description">
                             <p>
                                 Implementing artificial intelligence to enhance services and customer interactions.
@@ -162,13 +162,14 @@
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img3" role="tabpanel">
-                        <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <img src="{{ asset('assets/images/seo.png') }}" alt="" />
                         <div class="service-description">
                             <p>
                                 Crafting responsive websites with intuitive user interfaces for optimal experiences.
                             </p>
                             <ul>
                                 <li><span>Web Development</span></li>
+                                <li><span>SEO Optimization</span></li>
                                 <li><span>UI/UX Design Services</span></li>
                                 <li><span>E-commerce Solutions</span></li>
                                 <li><span>Content Management Systems (CMS)</span></li>
@@ -176,7 +177,7 @@
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img4" role="tabpanel">
-                        <img src="{{ asset('assets/images/service-img.jpg') }}" alt="" />
+                        <img src="{{ asset('assets/images/phone_vector.png') }}" alt="" />
                         <div>
                             <p>
                                 Building cross-platform mobile apps for seamless user experiences and functionality.
@@ -476,17 +477,15 @@
     </div>
     <div class="container container-bg">
         <div class="row">
-            <div class="col-lg-8 col-md-7 px-0">
+            <div class="col-md-8 px-0">
                 <div class="map_container">
                     <div class="map-responsive">
-                        <iframe
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
-                            width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%"
-                            allowfullscreen></iframe>
+                        <img src="{{ asset('assets/images/map.png') }}" alt=""
+                            style="border:0; width: 100%; height:100%">
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 col-lg-4 px-0">
+            <div class="col-md-4 px-0">
                 <form action="">
                     <div>
                         <input type="text" placeholder="Name" />
