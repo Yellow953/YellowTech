@@ -1,7 +1,7 @@
 <!-- header section strats -->
-<header class="header_section">
+<header class="header_section" id="header">
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" />
                 <span class="text-dark">YellowTech</span>

@@ -27,3 +27,21 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
+
+// start fixed header
+window.onscroll = function () {
+    myFunction();
+};
+
+var header = document.getElementById("header");
+var sticky = header.offsetTop;
+
+function myFunction() {
+    if (window.pageYOffset > sticky) {
+        header.classList.add("fixed");
+    } else {
+        header.classList.remove("fixed");
+    }
+}
+// end fixed header
