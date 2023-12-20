@@ -3,6 +3,12 @@
 @section('title', 'Home')
 
 @section('content')
+
+<!-- Add these links to the head section of your HTML -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
 <div class="hero_area">
     <!-- slider section -->
     <section class="slider_section p-0">
@@ -509,11 +515,9 @@
         </div>
     </div>
 </section>
-
 <!-- end contact section -->
 
 <!-- client section -->
-
 <section class="client_section layout_padding-bottom">
     <div class="container">
         <div class="heading_container">
@@ -521,27 +525,97 @@
                 What <span>says</span> our clients
             </h2>
         </div>
-        <div class="box">
-            <div class="client_id">
-                <div class="name">
-                    <h4>
-                        Sandy <br>
-                        Nor
-                    </h4>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="name">
+                                <h4>
+                                    Rania R.
+                                </h4>
+                            </div>
+                            <div class="img-box">
+                                <img src="{{ asset('assets/images/testimonial1.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <img src="{{ asset('assets/images/quote.png') }}" alt="">
+                            <p>
+                                Joe stands out as a professional web developer. From the first encounter, when I asked
+                                him to create my website, I knew I was making the right choice. He is always ready to
+                                help and very flexible in proposing solutions and very punctual with deadlines. His
+                                creativity, his vast technical knowledge, his attention to details, and his exceptional
+                                customer service make him the “go-to” engineer that I would turn to for any of my web
+                                projects.
+                            </p>
+                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="">
+                        </div>
+                    </div>
                 </div>
-                <div class="img-box">
-                    <img src="{{ asset('assets/images/client.jpg') }}" alt="">
+                <div class="carousel-item">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="name">
+                                <h4>
+                                    Lynn K.
+                                </h4>
+                            </div>
+                            <div class="img-box">
+                                <img src="{{ asset('assets/images/testimonial2.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <img src="{{ asset('assets/images/quote.png') }}" alt="">
+                            <p>
+                                You did a great job. It's clear that you put a lot of effort and attention to detail
+                                into the design and functionality of the site. The layout is clean and easy to navigate,
+                                and the content is well-organized and informative. I appreciate how you were able to
+                                incorporate our branding elements seamlessly into the design. Additionally, the site is
+                                responsive and loads quickly, which is essential for providing a positive user
+                                experience. Overall, you've done an excellent job, and we're very pleased with the
+                                results. Thank you for your hard work and dedication to this project
+                            </p>
+                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <div class="client_id">
+                            <div class="name">
+                                <h4>
+                                    Sleiman B.A.
+                                </h4>
+                            </div>
+                            <div class="img-box">
+                                <img src="{{ asset('assets/images/testimonial3.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <img src="{{ asset('assets/images/quote.png') }}" alt="">
+                            <p>
+                                As a first-time customer, I was unsure of what to expect when I asked them to make my
+                                website. However, I was pleasantly surprised by their prompt service and the high
+                                quality of their services. I recommend this business to everyone and it's my go-to
+                                business every time I require something tech related.
+                            </p>
+                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="detail-box">
-                <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem
-                </p>
-                <img src="{{ asset('assets/images/quote.png') }}" alt="">
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 </section>
 <!-- end client section -->
+
 @endsection

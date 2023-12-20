@@ -796,10 +796,11 @@ a:focus {
   margin-top: 45px;
 }
 
-.client_section .box .client_id {
+.client_section .carousel .carousel-inner .carousel-item .box .client_id {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   padding: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -809,26 +810,27 @@ a:focus {
           box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
 }
 
-.client_section .box .client_id .name {
-  margin-right: 15px;
+.client_section .carousel .carousel-inner .carousel-item .box .client_id .name {
+  margin-bottom: 15px;
 }
 
-.client_section .box .client_id .name h4 {
+.client_section .carousel .carousel-inner .carousel-item .box .client_id .name h4 {
   margin: 0;
   font-weight: bold;
   color: #424242;
 }
 
-.client_section .box .client_id .img-box {
-  width: 150px;
-  min-width: 150px;
+.client_section .carousel .carousel-inner .carousel-item .box .client_id .img-box {
+  width: 200px;
+  min-width: 200px;
 }
 
-.client_section .box .client_id .img-box img {
+.client_section .carousel .carousel-inner .carousel-item .box .client_id .img-box img {
   width: 100%;
+  border-radius: 25px;
 }
 
-.client_section .box .client_id::before {
+.client_section .carousel .carousel-inner .carousel-item .box .client_id::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -844,12 +846,16 @@ a:focus {
 }
 
 .client_section .box .detail-box {
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-top: 55px;
 }
 
 .client_section .box .detail-box img {
-  margin-top: 25px;
+  margin: 0 5px;
+  width: 50px;
+  height: 50px;
 }
 
 /* info section */
