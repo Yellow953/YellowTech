@@ -424,14 +424,6 @@ a:focus {
   margin: 0 -3px;
 }
 
-.portfolio_section .portfolio_container .img-box .btn-box .btn-1 {
-  background-image: url(../images/link.png);
-}
-
-.portfolio_section .portfolio_container .img-box .btn-box .btn-2 {
-  background-image: url(../images/search.png);
-}
-
 .portfolio_section .portfolio_container .img-box::before {
   content: "";
   display: none;

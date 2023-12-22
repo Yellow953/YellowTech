@@ -8,8 +8,8 @@
                         ABOUT US
                     </h6>
                     <p>
-                        <span class="text-yellow">YellowTech</span> is a freelancing initiative aimed to help
-                        small/medium businesses to excell in the
+                        <span class="text-yellow">YellowTech</span> is a freelancing initiative aimed to help businesses
+                        to excell in the
                         new digital world. From Cutting edge software solutions to advanced AI tools, all you need to
                         manage your business.
                     </p>

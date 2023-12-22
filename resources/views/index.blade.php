@@ -231,11 +231,9 @@
         </div>
     </div>
 </section>
-
 <!-- end service section -->
 
 <!-- portfolio section -->
-
 <section class="portfolio_section">
     <div class="heading_container">
         <h2>
@@ -248,46 +246,72 @@
     <div class="portfolio_container mx-0 layout_padding">
         <div class="box-1">
             <div class="img-box b-1">
-                <img src="{{ asset('assets/images/p1.jpg') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/mecanix1.png') }}" alt="">
                 <div class="btn-box">
-                    <a href="" class="btn-1">
-
-                    </a>
-                    <a href="" class="btn-2">
-
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
             </div>
             <div class="img-box b-2">
-                <img src="{{ asset('assets/images/p2.jpg') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/mecanix2.png') }}" alt="">
                 <div class="btn-box">
-                    <a href="" class="btn-1">
-                    </a>
-                    <a href="" class="btn-2">
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
             </div>
         </div>
         <div class="box-2">
             <div class="img-box b-3">
-                <img src="{{ asset('assets/images/p3.jpg') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/philippefarhat1.png') }}" alt="">
                 <div class="btn-box">
-                    <a href="" class="btn-1">
-
-                    </a>
-                    <a href="" class="btn-2">
-
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
             </div>
             <div class="img-box b-4">
-                <img src="{{ asset('assets/images/p4.jpg') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/philippefarhat2.png') }}" alt="">
                 <div class="btn-box">
-                    <a href="" class="btn-1">
-
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
                     </a>
-                    <a href="" class="btn-2">
-
+                </div>
+            </div>
+        </div>
+        <div class="box-1">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/sports1.png') }}" alt="">
+                <div class="btn-box">
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/sports2.png') }}" alt="">
+                <div class="btn-box">
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="img-box b-3">
+                <img src="{{ asset('assets/images/portfolio/zspecial1.png') }}" alt="">
+                <div class="btn-box">
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-4">
+                <img src="{{ asset('assets/images/portfolio/zspecial2.png') }}" alt="">
+                <div class="btn-box">
+                    <a href="" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
             </div>
@@ -439,6 +463,18 @@
                         <div class="detail-box">
                             <h4>
                                 SQLITE
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box b2">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/images/openai.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h4>
+                                OpenAI
                             </h4>
                         </div>
                     </div>
