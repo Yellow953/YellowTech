@@ -262,10 +262,8 @@
                 <img src="{{ asset('assets/images/p2.jpg') }}" alt="">
                 <div class="btn-box">
                     <a href="" class="btn-1">
-
                     </a>
                     <a href="" class="btn-2">
-
                     </a>
                 </div>
             </div>
@@ -303,10 +301,10 @@
     <div class="container">
         <div class="heading_container">
             <h2>
-                Elevate Your <span>Brand</span> with a Striking Logo
+                <span>Tech</span>nologies
             </h2>
             <p>
-                Design a distinctive logo with YellowTech — crafted to stand out in today's competitive landscape.
+                Explore the cutting edge technologies that we use to develop our apps...
             </p>
         </div>
     </div>
@@ -314,13 +312,13 @@
         <div class="carousel-wrap">
             <div class="owl-carousel">
                 <div class="item">
-                    <div class="box  b1">
+                    <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/l1.jpg') }}" alt="">
+                            <img src="{{ asset('assets/images/laravel.png') }}" alt="">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Logo
+                                Laravel
                             </h4>
                         </div>
                     </div>
@@ -328,47 +326,23 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/l2.jpg') }}" alt="">
+                            <img src="{{ asset('assets/images/django.png') }}" alt="Django Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Logo
+                                Django
                             </h4>
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="box  b1">
+                    <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/l3.jpg') }}" alt="">
+                            <img src="{{ asset('assets/images/php.png') }}" alt="">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Logo
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box b2">
-                        <div class="img-box">
-                            <img src="{{ asset('assets/images/l4.jpg') }}" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h4>
-                                Logo
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box  b1">
-                        <div class="img-box">
-                            <img src="{{ asset('assets/images/l5.jpg') }}" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h4>
-                                Logo
+                                PHP
                             </h4>
                         </div>
                     </div>
@@ -376,23 +350,23 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/l6.jpg') }}" alt="">
+                            <img src="{{ asset('assets/images/python.png') }}" alt="">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Logo
+                                Python
                             </h4>
                         </div>
                     </div>
                 </div>
                 <div class="item">
-                    <div class="box  b1">
+                    <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/l3.jpg') }}" alt="">
+                            <img src="{{ asset('assets/images/java.png') }}" alt="">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Logo
+                                Java
                             </h4>
                         </div>
                     </div>
@@ -400,11 +374,71 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/l4.jpg') }}" alt="">
+                            <img src="{{ asset('assets/images/bootstrap.png') }}" alt="">
                         </div>
                         <div class="detail-box">
                             <h4>
-                                Logo
+                                Bootstrap
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box b1">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/images/html.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h4>
+                                HTML
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box b2">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/images/css.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h4>
+                                CSS
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box b1">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/images/mysql.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h4>
+                                MYSQL
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box b2">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/images/postgresql.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h4>
+                                POSTGRESQL
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="box b1">
+                        <div class="img-box">
+                            <img src="{{ asset('assets/images/sqlite.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h4>
+                                SQLITE
                             </h4>
                         </div>
                     </div>

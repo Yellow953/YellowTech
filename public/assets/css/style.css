@@ -475,7 +475,7 @@ a:focus {
 .logo_section .logo_container {
   -webkit-box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.15);
-  margin: 55px 45px 0 45px;
+  margin: 20px 0;
   overflow: hidden;
   position: relative;
 }
@@ -497,13 +497,15 @@ a:focus {
 }
 
 .logo_section .box .img-box img {
-  width: 100%;
+  width: 100px;
+  height: 100px;
 }
 
 .logo_section .box .detail-box h4 {
   text-transform: uppercase;
   font-weight: bold;
   color: #363636;
+  margin-top: 10px;
 }
 
 .logo_section .box.b1 {
