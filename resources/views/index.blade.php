@@ -447,13 +447,9 @@
         </div>
     </div>
 </section>
-
-
 <!-- end logo section -->
 
-
 <!-- started section -->
-
 <section class="started_section layout_padding-bottom">
     <div class="container">
         <div class="row">
@@ -554,6 +550,80 @@
     </div>
 </section>
 <!-- end started section -->
+
+{{-- start why choose us --}}
+<div class="feat bg-gray pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="section-head col-sm-12">
+                <h4><span>Why Choose</span> Yellow Tech?</h4>
+                <p>
+                    At Yellow Tech, we stand at the forefront of technology, delivering unparalleled solutions tailored
+                    to elevate your business. Here's why you should choose us:
+                </p>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item-why"> <span class="icon feature_box_col_one">
+                        <i class="fa-solid fa-microchip"></i>
+                    </span>
+                    <h6>Expertise Across Technologies</h6>
+                    <p>
+                        Our seasoned professionals excel in diverse technologies, ensuring cutting-edge solutions for
+                        your unique requirements.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item-why"> <span class="icon feature_box_col_two">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </span>
+                    <h6>Customized Approach</h6>
+                    <p>We don't believe in one-size-fits-all. Every project receives a bespoke touch, aligning perfectly
+                        with your business goals.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item-why"> <span class="icon feature_box_col_three">
+                        <i class="fa-solid fa-headset"></i>
+                    </span>
+                    <h6>Reliable Support & Maintenance</h6>
+                    <p>Beyond delivery, our commitment extends to continuous support, updates, and maintenance, ensuring
+                        your systems run seamlessly</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item-why"> <span class="icon feature_box_col_four">
+                        <i class="fa-solid fa-swatchbook"></i>
+                    </span>
+                    <h6>User-Centric Design</h6>
+                    <p>Experience matters. We prioritize user-centric design, creating interfaces that captivate and
+                        applications that resonate with your audience.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item-why"> <span class="icon feature_box_col_five">
+                        <i class="fa-solid fa-seedling"></i>
+                    </span>
+                    <h6>Scalability for Growth</h6>
+                    <p>
+                        Our solutions are designed with scalability in mind, adapting seamlessly to your evolving
+                        business needs and facilitating growth.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="item-why"><span class="icon feature_box_col_six">
+                        <i class="fa-solid fa-wallet"></i>
+                    </span>
+                    <h6>Affordable Excellence</h6>
+                    <p>Unlock top-tier tech solutions at budget-friendly rates. Choose Yellow Tech for excellence
+                        without compromise.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- end why choose us --}}
 
 <!-- agency section -->
 <section class="agency_section layout_padding-bottom">
