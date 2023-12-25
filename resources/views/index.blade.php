@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="" />
+                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="Slider 1" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="" />
+                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="Slider 2" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="" />
+                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="Slider 3" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -109,7 +109,7 @@
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="sr-only">Previous</span>
                     </a>
-                    <img src="{{ asset('assets/images/line.png') }}" alt="" />
+                    <img src="{{ asset('assets/images/line.png') }}" alt="Line" />
                     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                         <span class="sr-only">Next</span>
                     </a>
@@ -117,13 +117,11 @@
             </div>
         </div>
     </section>
-
     <!-- end slider section -->
 </div>
 <!-- end hero area -->
 
 <!-- service section -->
-
 <section class="service_section layout_padding">
     <div class="container-fluid">
         <div class="heading_container">
@@ -138,7 +136,7 @@
             <div class="col-lg-6 ">
                 <div class="img-container tab-content">
                     <div class="img-box tab-pane fade show active" id="img1" role="tabpanel">
-                        <img src="{{ asset('assets/images/software.png') }}" alt="" />
+                        <img src="{{ asset('assets/images/software.png') }}" alt="Software Icon" />
                         <div class="service-description">
                             <p>
                                 Tailored systems for diverse business needs.
@@ -156,7 +154,7 @@
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img2" role="tabpanel">
-                        <img src="{{ asset('assets/images/ai.png') }}" alt="" />
+                        <img src="{{ asset('assets/images/ai.png') }}" alt="AI Icon" />
                         <div class="service-description">
                             <p>
                                 Implementing artificial intelligence to enhance services and customer interactions.
@@ -168,7 +166,7 @@
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img3" role="tabpanel">
-                        <img src="{{ asset('assets/images/seo.png') }}" alt="" />
+                        <img src="{{ asset('assets/images/seo.png') }}" alt="SEO ICON" />
                         <div class="service-description">
                             <p>
                                 Crafting responsive websites with intuitive user interfaces for optimal experiences.
@@ -183,7 +181,7 @@
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img4" role="tabpanel">
-                        <img src="{{ asset('assets/images/phone_vector.png') }}" alt="" />
+                        <img src="{{ asset('assets/images/phone_vector.png') }}" alt="Phone Icon" />
                         <div>
                             <p>
                                 Building cross-platform mobile apps for seamless user experiences and functionality.
@@ -246,7 +244,7 @@
     <div class="portfolio_container mx-0 layout_padding">
         <div class="box-1">
             <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/mecanix1.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/mecanix1.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -254,7 +252,7 @@
                 </div>
             </div>
             <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/mecanix2.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/mecanix2.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -264,7 +262,7 @@
         </div>
         <div class="box-2">
             <div class="img-box b-3">
-                <img src="{{ asset('assets/images/portfolio/philippefarhat1.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/philippefarhat1.png') }}" alt="Philippe Farhat Website">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -272,7 +270,7 @@
                 </div>
             </div>
             <div class="img-box b-4">
-                <img src="{{ asset('assets/images/portfolio/philippefarhat2.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/philippefarhat2.png') }}" alt="Philippe Farhat Website">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -282,7 +280,7 @@
         </div>
         <div class="box-1">
             <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/sports1.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/sports1.png') }}" alt="Sports System">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -290,7 +288,7 @@
                 </div>
             </div>
             <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/sports2.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/sports2.png') }}" alt="Sports System">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -300,7 +298,7 @@
         </div>
         <div class="box-2">
             <div class="img-box b-3">
-                <img src="{{ asset('assets/images/portfolio/zspecial1.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/zspecial1.png') }}" alt="ZSpecial Website">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -308,7 +306,7 @@
                 </div>
             </div>
             <div class="img-box b-4">
-                <img src="{{ asset('assets/images/portfolio/zspecial2.png') }}" alt="">
+                <img src="{{ asset('assets/images/portfolio/zspecial2.png') }}" alt="ZSpecial Website">
                 <div class="btn-box">
                     <a href="" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
@@ -338,7 +336,7 @@
                 <div class="item">
                     <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/laravel.png') }}" alt="">
+                            <img src="{{ asset('assets/images/laravel.png') }}" alt="Laravel Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -362,7 +360,7 @@
                 <div class="item">
                     <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/php.png') }}" alt="">
+                            <img src="{{ asset('assets/images/php.png') }}" alt="PHP Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -374,7 +372,7 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/python.png') }}" alt="">
+                            <img src="{{ asset('assets/images/python.png') }}" alt="Python Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -386,7 +384,7 @@
                 <div class="item">
                     <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/java.png') }}" alt="">
+                            <img src="{{ asset('assets/images/java.png') }}" alt="Java Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -398,7 +396,7 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/bootstrap.png') }}" alt="">
+                            <img src="{{ asset('assets/images/bootstrap.png') }}" alt="Bootstrap Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -410,7 +408,7 @@
                 <div class="item">
                     <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/html.png') }}" alt="">
+                            <img src="{{ asset('assets/images/html.png') }}" alt="HTML Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -422,7 +420,7 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/css.png') }}" alt="">
+                            <img src="{{ asset('assets/images/css.png') }}" alt="CSS Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -434,7 +432,7 @@
                 <div class="item">
                     <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/mysql.png') }}" alt="">
+                            <img src="{{ asset('assets/images/mysql.png') }}" alt="MYSQL Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -446,7 +444,7 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/postgresql.png') }}" alt="">
+                            <img src="{{ asset('assets/images/postgresql.png') }}" alt="POSTGRESQL Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -458,7 +456,7 @@
                 <div class="item">
                     <div class="box b1">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/sqlite.png') }}" alt="">
+                            <img src="{{ asset('assets/images/sqlite.png') }}" alt="SQLITE Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -470,7 +468,7 @@
                 <div class="item">
                     <div class="box b2">
                         <div class="img-box">
-                            <img src="{{ asset('assets/images/openai.png') }}" alt="">
+                            <img src="{{ asset('assets/images/openai.png') }}" alt="OPENAI Logo">
                         </div>
                         <div class="detail-box">
                             <h4>
@@ -700,7 +698,7 @@
             <div class="col-md-8 px-0">
                 <div class="map_container">
                     <div class="map-responsive">
-                        <img src="{{ asset('assets/images/map.png') }}" alt=""
+                        <img src="{{ asset('assets/images/map.png') }}" alt="Locations Map"
                             style="border:0; width: 100%; height:100%">
                     </div>
                 </div>
@@ -750,11 +748,11 @@
                                 </h4>
                             </div>
                             <div class="img-box">
-                                <img src="{{ asset('assets/images/testimonial1.png') }}" alt="">
+                                <img src="{{ asset('assets/images/testimonial1.png') }}" alt="Testimonial 1">
                             </div>
                         </div>
                         <div class="detail-box">
-                            <img src="{{ asset('assets/images/quote.png') }}" alt="">
+                            <img src="{{ asset('assets/images/quote.png') }}" alt="Left Quote">
                             <p>
                                 Joe stands out as a professional web developer. From the first encounter, when I asked
                                 him to create my website, I knew I was making the right choice. He is always ready to
@@ -763,7 +761,7 @@
                                 customer service make him the “go-to” engineer that I would turn to for any of my web
                                 projects.
                             </p>
-                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="">
+                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="Right Quote">
                         </div>
                     </div>
                 </div>
@@ -776,11 +774,11 @@
                                 </h4>
                             </div>
                             <div class="img-box">
-                                <img src="{{ asset('assets/images/testimonial2.png') }}" alt="">
+                                <img src="{{ asset('assets/images/testimonial2.png') }}" alt="Testimonial 2">
                             </div>
                         </div>
                         <div class="detail-box">
-                            <img src="{{ asset('assets/images/quote.png') }}" alt="">
+                            <img src="{{ asset('assets/images/quote.png') }}" alt="Left Quote">
                             <p>
                                 You did a great job. It's clear that you put a lot of effort and attention to detail
                                 into the design and functionality of the site. The layout is clean and easy to navigate,
@@ -790,7 +788,7 @@
                                 experience. Overall, you've done an excellent job, and we're very pleased with the
                                 results. Thank you for your hard work and dedication to this project
                             </p>
-                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="">
+                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="Right Quote">
                         </div>
                     </div>
                 </div>
@@ -803,18 +801,18 @@
                                 </h4>
                             </div>
                             <div class="img-box">
-                                <img src="{{ asset('assets/images/testimonial3.png') }}" alt="">
+                                <img src="{{ asset('assets/images/testimonial3.png') }}" alt="Testimonial 3">
                             </div>
                         </div>
                         <div class="detail-box">
-                            <img src="{{ asset('assets/images/quote.png') }}" alt="">
+                            <img src="{{ asset('assets/images/quote.png') }}" alt="Left Quote">
                             <p>
                                 As a first-time customer, I was unsure of what to expect when I asked them to make my
                                 website. However, I was pleasantly surprised by their prompt service and the high
                                 quality of their services. I recommend this business to everyone and it's my go-to
                                 business every time I require something tech related.
                             </p>
-                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="">
+                            <img src="{{ asset('assets/images/quote_rotated.png') }}" alt="Right Quote">
                         </div>
                     </div>
                 </div>
