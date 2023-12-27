@@ -31,20 +31,21 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="Slider 1" />
+                                        <img src="{{ asset('assets/images/software-development.png') }}"
+                                            alt="Slider 1" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-box">
                                         <h1>
-                                            Design
+                                            Customized
                                             <br />
-                                            Agency
+                                            Softwares
                                         </h1>
                                         <p>
-                                            There are many variations of passages of Lorem Ipsum available, but the
+                                            Tailored systems for diverse business needs.
                                         </p>
-                                        <a href="">
+                                        <a href="{{ route('contact') }}">
                                             Contact Us
                                         </a>
                                     </div>
@@ -57,7 +58,7 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="Slider 2" />
+                                        <img src="{{ asset('assets/images/illustration2.png') }}" alt="Slider 2" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -70,7 +71,7 @@
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the
                                         </p>
-                                        <a href="">
+                                        <a href="{{ route('contact') }}">
                                             Contact Us
                                         </a>
                                     </div>
@@ -83,7 +84,7 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.jpg') }}" alt="Slider 3" />
+                                        <img src="{{ asset('assets/images/illustration3.png') }}" alt="Slider 3" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -96,7 +97,7 @@
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the
                                         </p>
-                                        <a href="">
+                                        <a href="{{ route('contact') }}">
                                             Contact Us
                                         </a>
                                     </div>
@@ -246,7 +247,7 @@
             <div class="img-box b-1">
                 <img src="{{ asset('assets/images/portfolio/mecanix1.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -254,7 +255,7 @@
             <div class="img-box b-2">
                 <img src="{{ asset('assets/images/portfolio/mecanix2.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -264,7 +265,7 @@
             <div class="img-box b-3">
                 <img src="{{ asset('assets/images/portfolio/philippefarhat1.png') }}" alt="Philippe Farhat Website">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -272,7 +273,7 @@
             <div class="img-box b-4">
                 <img src="{{ asset('assets/images/portfolio/philippefarhat2.png') }}" alt="Philippe Farhat Website">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -282,7 +283,7 @@
             <div class="img-box b-1">
                 <img src="{{ asset('assets/images/portfolio/sports1.png') }}" alt="Sports System">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -290,7 +291,7 @@
             <div class="img-box b-2">
                 <img src="{{ asset('assets/images/portfolio/sports2.png') }}" alt="Sports System">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -300,7 +301,7 @@
             <div class="img-box b-3">
                 <img src="{{ asset('assets/images/portfolio/zspecial1.png') }}" alt="ZSpecial Website">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -308,7 +309,7 @@
             <div class="img-box b-4">
                 <img src="{{ asset('assets/images/portfolio/zspecial2.png') }}" alt="ZSpecial Website">
                 <div class="btn-box">
-                    <a href="" class="btn text-yellow">
+                    <a href="#" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -674,7 +675,7 @@
                     digital world. From Cutting edge software solutions to advanced AI tools, all you need to manage
                     your business.
                 </p>
-                <a href="">
+                <a href="{{ route('about') }}">
                     Read More
                 </a>
             </div>
