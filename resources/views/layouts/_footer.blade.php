@@ -53,15 +53,15 @@
                     </h6>
                     <div class="info_link-box">
                         <a href="#">
-                            <img src="{{ asset('assets/images/location.png') }}" alt="">
+                            <img src="{{ asset('assets/images/location.png') }}" alt="Location Icon">
                             <span> werkstra&szlig;e 2, Berlin, Germany </span>
                         </a>
                         <a href="tel:+4915204820649">
-                            <img src="{{ asset('assets/images/phone.png') }}" alt="">
+                            <img src="{{ asset('assets/images/phone.png') }}" alt="Phone Icon">
                             <span>+4915204820649</span>
                         </a>
                         <a href="mailto:yellow.tech.953@gmail.com">
-                            <img src="{{ asset('assets/images/mail.png') }}" alt="">
+                            <img src="{{ asset('assets/images/mail.png') }}" alt="Mail Icon">
                             <span> yellow.tech.953@gmail.com</span>
                         </a>
                     </div>

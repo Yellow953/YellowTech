@@ -2,6 +2,9 @@
 
 @section('title', 'Home')
 
+@section('meta')
+@endsection
+
 @section('content')
 
 <!-- Add these links to the head section of your HTML -->
@@ -37,11 +40,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-box">
-                                        <h1>
+                                        <h2>
                                             Customized
                                             <br />
                                             Softwares
-                                        </h1>
+                                        </h2>
                                         <p>
                                             Tailored systems for diverse business needs.
                                         </p>
@@ -63,11 +66,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-box">
-                                        <h1>
+                                        <h2>
                                             Design
                                             <br />
                                             Agency
-                                        </h1>
+                                        </h2>
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the
                                         </p>
@@ -89,11 +92,11 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-box">
-                                        <h1>
+                                        <h2>
                                             Design
                                             <br />
                                             Agency
-                                        </h1>
+                                        </h2>
                                         <p>
                                             There are many variations of passages of Lorem Ipsum available, but the
                                         </p>
@@ -705,7 +708,8 @@
                 </div>
             </div>
             <div class="col-md-4 px-0">
-                <form action="">
+                <form action="/contact" method="GET" enctype="multipart/form-data">
+                    @csrf
                     <div>
                         <input type="text" placeholder="Name" />
                     </div>
