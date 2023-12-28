@@ -14,8 +14,8 @@ services')
 <section class="contact_section layout_padding">
     <div class="container px-0">
         <div class="heading_container">
-            <h2 class="">
-                Con<span>ta</span>ct Us
+            <h2>
+                Contact <span>Us</span>
             </h2>
         </div>
 

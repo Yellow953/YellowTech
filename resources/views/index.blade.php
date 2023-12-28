@@ -207,7 +207,7 @@ integration, and cutting-edge technology. Elevate your business with us.')
                         </h4>
                     </div>
                     <div class="detail-box" id="img2-tab" data-toggle="tab" href="#img2" role="tab"
-                        aria-selected="true">
+                        aria-selected="false">
                         <h4>
                             AI <br />
                             Integrations
@@ -690,8 +690,8 @@ integration, and cutting-edge technology. Elevate your business with us.')
 <section class="contact_section layout_padding">
     <div class="container px-0">
         <div class="heading_container">
-            <h2 class="">
-                Con<span>ta</span>ct Us
+            <h2>
+                Contact <span>Us</span>
             </h2>
         </div>
 

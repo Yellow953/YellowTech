@@ -93,7 +93,7 @@ Tech')
                         </h4>
                     </div>
                     <div class="detail-box" id="img2-tab" data-toggle="tab" href="#img2" role="tab"
-                        aria-selected="true">
+                        aria-selected="false">
                         <h4>
                             AI <br />
                             Integrations

@@ -45,3 +45,20 @@ function myFunction() {
     }
 }
 // end fixed header
+
+// start service scrolling
+$(document).ready(function() {
+    // Smooth scrolling when clicking on the links
+    $('.detail-box').on('click', function(event) {
+      event.preventDefault();
+
+      // Get the target ID from the link's href attribute
+      var targetId = $(this).attr('href');
+
+      // Use jQuery's animate function for smooth scrolling
+      $('html, body').animate({
+        scrollTop: $(targetId).offset().top
+      }, 500);
+    });
+  });
+//   end service scrolling
