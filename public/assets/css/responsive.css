@@ -45,6 +45,10 @@
         height: auto;
     }
 
+    .slider_section .img-box img {
+        height: 400px;
+    }
+
     .slider_section {
         padding: 0 25px;
     }
@@ -157,6 +161,9 @@
 @media (max-width: 376px) {
     .slider_section .detail-box h1, .slider_section .detail-box h2 {
         font-size: 2rem;
+    }
+    .slider_section .img-box img {
+        height: 300px;
     }
 }
 
