@@ -1,1 +1,33 @@
 color: #f6dc00
+
+meta
+
+    Custom Software Development:
+bespoke software solutions
+tailored software development
+software engineering services
+    
+    Web Development:
+responsive web design
+website development services
+professional web developers
+
+    Mobile App Development:
+cross-platform mobile apps
+iOS and Android app development
+mobile application solutions
+    
+    AI Integration:
+artificial intelligence solutions
+AI consulting services
+machine learning implementation
+
+    Technology Solutions:
+innovative tech solutions
+advanced technology services
+cutting-edge IT solutions
+
+    Location-Specific Keywords:
+technology solutions [location]
+web development [location]
+AI integration [location]

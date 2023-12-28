@@ -2,8 +2,10 @@
 
 @section('title', 'Home')
 
-@section('meta')
-@endsection
+@section('description', 'Discover innovation at Yellow Tech – Your gateway to tailored software solutions, AI
+integration, and cutting-edge technology. Elevate your business with us.')
+
+@section('keywords', 'innovation, technology solutions, custom software, AI integration, business growth, Yellow Tech')
 
 @section('content')
 
