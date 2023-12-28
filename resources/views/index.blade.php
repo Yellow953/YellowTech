@@ -7,11 +7,6 @@
 
 @section('content')
 
-<!-- Add these links to the head section of your HTML -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
 <div class="hero_area">
     <!-- slider section -->
     <section class="slider_section p-0">
@@ -61,18 +56,19 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/illustration2.png') }}" alt="Slider 2" />
+                                        <img src="{{ asset('assets/images/slider-img.png') }}" alt="Slider 2" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-box">
                                         <h2>
-                                            Design
+                                            Web
                                             <br />
-                                            Agency
+                                            Design
                                         </h2>
                                         <p>
-                                            There are many variations of passages of Lorem Ipsum available, but the
+                                            Crafting responsive web designs with intuitive user interfaces for optimal
+                                            experiences.
                                         </p>
                                         <a href="{{ route('contact') }}">
                                             Contact Us
@@ -87,18 +83,19 @@
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/illustration3.png') }}" alt="Slider 3" />
+                                        <img src="{{ asset('assets/images/ai.png') }}" alt="Slider 3" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="detail-box">
                                         <h2>
-                                            Design
+                                            AI
                                             <br />
-                                            Agency
+                                            Solutions
                                         </h2>
                                         <p>
-                                            There are many variations of passages of Lorem Ipsum available, but the
+                                            Implementing artificial intelligence to enhance services and customer
+                                            interactions.
                                         </p>
                                         <a href="{{ route('contact') }}">
                                             Contact Us
@@ -674,7 +671,7 @@
                     </h2>
                 </div>
                 <p>
-                    YellowTech is a freelancing initiative aimed to help small/medium businesses to excell in the new
+                    YellowTech is a freelancing initiative aimed to help businesses to excell in the new
                     digital world. From Cutting edge software solutions to advanced AI tools, all you need to manage
                     your business.
                 </p>

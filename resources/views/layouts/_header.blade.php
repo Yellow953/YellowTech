@@ -4,7 +4,8 @@
         <nav class="navbar navbar-expand-lg custom_nav-container">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" />
-                <span class="text-dark">YellowTech</span>
+                {{-- <span class="text-dark">YellowTech</span> --}}
+                <h1 class="text-dark nav-link h1-header">YellowTech</h1>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
