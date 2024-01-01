@@ -380,3 +380,25 @@
     border-radius: 30px;
   }
   /* end why us */
+
+  /* Add this CSS for smaller screens (mobile) */
+@media (max-width: 767px) {
+  .service_section .detail-container {
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+  }
+
+  .service_section .detail-container .detail-box {
+      min-width: auto;
+      height: auto;
+      margin: 5px 2px;
+      white-space: nowrap;
+      border-radius: 5px;
+  }
+
+  .service_section .detail-container .detail-box h4 {
+      font-size: 10px;
+      margin: 5px 8px;
+  }
+}
