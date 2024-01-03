@@ -20,19 +20,19 @@
                     </h6>
                     <div class="info_link-box">
                         <a href="https://www.instagram.com/yellow.tech.953/" target="blank">
-                            <img src="{{ asset('assets/images/instagram.svg') }}" alt="Instagram Icon">
+                            <img src="{{ asset('assets/images/instagram.png') }}" alt="Instagram Icon">
                             <span>yellow.tech.953</span>
                         </a>
                         <a href="https://www.facebook.com/people/Yellowtech/100089876063961/" target="blank">
-                            <img src="{{ asset('assets/images/facebook.svg') }}" alt="Facebook Icon">
+                            <img src="{{ asset('assets/images/facebook.png') }}" alt="Facebook Icon">
                             <span>yellow.tech</span>
                         </a>
                         <a href="https://www.linkedin.com/company/yellow-tech-953/" target="blank">
-                            <img src="{{ asset('assets/images/linkedin.svg') }}" alt="LinkedIn Icon">
+                            <img src="{{ asset('assets/images/linkedin.png') }}" alt="LinkedIn Icon">
                             <span>yellow.tech</span>
                         </a>
                         <a href="https://www.tiktok.com/@yellow.tech" target="blank">
-                            <img src="{{ asset('assets/images/twitter.svg') }}" alt="TikTok Icon">
+                            <img src="{{ asset('assets/images/tiktok.png') }}" alt="TikTok Icon">
                             <span>yellow.tech</span>
                         </a>
                     </div>
