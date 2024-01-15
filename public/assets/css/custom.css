@@ -1,3 +1,11 @@
+*{
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+}
+
 .service-description ul{
   color: #f6dc00;
 }
@@ -163,7 +171,7 @@
   
   /* start why us */
   .section-head {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
   
   .section-head h4 {
@@ -173,7 +181,7 @@
     line-height: 1;
     letter-spacing: 0.3px;
     font-size: 34px;
-    font-weight: 700;
+    font-weight: inherit;
     text-align: center;
     text-transform: none;
     margin-bottom: 30px;
@@ -192,7 +200,8 @@
   }
   
   .section-head h4 span {
-    font-weight: 700;
+    font-size: 34px;
+    font-weight: inherit;
     padding-bottom: 5px;
     color: #2f2f2f
   }
@@ -206,7 +215,7 @@
   
   .section-head p,
   p.awesome_line {
-    color: #818181;
+    color: black;
     font-size: 16px;
     line-height: 28px;
     text-align: center;
@@ -402,3 +411,9 @@
       margin: 5px 8px;
   }
 }
+
+/* start footer */
+.info_section p, .info_section a, .info_section span{
+  font-size: 0.9rem;
+}
+/* end footer */

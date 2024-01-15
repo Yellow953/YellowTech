@@ -17,7 +17,7 @@ Tech')
             <h2>
                 Ser<span>vi</span>ces
             </h2>
-            <p>
+            <p class="mt-4">
                 Explore our services for a comprehensive overview of what we offer.
             </p>
         </div>
@@ -130,7 +130,7 @@ Tech')
                         <h2>
                             Bring your <span>idea</span> to life
                         </h2>
-                        <p>
+                        <p class="mt-4">
                             Book a <a href="https://calendly.com/yellowtech/30min" target="blank"
                                 class="text-yellow">FREE</a> meeting to explore how we can bring it to life
                             for you.

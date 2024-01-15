@@ -22,16 +22,22 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{-- Coding Font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-    <!-- fonts style -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap"
-        rel="stylesheet" />
-
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}" />
+
+    <!-- Add these links to the head section of your HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
@@ -41,11 +47,6 @@
 
     {{-- custom styles --}}
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-
-    <!-- Add these links to the head section of your HTML -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body class="overflow-x-hidden">

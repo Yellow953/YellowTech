@@ -3,15 +3,6 @@ $black: #000000;
 $primary1: #f6dc00;
 $btnColor: #373636;
 
-@mixin main-font {
-  font-family: "poppins",
-    sans-serif;
-}
-
-@mixin secondary-font {
-  font-family: "Raleway",
-    sans-serif;
-}
 
 @mixin hero_btn($col1,
   $col2,

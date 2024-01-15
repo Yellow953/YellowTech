@@ -8,14 +8,14 @@ development, AI integration, web, and mobile applications. See our expertise in 
 @section('keywords', 'Yellow Tech portfolio, software development, AI integration, web applications, mobile apps')
 
 @section('content')
-
+<br>
 <!-- portfolio section -->
 <section class="portfolio_section">
     <div class="heading_container">
         <h2>
             Por<span>tf</span>olio
         </h2>
-        <p>
+        <p class="mt-4">
             Check out our portfolio for a glimpse of our past projects.
         </p>
     </div>
@@ -95,5 +95,9 @@ development, AI integration, web, and mobile applications. See our expertise in 
     </div>
 </section>
 <!-- end portfolio section -->
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#2d2d2d" fill-opacity="1"
+        d="M0,224L48,218.7C96,213,192,203,288,213.3C384,224,480,256,576,229.3C672,203,768,117,864,85.3C960,53,1056,75,1152,117.3C1248,160,1344,224,1392,256L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+    </path>
+</svg>
 @endsection

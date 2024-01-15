@@ -41,7 +41,7 @@ approach')
             <h2>
                 <span>Tech</span>nologies
             </h2>
-            <p>
+            <p class="mt-4">
                 Explore the cutting edge technologies that we use to develop our apps...
             </p>
         </div>
@@ -205,7 +205,7 @@ approach')
         <div class="row">
             <div class="section-head col-sm-12">
                 <h4><span>Why Choose</span> Yellow Tech?</h4>
-                <p>
+                <p class="pt-4">
                     At Yellow Tech, we stand at the forefront of technology, delivering unparalleled solutions tailored
                     to elevate your business. Here's why you should choose us:
                 </p>

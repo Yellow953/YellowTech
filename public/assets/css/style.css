@@ -1,6 +1,4 @@
 body {
-  font-family: "poppins",
- sans-serif;
   color: #101010;
   background-color: #ffffff;
 }
@@ -52,6 +50,8 @@ body {
 
 .heading_container h2 span {
   color: #f6dc00;
+  font-size: inherit;
+  font-weight: bold;
 }
 
 /*header section*/
@@ -644,7 +644,7 @@ a:focus {
 }
 
 .agency_section .agency_container {
-  background-image: url(../images/image1.png);
+  background-image: url(../images/Post1.png);
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 45px;
