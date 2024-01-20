@@ -13,6 +13,8 @@
 
     <title>YellowTech | @yield('title')</title>
 
+    <meta name="google-site-verification" content="BeAs6nmdgCTXSjnLMq_pfDksaT12n0uZ7Im9_E2Eliw" />
+
     {{-- Meta --}}
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
@@ -47,6 +49,16 @@
 
     {{-- custom styles --}}
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CKZFK5R5G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1CKZFK5R5G');
+    </script>
 </head>
 
 <body class="overflow-x-hidden">
