@@ -11,15 +11,17 @@ Auth::routes(['verify' => true]);
 
 // Admin Panel
 Route::prefix('app')->group(function () {
-    // admin routes
-    Route::get('/admin/users/index', [UserController::class, 'index'])->name('admin.users.index');
-    Route::get('/admin/users/new', [UserController::class, 'create'])->name('admin.users.create');
-    Route::post('/admin/users/new', [UserController::class, 'store'])->name('admin.users.store');
-    Route::get('/admin/users/edit/{user}', [UserController::class, 'edit'])->name('admin.users.edit');
-    Route::put('/admin/users/edit/{user}', [UserController::class, 'update'])->name('admin.users.update');
-    Route::delete('/admin/users/delete/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    // users routes
+    Route::prefix('users')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('users.index');
+        Route::get('/new', [UserController::class, 'new'])->name('users.create');
+        Route::post('/create', [UserController::class, 'create'])->name('users.store');
+        Route::get('/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
+        Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
+        Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
 });
 
 // Main Page
@@ -27,4 +29,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
