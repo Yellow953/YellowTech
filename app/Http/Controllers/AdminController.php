@@ -11,8 +11,8 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    public function dashboard()
+    public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.users.index');
     }
 }
