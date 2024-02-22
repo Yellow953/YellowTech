@@ -1,165 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>YellowTechAdmin | Registration Page</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  >
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <title>
-    Material Dashboard 2 by Creative Tim
-  </title>
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-  <!-- Nucleo Icons -->
-  <link href="css/nucleo-icons.css" rel="stylesheet" />
-  <link href="css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <!-- CSS Files -->
-  <link id="pagestyle" href="css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
-</head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<body class="">
-  <div class="container position-sticky z-index-sticky top-0">
-    <div class="row">
-      <div class="col-12">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
-          <div class="container-fluid ps-2 pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="dashboard.html">
-              Material Dashboard 2
-            </a>
-            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon mt-2">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navigation">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="profile.html">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="sign-up.html">
-                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                    Sign Up
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2" href="sign-in.html">
-                    <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                    Sign In
-                  </a>
-                </li>
-              </ul>
-              <ul class="navbar-nav d-lg-block d-none">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/product/material-dashboard" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Free download</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!-- End Navbar -->
+    {{-- Favicon --}}
+    <link rel="shortcut icon" href="{{ asset('assets/logo/yellowtech.ico') }}" type="image/x-icon">
+
+    <!-- Bootstrap 3.3.2 -->
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- FontAwesome 4.3.0 -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
+      type="text/css" />
+
+    <!-- Ionicons 2.0.0 -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Theme style -->
+    <link href="{{ asset('admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+    <link href="{{ asset('admin/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- iCheck -->
+    <link href="{{ asset('admin/plugins/iCheck/flat/blue.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
+      type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="register-page">
+    <div class="register-box">
+      <div class="register-logo">
+        <a href="{{route('register')}}"><b>YellowTech</b>Admin</a>
       </div>
-    </div>
-  </div>
-  <main class="main-content  mt-0">
-    <section>
-      <div class="page-header min-vh-100">
-        <div class="container">
+
+      <div class="register-box-body">
+        <p class="login-box-msg">Register</p>
+        <form action="{{route('register')}}" method="post">
+            @csrf
+          <div class="form-group has-feedback">
+            <input name="name" type="text" class="form-control" placeholder="username"/>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="phone" type="tel" class="form-control" placeholder="phone number"/>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="email" type="email" class="form-control" placeholder="Email"/>
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="password" type="password" class="form-control" placeholder="Password"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input name="password" type="password" class="form-control" placeholder="Retype password"/>
+            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          </div>
           <div class="row">
-            <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('../assets/img/illustrations/illustration-signup.jpg'); background-size: cover;">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                  <input name="username" type="checkbox"> I agree to the <a href="#">terms</a>
+                </label>
               </div>
-            </div>
-            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
-              <div class="card card-plain">
-                <form method="POST" action="{{ route('login') }}" class="text-start">
-                    @csrf
-                        @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
-                          <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                          </ul>
-                        </div>
-                        @endif
-                <div class="card-header">
-                  <h4 class="font-weight-bolder">Sign Up</h4>
-                  <p class="mb-0">Enter your email and password to register</p>
-                </div>
-                <div class="card-body">
-                  <form role="form">
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
-                    </div>
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Email</label>
-                      <input type="email" class="form-control">
-                    </div>
-                    <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-                    <div class="form-check form-check-info text-start ps-0">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                      <label class="form-check-label" for="flexCheckDefault">
-                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
-                      </label>
-                    </div>
-                    <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
-                    </div>
-                  </form>
-                </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-2 text-sm mx-auto">
-                    Already have an account?
-                    <a href="../pages/sign-in.html" class="text-primary text-gradient font-weight-bold">Sign in</a>
-                  </p>
-                </div>
-              </div>
-            </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            </div><!-- /.col -->
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <!--   Core JS Files   -->
-  <script src="js/core/popper.min.js"></script>
-  <script src="js/core/bootstrap.min.js"></script>
-  <script src="js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="js/plugins/smooth-scrollbar.min.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="js/material-dashboard.min.js?v=3.0.2"></script>
-</body>
+        </form>
 
+        <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using Facebook</a>
+          <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using Google+</a>
+        </div>
+
+        <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+      </div><!-- /.form-box -->
+    </div><!-- /.register-box -->
+
+        <!-- jQuery 2.1.3 -->
+  <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
+
+  <!-- jQuery UI 1.11.2 -->
+  <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
+
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button);
+  </script>
+
+  <!-- Bootstrap 3.3.2 JS -->
+  <script src="{{ asset('admin/js/bootstrap.min.js') }}" type="text/javascript"></script>
+
+  <!-- Bootstrap WYSIHTML5 -->
+  <script src="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}" type="text/javascript">
+  </script>
+  <!-- iCheck -->
+  <script src="{{ asset('admin/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
+  <!-- Slimscroll -->
+  <script src="{{ asset('admin/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+  <!-- FastClick -->
+  <script src='{{ asset(' admin/plugins/fastclick/fastclick.min.js') }}'></script>
+  <!-- AdminLTE App -->
+  <script src="{{ asset('admin/js/app.min.js') }}" type="text/javascript"></script>
+
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{{ asset('admin/js/pages/dashboard.js') }}" type="text/javascript"></script>
+
+  <!-- AdminLTE for demo purposes -->
+  <script src="{{ asset('admin/js/demo.js') }}" type="text/javascript"></script>
+    <script>
+      $(function () {
+        $('input').iCheck({
+          checkboxClass: 'icheckbox_square-blue',
+          radioClass: 'iradio_square-blue',
+          increaseArea: '20%' // optional
+        });
+      });
+    </script>
+  </body>
 </html>

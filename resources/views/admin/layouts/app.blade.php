@@ -25,7 +25,7 @@
 
   <!-- Theme style -->
   <link href="{{ asset('admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
-  <!-- AdminLTE Skins. Choose a skin from the css/skins 
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
   <link href="{{ asset('admin/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
   <!-- iCheck -->
@@ -46,6 +46,10 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
     type="text/css" />
+
+  <!-- DATA TABLES -->
+  <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body class="skin-blue">
@@ -110,6 +114,31 @@
 
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('admin/js/demo.js') }}" type="text/javascript"></script>
+
+  <!-- DATA TABES SCRIPT -->
+  <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('admin/plugins/datatables/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+
+  <!-- page script -->
+  <script type="text/javascript">
+    $(function () {
+      $("#example1").dataTable();
+      $('#example2').dataTable({
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort": true,
+        "bInfo": true,
+        "bAutoWidth": false
+      });
+    });
+  </script>
+  <!--logout-->
+  <script>
+    function logout() {
+        document.getElementById('logoutForm').submit();
+    }
+</script>
 </body>
 
 </html>

@@ -29,18 +29,18 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
-            'role' => 'required|in:admin,user',
+            'password' => 'required|string|min:2',
+            'role' => 'required',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => $request->has('role') ? 'admin' : 'user',
         ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'User created successfully');
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
     public function edit(User $user)
@@ -53,8 +53,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:8',
-            'role' => 'required|in:admin,user',
+            'password' => 'nullable|string|min:2',
+            'role' => 'required',
         ]);
 
         $user->update([
@@ -64,13 +64,13 @@ class UserController extends Controller
             'role' => $request->role,
         ]);
 
-        return redirect()->route('admin.users.index')->with('warning', 'User updated successfully');
+        return redirect()->route('users.index')->with('warning', 'User updated successfully');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
 
-        return redirect()->route('admin.users.index')->with('danger', 'User deleted successfully');
+        return redirect()->route('users.index')->with('danger', 'User deleted successfully');
     }
 }

@@ -13,7 +13,33 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/login');
+    }
+    public function showRegistrationForm()
+    {
+        return view('auth/register');
+    }
+
+    public function register(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        // Create a new user
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'phone' => $request->input('phone'),
+            'role' => 'user'
+
+        ]);
+
+        return redirect('/')->with('success', 'Registration successful!');
     }
     public function showLoginForm()
     {
