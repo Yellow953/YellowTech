@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth')->only('custom_logout');
+    }
 
     public function index()
     {
@@ -34,5 +35,11 @@ class HomeController extends Controller
     public function service()
     {
         return view('service');
+    }
+
+    public function custom_logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 }

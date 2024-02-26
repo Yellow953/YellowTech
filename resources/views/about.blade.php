@@ -5,11 +5,10 @@
 @section('description', 'Explore the story behind Yellow Tech – A team of tech enthusiasts crafting customized
 solutions. Learn about our passion for excellence and client-centric approach.')
 
-@section('keywords', 'Yellow Tech, technology solutions, custom software, AI integration, innovation, client-centric
-approach')
+@section('keywords', 'technology solutions, custom software, AI integration, innovation, client-centric approach, Yellow
+Tech, yellowtech, yellowtech dev')
 
 @section('content')
-
 <!-- agency section -->
 <section class="agency_section layout_padding-bottom">
     <div class="agency_container ">
