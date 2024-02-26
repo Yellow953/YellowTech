@@ -29,7 +29,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:2',
+            'password' => 'required|string|min:6|confirmed',
             'role' => 'required',
         ]);
 
@@ -71,6 +71,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')->with('danger', 'User deleted successfully');
+        return redirect()->back()->with('danger', 'User deleted successfully');
     }
 }
