@@ -49,7 +49,7 @@
 
   <!-- DATA TABLES -->
   <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
-
+  <script src="https://kit.fontawesome.com/c09f3917c9.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="skin-blue">

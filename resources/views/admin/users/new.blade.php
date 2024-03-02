@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Main content -->
-<section class="content">
+<section class="content content-center">
   <div class="row">
     <!-- left column -->
     <div class="col-md-6">
@@ -44,20 +44,19 @@
               <label for="phone">Phone Number</label>
               <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number">
             </div>
-
             <div class="checkbox">
               <label>
                 <input name="role" type="checkbox"> Admin
               </label>
             </div>
           </div><!-- /.box-body -->
-
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </form>
       </div><!-- /.box -->
     </div>
+
     <!--/.col (right) -->
   </div> <!-- /.row -->
 </section><!-- /.content -->
