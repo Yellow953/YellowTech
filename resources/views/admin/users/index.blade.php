@@ -36,22 +36,21 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td >
-                                    <div class="btn-toolbar" role="toolbar">
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
-                                            data-original-title="Delete user">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                    <a href="{{ route('users.edit', ['user' => $user->id]) }}">
-                                        <button class="btn btn-primary" data-toggle="tooltip"
-                                            data-original-title="Edit user">
+                                <td>
+                                    <div style="display: flex!important; justify-content: center;">
+                                        <a href="{{ route('users.edit', ['user' => $user->id]) }}"
+                                            class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
-                                        </button>
-                                    </a>
+                                        </a>
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                                data-original-title="Delete user">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+
                                     </div>
                                 </td>
                             </tr>

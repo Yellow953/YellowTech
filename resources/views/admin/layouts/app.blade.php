@@ -60,15 +60,18 @@
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <div class="content-wrapper">
-      @include('admin.layouts._flash')
-      @if(request()->route()->getName() != 'dashboard') <!-- Check if it's not the dashboard route -->
+      @if(request()->route()->getName() != 'dashboard')
+      <!-- Check if it's not the dashboard route -->
+      <div class="d-flex" style="padding: 25px 10px !important;">
         <a class="text-decoration-none" href="{{ url()->previous() }}">
           <button class="btn btn-primary">
-              <i class="fa-solid fa-arrow-left-long"></i>
+            <i class="fa-solid fa-arrow-left-long"></i>Back
           </button>
-          Back
         </a>
+      </div>
       @endif
+
+      @include('admin.layouts._flash')
 
       @yield('content')
     </div>
@@ -146,7 +149,7 @@
     function logout() {
         document.getElementById('logoutForm').submit();
     }
-</script>
+  </script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
 </div>
 @endif
 
-@if ($message = Session::get('error'))
+@if ($message = Session::get('error') || $message = Session::get('danger'))
 <div class="alert alert-danger alert-block auto-dismiss">
     <strong class="my-auto">{{ $message }}</strong>
     <button type="button" class="close my-auto btn btn-shadow-none" data-dismiss="alert"><i
