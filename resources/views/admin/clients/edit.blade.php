@@ -10,12 +10,11 @@
             <div class="box-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3 class="box-title">Edit Client</h3>
+                        <h3 class="box-title">Edit Clients</h3>
                     </div>
                     <div class="col-md-6 text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                </div><!-- /.row -->
             </div><!-- /.box-header -->
 
             <!-- form start -->

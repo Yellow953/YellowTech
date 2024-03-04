@@ -4,6 +4,17 @@
 <!-- Main content -->
 <section class="content content-center">
     <!-- general form elements -->
+    <form role="form" method="POST" action="{{ route('clients.store') }}">
+        @csrf
+        @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     <div class="box box-primary">
         <div class="box-header">
             <div class="row">
@@ -16,17 +27,6 @@
 
         </div><!-- /.box-header -->
         <!-- form start -->
-        <form role="form" method="POST" action="{{ route('clients.store') }}">
-            @csrf
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
             <div class="box-body">
                 <div class="col-md-6">
                     <div class="form-group">

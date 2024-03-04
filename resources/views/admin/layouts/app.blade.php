@@ -11,7 +11,10 @@
   {{-- Favicon --}}
   <link rel="shortcut icon" href="{{ asset('assets/logo/yellowtech.ico') }}" type="image/x-icon">
 
-  <title>YellowTech | Dashboard</title>
+  <title>YellowTech | AdminPage</title>
+
+   <!-- MY CSS STYLES -->
+  <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Bootstrap 3.3.2 -->
   <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />

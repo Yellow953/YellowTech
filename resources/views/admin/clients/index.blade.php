@@ -13,8 +13,10 @@
                             <h3 class="box-title">Clients Table</h3>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{ route('clients.create') }}" class="btn btn-primary">
+                            <a href="{{ route('clients.create') }}">
+                                <button class="btn btn-primary">
                                 Add Client
+                                </button>
                             </a>
                         </div>
                     </div>
@@ -38,7 +40,14 @@
                                 <td>{{ $client->address }}</td>
                                 <td>{{ $client->status }}</td>
                                 <td class="align-middle">
-                                    <div class="btn-group">
+                                    <div class="actions-buttons">
+                                        <a href="{{ route('clients.edit', ['client' => $client->id]) }}"
+                                            data-toggle="tooltip"
+                                            data-original-title="Edit client">
+                                            <button  class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                            </button>
+                                        </a>
                                         <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -47,11 +56,7 @@
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
-                                        <a href="{{ route('clients.edit', ['client' => $client->id]) }}"
-                                            class="btn btn-primary" data-toggle="tooltip"
-                                            data-original-title="Edit client">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
+
                                     </div>
                                 </td>
                             </tr>

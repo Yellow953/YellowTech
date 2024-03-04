@@ -12,8 +12,8 @@
                             <h3 class="box-title">Users Table</h3>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{ route('users.create') }}" class="btn btn-primary">
-                                Add User
+                            <a href="{{ route('users.create') }}">
+                                <button class="btn btn-primary">Add User</button>
                             </a>
                         </div>
                     </div>
@@ -37,10 +37,11 @@
                                 <td>{{ $user->role }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>
-                                    <div style="display: flex!important; justify-content: center;">
+                                    <div class="actions-buttons">
                                         <a href="{{ route('users.edit', ['user' => $user->id]) }}"
-                                            class="btn btn-warning">
+                                            ><button class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
+                                        </button>
                                         </a>
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                             @csrf

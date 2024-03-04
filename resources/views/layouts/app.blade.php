@@ -13,6 +13,9 @@
 
     <title>YellowTech | @yield('title')</title>
 
+     <!-- MY CSS STYLES -->
+     <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
+
     <meta name="google-site-verification" content="BeAs6nmdgCTXSjnLMq_pfDksaT12n0uZ7Im9_E2Eliw" />
 
     {{-- Meta --}}

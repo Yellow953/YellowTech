@@ -10,6 +10,10 @@
   {{-- Favicon --}}
   <link rel="shortcut icon" href="{{ asset('assets/logo/yellowtech.ico') }}" type="image/x-icon">
 
+  <!-- MY CSS STYLES -->
+  <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
+
+
   <!-- Bootstrap 3.3.2 -->
   <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -44,14 +48,26 @@
   <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
     type="text/css" />
 
+    <style>
+        body {
+          background-image: url('{{ asset("assets/images/adi-goldstein-EUsVwEOsblE-unsplash (1) (1).jpg") }}');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed; /* Optional: Fixed background image */
+          margin: 0; /* Remove default margin */
+          padding: 0; /* Remove default padding */
+        }
+      </style>
+
   </head>
-  <body class="login-page">
+
+  <body>
     <div class="login-box">
       <div class="login-logo">
-        <a href="{{ asset('docs/AdminLTE/index2.html')}}"><b>Admin</b>YellowTech</a>
+        <a class="login-title" href="{{ asset('docs/AdminLTE/index2.html')}}"><b>Admin</b>YellowTech</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Log in</p>
         <form method="POST" action="{{ route('login') }}" class="text-start">
 
           <div class="form-group has-feedback">
