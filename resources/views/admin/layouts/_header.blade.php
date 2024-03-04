@@ -92,36 +92,23 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                        <span class="hidden-xs">{{ auth::user()->name}}</span>
+                        <span class="hidden-xs">{{ Auth::user()->name}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-
-
-                                <p>{{ auth::user()->name}}</p>
-
-
+                                <p>{{ Auth::user()->role}}</p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
+                                <a href="{{ route('users.edit', ['user' => Auth::user()]) }}">Edit</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
+                                <a href="{{ route('users.edit', ['user' => Auth::user()]) }}">Change Password</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
-                            </div>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat" onclick="logout()">Sign out</a>
+                                <a href="#" onclick="logout()">Log out</a>
                                 <form id="logoutForm" action="{{ route('logout') }}" method="post">
                                     @csrf
                                 </form>

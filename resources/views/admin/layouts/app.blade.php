@@ -61,6 +61,14 @@
     <!-- Right side column. Contains the navbar and content of the page -->
     <div class="content-wrapper">
       @include('admin.layouts._flash')
+      @if(request()->route()->getName() != 'dashboard') <!-- Check if it's not the dashboard route -->
+        <a class="text-decoration-none" href="{{ url()->previous() }}">
+          <button class="btn btn-primary">
+              <i class="fa-solid fa-arrow-left-long"></i>
+          </button>
+          Back
+        </a>
+      @endif
 
       @yield('content')
     </div>

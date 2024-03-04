@@ -2,6 +2,7 @@
 
 @section('content')
 <section class="content">
+
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -35,7 +36,8 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->role }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td class="align-middle">
+                                <td >
+                                    <div class="btn-toolbar" role="toolbar">
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -50,6 +52,7 @@
                                             <i class="fas fa-edit"></i>
                                         </button>
                                     </a>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

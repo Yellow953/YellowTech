@@ -2,40 +2,52 @@
 @section('content')
 <form method="POST" action="{{ route('users.update', ['user' => $user->id]) }}" class="row-1 g-3 p-5" enctype="multipart/form-data">
     @csrf
-                    <section class="content">
-                        <div class="row">
-                          <div class="col-xs-12">
 
-                    <div class="box">
-                        <div class="box-header">
-                          <h3 class="box-title">Edit User</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body">
-                          <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                              <tr>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td><input name="name" type="text" value="{{ $user->name }}" required></td>
-                                <td> <input type="text" name="email"  value="{{ $user->email }}" required></td>
-                                <td> <input type="text" name="role" value="{{ $user->role }}" required></td>
-                              </tr>
-                              <tr>
-                                <button type="submit" class="btn btn-primary m-2">Save Changes</button>
-                              </tr>
-                          </table>
-                        </div><!-- /.box-body -->
-                      </div><!-- /.box -->
-                    </div><!-- /.col -->
-                    </div><!-- /.row -->
-                    </section><!-- /.content -->
-                </form>
+    <section class="content content-center">
+
+
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="box-title">Edit User</h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+              <div class="box-body">
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input value="{{$user->name}}" name="name" type="text" class="form-control" placeholder="Enter your name">
+                </div>
             </div>
-        </div>
-    </div>
-@endsection
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input  value="{{$user->email}}" name="email" type="email" class="form-control" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input  value="{{$user->phone}}" type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input  value="{{$user->role}}" name="role" type="text" class="form-control" >
+                  </div>
+            </div>
+              </div><!-- /.box-body -->
+
+            </form>
+          </div><!-- /.box -->
+
+    </section><!-- /.content -->
+    @endsection
+

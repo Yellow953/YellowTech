@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+
 
 Auth::routes(['verify' => true]);
 
@@ -21,6 +23,15 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
+    // clients routes
+    Route::prefix('clients')->group(function () {
+        Route::get('/', [ClientController::class, 'index'])->name('clients.index');
+        Route::get('/new', [ClientController::class, 'new'])->name('clients.create');
+        Route::post('/create', [ClientController::class, 'create'])->name('clients.store');
+        Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::post('/update/{client}', [ClientController::class, 'update'])->name('clients.update');
+        Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
     });
 });
 
