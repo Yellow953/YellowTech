@@ -13,7 +13,7 @@
 
   <title>YellowTech | AdminPage</title>
 
-   <!-- MY CSS STYLES -->
+  <!-- MY CSS STYLES -->
   <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
 
   <!-- Bootstrap 3.3.2 -->
@@ -53,6 +53,10 @@
   <!-- DATA TABLES -->
   <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/c09f3917c9.js" crossorigin="anonymous"></script>
+
+  {{-- select2 --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 
 <body class="skin-blue">
@@ -147,12 +151,19 @@
       });
     });
   </script>
+
   <!--logout-->
   <script>
     function logout() {
         document.getElementById('logoutForm').submit();
     }
   </script>
+
+  {{-- Sweet Alert --}}
+  <script src="{{asset('admin/js/sweetalert.min.js')}}"></script>
+
+  {{-- custom js --}}
+  <script src="{{ asset('admin/js/custom.js') }}"></script>
 </body>
 
 </html>

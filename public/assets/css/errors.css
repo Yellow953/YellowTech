@@ -1,0 +1,64 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: #fcfc95;
+}
+  
+h1, a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+  
+.section{
+    height: 100%;
+    padding: 4rem 2rem;
+}
+  
+.section .error{
+    font-size: 125px;
+    color: #ffff00;
+    text-shadow: 
+      1px 1px 1px #212111,    
+      2px 2px 1px #212111,
+      3px 3px 1px #212111,
+      4px 4px 1px #212111,
+      5px 5px 1px #212111,
+      6px 6px 1px #212111,
+      7px 7px 1px #212111,
+      8px 8px 1px #212111,
+      25px 25px 8px rgba(0,0,0, 0.2);
+}
+  
+.page{
+    margin: 2rem 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+  
+.back-home{
+    display: inline-block;
+    border: 2px solid black;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem 1rem 0.6rem;
+    transition: all 0.2s linear;
+    box-shadow: 0 15px 15px -11px rgba(0,0,0, 0.4);
+    background: #ffff00;
+    border-radius: 6px;
+}
+.back-home:hover{
+    background: black;
+    color: #ffff00;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
+}

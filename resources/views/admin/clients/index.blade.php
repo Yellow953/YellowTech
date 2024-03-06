@@ -15,7 +15,7 @@
                         <div class="col-md-6 text-right">
                             <a href="{{ route('clients.create') }}">
                                 <button class="btn btn-primary">
-                                Add Client
+                                    Add Client
                                 </button>
                             </a>
                         </div>
@@ -33,7 +33,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($clients as $client)
+                            @forelse($clients as $client)
                             <tr>
                                 <td>{{ $client->name }}</td>
                                 <td>{{ $client->email }}</td>
@@ -42,10 +42,9 @@
                                 <td class="align-middle">
                                     <div class="actions-buttons">
                                         <a href="{{ route('clients.edit', ['client' => $client->id]) }}"
-                                            data-toggle="tooltip"
-                                            data-original-title="Edit client">
-                                            <button  class="btn btn-warning">
-                                            <i class="fas fa-edit"></i>
+                                            data-toggle="tooltip" data-original-title="Edit client">
+                                            <button class="btn btn-warning">
+                                                <i class="fas fa-edit"></i>
                                             </button>
                                         </a>
                                         <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
@@ -60,7 +59,11 @@
                                     </div>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="5" class="text-center">No Clients Yet...</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div><!-- /.box-body -->

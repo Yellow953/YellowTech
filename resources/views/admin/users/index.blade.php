@@ -38,16 +38,16 @@
                                 <td>{{ $user->created_at }}</td>
                                 <td>
                                     <div class="actions-buttons">
-                                        <a href="{{ route('users.edit', ['user' => $user->id]) }}"
-                                            ><button class="btn btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
+                                        <a href="{{ route('users.edit', ['user' => $user->id]) }}"><button
+                                                class="btn btn-warning">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
                                         </a>
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" data-toggle="tooltip"
-                                                data-original-title="Delete user">
+                                            <button type="submit" class="btn btn-danger show_confirm"
+                                                data-toggle="tooltip" data-original-title="Delete user">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>

@@ -1,15 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 
-
-Auth::routes(['verify' => true]);
+Auth::routes(['register' => false]);
 
 // Admin Panel
 Route::prefix('app')->group(function () {
@@ -24,6 +22,7 @@ Route::prefix('app')->group(function () {
         Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
+
     // clients routes
     Route::prefix('clients')->group(function () {
         Route::get('/', [ClientController::class, 'index'])->name('clients.index');

@@ -13,8 +13,8 @@
 
     <title>YellowTech | @yield('title')</title>
 
-     <!-- MY CSS STYLES -->
-     <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
+    <!-- MY CSS STYLES -->
+    <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
 
     <meta name="google-site-verification" content="BeAs6nmdgCTXSjnLMq_pfDksaT12n0uZ7Im9_E2Eliw" />
 
@@ -57,10 +57,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CKZFK5R5G"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-1CKZFK5R5G');
+        gtag('config', 'G-1CKZFK5R5G');
     </script>
 </head>
 
