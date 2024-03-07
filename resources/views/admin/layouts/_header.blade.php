@@ -105,7 +105,7 @@
                                 <a href="{{ route('users.edit', ['user' => Auth::user()]) }}">Edit</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="{{ route('users.edit', ['user' => Auth::user()]) }}">Change Password</a>
+                                <a href="{{ route('password.request') }}">Change Password</a>
                             </div>
                             <div class="col-xs-4 text-center">
                                 <a href="#" onclick="logout()">Log out</a>

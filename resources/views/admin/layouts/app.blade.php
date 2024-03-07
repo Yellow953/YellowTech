@@ -65,18 +65,42 @@
 
     @include('admin.layouts._sidebar')
 
-    <!-- Right side column. Contains the navbar and content of the page -->
-    <div class="content-wrapper">
-      @if(request()->route()->getName() != 'dashboard')
-      <!-- Check if it's not the dashboard route -->
-      <div class="d-flex" style="padding: 25px 10px !important;">
-        <a class="text-decoration-none" href="{{ url()->previous() }}">
-          <button class="btn btn-primary">
-            <i class="fa-solid fa-arrow-left-long"></i>Back
-          </button>
-        </a>
-      </div>
-      @endif
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        @if(request()->route()->getName() != 'dashboard')
+        <!-- Check if it's not the dashboard route -->
+        <div class="d-flex" style="padding: 25px 10px !important;">
+            <a class="text-decoration-none" href="{{ url()->previous() }}">
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-left-long"></i>Back
+                </button>
+            </a>
+
+            <!-- Add navigation items based on user navigation history -->
+            <div class="navigation-trail">
+                @php
+                    $segments = request()->segments();
+                    $url = '';
+                @endphp
+
+                @foreach ($segments as $index => $segment)
+                    @php
+                        $url .= "/$segment";
+                    @endphp
+
+                    <!-- Display the navigation trail -->
+                    <span>
+                        <a href="{{ url($url) }}">{{ ucfirst($segment) }}</a>
+                    </span>
+
+                    <!-- Add separator if it's not the last segment -->
+                    @if ($index < count($segments) - 1)
+                        <span> > </span>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        @endif
 
       @include('admin.layouts._flash')
 

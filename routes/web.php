@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'reset' => true]);
 
 // Admin Panel
 Route::prefix('app')->group(function () {
@@ -33,6 +34,11 @@ Route::prefix('app')->group(function () {
         Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
     });
 });
+
+//Reset Pass
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
 
 // Main Page
 Route::get('/about', [HomeController::class, 'about'])->name('about');
