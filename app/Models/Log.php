@@ -10,7 +10,12 @@ class Log extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['action', 'description', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     // Filter
     public function scopeFilter($q)

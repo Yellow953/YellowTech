@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Log;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -35,6 +36,12 @@ class ClientController extends Controller
             'status' => $request->status,
         ]);
 
+        Log::create([
+            'action' => 'Client_Created',
+            'description' => 'added a client',
+            'user_id' => auth()->id(),
+        ]);
+
         return redirect()->route('clients.index')->with('success', 'Client created successfully.');
     }
 
@@ -59,12 +66,24 @@ class ClientController extends Controller
             'status' => $request->status,
         ]);
 
+        Log::create([
+            'action' => 'Client_Updated',
+            'description' => 'updated a client',
+            'user_id' => auth()->id(),
+        ]);
+
         return redirect()->route('clients.index')->with('success', 'Client updated successfully.');
     }
 
     public function destroy(Client $client)
     {
         $client->delete();
+
+        Log::create([
+            'action' => 'Client_Deleted',
+            'description' => 'deleted a client',
+            'user_id' => auth()->id(),
+        ]);
 
         return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
     }

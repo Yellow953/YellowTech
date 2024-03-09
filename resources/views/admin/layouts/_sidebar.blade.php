@@ -31,7 +31,7 @@
                 </a>
 
             <li>
-                <a href="pages/widgets.html">
+                <a href="{{ route('logs.index')}}">
                     <i class="fa-regular fa-note-sticky"></i><span>Logs</span>
                 </a>
             </li>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{ route('todo.index')}}">
                     <i class="fa-solid fa-check"></i> <span> To Do</span>
                 </a>
             </li>

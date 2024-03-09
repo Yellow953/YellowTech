@@ -7,6 +7,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\ToDoController;
+use App\Models\Log;
 
 Auth::routes(['register' => false, 'reset' => true]);
 
@@ -32,6 +35,21 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
         Route::post('/update/{client}', [ClientController::class, 'update'])->name('clients.update');
         Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+    });
+
+    // logs routes
+    Route::prefix('logs')->group(function () {
+        Route::get('/', [LogController::class, 'index'])->name('logs.index');
+    });
+
+    // to do routes
+    Route::prefix('todo')->group(function () {
+        Route::get('/', [ToDoController::class, 'index'])->name('todo.index');
+        Route::get('/new', [ToDoController::class, 'new'])->name('todo.create');
+        Route::post('/create', [ToDoController::class, 'create'])->name('todo.store');
+        Route::get('/edit/{todo}', [ToDoController::class, 'edit'])->name('todo.edit');
+        Route::post('/update/{todo}', [ToDoController::class, 'update'])->name('todo.update');
+        Route::get('/delete/{todo}', [ToDoController::class, 'destroy'])->name('todo.destroy');
     });
 });
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -40,6 +41,12 @@ class UserController extends Controller
             'role' => $request->has('role') ? 'admin' : 'user',
         ]);
 
+        Log::create([
+            'action' => 'User_Created',
+            'description' => 'added a user',
+            'user_id' => auth()->id(),
+        ]);
+
         return redirect()->route('users.index')->with('success', 'User created successfully');
     }
 
@@ -64,12 +71,24 @@ class UserController extends Controller
             'role' => $request->role,
         ]);
 
+        Log::create([
+            'action' => 'User_Updated',
+            'description' => 'updated a user',
+            'user_id' => auth()->id(),
+        ]);
+
         return redirect()->route('users.index')->with('warning', 'User updated successfully');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
+
+        Log::create([
+            'action' => 'User_Deleted',
+            'description' => 'deleted a user',
+            'user_id' => auth()->id(),
+        ]);
 
         return redirect()->back()->with('danger', 'User deleted successfully');
     }
