@@ -2,6 +2,8 @@
 
 @section('content')
 
+<form method="POST" action="{{ route('todo.update', ['toDo' => $toDo->id]) }}" class="row-1 g-3 p-5" enctype="multipart/form-data">
+    @csrf
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -10,12 +12,10 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">Edit To-Do</h3>
+                    <div class="col-md-6 text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
-                <!-- form start -->
-                <form method="POST" action="{{ route('todo.update', $toDo->id) }}" class="box-body">
-                    @csrf
-                    @method('POST')
-
                     <div class="form-group">
                         <label for="text">To-Do Text</label>
                         <input value="{{ $toDo->text }}" name="text" type="text" class="form-control" placeholder="Edit the to-do text">

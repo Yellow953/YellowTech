@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -50,6 +51,12 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{todo}', [ToDoController::class, 'edit'])->name('todo.edit');
         Route::post('/update/{todo}', [ToDoController::class, 'update'])->name('todo.update');
         Route::get('/delete/{todo}', [ToDoController::class, 'destroy'])->name('todo.destroy');
+    });
+
+    //calendar routes
+    Route::prefix('calendar')->group(function () {
+        Route::get('/', [CalendarController::class, 'index'])->name('calendar.index');
+        Route::get('/events', [CalendarController::class, 'events'])->name('calendar.events');
     });
 });
 

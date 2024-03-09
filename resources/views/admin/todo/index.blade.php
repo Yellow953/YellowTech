@@ -35,16 +35,13 @@
                                     <i class="fa fa-ellipsis-v"></i>
                                     <i class="fa fa-ellipsis-v"></i>
                                 </span>
-                                <form action="{{ route('todo.update', $toDo->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('POST')
                                     <input type="checkbox" name="status" value="done" {{ $toDo->status === 'done' ? 'checked' : '' }}>
                                     <span class="text {{ $toDo->status === 'done' ? 'text-muted' : '' }}">{{ $toDo->text }}</span>
                                     <span class="badge bg-secondary">{{ ucfirst($toDo->status) }}</span>
                                     <a href="{{route('todo.edit', $toDo->id)}}">
-                                    <button type="submit" class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
                                 </a>
-                                </form>
+
                                 <form action="{{ route('todo.destroy', $toDo->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')

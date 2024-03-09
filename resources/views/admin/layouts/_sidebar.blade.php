@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{ route('calendar.index')}}">
                     <i class="fa-solid fa-calendar-days"></i><span> Calendar</span>
                 </a>
             </li>
