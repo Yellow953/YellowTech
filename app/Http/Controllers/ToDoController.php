@@ -35,7 +35,7 @@ class ToDoController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('todo.index')->with('success', 'To-Do created successfully.');
+        return redirect()->route('todo')->with('success', 'To-Do created successfully.');
     }
 
     public function edit(ToDo $todo)
@@ -58,13 +58,13 @@ class ToDoController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('todo.index')->with('success', 'To-Do updated successfully.');
+        return redirect()->route('todo')->with('success', 'To-Do updated successfully.');
     }
 
     public function destroy(ToDo $todo)
     {
         $todo->delete();
 
-        return redirect()->route('todo.index')->with('success', 'To-Do deleted successfully.');
+        return redirect()->route('todo')->with('success', 'To-Do deleted successfully.');
     }
 }

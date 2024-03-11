@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 
-@section('content')
+@section('title', 'dashboard')
 
+@section('content')
 <!-- Main content -->
 <section class="content">
     <!-- Small boxes (Stat box) -->

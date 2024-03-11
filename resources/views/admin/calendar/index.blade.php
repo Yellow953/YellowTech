@@ -1,12 +1,10 @@
 @extends('admin.layouts.app')
 
-@section('content')
+@section('title', 'calendar')
 
+@section('content')
 <!-- Main content -->
 <section class="content">
-    <!-- ... (your existing content) -->
-
-    <!-- Calendar -->
     <div class="box box-solid bg-green-gradient">
         <div class="box-header">
             <i class="fa fa-calendar"></i>

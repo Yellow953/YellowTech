@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ToDoController;
-use App\Models\Log;
 
 Auth::routes(['register' => false, 'reset' => true]);
 
@@ -20,7 +19,7 @@ Route::prefix('app')->group(function () {
 
     // users routes
     Route::prefix('users')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('users.index');
+        Route::get('/', [UserController::class, 'index'])->name('users');
         Route::get('/new', [UserController::class, 'new'])->name('users.create');
         Route::post('/create', [UserController::class, 'create'])->name('users.store');
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
@@ -30,7 +29,7 @@ Route::prefix('app')->group(function () {
 
     // clients routes
     Route::prefix('clients')->group(function () {
-        Route::get('/', [ClientController::class, 'index'])->name('clients.index');
+        Route::get('/', [ClientController::class, 'index'])->name('clients');
         Route::get('/new', [ClientController::class, 'new'])->name('clients.create');
         Route::post('/create', [ClientController::class, 'create'])->name('clients.store');
         Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
@@ -40,12 +39,12 @@ Route::prefix('app')->group(function () {
 
     // logs routes
     Route::prefix('logs')->group(function () {
-        Route::get('/', [LogController::class, 'index'])->name('logs.index');
+        Route::get('/', [LogController::class, 'index'])->name('logs');
     });
 
-    // to do routes
+    // TODO routes
     Route::prefix('todo')->group(function () {
-        Route::get('/', [ToDoController::class, 'index'])->name('todo.index');
+        Route::get('/', [ToDoController::class, 'index'])->name('todo');
         Route::get('/new', [ToDoController::class, 'new'])->name('todo.create');
         Route::post('/create', [ToDoController::class, 'create'])->name('todo.store');
         Route::get('/edit/{todo}', [ToDoController::class, 'edit'])->name('todo.edit');
@@ -55,7 +54,7 @@ Route::prefix('app')->group(function () {
 
     //calendar routes
     Route::prefix('calendar')->group(function () {
-        Route::get('/', [CalendarController::class, 'index'])->name('calendar.index');
+        Route::get('/', [CalendarController::class, 'index'])->name('calendar');
         Route::get('/events', [CalendarController::class, 'events'])->name('calendar.events');
     });
 });
@@ -63,7 +62,6 @@ Route::prefix('app')->group(function () {
 //Reset Pass
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
-
 
 // Main Page
 Route::get('/about', [HomeController::class, 'about'])->name('about');

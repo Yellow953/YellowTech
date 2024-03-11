@@ -47,7 +47,7 @@ class UserController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('users.index')->with('success', 'User created successfully');
+        return redirect()->route('users')->with('success', 'User created successfully');
     }
 
     public function edit(User $user)
@@ -77,7 +77,7 @@ class UserController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('users.index')->with('warning', 'User updated successfully');
+        return redirect()->route('users')->with('warning', 'User updated successfully');
     }
 
     public function destroy(User $user)

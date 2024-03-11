@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
 
-@section('content')
+@section('title', 'todo')
 
+@section('content')
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -30,24 +31,27 @@
                     </form>
                     <ul class="todo-list">
                         @foreach($toDos as $toDo)
-                            <li>
-                                <span class="handle">
-                                    <i class="fa fa-ellipsis-v"></i>
-                                    <i class="fa fa-ellipsis-v"></i>
-                                </span>
-                                    <input type="checkbox" name="status" value="done" {{ $toDo->status === 'done' ? 'checked' : '' }}>
-                                    <span class="text {{ $toDo->status === 'done' ? 'text-muted' : '' }}">{{ $toDo->text }}</span>
-                                    <span class="badge bg-secondary">{{ ucfirst($toDo->status) }}</span>
-                                    <a href="{{route('todo.edit', $toDo->id)}}">
-                                    <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
-                                </a>
+                        <li>
+                            <span class="handle">
+                                <i class="fa fa-ellipsis-v"></i>
+                                <i class="fa fa-ellipsis-v"></i>
+                            </span>
+                            <input type="checkbox" name="status" value="done" {{ $toDo->status === 'done' ? 'checked' :
+                            '' }}>
+                            <span class="text {{ $toDo->status === 'done' ? 'text-muted' : '' }}">{{ $toDo->text
+                                }}</span>
+                            <span class="badge bg-secondary">{{ ucfirst($toDo->status) }}</span>
+                            <a href="{{route('todo.edit', $toDo->id)}}">
+                                <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
+                            </a>
 
-                                <form action="{{ route('todo.destroy', $toDo->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                                </form>
-                            </li>
+                            <form action="{{ route('todo.destroy', $toDo->id) }}" method="POST"
+                                style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </li>
                         @endforeach
                     </ul>
                 </div>

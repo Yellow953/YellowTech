@@ -1,6 +1,6 @@
-<!-- resources/views/admin/clients/index.blade.php -->
-
 @extends('admin.layouts.app')
+
+@section('title', 'clients')
 
 @section('content')
 <section class="content">

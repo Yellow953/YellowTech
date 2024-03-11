@@ -1,8 +1,12 @@
 @extends('admin.layouts.app')
 
+@section('title', 'users')
+
+@section('sub-title', 'new')
+
 @section('content')
 <!-- Main content -->
-<section class="content content-center">
+<section class="content content-center mt-75">
   <!-- general form elements -->
   <div class="box box-primary">
     <!-- form start -->

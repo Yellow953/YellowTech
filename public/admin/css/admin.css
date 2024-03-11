@@ -1,0 +1,28 @@
+.navbar-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 15px;
+}
+.navbar-header h2, .navbar-header .navigation{    
+    margin: 0;
+    width: 50%;
+    padding: 0 25px;
+}
+.navbar-header h2{
+    text-align: end;
+}
+.navbar-header ol.breadcrumb{
+    margin: 0;
+}
+
+.color-secondary{
+    color: #6c757d !important;
+}
+.mt-75{
+    margin-top: 75px!important;
+}
+.content{
+    margin: 0 25px;
+}

@@ -42,7 +42,7 @@ class ClientController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('clients.index')->with('success', 'Client created successfully.');
+        return redirect()->route('clients')->with('success', 'Client created successfully.');
     }
 
     public function edit(Client $client)
@@ -72,7 +72,7 @@ class ClientController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('clients.index')->with('success', 'Client updated successfully.');
+        return redirect()->route('clients')->with('success', 'Client updated successfully.');
     }
 
     public function destroy(Client $client)
@@ -85,6 +85,6 @@ class ClientController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('clients.index')->with('success', 'Client deleted successfully.');
+        return redirect()->route('clients')->with('success', 'Client deleted successfully.');
     }
 }
