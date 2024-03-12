@@ -8,7 +8,7 @@
 <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
   @csrf
 
-  <section class="content content-center mt-75">
+  <section class="content content-center">
     <!-- general form elements -->
     <div class="box box-primary">
       <div class="box-header">

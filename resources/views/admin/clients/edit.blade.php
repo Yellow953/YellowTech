@@ -5,11 +5,11 @@
 @section('sub-title', 'edit')
 
 @section('content')
-<form method="POST" action="{{ route('clients.update', ['client' => $client->id]) }}" class="row-1 g-3 p-5"
+<form method="POST" action="{{ route('clients.update', $client->id) }}" class="row-1 g-3 p-5"
     enctype="multipart/form-data">
     @csrf
 
-    <section class="content content-center mt-75">
+    <section class="content content-center">
         <!-- general form elements -->
         <div class="box box-primary">
             <div class="box-header">

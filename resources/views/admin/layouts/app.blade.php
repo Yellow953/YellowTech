@@ -71,7 +71,7 @@
     <!-- Right side column. Contains the navbar and content of the page -->
     <div class="content-wrapper">
       @include('admin.layouts._navbar')
-
+      <br><br><br>
       @include('admin.layouts._flash')
 
       @yield('content')

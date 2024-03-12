@@ -45,10 +45,8 @@
                                 <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
                             </a>
 
-                            <form action="{{ route('todo.destroy', $toDo->id) }}" method="POST"
-                                style="display: inline;">
+                            <form action="{{ route('todo.destroy', $toDo->id) }}" method="GET" style="display: inline;">
                                 @csrf
-                                @method('DELETE')
                                 <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
                             </form>
                         </li>

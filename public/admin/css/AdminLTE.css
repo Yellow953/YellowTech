@@ -1949,7 +1949,7 @@ a:focus {
  * ----------------
  */
 .alert {
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .alert h4 {
   font-weight: 600;

@@ -6,7 +6,7 @@
 
 @section('content')
 <!-- Main content -->
-<section class="content content-center mt-75">
+<section class="content content-center">
   <!-- general form elements -->
   <div class="box box-primary">
     <!-- form start -->

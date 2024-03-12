@@ -5,8 +5,7 @@
 @section('sub-title', 'edit')
 
 @section('content')
-<form method="POST" action="{{ route('todo.update', ['toDo' => $toDo->id]) }}" class="row-1 g-3 p-5"
-    enctype="multipart/form-data">
+<form method="POST" action="{{ route('todo.update', $todo->id) }}" class="row-1 g-3 p-5" enctype="multipart/form-data">
     @csrf
     <!-- Main content -->
     <section class="content">
@@ -22,16 +21,16 @@
                     </div>
                     <div class="form-group">
                         <label for="text">To-Do Text</label>
-                        <input value="{{ $toDo->text }}" name="text" type="text" class="form-control"
+                        <input value="{{ $todo->text }}" name="text" type="text" class="form-control"
                             placeholder="Edit the to-do text">
                     </div>
 
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select name="status" class="form-control">
-                            <option value="done" {{ $toDo->status === 'done' ? 'selected' : '' }}>Done</option>
-                            <option value="pending" {{ $toDo->status === 'pending' ? 'selected' : '' }}>Pending</option>
-                            <option value="ongoing" {{ $toDo->status === 'ongoing' ? 'selected' : '' }}>Ongoing</option>
+                            <option value="done" {{ $todo->status === 'done' ? 'selected' : '' }}>Done</option>
+                            <option value="pending" {{ $todo->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                            <option value="ongoing" {{ $todo->status === 'ongoing' ? 'selected' : '' }}>Ongoing</option>
                         </select>
                     </div>
 

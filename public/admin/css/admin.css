@@ -20,9 +20,10 @@
 .color-secondary{
     color: #6c757d !important;
 }
-.mt-75{
-    margin-top: 75px!important;
-}
 .content{
     margin: 0 25px;
+}
+.alert-dismissable{
+    padding: 15px;
+    margin: 25px 50px;
 }
