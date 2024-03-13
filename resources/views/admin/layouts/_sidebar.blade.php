@@ -58,6 +58,24 @@
                     <span>Calendar</span>
                 </a>
             </li>
+            <li class="treeview">
+                <a href="{{ route('projects')}}">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="{{ route('invoices')}}">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Invoices</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="{{ route('tickets')}}">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Tickets</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

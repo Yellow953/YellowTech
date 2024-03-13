@@ -5,11 +5,14 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\ToDoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\LogController;
-use App\Http\Controllers\ToDoController;
 
 Auth::routes(['register' => false, 'reset' => true]);
 
@@ -37,6 +40,36 @@ Route::prefix('app')->group(function () {
         Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
     });
 
+    // projects routes
+    Route::prefix('projects')->group(function () {
+        Route::get('/', [ProjectController::class, 'index'])->name('projects');
+        Route::get('/new', [ProjectController::class, 'new'])->name('projects.create');
+        Route::post('/create', [ProjectController::class, 'create'])->name('projects.store');
+        Route::get('/edit/{project}', [ProjectController::class, 'edit'])->name('projects.edit');
+        Route::post('/update/{project}', [ProjectController::class, 'update'])->name('projects.update');
+        Route::get('/delete/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+    });
+
+    // invoices routes
+    Route::prefix('invoices')->group(function () {
+        Route::get('/', [InvoiceController::class, 'index'])->name('invoices');
+        Route::get('/new', [InvoiceController::class, 'new'])->name('invoices.create');
+        Route::post('/create', [InvoiceController::class, 'create'])->name('invoices.store');
+        Route::get('/edit/{invoice}', [InvoiceController::class, 'edit'])->name('invoices.edit');
+        Route::post('/update/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
+        Route::get('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
+    });
+
+    // tickets routes
+    Route::prefix('tickets')->group(function () {
+        Route::get('/', [TicketController::class, 'index'])->name('tickets');
+        Route::get('/new', [TicketController::class, 'new'])->name('tickets.create');
+        Route::post('/create', [TicketController::class, 'create'])->name('tickets.store');
+        Route::get('/edit/{ticket}', [TicketController::class, 'edit'])->name('tickets.edit');
+        Route::post('/update/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
+        Route::get('/delete/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
+    });
+
     // logs routes
     Route::prefix('logs')->group(function () {
         Route::get('/', [LogController::class, 'index'])->name('logs');
@@ -44,12 +77,12 @@ Route::prefix('app')->group(function () {
 
     // TODO routes
     Route::prefix('todo')->group(function () {
-        Route::get('/', [ToDoController::class, 'index'])->name('todo');
-        Route::get('/new', [ToDoController::class, 'new'])->name('todo.create');
-        Route::post('/create', [ToDoController::class, 'create'])->name('todo.store');
-        Route::get('/edit/{todo}', [ToDoController::class, 'edit'])->name('todo.edit');
-        Route::post('/update/{todo}', [ToDoController::class, 'update'])->name('todo.update');
-        Route::get('/delete/{todo}', [ToDoController::class, 'destroy'])->name('todo.destroy');
+        Route::get('/', [TodoController::class, 'index'])->name('todo');
+        Route::get('/new', [TodoController::class, 'new'])->name('todo.create');
+        Route::post('/create', [TodoController::class, 'create'])->name('todo.store');
+        Route::get('/edit/{todo}', [TodoController::class, 'edit'])->name('todo.edit');
+        Route::post('/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
+        Route::get('/delete/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
     });
 
     //calendar routes

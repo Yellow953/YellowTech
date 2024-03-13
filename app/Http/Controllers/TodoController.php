@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Log;
-use App\Models\ToDo;
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
-class ToDoController extends Controller
+class TodoController extends Controller
 {
     public function index()
     {
-        $toDos = ToDo::all();
+        $todos = Todo::all();
 
-        return view('admin.todo.index', compact('toDos'));
+        return view('admin.todo.index', compact('todos'));
     }
 
     public function new()
@@ -27,7 +27,7 @@ class ToDoController extends Controller
             'status' => 'in:pending,ongoing,done',
         ]);
 
-        ToDo::create($request->all());
+        Todo::create($request->all());
 
         Log::create([
             'action' => 'ToDo_Created',
@@ -35,15 +35,15 @@ class ToDoController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('todo')->with('success', 'To-Do created successfully.');
+        return redirect()->route('todo')->with('success', 'ToDo created successfully.');
     }
 
-    public function edit(ToDo $todo)
+    public function edit(Todo $todo)
     {
         return view('admin.todo.edit', compact('todo'));
     }
 
-    public function update(Request $request, ToDo $todo)
+    public function update(Request $request, Todo $todo)
     {
         $request->validate([
             'text' => 'required|max:255',
@@ -58,13 +58,13 @@ class ToDoController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('todo')->with('success', 'To-Do updated successfully.');
+        return redirect()->route('todo')->with('success', 'ToDo updated successfully.');
     }
 
-    public function destroy(ToDo $todo)
+    public function destroy(Todo $todo)
     {
         $todo->delete();
 
-        return redirect()->route('todo')->with('success', 'To-Do deleted successfully.');
+        return redirect()->route('todo')->with('success', 'ToDo deleted successfully.');
     }
 }

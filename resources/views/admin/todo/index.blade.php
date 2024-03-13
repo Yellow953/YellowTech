@@ -30,22 +30,22 @@
                         <button type="submit" class="btn btn-success">Add To-Do</button>
                     </form>
                     <ul class="todo-list">
-                        @foreach($toDos as $toDo)
+                        @foreach($todos as $todo)
                         <li>
                             <span class="handle">
                                 <i class="fa fa-ellipsis-v"></i>
                                 <i class="fa fa-ellipsis-v"></i>
                             </span>
-                            <input type="checkbox" name="status" value="done" {{ $toDo->status === 'done' ? 'checked' :
+                            <input type="checkbox" name="status" value="done" {{ $todo->status === 'done' ? 'checked' :
                             '' }}>
-                            <span class="text {{ $toDo->status === 'done' ? 'text-muted' : '' }}">{{ $toDo->text
+                            <span class="text {{ $todo->status === 'done' ? 'text-muted' : '' }}">{{ $todo->text
                                 }}</span>
-                            <span class="badge bg-secondary">{{ ucfirst($toDo->status) }}</span>
-                            <a href="{{route('todo.edit', $toDo->id)}}">
+                            <span class="badge bg-secondary">{{ ucfirst($todo->status) }}</span>
+                            <a href="{{route('todo.edit', $todo->id)}}">
                                 <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
                             </a>
 
-                            <form action="{{ route('todo.destroy', $toDo->id) }}" method="GET" style="display: inline;">
+                            <form action="{{ route('todo.destroy', $todo->id) }}" method="GET" style="display: inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
                             </form>
