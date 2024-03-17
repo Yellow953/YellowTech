@@ -60,19 +60,19 @@
             </li>
             <li class="treeview">
                 <a href="{{ route('projects')}}">
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="fa-solid fa-diagram-project"></i>
                     <span>Projects</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('invoices')}}">
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="fa-solid fa-file-invoice"></i>
                     <span>Invoices</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('tickets')}}">
-                    <i class="fa-solid fa-calendar-days"></i>
+                    <i class="fa-solid fa-ticket"></i>
                     <span>Tickets</span>
                 </a>
             </li>
