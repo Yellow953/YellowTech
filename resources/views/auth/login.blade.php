@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>YellowTech | Log in</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-     <!-- CSRF Token -->
+
+<head>
+  <meta charset="UTF-8">
+  <title>YellowTech | Log in</title>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {{-- Favicon --}}
@@ -48,69 +49,80 @@
   <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
     type="text/css" />
 
-    <style>
-        body {
-          background-image: url('{{ asset("assets/images/adi-goldstein-EUsVwEOsblE-unsplash (1) (1).jpg") }}');
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-attachment: fixed; /* Optional: Fixed background image */
-          margin: 0; /* Remove default margin */
-          padding: 0; /* Remove default padding */
-        }
-      </style>
+  <style>
+    body {
+      background-image: url('{{ asset("assets/images/adi-goldstein-EUsVwEOsblE-unsplash (1) (1).jpg") }}');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
 
-  </head>
+    .mb-4 {
+      margin-bottom: 25px;
+    }
 
-  <body>
-    <div class="login-box">
-      <div class="login-logo">
-        <a class="login-title" href="{{ asset('docs/AdminLTE/index2.html')}}"><b>Admin</b>YellowTech</a>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body">
-        <p class="login-box-msg">Log in</p>
-        <form method="POST" action="{{ route('login') }}" class="text-start">
+    .my-auto {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
 
-          <div class="form-group has-feedback">
-            @csrf
-                @if ($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show m-3" role="alert">
-                  <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                  </ul>
-                </div>
-                @endif
-            <input name="email" type="text" class="form-control" placeholder="Email"/>
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    .my-0 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .px-4 {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    input.form-control {
+      border-radius: 10px !important;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="login-box">
+    <div class="login-logo">
+      <a class="login-title" href="{{ asset('docs/AdminLTE/index2.html')}}"><b>Admin</b>YellowTech</a>
+    </div><!-- /.login-logo -->
+    <div class="login-box-body">
+      <h1 class="text-center mb-4">Log in</h1>
+      <form method="POST" action="{{ route('login') }}" class="text-start">
+        @csrf
+        @include('admin.layouts._flash')
+
+        <div class="form-group has-feedback">
+          <input name="email" type="text" class="form-control" placeholder="Email" autofocus value="{{ old('email') }}"
+            required>
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+          <input name="password" type="password" class="form-control" placeholder="Password" required />
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 mb-4">
+            <div class="checkbox icheck my-0">
+              <label>
+                <input type="checkbox"> Remember Me
+              </label>
+            </div>
           </div>
-          <div class="form-group has-feedback">
-            <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div class="col-xs-6 mb-4">
+            <a href="{{ route('password.request') }}">I forgot my password</a><br>
           </div>
-          <div class="row">
-            <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                  <input type="checkbox"> Remember Me
-                </label>
-              </div>
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-            </div><!-- /.col -->
+
+          <div class="col-12 px-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
           </div>
-        </form>
+        </div>
+      </form>
+    </div><!-- /.login-box-body -->
+  </div><!-- /.login-box -->
 
-
-
-        <a href="#">I forgot my password</a><br>
-
-
-      </div><!-- /.login-box-body -->
-    </div><!-- /.login-box -->
-
-    <!-- jQuery 2.1.3 -->
+  <!-- jQuery 2.1.3 -->
   <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
 
   <!-- jQuery UI 1.11.2 -->
@@ -153,19 +165,17 @@
   <!-- AdminLTE App -->
   <script src="{{ asset('admin/js/app.min.js') }}" type="text/javascript"></script>
 
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{ asset('admin/js/pages/dashboard.js') }}" type="text/javascript"></script>
 
-  <!-- AdminLTE for demo purposes -->
-  <script src="{{ asset('admin/js/demo.js') }}" type="text/javascript"></script>
-    <script>
-      $(function () {
+  <script>
+    $(function () {
         $('input').iCheck({
           checkboxClass: 'icheckbox_square-blue',
           radioClass: 'iradio_square-blue',
           increaseArea: '20%' // optional
         });
       });
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

@@ -10,12 +10,12 @@ class TicketController extends Controller
     public function index()
     {
         $tickets = Ticket::all();
-        return view('tickets.index', compact('tickets'));
+        return view('admin.tickets.index', compact('tickets'));
     }
 
     public function new()
     {
-        return view('tickets.new');
+        return view('admin.tickets.new');
     }
 
     public function create(Request $request)
@@ -28,15 +28,14 @@ class TicketController extends Controller
             'status' => 'required|string',
         ]);
 
-        $ticket = new Ticket($request->all());
-        $ticket->save();
+        Ticket::create($request->all());
 
         return redirect()->route('tickets')->with('success', 'Ticket created successfully.');
     }
 
     public function edit(Ticket $ticket)
     {
-        return view('tickets.edit', compact('ticket'));
+        return view('admin.tickets.edit', compact('ticket'));
     }
 
     public function update(Request $request, Ticket $ticket)
@@ -49,8 +48,7 @@ class TicketController extends Controller
             'status' => 'required|string',
         ]);
 
-        $ticket->fill($request->all());
-        $ticket->save();
+        $ticket->update($request->all());
 
         return redirect()->route('tickets')->with('success', 'Ticket updated successfully.');
     }

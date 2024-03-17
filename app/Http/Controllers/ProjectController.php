@@ -10,12 +10,12 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     public function new()
     {
-        return view('projects.new');
+        return view('admin.projects.new');
     }
 
     public function create(Request $request)
@@ -26,15 +26,14 @@ class ProjectController extends Controller
             'client_id' => 'required|exists:clients,id',
         ]);
 
-        $project = new Project($request->all());
-        $project->save();
+        Project::create($request->all());
 
         return redirect()->route('projects')->with('success', 'Project created successfully.');
     }
 
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project'));
     }
 
     public function update(Request $request, Project $project)
@@ -45,8 +44,7 @@ class ProjectController extends Controller
             'client_id' => 'required|exists:clients,id',
         ]);
 
-        $project->fill($request->all());
-        $project->save();
+        $project->update($request->all());
 
         return redirect()->route('projects')->with('success', 'Project updated successfully.');
     }

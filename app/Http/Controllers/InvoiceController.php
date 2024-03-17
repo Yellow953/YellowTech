@@ -10,12 +10,12 @@ class InvoiceController extends Controller
     public function index()
     {
         $invoices = Invoice::all();
-        return view('invoices.index', compact('invoices'));
+        return view('admin.invoices.index', compact('invoices'));
     }
 
     public function new()
     {
-        return view('invoices.new');
+        return view('admin.invoices.new');
     }
 
     public function create(Request $request)
@@ -33,15 +33,14 @@ class InvoiceController extends Controller
             'note' => 'nullable|string',
         ]);
 
-        $invoice = new Invoice($request->all());
-        $invoice->save();
+        Invoice::create($request->all());
 
         return redirect()->route('invoices')->with('success', 'Invoice created successfully.');
     }
 
     public function edit(Invoice $invoice)
     {
-        return view('invoices.edit', compact('invoice'));
+        return view('admin.invoices.edit', compact('invoice'));
     }
 
     public function update(Request $request, Invoice $invoice)
@@ -59,8 +58,7 @@ class InvoiceController extends Controller
             'note' => 'nullable|string',
         ]);
 
-        $invoice->fill($request->all());
-        $invoice->save();
+        $invoice->update($request->all());
 
         return redirect()->route('invoices')->with('success', 'Invoice updated successfully.');
     }

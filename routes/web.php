@@ -14,7 +14,7 @@ use App\Http\Controllers\ToDoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes(['register' => false, 'reset' => true]);
+Auth::routes(['register' => false]);
 
 // Admin Panel
 Route::prefix('app')->group(function () {
