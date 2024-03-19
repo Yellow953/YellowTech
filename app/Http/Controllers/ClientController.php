@@ -27,6 +27,7 @@ class ClientController extends Controller
             'email' => 'required|email|unique:clients',
             'address' => 'nullable|string',
             'status' => 'in:done,pending,ongoing',
+            'action' => 'required|string',
         ]);
 
         Client::create([
@@ -34,6 +35,7 @@ class ClientController extends Controller
             'email' => $request->email,
             'address' =>  $request->address,
             'status' => $request->status,
+            'action' => $request->action
         ]);
 
         Log::create([
@@ -57,6 +59,7 @@ class ClientController extends Controller
             'email' => 'required|email|unique:clients,email,' . $client->id,
             'address' => 'nullable|string',
             'status' => 'in:done,pending,ongoing',
+            'action' => 'required|string',
         ]);
 
         $client->update([
@@ -64,6 +67,7 @@ class ClientController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'status' => $request->status,
+            'action' => $request->action
         ]);
 
         Log::create([

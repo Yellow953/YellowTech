@@ -12,8 +12,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->nullable();
+            $table->string('action')->nullable();
             $table->string('address')->nullable();
+            $table->enum('status', ['pending', 'ongoing', 'done'])->default('pending');
             $table->timestamps();
         });
     }

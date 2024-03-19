@@ -17,9 +17,6 @@
           <div class="col-md-6">
             <h3 class="box-title">Add a new user</h3>
           </div>
-          <div class="col-md-6 text-right">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
         </div><!-- /.box-header -->
 
         <div class="box-body">
@@ -59,6 +56,9 @@
                 <input name="role" type="checkbox"> Admin
               </label>
             </div>
+          </div>
+          <div class="col-md-6 text-right">
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div><!-- /.box-body -->
     </form>

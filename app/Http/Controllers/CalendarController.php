@@ -7,6 +7,10 @@ use App\Models\Event;
 
 class CalendarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         return view('admin.calendar.index');
@@ -14,7 +18,7 @@ class CalendarController extends Controller
 
     public function events(Request $request)
     {
-        $events = Event::select('id', 'title', 'start_date as start', 'end_date as end')->get();
+        $events = Event::select('id', 'title', 'date')->get();
 
         return response()->json($events);
     }

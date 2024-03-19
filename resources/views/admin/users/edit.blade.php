@@ -16,9 +16,6 @@
           <div class="col-md-6">
             <h3 class="box-title">Edit User</h3>
           </div>
-          <div class="col-md-6 text-right">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
         </div><!-- /.box-header -->
         <!-- form start -->
         <div class="box-body">
@@ -41,12 +38,20 @@
                 placeholder="Enter phone number">
             </div>
           </div>
+
           <div class="col-md-6">
             <div class="form-group">
               <label for="role">Role</label>
               <input value="{{$user->role}}" name="role" type="text" class="form-control">
             </div>
           </div>
+          <div class="col-md-6 text-right">
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+
+
         </div><!-- /.box-body -->
 
 </form>

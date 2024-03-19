@@ -16,9 +16,6 @@
                     <div class="col-md-6">
                         <h3 class="box-title">Add a new client</h3>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
 
                 </div><!-- /.box-header -->
                 <!-- form start -->
@@ -50,6 +47,15 @@
                                 <option value="ongoing">Ongoing</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="action">Action</label>
+                            <input name="action" type="text" class="form-control" placeholder="Enter the action needed">
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div><!-- /.box-body -->
     </form>

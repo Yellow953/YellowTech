@@ -6,12 +6,12 @@
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-lg-7">
-            <!-- To Do List -->
+        <!-- To Do Form -->
+        <div class="col-lg-6">
             <div class="box box-primary">
                 <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">To Do List</h3>
+                    <i class="ion ion-compose"></i>
+                    <h3 class="box-title">Create To-Do</h3>
                 </div>
                 <div class="box-body">
                     <form action="{{ route('todo.store') }}" method="POST">
@@ -29,6 +29,17 @@
                         </div>
                         <button type="submit" class="btn btn-success">Add To-Do</button>
                     </form>
+                </div>
+            </div>
+        </div>
+        <!-- To Do List -->
+        <div class="col-lg-6">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="ion ion-clipboard"></i>
+                    <h3 class="box-title">To Do List</h3>
+                </div>
+                <div class="box-body">
                     <ul class="todo-list">
                         @foreach($todos as $todo)
                         <li>
@@ -36,19 +47,20 @@
                                 <i class="fa fa-ellipsis-v"></i>
                                 <i class="fa fa-ellipsis-v"></i>
                             </span>
-                            <input type="checkbox" name="status" value="done" {{ $todo->status === 'done' ? 'checked' :
-                            '' }}>
-                            <span class="text {{ $todo->status === 'done' ? 'text-muted' : '' }}">{{ $todo->text
-                                }}</span>
-                            <span class="badge bg-secondary">{{ ucfirst($todo->status) }}</span>
-                            <a href="{{route('todo.edit', $todo->id)}}">
-                                <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
-                            </a>
+                            <input type="checkbox" class="status-checkbox" data-todo-id="{{ $todo->id }}" value="done" {{ $todo->status === 'done' ? 'checked' : '' }}>
+                            <span class="text {{ $todo->status === 'done' ? 'text-muted' : '' }}">{{ $todo->text }}</span>
+                            <span class="badge bg-success pull-right">{{ ucfirst($todo->status) }}</span>
 
-                            <form action="{{ route('todo.destroy', $todo->id) }}" method="GET" style="display: inline;">
-                                @csrf
-                                <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <div class="tools">
+                                <a href="{{ route('todo.edit', $todo->id) }}">
+                                    <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
+                                </a>
+                                <form action="{{ route('todo.destroy', $todo->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-xs btn-danger" style="margin-right: 5px;"><i class="fa fa-trash"></i></button>
+                                </form>
+                            </div>
                         </li>
                         @endforeach
                     </ul>

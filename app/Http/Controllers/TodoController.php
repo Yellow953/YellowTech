@@ -54,7 +54,7 @@ class TodoController extends Controller
 
         Log::create([
             'action' => 'ToDo_Updated',
-            'description' => 'Updated a to do',
+            'description' => 'updated a to do',
             'user_id' => auth()->id(),
         ]);
 
