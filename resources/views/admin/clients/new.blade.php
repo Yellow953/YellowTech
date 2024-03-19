@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select name="status" class="form-control">
-                                <option value="done">Done</option>
+                                <option value="completed">Completed</option>
                                 <option value="pending">Pending</option>
                                 <option value="ongoing">Ongoing</option>
                             </select>

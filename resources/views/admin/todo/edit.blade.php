@@ -16,7 +16,8 @@
                     <div class="box-header">
                         <h3 class="box-title">Edit To-Do</h3>
                     </div>
-                    <div class="box-body"> <!-- Added padding to the box body -->
+                    <div class="box-body">
+                        <!-- Added padding to the box body -->
                         <div class="form-group">
                             <label for="text">To-Do Text</label>
                             <input value="{{ $todo->text }}" name="text" type="text" class="form-control"
@@ -26,15 +27,23 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select name="status" class="form-control">
-                                <option value="done" {{ $todo->status === 'done' ? 'selected' : '' }}>Done</option>
-                                <option value="pending" {{ $todo->status === 'pending' ? 'selected' : '' }}>Pending</option>
-                                <option value="ongoing" {{ $todo->status === 'ongoing' ? 'selected' : '' }}>Ongoing</option>
+                                <option value="ongoing" {{ $todo->status === 'ongoing' ? 'selected' : '' }}>Ongoing
+                                </option>
+                                <option value="completed" {{ $todo->status === 'completed' ? 'selected' : ''
+                                    }}>Completed
+                                </option>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="checkbox" name="public" {{ $todo->public ? 'checked' : '' }}
+                            class="form-check">
+                            <label for="public">Public</label>
                         </div>
                     </div> <!-- End of box body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     </div>
                 </div>
             </div>

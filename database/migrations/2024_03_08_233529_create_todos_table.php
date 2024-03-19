@@ -11,7 +11,10 @@ class CreateToDosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->string('text');
-            $table->enum('status', ['pending', 'ongoing', 'done'])->default('pending');
+            $table->enum('status', ['ongoing', 'completed'])->default('ongoing');
+            $table->bigInteger("user_id")->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('public')->default(false);
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@
   {{-- Favicon --}}
   <link rel="shortcut icon" href="{{ asset('assets/logo/yellowtech.ico') }}" type="image/x-icon">
 
-  <title>YellowTech | AdminPage</title>
+  <title>YellowTech | @yield('title')</title>
 
   <!-- MY CSS STYLES -->
   <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />

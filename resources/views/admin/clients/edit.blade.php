@@ -49,7 +49,8 @@
                         <div class="form-group">
                             <label for="status">Status</label>
                             <select name="status" class="form-control">
-                                <option value="done" {{ $client->status == 'done' ? 'selected' : '' }}>Done</option>
+                                <option value="done" {{ $client->status == 'completed' ? 'selected' : '' }}>Completed
+                                </option>
                                 <option value="pending" {{ $client->status == 'pending' ? 'selected' : '' }}>Pending
                                 </option>
                                 <option value="ongoing" {{ $client->status == 'ongoing' ? 'selected' : '' }}>Ongoing

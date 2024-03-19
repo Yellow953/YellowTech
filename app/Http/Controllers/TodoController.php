@@ -10,32 +10,51 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
+        $user = auth()->user();
 
-        return view('admin.todo.index', compact('todos'));
-    }
+        $completed_todos = Todo::where('status', 'completed')
+            ->where(function ($query) use ($user) {
+                $query->where('public', true)
+                    ->orWhere(function ($query) use ($user) {
+                        $query->where('public', false)
+                            ->where('user_id', $user->id);
+                    });
+            })
+            ->paginate(10);
 
-    public function new()
-    {
-        return view('admin.todo.create');
+        $ongoing_todos = Todo::where('status', 'ongoing')
+            ->where(function ($query) use ($user) {
+                $query->where('public', true)
+                    ->orWhere(function ($query) use ($user) {
+                        $query->where('public', false)
+                            ->where('user_id', $user->id);
+                    });
+            })
+            ->paginate(10);
+
+        $data = compact('completed_todos', 'ongoing_todos');
+
+        return view('admin.todo.index', $data);
     }
 
     public function create(Request $request)
     {
         $request->validate([
             'text' => 'required|max:255',
-            'status' => 'in:pending,ongoing,done',
         ]);
 
-        Todo::create($request->all());
+        Todo::create([
+            'user_id' => auth()->user()->id,
+            'text' => $request->text,
+            'status' => 'ongoing',
+            'public' => $request->boolean('public'),
+        ]);
 
         Log::create([
-            'action' => 'ToDo_Created',
-            'description' => 'added a to do',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' created a new todo: ' . $request->text . ' status: ' . $request->status . ' datetime: ' . now(),
         ]);
 
-        return redirect()->route('todo')->with('success', 'ToDo created successfully.');
+        return redirect()->route('todo')->with('success', 'Todo created successfully.');
     }
 
     public function edit(Todo $todo)
@@ -47,24 +66,43 @@ class TodoController extends Controller
     {
         $request->validate([
             'text' => 'required|max:255',
-            'status' => 'in:pending,ongoing,done',
         ]);
 
-        $todo->update($request->all());
+        $todo->update([
+            'user_id' => auth()->user()->id,
+            'text' => $request->text,
+            'status' => $request->status,
+            'public' => $request->boolean('public'),
+        ]);
 
         Log::create([
-            'action' => 'ToDo_Updated',
-            'description' => 'updated a to do',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' updated todo: ' . $request->text . ' status: ' . $request->status . ' datetime: ' . now(),
         ]);
 
-        return redirect()->route('todo')->with('success', 'ToDo updated successfully.');
+        return redirect()->route('todo')->with('success', 'Todo updated successfully.');
     }
 
     public function destroy(Todo $todo)
     {
         $todo->delete();
 
-        return redirect()->route('todo')->with('success', 'ToDo deleted successfully.');
+        Log::create([
+            'text' => auth()->user()->name . ' deleted todo: ' . $todo->text . ' status: ' . $todo->status . ' datetime: ' . now(),
+        ]);
+
+        return redirect()->route('todo')->with('success', 'Todo deleted successfully.');
+    }
+
+    public function complete(Todo $todo)
+    {
+        $todo->update([
+            'status' => 'completed',
+        ]);
+
+        Log::create([
+            'text' => auth()->user()->name . ' completed todo: ' . $todo->text . ' status: ' . $todo->status . ' datetime: ' . now(),
+        ]);
+
+        return redirect()->route('todo')->with('success', 'Todo completed successfully.');
     }
 }

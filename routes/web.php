@@ -10,7 +10,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TicketController;
-use App\Http\Controllers\ToDoController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -83,6 +83,7 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{todo}', [TodoController::class, 'edit'])->name('todo.edit');
         Route::post('/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
         Route::get('/delete/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
+        Route::get('/complete/{todo}', [TodoController::class, 'complete'])->name('todo.complete');
     });
 
     //calendar routes

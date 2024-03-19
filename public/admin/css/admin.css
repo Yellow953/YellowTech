@@ -27,3 +27,7 @@
     padding: 15px;
     margin: 25px 50px;
 }
+
+ul.pagination{
+    margin: 0;
+}
