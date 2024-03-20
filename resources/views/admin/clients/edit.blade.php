@@ -47,28 +47,17 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status">Status</label>
-                            <select name="status" class="form-control">
-                                <option value="done" {{ $client->status == 'completed' ? 'selected' : '' }}>Completed
-                                </option>
-                                <option value="pending" {{ $client->status == 'pending' ? 'selected' : '' }}>Pending
-                                </option>
-                                <option value="ongoing" {{ $client->status == 'ongoing' ? 'selected' : '' }}>Ongoing
-                                </option>
-                            </select>
+                            <label for="phone">Phone Number</label>
+                            <input name="phone" type="text" class="form-control" placeholder="{{ $client->phone }}">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="action">Action</label>
-                            <input name="action" type="text" class="form-control" placeholder="{{ $client->action }}">
-                        </div>
-                    </div>
+
                     <div class="col-md-6 text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
+        </div>
     </section><!-- /.content -->
 </form>
 @endsection

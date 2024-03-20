@@ -28,7 +28,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th>Status</th>
+                                <th>Phone</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -38,8 +38,7 @@
                                 <td>{{ $client->name }}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->address }}</td>
-                                <td>{{ $client->status }}</td>
-                                <td>{{ $client->action }}</td>
+                                <td>{{ $client->phone }}</td>
                                 <td class="align-middle">
                                     <div class="actions-buttons">
                                         <a href="{{ route('clients.edit', ['client' => $client->id]) }}"

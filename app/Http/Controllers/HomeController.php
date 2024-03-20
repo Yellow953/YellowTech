@@ -37,6 +37,11 @@ class HomeController extends Controller
         return view('service');
     }
 
+    public function shop()
+    {
+        return view('shop');
+    }
+
     public function custom_logout()
     {
         Auth::logout();

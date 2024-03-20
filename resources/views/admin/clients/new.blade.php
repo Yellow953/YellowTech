@@ -40,25 +40,16 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="status">Status</label>
-                            <select name="status" class="form-control">
-                                <option value="completed">Completed</option>
-                                <option value="pending">Pending</option>
-                                <option value="ongoing">Ongoing</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="action">Action</label>
-                            <input name="action" type="text" class="form-control" placeholder="Enter the action needed">
+                            <label for="phone">Phone Number</label>
+                            <input name="phone" type="text" class="form-control" placeholder="Enter phone number">
                         </div>
                     </div>
                     <div class="col-md-6 text-right">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
     </form>
-    </div><!-- /.box -->
 </section><!-- /.content -->
 @endsection

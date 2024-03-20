@@ -12,11 +12,13 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("project_id")->unsigned()->nullable();
             $table->bigInteger("ticket_id")->unsigned()->nullable();
+            $table->bigInteger("product_id")->unsigned()->nullable();
             $table->string('path');
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('ticket_id')->references('id')->on('tickets')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 
