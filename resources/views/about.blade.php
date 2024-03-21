@@ -6,7 +6,7 @@
 solutions. Learn about our passion for excellence and client-centric approach.')
 
 @section('keywords', 'technology solutions, custom software, AI integration, innovation, client-centric approach, Yellow
-Tech, yellowtech, yellowtech dev')
+Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon')
 
 @section('content')
 <!-- agency section -->

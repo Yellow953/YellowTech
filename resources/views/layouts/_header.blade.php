@@ -4,7 +4,6 @@
         <nav class="navbar navbar-expand-lg custom_nav-container">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" />
-                {{-- <span class="text-dark">YellowTech</span> --}}
                 <h1 class="text-dark nav-link h1-header">YellowTech</h1>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -19,24 +18,43 @@
                             <a class="nav-link" href="{{ route('home') }}">Home <span
                                     class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item {{ request()->is('about') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('about') }}">
+                        <li class="nav-item dropdown {{ request()->is('shop') ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @foreach (Helper::get_categories() as $category)
+                                <a class="dropdown-item" href="{{ route('shop', $category->name) }}">{{
+                                    ucwords($category->name) }}</a>
+                                @endforeach
+                            </div>
+                        </li>
+                        <li
+                            class="nav-item dropdown {{ request()->is('service') ? 'active' : '' }} {{ request()->is('portfolio') ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Software
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('service') }}">Services</a>
+                                <a class="dropdown-item" href="{{ route('portfolio') }}">Portfolio</a>
+                            </div>
+                        </li>
+                        <li
+                            class="nav-item dropdown {{ request()->is('about') ? 'active' : '' }} {{ request()->is('contact') ? 'active' : '' }}">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 About
                             </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('about') }}">About</a>
+                                <a class="dropdown-item" href="{{ route('contact') }}">Contact Us</a>
+                            </div>
                         </li>
-                        <li class="nav-item {{ request()->is('service') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('service') }}">
-                                Services
-                            </a>
-                        </li>
-                        <li class="nav-item {{ request()->is('portfolio') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('portfolio') }}">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('contact') }}">
-                                Contact Us
+                        <li class="nav-item {{ request()->is('cart') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('cart') }}">
+                                Cart ({{ Helper::cart_count() }}) <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </li>
                     </ul>

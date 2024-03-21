@@ -156,7 +156,8 @@ Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio'
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 
 // Shop
-Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
+Route::get('/shop/{category_name}', [HomeController::class, 'shop'])->name('shop');
+Route::get('/shop/{category_name}/{product_name}', [HomeController::class, 'product'])->name('product');
 
 // Cart
 Route::get('/cart', [CartController::class, 'cart'])->name('cart');

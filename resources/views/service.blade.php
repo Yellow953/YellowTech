@@ -6,7 +6,7 @@
 to AI integration. Explore our diverse solutions tailored for you.')
 
 @section('keywords', 'technology services, custom software, web development, AI integration, tailored
-solutions, Yellow Tech, yellowtech, yellowtech dev')
+solutions, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon')
 
 @section('content')
 

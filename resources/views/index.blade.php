@@ -6,7 +6,7 @@
 integration, and cutting-edge technology.')
 
 @section('keywords', 'innovation, technology solutions, custom software, AI integration, business growth,
-Yellow Tech, yellowtech, yellowtech dev')
+Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon')
 
 @section('content')
 

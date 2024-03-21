@@ -81,7 +81,7 @@
             <div class="container">
                 <p>
                     &copy; <span id="displayYear"></span> All Rights Reserved By
-                    <a href="#" class="text-yellow">YellowTech</a>
+                    <a href="{{ route('home') }}" class="text-yellow">YellowTech</a>
                 </p>
             </div>
         </section>

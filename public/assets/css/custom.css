@@ -23,7 +23,7 @@
   font-weight: bold;
 }
   
-/* start fixed header */
+/* start header */
 #header.fixed {
   position: fixed;
   top: 0;
@@ -32,7 +32,11 @@
   background-color: #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
-/* end fixed header */
+
+.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+/* end header */
   
   /* start animation */
   #svg {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,9 +39,22 @@ class HomeController extends Controller
         return view('service');
     }
 
-    public function shop()
+    public function shop($category_name)
     {
-        return view('shop');
+        $category = Category::where('name', $category_name)->firstOrFail();
+        $products = $category->products;
+        $data = compact('products', 'category');
+
+        return view('shop', $data);
+    }
+
+    public function product($category_name, $product_name)
+    {
+        $category = Category::where('name', $category_name)->firstOrFail();
+        $product = Product::where('name', $product_name)->firstOrFail();
+        $data = compact('product', 'category');
+
+        return view('product', $data);
     }
 
     public function custom_logout()

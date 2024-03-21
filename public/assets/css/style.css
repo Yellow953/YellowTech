@@ -69,8 +69,8 @@ body {
 }
 
 .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link {
-  padding: 10px 30px;
-  margin: 0 15px;
+  padding: 5px 20px;
+  margin: 0 10px;
   color: #514f4f;
   text-align: center;
   text-transform: uppercase;
@@ -102,7 +102,6 @@ a:focus {
 
 .navbar-brand,
 .navbar-brand:hover {
-  /* text-transform: uppercase; */
   font-weight: bold;
   font-size: 20px;
 }

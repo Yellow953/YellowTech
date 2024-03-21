@@ -6,7 +6,7 @@
 consultations, or inquiries. Let's shape the future of your business together.")
 
 @section('keywords', 'Yellow Tech contact, technology solutions, expert consultations, business inquiries,
-Yellow Tech, yellowtech, yellowtech dev')
+Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon')
 
 @section('content')
 
