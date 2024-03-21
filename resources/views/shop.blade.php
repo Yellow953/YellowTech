@@ -57,33 +57,33 @@ yellowtech hardware shop, yellowtech software shop')
 
 <div class="container my-4">
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 mb-4">
             <div class="row">
                 <div class="col-2 p-0 d-flex justify-content-center my-auto">
                     <i class="fa-solid fa-truck"></i>
                 </div>
-                <div class="col-lg-6 col-10 ml-1">
-                    <h4>Free Delivery</h4>
+                <div class="col-10">
+                    <h4 class="mb-0">Free Delivery</h4>
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 mb-4">
             <div class="row">
                 <div class="col-2 p-0 d-flex justify-content-center my-auto">
                     <i class="fa-solid fa-star"></i>
                 </div>
-                <div class="col-lg-6 col-10 ml-1">
-                    <h4>Highest Quality</h4>
+                <div class="col-10">
+                    <h4 class="mb-0">Highest Quality</h4>
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-6 mb-4">
             <div class="row">
                 <div class="col-2 p-0 d-flex justify-content-center my-auto">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
-                <div class="col-lg-6 col-10 ml-1">
-                    <h4>Best Offers</h4>
+                <div class="col-10">
+                    <h4 class="mb-0">Best Offers</h4>
                 </div>
             </div>
         </div>
@@ -92,7 +92,7 @@ yellowtech hardware shop, yellowtech software shop')
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3 p-0">
+        <div class="col-md-3 order-1 order-md-0 p-0">
             <h4 class="my-4 mx-2">Filter Products</h4>
 
             <div class="card mx-1">
