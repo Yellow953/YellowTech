@@ -28,8 +28,8 @@ Route::prefix('app')->group(function () {
     // users routes
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users');
-        Route::get('/new', [UserController::class, 'new'])->name('users.create');
-        Route::post('/create', [UserController::class, 'create'])->name('users.store');
+        Route::get('/new', [UserController::class, 'new'])->name('users.new');
+        Route::post('/create', [UserController::class, 'create'])->name('users.create');
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');

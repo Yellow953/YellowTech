@@ -13,9 +13,6 @@
 
   <title>YellowTech | @yield('title')</title>
 
-  <!-- MY CSS STYLES -->
-  <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
-
   <!-- Bootstrap 3.3.2 -->
   <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -23,40 +20,30 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
     type="text/css" />
 
-  <!-- Ionicons 2.0.0 -->
-  <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-
   <!-- Theme style -->
   <link href="{{ asset('admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
   <link href="{{ asset('admin/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
-  <!-- iCheck -->
-  <link href="{{ asset('admin/plugins/iCheck/flat/blue.css') }}" rel="stylesheet" type="text/css" />
-
-  <!-- Morris chart -->
-  <link href="{{ asset('admin/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
-
-  <!-- jvectormap -->
-  <link href="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
-
-  <!-- Date Picker -->
-  <link href="{{ asset('admin/plugins/datepicker/datepicker3.css') }}" rel="stylesheet" type="text/css" />
-
-  <!-- Daterange picker -->
-  <link href="{{ asset('admin/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css" />
-
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
-    type="text/css" />
 
   <!-- DATA TABLES -->
   <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/c09f3917c9.js" crossorigin="anonymous"></script>
 
+  <!-- iCheck -->
+  <link href="{{ asset('admin/plugins/iCheck/flat/blue.css') }}" rel="stylesheet" type="text/css" />
+  <!-- Date Picker -->
+  <link href="{{ asset('admin/plugins/datepicker/datepicker3.css') }}" rel="stylesheet" type="text/css" />
+  <!-- Daterange picker -->
+  <link href="{{ asset('admin/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css" />
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
+    type="text/css" />
   {{-- select2 --}}
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <!-- Charts -->
+  <link href="{{ asset('admin/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
 
   {{-- Custom CSS --}}
   <link rel="stylesheet" href="{{ asset('admin/css/admin.css') }}">
@@ -76,10 +63,12 @@
 
       @yield('content')
     </div>
-  </div><!-- ./wrapper -->
+  </div>
 
-  <!-- jQuery 2.1.3 -->
-  <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
+  <!-- jQuery 3.7.1 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- jQuery UI 1.11.2 -->
   <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
@@ -145,8 +134,6 @@
       });
     });
   </script>
-
-
 
   <!--logout-->
   <script>

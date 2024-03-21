@@ -76,6 +76,24 @@
                     <span>Tickets</span>
                 </a>
             </li>
+            <li class="treeview">
+                <a href="{{ route('categories')}}">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="{{ route('products')}}">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Products</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="{{ route('orders')}}">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Orders</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

@@ -6,7 +6,7 @@
 </div>
 @endif
 
-@if ($message = Session::get('error') || $message = Session::get('danger'))
+@if ($message = Session::get('danger'))
 <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <h4><i class="icon fa fa-ban"></i> Alert!</h4>

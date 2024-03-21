@@ -13,17 +13,18 @@
                             <h3 class="box-title">Users Table</h3>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{ route('users.create') }}">
-                                <button class="btn btn-primary">Add User</button>
+                            <a href="{{ route('users.new') }}" class="btn btn-primary">
+                                <span><i class="fa fa-plus"></i></span>
+                                User
                             </a>
                         </div>
                     </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example1" class="table table-bordered table-striped text-center">
                         <thead>
                             <tr>
-                                <th>Username</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Created at</th>
@@ -38,21 +39,17 @@
                                 <td>{{ $user->role }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>
-                                    <div class="actions-buttons">
-                                        <a href="{{ route('users.edit', ['user' => $user->id]) }}"><button
-                                                class="btn btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
+                                    <div class="action-buttons">
+                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="GET">
                                             @csrf
-                                            @method('DELETE')
                                             <button type="submit" class="btn btn-danger show_confirm"
                                                 data-toggle="tooltip" data-original-title="Delete user">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
-
                                     </div>
                                 </td>
                             </tr>
