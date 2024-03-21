@@ -33,16 +33,16 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'quantity' => 'required|numeric|min:1',
-            'buy_price' => 'required|numeric|min:1',
-            'sell_price' => 'required|numeric|min:1',
+            'unit_cost' => 'required|numeric|min:1',
+            'unit_price' => 'required|numeric|min:1',
             'category_id' => 'required',
         ]);
 
         $product = new Product();
         $product->name = $request->name;
         $product->quantity = $request->quantity;
-        $product->buy_price = $request->buy_price;
-        $product->sell_price = $request->sell_price;
+        $product->unit_cost = $request->unit_cost;
+        $product->unit_price = $request->unit_price;
         $product->category_id = $request->category_id;
         $product->description = $request->description;
 
@@ -77,13 +77,13 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        if ($request->buy_price <= 0 || $request->sell_price <= 0) {
+        if ($request->unit_cost <= 0 || $request->unit_price <= 0) {
             return redirect()->back()->with('danger', 'Negative Values...');
         }
 
         $product->name = $request->name;
-        $product->buy_price = $request->buy_price;
-        $product->sell_price = $request->sell_price;
+        $product->unit_cost = $request->unit_cost;
+        $product->unit_price = $request->unit_price;
         $product->description = $request->description;
 
         if ($request->hasFile('image')) {

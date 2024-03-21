@@ -20,22 +20,22 @@ yellowtech hardware shop, yellowtech software shop')
                     <li data-target="#carouselExampleControls" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="https://via.placeholder.com/1920x500" alt="First slide">
+                    <div class="carousel-item active shop-banner"
+                        style="background-image: url({{ asset('assets/images/shop_banner1.png') }})">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Offer 1 Heading</h5>
                             <p>Offer 1 Description</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://via.placeholder.com/1920x500" alt="Second slide">
+                    <div class="carousel-item shop-banner"
+                        style="background-image: url({{ asset('assets/images/shop_banner2.png') }})">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Offer 2 Heading</h5>
                             <p>Offer 2 Description</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://via.placeholder.com/1920x500" alt="Third slide">
+                    <div class="carousel-item shop-banner"
+                        style="background-image: url({{ asset('assets/images/shop_banner3.png') }})">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Offer 3 Heading</h5>
                             <p>Offer 3 Description</p>
@@ -59,28 +59,31 @@ yellowtech hardware shop, yellowtech software shop')
     <div class="row">
         <div class="col-4">
             <div class="row">
-                <div class="col-2"><img class="rounded-circle" alt="Free Shipping"
-                        src="https://via.placeholder.com/40x40"></div>
+                <div class="col-2 p-0 d-flex justify-content-center my-auto">
+                    <i class="fa-solid fa-truck"></i>
+                </div>
                 <div class="col-lg-6 col-10 ml-1">
-                    <h4>Free Shipping</h4>
+                    <h4>Free Delivery</h4>
                 </div>
             </div>
         </div>
         <div class="col-4">
             <div class="row">
-                <div class="col-2"><img class="rounded-circle" alt="Free Shipping"
-                        src="https://via.placeholder.com/40x40"></div>
+                <div class="col-2 p-0 d-flex justify-content-center my-auto">
+                    <i class="fa-solid fa-star"></i>
+                </div>
                 <div class="col-lg-6 col-10 ml-1">
-                    <h4>Free Returns</h4>
+                    <h4>Highest Quality</h4>
                 </div>
             </div>
         </div>
         <div class="col-4">
             <div class="row">
-                <div class="col-2"><img class="rounded-circle" alt="Free Shipping"
-                        src="https://via.placeholder.com/40x40"></div>
+                <div class="col-2 p-0 d-flex justify-content-center my-auto">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
                 <div class="col-lg-6 col-10 ml-1">
-                    <h4>Low Prices</h4>
+                    <h4>Best Offers</h4>
                 </div>
             </div>
         </div>
@@ -94,169 +97,90 @@ yellowtech hardware shop, yellowtech software shop')
 
             <div class="card mx-1">
                 <div class="card-body bg-light">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="price_range">Price Range</label>
-                        <div class="row">
-                            <div class="col-6">
-                                <input type="number" name="price_from" id="price_from" class="form-control">
-                            </div>
-                            <div class="col-6">
-                                <input type="number" name="price_to" id="price_to" class="form-control">
+                    <form action="{{ route('shop', $category->name) }}" method="get">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control"
+                                value="{{request()->query('name')}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="condition">Condition</label>
+                            <select name="condition" id="condition" class="form-control">
+                                <option value=""></option>
+                                @foreach (Helper::get_conditions() as $condition)
+                                <option value="{{ $condition }}" {{ request()->query('condition') == $condition ?
+                                    'selected' : '' }}>{{ ucwords($condition) }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price_range">Price Range</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="number" name="price_min" id="price_min" class="form-control"
+                                        placeholder="Min..." value="{{ request()->query('price_min') }}">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" name="price_max" id="price_max" class="form-control"
+                                        placeholder="Max..." value="{{ request()->query('price_max') }}">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="reset" class="btn btn-secondary btn-block">reset</button>
+                            </div>
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary btn-block">apply</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="col-md-9">
-            <h2 class="text-center">PRODUCTS</h2>
-            <!-- Products -->
             <section class="py-2">
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        @foreach ($products as $product)
                         <!-- Product card -->
                         <div class="col-md-4 mb-5">
-                            <div class="card h-100">
+                            <div class="card product-card h-100">
                                 <!-- "Sale"/"new" badge -->
                                 <div class="badge bg-danger text-white position-absolute mt-1 ms-1">Sale</div>
                                 <!-- Product image -->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                    alt="...">
+                                <img class="card-img-top" src="{{ asset($product->image) }}" alt="{{ $product->name }}">
                                 <!-- Product details  p-4 -->
-                                <div class="card-body text-center">
+                                <div class="card-body text-center p-2">
                                     <!-- Product name -->
-                                    <a href="#" class="h4 text-primary text-decoration-none">Product name</a>
-                                    <!-- Product raiting -->
-                                    <div class="d-flex justify-content-center small text-warning my-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-half"></div>
-                                        <div class="bi-star"></div>
-                                    </div>
+                                    <a href="#" class="h4 text-primary text-decoration-none">{{
+                                        ucwords($product->name)
+                                        }}</a>
                                     <!-- Product price -->
                                     <div class="product-price">
-                                        <span class="text-muted text-decoration-line-through price-old">$20.55</span>
-                                        <span class="price fw-bold ms-2">$18.55</span>
+                                        <span class="text-danger text-decoration-line-through price-old">${{
+                                            number_format($product->compare_price, 2) }}</span>
+                                        <span class="price fw-bold ms-2">${{ number_format($product->unit_price, 2)
+                                            }}</span>
                                     </div>
                                 </div>
                                 <!-- Product actions -->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center">
-                                        <a class="btn btn-outline-dark mt-auto" href="#" role="button"><span
-                                                class="bi bi-cart4"></span> Add to cart</a>
+                                        <a class="btn btn-details mt-auto"
+                                            href="{{ route('product', [$category->name, $product->name]) }}"
+                                            role="button"><span class="bi bi-cart4"></span>Details
+                                            <i class="fa fa-arrow-right"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4 mb-5">
-                            <div class="card h-100">
-                                <!-- "Sale"/"new" badge -->
-                                <div class="badge bg-danger text-white position-absolute mt-1 ms-1">Sale</div>
-                                <!-- Product image -->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                    alt="...">
-                                <!-- Product details  p-4 -->
-                                <div class="card-body text-center">
-                                    <!-- Product name -->
-                                    <a href="#" class="h4 text-primary text-decoration-none">Product name</a>
-                                    <!-- Product raiting -->
-                                    <div class="d-flex justify-content-center small text-warning my-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-half"></div>
-                                        <div class="bi-star"></div>
-                                    </div>
-                                    <!-- Product price -->
-                                    <div class="product-price">
-                                        <span class="text-muted text-decoration-line-through price-old">$20.55</span>
-                                        <span class="price fw-bold ms-2">$18.55</span>
-                                    </div>
-                                </div>
-                                <!-- Product actions -->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <a class="btn btn-outline-dark mt-auto" href="#" role="button"><span
-                                                class="bi bi-cart4"></span> Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 mb-5">
-                            <div class="card h-100">
-                                <!-- "Sale"/"new" badge -->
-                                <div class="badge bg-danger text-white position-absolute mt-1 ms-1">Sale</div>
-                                <!-- Product image -->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                    alt="...">
-                                <!-- Product details  p-4 -->
-                                <div class="card-body text-center">
-                                    <!-- Product name -->
-                                    <a href="#" class="h4 text-primary text-decoration-none">Product name</a>
-                                    <!-- Product raiting -->
-                                    <div class="d-flex justify-content-center small text-warning my-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-half"></div>
-                                        <div class="bi-star"></div>
-                                    </div>
-                                    <!-- Product price -->
-                                    <div class="product-price">
-                                        <span class="text-muted text-decoration-line-through price-old">$20.55</span>
-                                        <span class="price fw-bold ms-2">$18.55</span>
-                                    </div>
-                                </div>
-                                <!-- Product actions -->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <a class="btn btn-outline-dark mt-auto" href="#" role="button"><span
-                                                class="bi bi-cart4"></span> Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-5">
-                            <div class="card h-100">
-                                <!-- "Sale"/"new" badge -->
-                                <div class="badge bg-danger text-white position-absolute mt-1 ms-1">Sale</div>
-                                <!-- Product image -->
-                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                                    alt="...">
-                                <!-- Product details  p-4 -->
-                                <div class="card-body text-center">
-                                    <!-- Product name -->
-                                    <a href="#" class="h4 text-primary text-decoration-none">Product name</a>
-                                    <!-- Product raiting -->
-                                    <div class="d-flex justify-content-center small text-warning my-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-half"></div>
-                                        <div class="bi-star"></div>
-                                    </div>
-                                    <!-- Product price -->
-                                    <div class="product-price">
-                                        <span class="text-muted text-decoration-line-through price-old">$20.55</span>
-                                        <span class="price fw-bold ms-2">$18.55</span>
-                                    </div>
-                                </div>
-                                <!-- Product actions -->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <a class="btn btn-outline-dark mt-auto" href="#" role="button"><span
-                                                class="bi bi-cart4"></span> Add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                    </div>
+                    <div class="row">
+                        {{ $products->links() }}
                     </div>
                 </div>
             </section>

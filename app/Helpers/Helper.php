@@ -20,4 +20,10 @@ class Helper
     {
         return Category::select('id', 'name')->get();
     }
+
+    public static function get_conditions()
+    {
+        $conditions = ['new', 'used', 'open box', 'refurbished'];
+        return $conditions;
+    }
 }

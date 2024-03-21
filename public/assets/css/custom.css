@@ -421,3 +421,37 @@
   font-size: 0.9rem;
 }
 /* end footer */
+
+.text-decoration-line-through{
+  text-decoration: line-through;
+}
+
+.product-card{
+  border: #2f2f2f solid 1px;
+}
+
+.btn-details{
+  background-color: #1b1b1b;
+  color: #f6dc00;
+}
+
+.btn-details:hover{
+  color: #1b1b1b;
+  background-color: #f6dc00;
+}
+
+.shop-banner{
+  height: 400px !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-caption h5{
+  color: #f6dc00;
+  font-size: 3rem ;
+}
+.carousel-caption p{
+  color: #f6dc00;
+  font-size: 2rem ;
+}

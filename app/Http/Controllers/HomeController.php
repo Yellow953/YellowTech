@@ -42,7 +42,7 @@ class HomeController extends Controller
     public function shop($category_name)
     {
         $category = Category::where('name', $category_name)->firstOrFail();
-        $products = $category->products;
+        $products = Product::where('category_id', $category->id)->filter()->paginate(15);
         $data = compact('products', 'category');
 
         return view('shop', $data);

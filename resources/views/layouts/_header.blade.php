@@ -14,11 +14,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                     <ul class="navbar-nav">
-                        <li class="nav-item  {{ request()->is('/') ? 'active' : '' }}">
+                        <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">Home <span
                                     class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item dropdown {{ request()->is('shop') ? 'active' : '' }}">
+                        <li class="nav-item dropdown {{ Str::contains(request()->path(), 'shop') ? 'active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Shop

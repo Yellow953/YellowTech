@@ -119,7 +119,7 @@ class OrderController extends Controller
             $product = Product::FindOrFail($id);
             $text .= $product->name . " : " . $item['quantity'] . " , ";
 
-            $total_price += $product->sell_price * $item['quantity'];
+            $total_price += $product->unit_price * $item['quantity'];
             $order->products()->attach([
                 $id => [
                     'quantity' => $item['quantity'],

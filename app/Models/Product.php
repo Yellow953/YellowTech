@@ -25,4 +25,27 @@ class Product extends Model
     {
         return $this->hasMany(Attachement::class);
     }
+
+    // Filter
+    public function scopeFilter($q)
+    {
+        if (request('name')) {
+            $name = request('name');
+            $q->where('name', 'LIKE', "%{$name}%");
+        }
+        if (request('condition')) {
+            $condition = request('condition');
+            $q->where('condition', $condition);
+        }
+        if (request('price_min')) {
+            $price_min = request('price_min');
+            $q->where('unit_price', '>=', $price_min);
+        }
+        if (request('price_max')) {
+            $price_max = request('price_max');
+            $q->where('unit_price', '<=', $price_max);
+        }
+
+        return $q;
+    }
 }
