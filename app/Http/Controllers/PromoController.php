@@ -15,7 +15,7 @@ class PromoController extends Controller
 
     public function index()
     {
-        $promos = Promo::all();
+        $promos = Promo::select('id', 'name', 'value')->get();
         return view('admin.promos.index', compact('promos'));
     }
 
@@ -27,19 +27,16 @@ class PromoController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'value' => 'required',
+            'name' => 'required|unique:promos',
+            'value' => 'required|numeric|min:0|max:100',
         ]);
 
-        if ($request->value <= 0) {
-            return redirect()->back()->with('danger', 'Negative Values...');
-        }
+        Promo::create([
+            'name' => $request->name,
+            'value' => $request->value,
+        ]);
 
-        Promo::create(
-            $request->all()
-        );
-
-        $text = "Promo " . $request->name . " created, datetime: " . now();
+        $text = auth()->user()->name . "created Promo: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('promos')->with('success', 'Promo was successfully created.');
@@ -52,32 +49,34 @@ class PromoController extends Controller
 
     public function update(Request $request, Promo $promo)
     {
-        if ($request->value <= 0) {
-            return redirect()->back()->with('danger', 'Negative Values...');
-        }
+        $request->validate([
+            'name' => 'required',
+            'value' => 'required|numeric|min:0|max:100',
+        ]);
 
-        $promo->update(
-            $request->all()
-        );
+        $promo->update([
+            'name' => $request->name,
+            'value' => $request->value,
+        ]);
 
-        $text = "Promo " . $promo->name . " updated, datetime: " . now();
+        $text = auth()->user()->name . " updated Promo: " . $promo->name . ", datetime: " . now();
         Log::create(['text' => $text]);
+
         return redirect()->route('promos')->with('success', 'Promo was successfully updated.');
     }
 
     public function destroy(Promo $promo)
     {
-        $text = "Promo " . $promo->name . " deleted, datetime: " . now();
+        $text = auth()->user()->name . " created Promo: " . $promo->name . ", datetime: " . now();
         $promo->delete();
         Log::create(['text' => $text]);
+
         return redirect()->back()->with('danger', 'Promo was successfully deleted');
     }
 
     public function check(Request $request)
     {
-
         $promoName = $request->promo;
-
         $promo = Promo::where('name', 'LIKE', $promoName)->firstOrFail();
 
         if ($promo) {

@@ -7,6 +7,11 @@ use App\Models\Project;
 
 class ProjectController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $projects = Project::all();

@@ -94,6 +94,12 @@
                     <span>Orders</span>
                 </a>
             </li>
+            <li class="treeview">
+                <a href="{{ route('promos')}}">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Promos</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

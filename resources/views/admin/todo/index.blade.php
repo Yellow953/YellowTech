@@ -95,7 +95,7 @@
                     <h3 class="box-title">Create Todo</h3>
                 </div>
                 <div class="box-body">
-                    <form action="{{ route('todo.store') }}" method="POST">
+                    <form action="{{ route('todo.create') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <input type="text" name="text" class="form-control" placeholder="Create a Todo ..."

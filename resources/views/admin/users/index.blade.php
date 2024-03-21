@@ -19,13 +19,14 @@
                             </a>
                         </div>
                     </div>
-                </div><!-- /.box-header -->
+                </div>
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped text-center">
+                    <table id="example1" class="table table-bordered table-striped text-center border">
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Phone</th>
                                 <th>Role</th>
                                 <th>Created at</th>
                                 <th>Actions</th>
@@ -34,9 +35,10 @@
                         <tbody>
                             @foreach($users as $user)
                             <tr>
-                                <td>{{ $user->name }}</td>
+                                <td>{{ ucwords($user->name) }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->role }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ ucwords($user->role) }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>
                                     <div class="action-buttons">
@@ -56,9 +58,9 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
-    </div><!-- /.row -->
-</section><!-- /.content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

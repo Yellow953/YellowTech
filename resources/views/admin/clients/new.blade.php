@@ -5,51 +5,48 @@
 @section('sub-title', 'new')
 
 @section('content')
-<!-- Main content -->
 <section class="content content-center">
-    <!-- general form elements -->
-    <form role="form" method="POST" action="{{ route('clients.store') }}">
-        @csrf
-        <div class="box box-primary">
-            <div class="box-header">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="box-title">Add a new client</h3>
-                    </div>
+    <div class="box box-primary">
+        <div class="box-header">
+            <h2 class="my-0 mb-3">Add Client</h2>
 
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                <div class="box-body">
+            <div class="box-body">
+                <form method="POST" action="{{ route('clients.create') }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input name="name" type="text" class="form-control" placeholder="Enter client name">
+                            <label for="name">Name *</label>
+                            <input name="name" type="text" class="form-control" placeholder="Enter your name" required
+                                value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input name="email" type="email" class="form-control" placeholder="Enter email">
+                            <label for="email">Email address *</label>
+                            <input name="email" type="email" class="form-control" placeholder="Enter email"
+                                value="{{ old('email') }}" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="address">Address</label>
-                            <input name="address" type="text" class="form-control" placeholder="Enter address">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" name="phone" class="form-control" id="phone"
+                                placeholder="Enter phone number" required value="{{ old('phone') }}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input name="phone" type="text" class="form-control" placeholder="Enter phone number">
+                            <label for="address">Address *</label>
+                            <input type="text" name="address" class="form-control" id="address"
+                                placeholder="Enter Address" required value="{{ old('address') }}">
                         </div>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     </div>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
+                </form>
+            </div>
         </div>
-    </form>
-</section><!-- /.content -->
+    </div>
+</section>
 @endsection

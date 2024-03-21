@@ -7,6 +7,11 @@ use App\Models\Invoice;
 
 class InvoiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $invoices = Invoice::all();

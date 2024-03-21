@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::select('id', 'name', 'description')->get();
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -30,10 +30,14 @@ class CategoryController extends Controller
             'name' => 'required|unique:categories,name',
         ]);
 
-        Category::create($request->all());
-        $text = "Category " . $request->name . " created, datetime: " . now();
+        Category::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
 
+        $text = auth()->user()->name . " created Category " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
+
         return redirect()->route('categories')->with('success', 'Category was successfully created.');
     }
 
@@ -48,17 +52,20 @@ class CategoryController extends Controller
             'name' => 'required',
         ]);
 
-        $category->update($request->all());
-        $text = "Category " . $category->name . " updated, datetime: " . now();
+        $category->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
 
+        $text = auth()->user()->name . " updated Category " . $category->name . ", datetime: " . now();
         Log::create(['text' => $text]);
+
         return redirect()->route('categories')->with('success', 'Category was successfully updated.');
     }
 
     public function destroy(Category $category)
     {
-        $text = "Category " . $category->name . " deleted, datetime: " . now();
-
+        $text = auth()->user()->name . "deleted Category " . $category->name . ", datetime: " . now();
         $category->delete();
         Log::create(['text' => $text]);
 

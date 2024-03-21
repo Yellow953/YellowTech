@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $user = auth()->user();

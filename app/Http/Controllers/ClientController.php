@@ -1,5 +1,4 @@
 <?php
-// app/Http/Controllers/ClientController.php
 
 namespace App\Http\Controllers;
 
@@ -9,9 +8,14 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::select('id', 'name', 'email', 'address', 'created_at')->get();
         return view('admin.clients.index', compact('clients'));
     }
 
@@ -25,23 +29,19 @@ class ClientController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:clients',
-            'address' => 'nullable|string',
-            'status' => 'in:done,pending,ongoing',
-            'action' => 'required|string',
+            'address' => 'required|string',
+            'phone' => 'required|string',
         ]);
 
         Client::create([
             'name' => $request->name,
             'email' => $request->email,
             'address' =>  $request->address,
-            'status' => $request->status,
-            'action' => $request->action
+            'phone' => $request->phone,
         ]);
 
         Log::create([
-            'action' => 'Client_Created',
-            'description' => 'added a client',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' created client ' . $request->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('clients')->with('success', 'Client created successfully.');
@@ -56,24 +56,20 @@ class ClientController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:clients,email,' . $client->id,
-            'address' => 'nullable|string',
-            'status' => 'in:done,pending,ongoing',
-            'action' => 'required|string',
+            'email' => 'required|email',
+            'address' => 'required|string',
+            'phone' => 'required|string',
         ]);
 
         $client->update([
             'name' => $request->name,
             'email' => $request->email,
             'address' => $request->address,
-            'status' => $request->status,
-            'action' => $request->action
+            'phone' => $request->phone,
         ]);
 
         Log::create([
-            'action' => 'Client_Updated',
-            'description' => 'updated a client',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' updated client ' . $request->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('clients')->with('success', 'Client updated successfully.');
@@ -81,14 +77,12 @@ class ClientController extends Controller
 
     public function destroy(Client $client)
     {
-        $client->delete();
-
         Log::create([
-            'action' => 'Client_Deleted',
-            'description' => 'deleted a client',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' deleted client ' . $client->name . ', datetime: ' . now(),
         ]);
 
-        return redirect()->route('clients')->with('success', 'Client deleted successfully.');
+        $client->delete();
+
+        return redirect()->back()->with('success', 'Client deleted successfully.');
     }
 }

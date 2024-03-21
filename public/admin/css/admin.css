@@ -41,6 +41,10 @@ ul.pagination{
     margin-bottom: 15px;
 }
 
+.border{
+    border: 1px solid black !important;
+}
+
 .action-buttons{
     display: flex;
     justify-content: center;

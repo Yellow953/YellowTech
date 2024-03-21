@@ -13,62 +13,54 @@
                             <h3 class="box-title">Clients Table</h3>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{ route('clients.create') }}">
-                                <button class="btn btn-primary">
-                                    Add Client
-                                </button>
+                            <a href="{{ route('clients.new') }}" class="btn btn-primary">
+                                <span><i class="fa fa-plus"></i></span>
+                                Client
                             </a>
                         </div>
                     </div>
-                </div><!-- /.box-header -->
+                </div>
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                    <table id="example1" class="table table-bordered table-striped text-center border">
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Address</th>
                                 <th>Phone</th>
-                                <th>Action</th>
+                                <th>Address</th>
+                                <th>Created at</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($clients as $client)
+                            @foreach($clients as $client)
                             <tr>
-                                <td>{{ $client->name }}</td>
+                                <td>{{ ucwords($client->name) }}</td>
                                 <td>{{ $client->email }}</td>
-                                <td>{{ $client->address }}</td>
                                 <td>{{ $client->phone }}</td>
-                                <td class="align-middle">
-                                    <div class="actions-buttons">
-                                        <a href="{{ route('clients.edit', ['client' => $client->id]) }}"
-                                            data-toggle="tooltip" data-original-title="Edit client">
-                                            <button class="btn btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
+                                <td>{{ $client->address }}</td>
+                                <td>{{ $client->created_at }}</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning">
+                                            <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
+                                        <form action="{{ route('clients.destroy', $client->id) }}" method="GET">
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" data-toggle="tooltip"
-                                                data-original-title="Delete client">
+                                            <button type="submit" class="btn btn-danger show_confirm"
+                                                data-toggle="tooltip" data-original-title="Delete client">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </form>
-
                                     </div>
                                 </td>
                             </tr>
-                            @empty
-                            <tr>
-                                <td colspan="5" class="text-center">No Clients Yet...</td>
-                            </tr>
-                            @endforelse
+                            @endforeach
                         </tbody>
                     </table>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
-    </div><!-- /.row -->
-</section><!-- /.content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

@@ -14,7 +14,7 @@ class LogController extends Controller
 
     public function index()
     {
-        $logs = Log::with('user')->latest()->get();
+        $logs = Log::select('text')->filter()->latest()->get();
         return view('admin.logs.index', compact('logs'));
     }
 }

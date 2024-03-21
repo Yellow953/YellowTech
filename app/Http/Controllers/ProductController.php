@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+        $products = Product::select('id', 'name', 'quantity', 'unit_cost', 'unit_price', 'compare_price', 'condition', 'category_id', 'image')->get();
         return view('admin.products.index', compact('products'));
     }
 
@@ -31,20 +31,13 @@ class ProductController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:products',
             'quantity' => 'required|numeric|min:1',
             'unit_cost' => 'required|numeric|min:1',
             'unit_price' => 'required|numeric|min:1',
             'category_id' => 'required',
+            'condition' => 'required',
         ]);
-
-        $product = new Product();
-        $product->name = $request->name;
-        $product->quantity = $request->quantity;
-        $product->unit_cost = $request->unit_cost;
-        $product->unit_price = $request->unit_price;
-        $product->category_id = $request->category_id;
-        $product->description = $request->description;
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -55,15 +48,27 @@ class ProductController extends Controller
                 $constraint->upsize();
             });
             $image->save(public_path('uploads/products/' . $filename));
-            $product->image = '/uploads/products/' . $filename;
+            $path = '/uploads/products/' . $filename;
         } else {
-            $product->image = "/assets/images/no_img.png";
+            $path = "/assets/images/no_img.png";
         }
 
-        $text = "Product " . $request->name . " created, datetime: " . now();
+        Product::create([
+            'name' => $request->name,
+            'quantity' => $request->quantity,
+            'unit_cost' => $request->unit_cost,
+            'unit_price' => $request->unit_price,
+            'compare_price' => $request->compare_price,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'condition' => $request->condition,
+            'keywords' => $request->keywords,
+            'image' => $path,
+        ]);
+
+        $text = auth()->user()->name . " created Product: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
-        $product->save();
         return redirect()->route('products')->with('success', 'Product was successfully created.');
     }
 
@@ -77,14 +82,13 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        if ($request->unit_cost <= 0 || $request->unit_price <= 0) {
-            return redirect()->back()->with('danger', 'Negative Values...');
-        }
-
-        $product->name = $request->name;
-        $product->unit_cost = $request->unit_cost;
-        $product->unit_price = $request->unit_price;
-        $product->description = $request->description;
+        $request->validate([
+            'name' => 'required',
+            'unit_cost' => 'required|numeric|min:1',
+            'unit_price' => 'required|numeric|min:1',
+            'category_id' => 'required',
+            'condition' => 'required',
+        ]);
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -95,22 +99,32 @@ class ProductController extends Controller
                 $constraint->upsize();
             });
             $image->save(public_path('uploads/products/' . $filename));
-            $product->image = '/uploads/products/' . $filename;
+            $path = '/uploads/products/' . $filename;
+        } else {
+            $path = $product->image;
         }
 
-        if ($request->category_id) {
-            $product->category_id = $request->category_id;
-        }
+        $product->update([
+            'name' => $request->name,
+            'unit_cost' => $request->unit_cost,
+            'unit_price' => $request->unit_price,
+            'compare_price' => $request->compare_price,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'condition' => $request->condition,
+            'keywords' => $request->keywords,
+            'image' => $path,
+        ]);
 
-        $text = "Product " . $product->name . " updated, datetime: " . now();
-        $product->save();
+        $text = auth()->user()->name . " update Product: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
+
         return redirect()->route('products')->with('success', 'Product was successfully updated.');
     }
 
     public function destroy(Product $product)
     {
-        $text = "Product " . $product->name . " deleted, datetime: " . now();
+        $text = auth()->user()->name . "deleted Product: " . $product->name . " deleted, datetime: " . now();
 
         if ($product->image != '/assets/images/no_img.png') {
             $path = public_path($product->image);
@@ -119,6 +133,12 @@ class ProductController extends Controller
 
         $product->delete();
         Log::create(['text' => $text]);
+
         return redirect()->back()->with('danger', 'Product was successfully deleted');
+    }
+
+    public function images(Product $product)
+    {
+        return view('admin.products.images', compact('product'));
     }
 }

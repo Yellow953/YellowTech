@@ -38,8 +38,8 @@ Route::prefix('app')->group(function () {
     // clients routes
     Route::prefix('clients')->group(function () {
         Route::get('/', [ClientController::class, 'index'])->name('clients');
-        Route::get('/new', [ClientController::class, 'new'])->name('clients.create');
-        Route::post('/create', [ClientController::class, 'create'])->name('clients.store');
+        Route::get('/new', [ClientController::class, 'new'])->name('clients.new');
+        Route::post('/create', [ClientController::class, 'create'])->name('clients.create');
         Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
         Route::post('/update/{client}', [ClientController::class, 'update'])->name('clients.update');
         Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
@@ -48,8 +48,8 @@ Route::prefix('app')->group(function () {
     // projects routes
     Route::prefix('projects')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('projects');
-        Route::get('/new', [ProjectController::class, 'new'])->name('projects.create');
-        Route::post('/create', [ProjectController::class, 'create'])->name('projects.store');
+        Route::get('/new', [ProjectController::class, 'new'])->name('projects.new');
+        Route::post('/create', [ProjectController::class, 'create'])->name('projects.create');
         Route::get('/edit/{project}', [ProjectController::class, 'edit'])->name('projects.edit');
         Route::post('/update/{project}', [ProjectController::class, 'update'])->name('projects.update');
         Route::get('/delete/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
@@ -58,8 +58,8 @@ Route::prefix('app')->group(function () {
     // invoices routes
     Route::prefix('invoices')->group(function () {
         Route::get('/', [InvoiceController::class, 'index'])->name('invoices');
-        Route::get('/new', [InvoiceController::class, 'new'])->name('invoices.create');
-        Route::post('/create', [InvoiceController::class, 'create'])->name('invoices.store');
+        Route::get('/new', [InvoiceController::class, 'new'])->name('invoices.new');
+        Route::post('/create', [InvoiceController::class, 'create'])->name('invoices.create');
         Route::get('/edit/{invoice}', [InvoiceController::class, 'edit'])->name('invoices.edit');
         Route::post('/update/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
         Route::get('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
@@ -68,8 +68,8 @@ Route::prefix('app')->group(function () {
     // tickets routes
     Route::prefix('tickets')->group(function () {
         Route::get('/', [TicketController::class, 'index'])->name('tickets');
-        Route::get('/new', [TicketController::class, 'new'])->name('tickets.create');
-        Route::post('/create', [TicketController::class, 'create'])->name('tickets.store');
+        Route::get('/new', [TicketController::class, 'new'])->name('tickets.new');
+        Route::post('/create', [TicketController::class, 'create'])->name('tickets.create');
         Route::get('/edit/{ticket}', [TicketController::class, 'edit'])->name('tickets.edit');
         Route::post('/update/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
         Route::get('/delete/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
@@ -83,8 +83,8 @@ Route::prefix('app')->group(function () {
     // TODO routes
     Route::prefix('todo')->group(function () {
         Route::get('/', [TodoController::class, 'index'])->name('todo');
-        Route::get('/new', [TodoController::class, 'new'])->name('todo.create');
-        Route::post('/create', [TodoController::class, 'create'])->name('todo.store');
+        Route::get('/new', [TodoController::class, 'new'])->name('todo.new');
+        Route::post('/create', [TodoController::class, 'create'])->name('todo.create');
         Route::get('/edit/{todo}', [TodoController::class, 'edit'])->name('todo.edit');
         Route::post('/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
         Route::get('/delete/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
@@ -116,6 +116,7 @@ Route::prefix('app')->group(function () {
         Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::post('/{product}/update', [ProductController::class, 'update'])->name('products.update');
         Route::get('/{product}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+        Route::get('/{product}/images', [ProductController::class, 'images'])->name('products.images');
         Route::get('/', [ProductController::class, 'index'])->name('products');
     });
 

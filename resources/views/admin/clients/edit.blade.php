@@ -5,59 +5,48 @@
 @section('sub-title', 'edit')
 
 @section('content')
-<form method="POST" action="{{ route('clients.update', $client->id) }}" class="row-1 g-3 p-5"
-    enctype="multipart/form-data">
-    @csrf
+<section class="content content-center">
+    <div class="box box-primary">
+        <div class="box-header">
+            <h2 class="my-0 mb-3">Edit Client</h2>
 
-    <section class="content content-center">
-        <!-- general form elements -->
-        <div class="box box-primary">
-            <div class="box-header">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="box-title">Edit Clients</h3>
-                    </div>
-                </div><!-- /.box-header -->
-
-                <!-- form start -->
-                <div class="box-body">
+            <div class="box-body">
+                <form method="POST" action="{{ route('clients.update', $client->id) }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input value="{{ $client->name }}" name="name" type="text" class="form-control"
-                                placeholder="Enter client name">
+                            <label for="name">Name *</label>
+                            <input name="name" type="text" class="form-control" placeholder="Enter your name" required
+                                value="{{ $client->name }}">
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input value="{{ $client->email }}" name="email" type="email" class="form-control"
-                                placeholder="Enter email">
+                            <label for="email">Email address *</label>
+                            <input name="email" type="email" class="form-control" placeholder="Enter email"
+                                value="{{ $client->email }}" required>
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="address">Address</label>
-                            <input value="{{ $client->address }}" name="address" type="text" class="form-control"
-                                placeholder="Enter address">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" name="phone" class="form-control" id="phone"
+                                placeholder="Enter phone number" required value="{{ $client->phone }}">
                         </div>
                     </div>
-
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input name="phone" type="text" class="form-control" placeholder="{{ $client->phone }}">
+                            <label for="address">Address *</label>
+                            <input type="text" name="address" class="form-control" id="address"
+                                placeholder="Enter Address" required value="{{ $client->address }}">
                         </div>
                     </div>
-
-                    <div class="col-md-6 text-right">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     </div>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
+                </form>
+            </div>
         </div>
-    </section><!-- /.content -->
-</form>
+    </div>
+</section>
 @endsection
