@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttachementController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CartController;
@@ -133,7 +134,7 @@ Route::prefix('app')->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('orders');
     });
 
-    // Promo
+    // Promos
     Route::prefix('/promos')->group(function () {
         Route::get('/{promo}/edit', [PromoController::class, 'edit'])->name('promos.edit');
         Route::post('/{promo}/update', [PromoController::class, 'update'])->name('promos.update');
@@ -143,6 +144,12 @@ Route::prefix('app')->group(function () {
         Route::post('/create', [PromoController::class, 'create'])->name('promos.create');
         Route::post('/check', [PromoController::class, 'check'])->name('check_promo');
         Route::get('/', [PromoController::class, 'index'])->name('promos');
+    });
+
+    // Attachements Routes
+    Route::prefix('attachements')->group(function () {
+        Route::post('/create', [AttachementController::class, 'create'])->name('attachements.create');
+        Route::get('/destroy/{attachement}', [AttachementController::class, 'destroy'])->name('attachements.destroy');
     });
 });
 

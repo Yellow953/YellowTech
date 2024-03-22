@@ -84,11 +84,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input name="description" type="text" class="form-control" placeholder="Enter description"
-                                value="{{ $product->description }}">
+                            <textarea class="textarea" name="description" placeholder="Product Description"
+                                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $product->description }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input name="image" type="file" class="form-control">
                         </div>
                     </div>
 
