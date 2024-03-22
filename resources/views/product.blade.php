@@ -153,12 +153,13 @@
                                     <label for="quantity">Quantity: </label>
                                 </div>
                                 <div class="col-6 col-md-3">
-                                    <input type="number" name="quanity" id="product-quanity" class="form-control"
-                                        value="1" min="1">
+                                    <input type="number" name="quanity" id="quantity" class="form-control" value="1"
+                                        min="1">
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary btn-lg" name="submit" value="addtocard">Add
+                                <button type="button" class="btn btn-primary btn-lg"
+                                    onclick="addToCart({{$product->id}}, this.form)">Add
                                     To Cart
                                     <span><i class="fas fa-shopping-cart"></i></span>
                                 </button>
@@ -171,6 +172,39 @@
         </div>
     </div>
 </section>
+
+<script>
+    function addToCart(productId, form) {
+        var quantity = parseInt(form.querySelector('#quantity').value) || 1;
+        
+        try {
+            var cart = JSON.parse(getCookie('cart'));
+        } catch (error) {
+            var cart = {};
+        }
+
+        if (cart[productId]) {
+            cart[productId].quantity += quantity;
+        } else {
+            cart[productId] = {
+                quantity: quantity,
+            };
+        }
+
+        document.cookie = 'cart=' + JSON.stringify(cart) + ';path=/';
+
+        var currentCount = parseInt(document.getElementById('cartCount').innerText);
+        var newCount = currentCount + 1;
+        document.getElementById('cartCount').innerText = newCount;
+
+        alert('Item added to cart!');
+    }
+
+    function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) return match[2];
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">

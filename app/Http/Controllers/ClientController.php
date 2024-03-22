@@ -15,7 +15,7 @@ class ClientController extends Controller
 
     public function index()
     {
-        $clients = Client::select('id', 'name', 'email', 'address', 'created_at')->get();
+        $clients = Client::select('id', 'name', 'email', 'client', 'address', 'created_at')->get();
         return view('admin.clients.index', compact('clients'));
     }
 
@@ -31,6 +31,7 @@ class ClientController extends Controller
             'email' => 'required|email|unique:clients',
             'address' => 'required|string',
             'phone' => 'required|string',
+            'city' => 'required|string',
         ]);
 
         Client::create([
@@ -38,6 +39,7 @@ class ClientController extends Controller
             'email' => $request->email,
             'address' =>  $request->address,
             'phone' => $request->phone,
+            'city' => $request->city,
         ]);
 
         Log::create([
@@ -59,6 +61,7 @@ class ClientController extends Controller
             'email' => 'required|email',
             'address' => 'required|string',
             'phone' => 'required|string',
+            'city' => 'required|string',
         ]);
 
         $client->update([
@@ -66,6 +69,7 @@ class ClientController extends Controller
             'email' => $request->email,
             'address' => $request->address,
             'phone' => $request->phone,
+            'city' => $request->city,
         ]);
 
         Log::create([

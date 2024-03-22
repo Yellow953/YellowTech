@@ -54,7 +54,8 @@
                         </li>
                         <li class="nav-item {{ request()->is('cart') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('cart') }}">
-                                Cart ({{ Helper::cart_count() }}) <i class="fa-solid fa-cart-shopping"></i>
+                                Cart (<span id="cartCount">{{ Helper::cart_count() }}</span>) <i
+                                    class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </li>
                     </ul>

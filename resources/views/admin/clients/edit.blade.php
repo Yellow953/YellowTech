@@ -36,6 +36,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" name="city" class="form-control" id="city" placeholder="Enter City"
+                                required value="{{ $client->city }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label for="address">Address *</label>
                             <input type="text" name="address" class="form-control" id="address"
                                 placeholder="Enter Address" required value="{{ $client->address }}">

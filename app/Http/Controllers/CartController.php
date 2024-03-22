@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Promo;
@@ -16,56 +17,56 @@ class CartController extends Controller
 
     public function cart()
     {
-        $sub_total = 0;
         try {
             $cart_items = json_decode($_COOKIE['cart'], true);
         } catch (\Throwable $th) {
             $cart_items = [];
         }
 
-        if ($cart_items != []) {
-            foreach ($cart_items as $productID => $cart_item) {
-                $item = Product::find($productID);
-                $sub_total += $item->unit_price * $cart_item['quantity'];
-            }
-        }
-
-        $data = compact('cart_items', 'sub_total');
+        $data = compact('cart_items');
         return view('cart', $data);
     }
 
     public function checkout()
     {
-        $sub_total = 0;
+        $subtotal = 0;
         $total = 0;
 
         try {
             $cart_items = json_decode($_COOKIE['cart'], true);
         } catch (\Throwable $th) {
-            $cart_items = [];
+            return redirect()->back()->with('error', 'No Items in your Cart!');
         }
 
         if ($cart_items != []) {
             foreach ($cart_items as $productID => $cart_item) {
                 $item = Product::find($productID);
-                $sub_total += $item->unit_price * $cart_item['quantity'];
+                $subtotal += $item->unit_price * $cart_item['quantity'];
             }
         }
 
-        $total = $sub_total;
-        $data = compact('cart_items', 'sub_total', 'total');
+        $total = $subtotal;
+        $data = compact('cart_items', 'subtotal', 'total');
         return view('checkout', $data);
     }
 
     public function order(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'city' => 'required',
+            'address' => 'required',
+        ]);
+
         $discount = 0;
         $total_price = 0;
 
         try {
-            $cart_items = json_decode($_COOKIE['cart'], true) ?? [];
+            $cart_items = json_decode($_COOKIE['cart'], true);
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'No Items in your Cart!');
+            return redirect()->back()->with('danger', 'No Items in your Cart!');
         }
 
         if ($request->promo != null) {
@@ -74,16 +75,24 @@ class CartController extends Controller
         }
 
         $order = new Order();
-        $order->client_id = 1;
+
+        $client = Client::where('email', $request->email)->first();
+        if ($client == null) {
+            $client = Client::create([
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'city' => $request->city,
+                'address' => $request->address,
+            ]);
+        }
+
+        $order->client_id = $client->id;
         $order->status = 'new';
         $order->save();
 
         foreach ($cart_items as $productID => $cart_item) {
             $product = Product::find($productID);
-
-            if ($product->quantity - $cart_item['quantity'] < 0 || $cart_item['quantity'] < 0) {
-                return redirect()->back()->with('danger', 'Product not available...');
-            }
 
             $order->products()->attach($product, ['quantity' => $cart_item['quantity']]);
             $total_price += $product->unit_price * $cart_item['quantity'];
@@ -94,7 +103,7 @@ class CartController extends Controller
         }
 
         if ($discount != 0) {
-            $total_price -= ($total_price * $discount);
+            $total_price -= ($total_price * $discount / 100);
         }
 
         $order->total_price = $total_price;
@@ -102,6 +111,6 @@ class CartController extends Controller
         $order->save();
         $cookie = cookie()->forget('cart');
 
-        return redirect()->back()->with('success', 'Order Submitted, Thank You For Choosing Us!')->cookie($cookie);
+        return redirect()->route('cart')->with('success', 'Order Submitted, Please check your email for confirmation. Thank You For Choosing Us!')->cookie($cookie);
     }
 }

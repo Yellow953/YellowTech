@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\Category;
+use App\Models\Product;
 
 class Helper
 {
@@ -25,5 +26,10 @@ class Helper
     {
         $conditions = ['new', 'used', 'open box', 'refurbished'];
         return $conditions;
+    }
+
+    public static function get_product($productID)
+    {
+        return Product::find($productID);
     }
 }

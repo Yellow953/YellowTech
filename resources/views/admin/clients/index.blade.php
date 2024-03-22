@@ -38,7 +38,7 @@
                                 <td>{{ ucwords($client->name) }}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->phone }}</td>
-                                <td>{{ $client->address }}</td>
+                                <td>{{ $client->city }}, {{ $client->address }}</td>
                                 <td>{{ $client->created_at }}</td>
                                 <td>
                                     <div class="action-buttons">
