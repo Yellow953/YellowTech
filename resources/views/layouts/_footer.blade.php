@@ -9,7 +9,10 @@
         <div class="info_container ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-3">
+                        <img src="{{ asset('assets/logo/logo_B_vector.png') }}" alt="YellowTech Logo" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 my-auto">
                         <h6>
                             ABOUT US
                         </h6>
@@ -21,6 +24,31 @@
                             to
                             manage your business.
                         </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <h6>
+                            Pages
+                        </h6>
+                        <ul class="pages-list">
+                            <li><a href="{{ route('home') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home
+                            </li>
+                            <li><a href="{{ route('service') }}"
+                                    class="{{ request()->is('service') ? 'active' : '' }}">Services</a></li>
+                            <li><a href="{{ route('portfolio') }}"
+                                    class="{{ request()->is('portfolio') ? 'active' : '' }}">Portfolio</a></li>
+                            <li><a href="{{ route('contact') }}"
+                                    class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
+                            <li><a href="{{ route('about') }}"
+                                    class="{{ request()->is('about') ? 'active' : '' }}">About</a></li>
+                            <li><a href="{{ route('terms_and_conditions') }}"
+                                    class="{{ request()->is('terms_and_conditions') ? 'active' : '' }}">Terms &
+                                    Conditions</a></li>
+                            <li><a href="{{ route('privacy_policy') }}"
+                                    class="{{ request()->is('privacy_policy') ? 'active' : '' }}">Privacy Policy</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <h6>

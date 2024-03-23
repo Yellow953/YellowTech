@@ -163,6 +163,10 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 
+// Policies
+Route::get('/terms_and_conditions', [HomeController::class, 'terms_and_conditions'])->name('terms_and_conditions');
+Route::get('/privacy_policy', [HomeController::class, 'privacy_policy'])->name('privacy_policy');
+
 // Shop
 Route::get('/shop/{category_name}', [HomeController::class, 'shop'])->name('shop');
 Route::get('/shop/{category_name}/{product_name}', [HomeController::class, 'product'])->name('product');

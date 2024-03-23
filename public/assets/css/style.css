@@ -942,5 +942,22 @@ a:focus {
   color: #cbc9c9;
 }
 
+.pages-list{
+  padding-left: 50px;
+
+}
+
+.pages-list li::marker {
+  color: #f6dc00;
+}
+
+.pages-list > li > a{
+  color: white;
+}
+
+.pages-list > li > a.active{
+  color: #f6dc00;
+}
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */

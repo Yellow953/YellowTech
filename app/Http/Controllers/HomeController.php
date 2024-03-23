@@ -57,6 +57,16 @@ class HomeController extends Controller
         return view('product', $data);
     }
 
+    public function privacy_policy()
+    {
+        return view('policies.privacy_policy');
+    }
+
+    public function terms_and_conditions()
+    {
+        return view('policies.terms_and_conditions');
+    }
+
     public function custom_logout()
     {
         Auth::logout();
