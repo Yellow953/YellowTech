@@ -78,25 +78,25 @@
             </li>
             <li class="treeview">
                 <a href="{{ route('categories')}}">
-                    <i class="fa-solid fa-ticket"></i>
+                    <i class="fa-solid fa-table-cells"></i>
                     <span>Categories</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('products')}}">
-                    <i class="fa-solid fa-ticket"></i>
+                    <i class="fa-brands fa-product-hunt"></i>
                     <span>Products</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('orders')}}">
-                    <i class="fa-solid fa-ticket"></i>
+                    <i class="fa-solid fa-folder-plus"></i>
                     <span>Orders</span>
                 </a>
             </li>
             <li class="treeview">
                 <a href="{{ route('promos')}}">
-                    <i class="fa-solid fa-ticket"></i>
+                    <i class="fa-solid fa-rectangle-ad"></i>
                     <span>Promos</span>
                 </a>
             </li>

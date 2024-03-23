@@ -21,8 +21,8 @@
                             <tr>
                                 <td>
                                     <div class="d-flex flex-column">
-                                        <h4>{{ $log->action }}</h4>
-                                        <p>  {{$log->user->name}} {{ $log->description }}</p>
+
+                                        <p>  {{$log->text}}</p>
                                         <span class="text-secondary text-xs font-weight-bold">{{ $log->created_at }}</span>
                                     </div>
                                 </td>
