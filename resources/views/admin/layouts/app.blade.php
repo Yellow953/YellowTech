@@ -24,6 +24,11 @@
   <link href="{{ asset('admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('admin/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
 
+  <!-- jQuery 3.7.1 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- DATA TABLES -->
   <link href="{{ asset('admin/plugins/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/c09f3917c9.js" crossorigin="anonymous"></script>
@@ -65,11 +70,6 @@
     </div>
   </div>
 
-  <!-- jQuery 3.7.1 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button);
@@ -103,7 +103,7 @@
   <!-- Slimscroll -->
   <script src="{{ asset('admin/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
   <!-- FastClick -->
-  <script src='{{ asset(' admin/plugins/fastclick/fastclick.min.js') }}'></script>
+  <script src="{{ asset('admin/plugins/fastclick/fastclick.min.js') }}"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset('admin/js/app.min.js') }}" type="text/javascript"></script>
 

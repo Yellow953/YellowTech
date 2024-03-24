@@ -85,7 +85,7 @@ class OrderController extends Controller
 
     public function destroy(Order $order)
     {
-        $text = $order->client->name . " deleted Order " . $order->id . ", datetime: " . now();
+        $text = auth()->user()->name . " deleted Order " . $order->id . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         $order->delete();
@@ -98,6 +98,10 @@ class OrderController extends Controller
         $order->update([
             'status' => 'completed'
         ]);
+
+        $text = auth()->user()->name . " changed status of Order " . $order->id . " to completed, datetime: " . now();
+        Log::create(['text' => $text]);
+
         return redirect()->back()->with('success', 'Order successfully completed!');
     }
 

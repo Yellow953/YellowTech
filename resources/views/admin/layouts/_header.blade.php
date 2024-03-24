@@ -20,7 +20,7 @@
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <li>
+                                {{-- <li>
                                     <!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
@@ -32,8 +32,8 @@
                                         </h4>
                                         <p>Why not buy a new awesome theme?</p>
                                     </a>
-                                </li><!-- end message -->
-                                <li>
+                                </li><!-- end message --> --}}
+                                {{-- <li>
                                     <a href="#">
                                         <div class="pull-left">
                                             <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="user image" />
@@ -80,7 +80,7 @@
                                         </h4>
                                         <p>Why not buy a new awesome theme?</p>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
                         <li class="footer"><a href="#">See All Messages</a></li>

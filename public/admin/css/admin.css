@@ -37,6 +37,10 @@ ul.pagination{
     margin-top: 0;
     margin-bottom: 0;
 }
+.my-4{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .my-auto{
     margin-top: auto;
     margin-bottom: auto;
@@ -198,6 +202,9 @@ ul.pagination{
 .justify-content-center {
     justify-content: center !important;
 }
+.justify-content-end {
+    justify-content: end !important;
+}
 
 .m-3 {
     margin: 1rem !important;
@@ -222,6 +229,10 @@ ul.pagination{
 
 .m-1 {
     margin: 0.25rem !important;
+}
+
+.pl-3{
+    padding-left: 1rem;
 }
 
 .text-danger {
@@ -353,6 +364,11 @@ ul.pagination{
     margin-right: 0.5rem;
 }
 
+.mx-3{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
 .input-group {
     display: flex;
     flex-wrap: wrap;
@@ -394,4 +410,21 @@ input.form-control {
 .treeview i{
     width: 20px;
     margin-right: 5px;
+}
+
+.col-3{
+    width: 25%;
+}
+
+.col-9{
+    width: 75%;
+}
+
+.status{
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #cecece;
+}
+.completed{
+    background-color: #28a745;
 }
