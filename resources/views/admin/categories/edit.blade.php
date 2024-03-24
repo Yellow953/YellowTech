@@ -11,7 +11,7 @@
             <h2 class="my-0 mb-3">Edit Category</h2>
 
             <div class="box-body">
-                <form method="POST" action="{{ route('categories.udpate', $category->id) }}"
+                <form method="POST" action="{{ route('categories.update', $category->id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">

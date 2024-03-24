@@ -390,3 +390,8 @@ input.form-control {
     padding: 0 25px;
     margin-bottom: 25px;
 }
+
+.treeview i{
+    width: 20px;
+    margin-right: 5px;
+}
