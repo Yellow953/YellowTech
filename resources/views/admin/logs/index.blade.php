@@ -5,6 +5,44 @@
 @section('content')
 <section class="content">
     <div class="row">
+        <div class="col-md-12">
+            <h3 class="mb-2">Filter Logs</h3>
+            <form action="{{ route('logs') }}" method="get" enctype="multipart/form-data" class="filter-form">
+                <div class="input-group input-group-outline">
+                    <div class="w-100">
+                        <label for="text">Text</label>
+                        <div>
+                            <input type="text" class="form-control" name="text" placeholder="Text"
+                                value="{{request()->query('text')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group input-group-outline">
+                    <div class="w-100">
+                        <label for="startDate">Start Date</label>
+                        <div>
+                            <input type="date" class="form-control" name="startDate"
+                                value="{{request()->query('startDate')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group input-group-outline">
+                    <div class="w-100">
+                        <label for="endDate">End Date</label>
+                        <div>
+                            <input type="date" class="form-control" name="endDate"
+                                value="{{request()->query('endDate')}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around mt-3">
+                    <button type="reset" class="btn btn-secondary py-2 px-3 mx-2 my-auto text-dark">reset</button>
+                    <button type="submit" class="btn btn-info py-2 px-3 mx-2 my-auto text-dark">apply</button>
+                </div>
+            </form>
+        </div>
+
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -13,26 +51,20 @@
                             <h3 class="box-title">Logs Table</h3>
                         </div>
                     </div>
-                </div><!-- /.box-header -->
+                </div>
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <tbody>
-                            @foreach($logs as $log)
-                            <tr>
-                                <td>
-                                    <div class="d-flex flex-column">
+                    @foreach($logs as $log)
+                    <div class="log">
+                        <p> {{$log->text}}</p>
+                    </div>
+                    @endforeach
 
-                                        <p>  {{$log->text}}</p>
-                                        <span class="text-secondary text-xs font-weight-bold">{{ $log->created_at }}</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
-    </div><!-- /.row -->
-</section><!-- /.content -->
+                    <div class="pagination">
+                        <p class="text-center">{{$logs->links()}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

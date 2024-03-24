@@ -31,20 +31,18 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
-            'role' => 'required',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'role' => $request->has('role') ? 'admin' : 'user',
         ]);
 
         Log::create([
-            'action' => 'User_Created',
-            'description' => 'added a user',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' created a new user: ' . $request->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('users')->with('success', 'User created successfully');
@@ -61,7 +59,6 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:2',
-            'role' => 'required',
         ]);
 
         $user->update([
@@ -69,12 +66,11 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
             'role' => $request->role,
+            'phone' => $request->phone,
         ]);
 
         Log::create([
-            'action' => 'User_Updated',
-            'description' => 'updated a user',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' edited user: ' . $user->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('users')->with('warning', 'User updated successfully');
@@ -85,9 +81,7 @@ class UserController extends Controller
         $user->delete();
 
         Log::create([
-            'action' => 'User_Deleted',
-            'description' => 'deleted a user',
-            'user_id' => auth()->id(),
+            'text' => auth()->user()->name . ' deleted user: ' . $user->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->back()->with('danger', 'User deleted successfully');
