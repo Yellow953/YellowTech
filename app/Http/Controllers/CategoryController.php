@@ -65,7 +65,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        $text = auth()->user()->name . "deleted Category " . $category->name . ", datetime: " . now();
+        $text = auth()->user()->name . " deleted Category " . $category->name . ", datetime: " . now();
         $category->delete();
         Log::create(['text' => $text]);
 

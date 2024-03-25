@@ -124,7 +124,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $text = auth()->user()->name . "deleted Product: " . $product->name . " deleted, datetime: " . now();
+        $text = auth()->user()->name . " deleted Product: " . $product->name . " deleted, datetime: " . now();
 
         if ($product->image != '/assets/images/no_img.png') {
             $path = public_path($product->image);
