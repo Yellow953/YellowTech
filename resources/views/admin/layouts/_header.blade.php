@@ -97,7 +97,10 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <p>{{ ucwords(auth()->user()->role) }}</p>
+                            <img src="{{ asset('assets/images/default_profile.png') }}" alt="Default Profile"
+                                class="border-none">
+                            <p class="text-dark">{{ ucwords(auth()->user()->name) }} ({{ ucwords(auth()->user()->role)
+                                }})</p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">

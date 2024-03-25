@@ -428,3 +428,16 @@ input.form-control {
 .completed{
     background-color: #28a745;
 }
+
+.no-print{
+    top: 25%!important;
+    padding: 5px 10px !important;
+}
+
+.border-none{
+    border: none !important;
+}
+
+.text-dark{
+    color: black !important;
+}
