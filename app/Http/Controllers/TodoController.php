@@ -56,7 +56,7 @@ class TodoController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' created a new todo: ' . $request->text . ' status: ' . $request->status . ' datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' created a new todo: ' . $request->text . ' status: ' . $request->status . ' datetime: ' . now(),
         ]);
 
         return redirect()->route('todo')->with('success', 'Todo created successfully.');
@@ -81,7 +81,7 @@ class TodoController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' updated todo: ' . $request->text . ' status: ' . $request->status . ' datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' updated todo: ' . $request->text . ' status: ' . $request->status . ' datetime: ' . now(),
         ]);
 
         return redirect()->route('todo')->with('success', 'Todo updated successfully.');
@@ -92,7 +92,7 @@ class TodoController extends Controller
         $todo->delete();
 
         Log::create([
-            'text' => auth()->user()->name . ' deleted todo: ' . $todo->text . ' status: ' . $todo->status . ' datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' deleted todo: ' . $todo->text . ' status: ' . $todo->status . ' datetime: ' . now(),
         ]);
 
         return redirect()->route('todo')->with('success', 'Todo deleted successfully.');
@@ -105,7 +105,7 @@ class TodoController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' completed todo: ' . $todo->text . ' status: ' . $todo->status . ' datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' completed todo: ' . $todo->text . ' status: ' . $todo->status . ' datetime: ' . now(),
         ]);
 
         return redirect()->route('todo')->with('success', 'Todo completed successfully.');

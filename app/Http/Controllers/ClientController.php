@@ -43,7 +43,7 @@ class ClientController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' created client ' . $request->name . ', datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' created client ' . $request->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('clients')->with('success', 'Client created successfully.');
@@ -73,7 +73,7 @@ class ClientController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' updated client ' . $request->name . ', datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' updated client ' . $request->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('clients')->with('success', 'Client updated successfully.');
@@ -82,7 +82,7 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         Log::create([
-            'text' => auth()->user()->name . ' deleted client ' . $client->name . ', datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' deleted client ' . $client->name . ', datetime: ' . now(),
         ]);
 
         $client->delete();

@@ -42,7 +42,7 @@ class ProjectController extends Controller
             'delivery_date' => $request->delivery_date,
         ]);
 
-        $text = auth()->user()->name . " created Project: " . $request->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " created Project: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('projects')->with('success', 'Project was successfully created.');
@@ -72,7 +72,7 @@ class ProjectController extends Controller
             'delivery_date' => $request->delivery_date,
         ]);
 
-        $text = auth()->user()->name . " updated Project: " . $request->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " updated Project: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('projects')->with('success', 'Project was successfully updated.');
@@ -80,7 +80,7 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-        $text = auth()->user()->name . " deleted Project: " . $project->name . " deleted, datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " deleted Project: " . $project->name . " deleted, datetime: " . now();
 
         $project->delete();
         Log::create(['text' => $text]);

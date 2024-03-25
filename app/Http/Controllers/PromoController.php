@@ -36,7 +36,7 @@ class PromoController extends Controller
             'value' => $request->value,
         ]);
 
-        $text = auth()->user()->name . " created Promo: " . $request->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " created Promo: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('promos')->with('success', 'Promo was successfully created.');
@@ -59,7 +59,7 @@ class PromoController extends Controller
             'value' => $request->value,
         ]);
 
-        $text = auth()->user()->name . " updated Promo: " . $promo->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " updated Promo: " . $promo->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('promos')->with('success', 'Promo was successfully updated.');
@@ -67,7 +67,7 @@ class PromoController extends Controller
 
     public function destroy(Promo $promo)
     {
-        $text = auth()->user()->name . " deleted Promo: " . $promo->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " deleted Promo: " . $promo->name . ", datetime: " . now();
         $promo->delete();
         Log::create(['text' => $text]);
 

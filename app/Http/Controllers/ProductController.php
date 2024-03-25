@@ -66,7 +66,7 @@ class ProductController extends Controller
             'image' => $path,
         ]);
 
-        $text = auth()->user()->name . " created Product: " . $request->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " created Product: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('products')->with('success', 'Product was successfully created.');
@@ -116,7 +116,7 @@ class ProductController extends Controller
             'image' => $path,
         ]);
 
-        $text = auth()->user()->name . " updates Product: " . $request->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " updates Product: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('products')->with('success', 'Product was successfully updated.');
@@ -124,7 +124,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $text = auth()->user()->name . " deleted Product: " . $product->name . " deleted, datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " deleted Product: " . $product->name . " deleted, datetime: " . now();
 
         if ($product->image != '/assets/images/no_img.png') {
             $path = public_path($product->image);

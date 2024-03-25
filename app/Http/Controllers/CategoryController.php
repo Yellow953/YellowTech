@@ -35,7 +35,7 @@ class CategoryController extends Controller
             'description' => $request->description,
         ]);
 
-        $text = auth()->user()->name . " created Category " . $request->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " created Category " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('categories')->with('success', 'Category was successfully created.');
@@ -57,7 +57,7 @@ class CategoryController extends Controller
             'description' => $request->description,
         ]);
 
-        $text = auth()->user()->name . " updated Category " . $category->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " updated Category " . $category->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('categories')->with('success', 'Category was successfully updated.');
@@ -65,7 +65,7 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        $text = auth()->user()->name . " deleted Category " . $category->name . ", datetime: " . now();
+        $text = ucwords(auth()->user()->name) .  " deleted Category " . $category->name . ", datetime: " . now();
         $category->delete();
         Log::create(['text' => $text]);
 

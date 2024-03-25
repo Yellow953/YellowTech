@@ -42,7 +42,7 @@ class UserController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' created a new user: ' . $request->name . ', datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' created a new user: ' . $request->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('users')->with('success', 'User created successfully');
@@ -70,7 +70,7 @@ class UserController extends Controller
         ]);
 
         Log::create([
-            'text' => auth()->user()->name . ' edited user: ' . $user->name . ', datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' edited user: ' . $user->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->route('users')->with('warning', 'User updated successfully');
@@ -81,7 +81,7 @@ class UserController extends Controller
         $user->delete();
 
         Log::create([
-            'text' => auth()->user()->name . ' deleted user: ' . $user->name . ', datetime: ' . now(),
+            'text' => ucwords(auth()->user()->name) .  ' deleted user: ' . $user->name . ', datetime: ' . now(),
         ]);
 
         return redirect()->back()->with('danger', 'User deleted successfully');
