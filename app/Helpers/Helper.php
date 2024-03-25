@@ -28,6 +28,12 @@ class Helper
         return $conditions;
     }
 
+    public static function get_project_statuses()
+    {
+        $statuses = ['active', 'pending', 'hold'];
+        return $statuses;
+    }
+
     public static function get_product($productID)
     {
         return Product::find($productID);

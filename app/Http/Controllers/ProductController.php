@@ -116,7 +116,7 @@ class ProductController extends Controller
             'image' => $path,
         ]);
 
-        $text = auth()->user()->name . " update Product: " . $request->name . ", datetime: " . now();
+        $text = auth()->user()->name . " updates Product: " . $request->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
         return redirect()->route('products')->with('success', 'Product was successfully updated.');

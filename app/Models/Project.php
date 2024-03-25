@@ -26,7 +26,7 @@ class Project extends Model
         return $this->hasMany(Ticket::class);
     }
 
-    public function attachements()
+    public function images()
     {
         return $this->hasMany(Attachement::class);
     }

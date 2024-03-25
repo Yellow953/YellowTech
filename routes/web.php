@@ -54,6 +54,7 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{project}', [ProjectController::class, 'edit'])->name('projects.edit');
         Route::post('/update/{project}', [ProjectController::class, 'update'])->name('projects.update');
         Route::get('/delete/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+        Route::get('/images/{project}', [ProjectController::class, 'images'])->name('projects.images');
     });
 
     // invoices routes
