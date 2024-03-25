@@ -46,6 +46,17 @@ Route::prefix('app')->group(function () {
         Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
     });
 
+    // invoices routes
+    Route::prefix('invoices')->group(function () {
+        Route::get('/', [InvoiceController::class, 'index'])->name('invoices');
+        Route::get('/new', [InvoiceController::class, 'new'])->name('invoices.new');
+        Route::post('/create', [InvoiceController::class, 'create'])->name('invoices.create');
+        Route::get('/edit/{invoice}', [InvoiceController::class, 'edit'])->name('invoices.edit');
+        Route::post('/update/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
+        Route::get('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
+        Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
+    });
+
     // projects routes
     Route::prefix('projects')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('projects');
@@ -55,16 +66,6 @@ Route::prefix('app')->group(function () {
         Route::post('/update/{project}', [ProjectController::class, 'update'])->name('projects.update');
         Route::get('/delete/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
         Route::get('/images/{project}', [ProjectController::class, 'images'])->name('projects.images');
-    });
-
-    // invoices routes
-    Route::prefix('invoices')->group(function () {
-        Route::get('/', [InvoiceController::class, 'index'])->name('invoices');
-        Route::get('/new', [InvoiceController::class, 'new'])->name('invoices.new');
-        Route::post('/create', [InvoiceController::class, 'create'])->name('invoices.create');
-        Route::get('/edit/{invoice}', [InvoiceController::class, 'edit'])->name('invoices.edit');
-        Route::post('/update/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
-        Route::get('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
     });
 
     // tickets routes
@@ -100,7 +101,7 @@ Route::prefix('app')->group(function () {
     });
 
     // Categories
-    Route::prefix('/categories')->group(function () {
+    Route::prefix('categories')->group(function () {
         Route::get('/new', [CategoryController::class, 'new'])->name('categories.new');
         Route::post('/create', [CategoryController::class, 'create'])->name('categories.create');
         Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
@@ -111,7 +112,7 @@ Route::prefix('app')->group(function () {
     });
 
     // Products
-    Route::prefix('/products')->group(function () {
+    Route::prefix('products')->group(function () {
         Route::get('/search', [ProductController::class, 'search'])->name('products.search');
         Route::get('/new', [ProductController::class, 'new'])->name('products.new');
         Route::post('/create', [ProductController::class, 'create'])->name('products.create');
@@ -123,7 +124,7 @@ Route::prefix('app')->group(function () {
     });
 
     // Orders
-    Route::prefix('/orders')->group(function () {
+    Route::prefix('orders')->group(function () {
         Route::get('/{order}/complete', [OrderController::class, 'complete'])->name('orders.complete');
         Route::get('/{order}/edit', [OrderController::class, 'edit'])->name('orders.edit');
         Route::post('/{order}/update', [OrderController::class, 'update'])->name('orders.update');
@@ -136,7 +137,7 @@ Route::prefix('app')->group(function () {
     });
 
     // Promos
-    Route::prefix('/promos')->group(function () {
+    Route::prefix('promos')->group(function () {
         Route::get('/{promo}/edit', [PromoController::class, 'edit'])->name('promos.edit');
         Route::post('/{promo}/update', [PromoController::class, 'update'])->name('promos.update');
         Route::get('/{promo}/destroy', [PromoController::class, 'destroy'])->name('promos.destroy');

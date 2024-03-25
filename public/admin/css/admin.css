@@ -441,3 +441,51 @@ input.form-control {
 .text-dark{
     color: black !important;
 }
+
+.inner-container {
+    width: 100%;
+    margin: 0;
+    padding: 5rem;
+}
+
+.card-header {
+    background-color: #17a2b8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header h4 {
+    font-weight: bold;
+    color: #fff;
+}
+
+.card-body {
+    padding: 1.25rem; 
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.btn-danger {
+    background-color: #dc3545; 
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    opacity: 0.8; 
+}
+
+.my-3{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+

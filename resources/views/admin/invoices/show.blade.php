@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>YellowTech | Order</title>
+    <title>YellowTech | Invoice</title>
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
@@ -25,12 +25,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Order
-                {{ $order->id }}
+                Invoice
+                {{ $invoice->invoice_number }}
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="{{ route('orders') }}">Orders</a></li>
+                <li><a href="{{ route('invoices') }}">Invoices</a></li>
                 <li class="active">Show</li>
             </ol>
         </section>
@@ -42,14 +42,14 @@
                 <div class="col-xs-12">
                     <h2 class="page-header">
                         <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" width="100">
-                        <small class="pull-right" style="margin-top: 25px">Date: {{ $order->created_at->format('d/m/Y')
-                            }}</small>
+                        <small class="pull-right" style="margin-top: 25px">Date: {{
+                            $invoice->date }}</small>
                     </h2>
-                </div><!-- /.col -->
+                </div>
             </div>
             <!-- info row -->
             <div class="row invoice-info">
-                <div class="col-sm-4 invoice-col">
+                <div class="col-sm-3 invoice-col">
                     From
                     <address>
                         <strong>YellowTech</strong><br>
@@ -59,19 +59,26 @@
                         Email: yellow.tech.953@gmail.com
                     </address>
                 </div><!-- /.col -->
-                <div class="col-sm-4 invoice-col">
+                <div class="col-sm-3 invoice-col">
                     To
                     <address>
-                        <strong>{{ $order->client->name }}</strong><br>
-                        {{ $order->client->city }}, {{ $order->client->address }}<br>
-                        Phone: {{ $order->client->phone }}<br />
-                        Email: {{ $order->client->email }}
+                        <strong>{{ $invoice->client->name }}</strong><br>
+                        {{ $invoice->client->city }}, {{ $invoice->client->address }}<br>
+                        Phone: {{ $invoice->client->phone }}<br />
+                        Email: {{ $invoice->client->email }}
                     </address>
-                </div><!-- /.col -->
-                <div class="col-sm-4 invoice-col">
-                    <b>Order:</b> {{ $order->id }}<br />
-                    <b>Payment Due:</b> {{ $order->created_at->format('d/m/Y') }}<br />
-                </div><!-- /.col -->
+                </div>
+                <div class="col-sm-3 invoice-col">
+                    Project
+                    <address>
+                        <strong>{{ $invoice->project->name }}</strong><br>
+                        {{ $invoice->project->description }}
+                    </address>
+                </div>
+                <div class="col-sm-3 invoice-col">
+                    <b>Invoice #:</b> {{ $invoice->invoice_number }}<br />
+                    <b>Payment Due:</b> {{ $invoice->date }}<br />
+                </div>
             </div><!-- /.row -->
 
             <!-- Table row -->
@@ -88,32 +95,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($order->products as $index => $product)
+                            @foreach ($invoice->items as $index => $item)
                             <tr>
                                 <td class="center">{{ $index }}</td>
-                                <td class="left strong">{{ ucwords($product->name) }}</td>
-                                <td class="right">${{ number_format($product->unit_price, 2) }}</td>
-                                <td class="center">{{ $product->pivot->quantity }}</td>
-                                <td class="right">${{ number_format($product->unit_price * $product->pivot->quantity, 2)
+                                <td class="left strong">{{ ucwords($item->item) }}</td>
+                                <td class="right">${{ number_format($item->unit_price, 2) }}</td>
+                                <td class="center">{{ $item->quantity }}</td>
+                                <td class="right">${{ number_format($item->unit_price * $item->quantity, 2)
                                     }}
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </div><!-- /.col -->
+                </div>
             </div><!-- /.row -->
 
             <div class="row">
                 <!-- accepted payments column -->
                 <div class="col-xs-6">
-                </div><!-- /.col -->
+                </div>
                 <div class="col-xs-6">
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
                                 <th>Subtotal:</th>
-                                <td>${{ number_format($order->total_price,2) }}</td>
+                                <td>${{ number_format($invoice->total_price,2) }}</td>
                             </tr>
                             <tr>
                                 <th>Shipping:</th>
@@ -125,11 +132,11 @@
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td>${{ number_format($order->total_price,2) }}</td>
+                                <td>${{ number_format($invoice->total_price,2) }}</td>
                             </tr>
                         </table>
                     </div>
-                </div><!-- /.col -->
+                </div>
             </div><!-- /.row -->
         </section><!-- /.content -->
     </div>

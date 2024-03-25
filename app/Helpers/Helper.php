@@ -28,9 +28,21 @@ class Helper
         return $conditions;
     }
 
+    public static function get_currencies()
+    {
+        $conditions = ['USD', 'LBP'];
+        return $conditions;
+    }
+
     public static function get_project_statuses()
     {
         $statuses = ['active', 'pending', 'hold'];
+        return $statuses;
+    }
+
+    public static function get_invoice_statuses()
+    {
+        $statuses = ['unpaid', 'partially paid', 'paid'];
         return $statuses;
     }
 

@@ -42,7 +42,7 @@
                                 </td>
                                 <td><span class="status {{ $order->status == 'completed' ? 'completed' : '' }}">{{
                                         ucwords($order->status) }}</span></td>
-                                <td>{{ number_format($order->total_price) }}</td>
+                                <td>{{ number_format($order->total_price, 2) }}</td>
                                 <td>
                                     <div class="action-buttons">
                                         @if($order->status != 'completed')
