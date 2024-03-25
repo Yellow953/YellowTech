@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
-Sitemap: https://yellowtech.dev/sitemap.xml
+Sitemap: yellowtech.dev/sitemap.xml
