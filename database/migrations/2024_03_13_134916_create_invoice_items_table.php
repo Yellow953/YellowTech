@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("invoice_id")->unsigned();
             $table->string('item');
-            $table->double('quantity')->default(0);
+            $table->double('quantity')->default(1);
             $table->double('unit_price')->default(0);
             $table->double('total_price')->default(0);
             $table->timestamps();

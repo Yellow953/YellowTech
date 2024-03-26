@@ -1,5 +1,4 @@
 <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header">SHOP</li>
@@ -83,13 +82,12 @@
                     <span>Logs</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
+            <li class="treeview {{ request()->routeIs('notifications*') ? 'active' : '' }}">
+                <a href="{{ route('notifications') }}">
                     <i class="fa-solid fa-bell"></i>
                     <span>Notifications</span>
                 </a>
             </li>
         </ul>
     </section>
-    <!-- /.sidebar -->
 </aside>

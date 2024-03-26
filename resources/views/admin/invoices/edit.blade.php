@@ -178,6 +178,7 @@
                             </tr>
                             @foreach ($invoice->items as $item)
                             <tr class="invoice-item-row">
+                                <td></td>
                                 <td>{{ $item->item }}</td>
                                 <td>{{ number_format($item->quantity, 2) }}</td>
                                 <td>{{ number_format($item->unit_price, 2) }}</td>
@@ -195,8 +196,8 @@
                                     <input type="text" class="form-control" name="item[]" required>
                                 </td>
                                 <td>
-                                    <input type="number" name="quantity[]" class="form-control" required min="0"
-                                        value="0" step="any">
+                                    <input type="number" name="quantity[]" class="form-control" required min="1"
+                                        value="1" step="any">
                                 </td>
                                 <td>
                                     <input type="number" name="unit_price[]" class="form-control" required min="0"
@@ -210,18 +211,21 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="text-center">
-                    <div class="row">
-                        <div class="col-9">Total Price</div>
-                        <div class="col-3"><span id="invoice_items_total">{{ number_format($invoice->total_price, 2)
-                                }}</span></div>
-                    </div>
+                <div class="row my-2">
+                    <div class="offset-md-6 col-3">Discount %</div>
+                    <div class="col-3"><input type="number" min="0" max="100" step="any"
+                            value="{{ $invoice->discount }}" name="discount" id="discount" class="form-control"></div>
+                </div>
+                <div class="row my-2">
+                    <div class="offset-md-6 col-3">Total Price $</div>
+                    <div class="col-3 text-right"><span id="invoice_items_total">{{ number_format($invoice->sub_total,
+                            2) }}</span></div>
                 </div>
 
                 <br><br>
                 <div class="w-100 my-3">
                     <button type="submit" class="btn btn-info btn-block mx-3" id="submitBtn">
-                        {{ __('Create') }}
+                        {{ __('Update') }}
                     </button>
                 </div>
             </form>
@@ -242,7 +246,7 @@
         newRow.querySelectorAll('input').forEach(function(input) {
             input.addEventListener('input', function() {
                 updateInvoiceItemRow(newRow);
-                setupItemSelectionListener(newRow);
+                updateInvoiceTotalWithDiscount();
             });
         });
     }
@@ -251,6 +255,7 @@
         var row = button.parentNode.parentNode;
         row.parentNode.removeChild(row);
         updateInvoiceTotal();
+        updateInvoiceTotalWithDiscount();
     }
 
     function updateInvoiceItemRow(row) {
@@ -265,7 +270,7 @@
     }
     
     function updateInvoiceTotal() {
-        var total = {{ $invoice->total_price }};
+        var total = {{ $invoice->sub_total }};
 
         document.querySelectorAll('#invoiceItemsTable tbody tr').forEach(function(row) {
             var totalCost = parseFloat(row.querySelector('input[name^="total_price"]').value) || 0;
@@ -276,10 +281,23 @@
         document.getElementById('invoice_items_total').innerText = total.toFixed(2);
     }
 
-    function fillRowWithData(row, data) {
-        row.querySelector('select[name^="item"]').value = data.item;
-        row.querySelector('input[name^="quantity"]').value = data.quantity;
-        row.querySelector('input[name^="unit_price"]').value = data.unit_price;
+    function updateInvoiceTotalWithDiscount() {
+        var total = calculateTotal();
+        var discount = parseFloat(document.getElementById('discount').value) || 0;
+        var discountedTotal = total - (total * (discount / 100));
+
+        document.getElementById('invoice_items_total').innerText = discountedTotal.toFixed(2);
+    }
+
+    function calculateTotal() {
+        var total = {{ $invoice->sub_total }};
+
+        document.querySelectorAll('#invoiceItemsTable tbody tr').forEach(function(row) {
+            var totalCost = parseFloat(row.querySelector('input[name^="total_price"]').value) || 0;
+            total += totalCost;
+        });
+
+        return total;
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -287,10 +305,16 @@
             row.querySelectorAll('input').forEach(function(input) {
                 input.addEventListener('input', function() {
                     updateInvoiceItemRow(row);
+                    updateInvoiceTotalWithDiscount();
                 });
             });
         });
+
+        document.getElementById('discount').addEventListener('input', function() {
+            updateInvoiceTotalWithDiscount();
+        });
+
+        updateInvoiceTotalWithDiscount();
     });
 </script>
-
 @endsection

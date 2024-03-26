@@ -18,8 +18,10 @@ return new class extends Migration
             $table->bigInteger("project_id")->unsigned();
             $table->bigInteger("client_id")->unsigned();
             $table->string('status')->default('new');
+            $table->double('sub_total')->default(0);
             $table->double('total_price')->default(0);
             $table->text('note')->nullable();
+            $table->double('discount')->nullable();
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects');

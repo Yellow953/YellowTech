@@ -13,6 +13,7 @@ class ClientSeeder extends Seeder
         DB::table('clients')->insert([
             'name' => 'test',
             'email' => 'test@test.com',
+            'city' => 'city',
             'address' => 'address',
             'phone' => '70285659',
             'created_at' => now(),

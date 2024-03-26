@@ -51,7 +51,9 @@ class InvoiceController extends Controller
             'project_id' => $request->input('project_id'),
             'rate' => $request->rate,
             'status' => $request->status,
+            'sub_total' => 0,
             'total_price' => 0,
+            'discount' => $request->discount,
             'note' => $request->note,
         ]);
 
@@ -69,7 +71,15 @@ class InvoiceController extends Controller
             $total_price += $tp;
         }
 
-        $invoice->update(['total_price' => $total_price]);
+        $subtotal = $total_price;
+        if ($request->discount != 0) {
+            $total_price = $total_price - ($total_price * ($request->discount / 100));
+        }
+
+        $invoice->update([
+            'total_price' => $total_price,
+            'sub_total' => $subtotal,
+        ]);
 
         $text = ucwords(auth()->user()->name) . " created new Invoice : " . $invoice->invoice_number . ", datetime :   " . now();
         Log::create(['text' => $text]);
@@ -107,6 +117,7 @@ class InvoiceController extends Controller
             'project_id' => $request->input('project_id'),
             'rate' => $request->rate,
             'status' => $request->status,
+            'discount' => $request->discount,
             'note' => $request->note,
         ]);
 
@@ -123,7 +134,16 @@ class InvoiceController extends Controller
             ]);
             $total_price += $tp;
         }
-        $invoice->update(['total_price' => $total_price]);
+
+        $subtotal = $total_price;
+        if ($request->discount != 0) {
+            $total_price = $total_price - ($total_price * ($request->discount / 100));
+        }
+
+        $invoice->update([
+            'total_price' => $total_price,
+            'sub_total' => $subtotal,
+        ]);
 
         $text = ucwords(auth()->user()->name) . " updated Invoice : " . $invoice->invoice_number . ", datetime :   " . now();
         Log::create(['text' => $text]);

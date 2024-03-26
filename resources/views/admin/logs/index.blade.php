@@ -6,7 +6,6 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="mb-2">Filter Logs</h3>
             <form action="{{ route('logs') }}" method="get" enctype="multipart/form-data" class="filter-form">
                 <div class="input-group input-group-outline">
                     <div class="w-100">
@@ -53,11 +52,15 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    @foreach($logs as $log)
+                    @forelse($logs as $log)
                     <div class="log">
                         <p> {{$log->text}}</p>
                     </div>
-                    @endforeach
+                    @empty
+                    <div class="log">
+                        <p class="text-center">No Data Yet ...</p>
+                    </div>
+                    @endforelse
 
                     <div class="pagination">
                         <p class="text-center">{{$logs->links()}}</p>

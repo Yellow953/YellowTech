@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
@@ -81,6 +82,11 @@ Route::prefix('app')->group(function () {
     // logs routes
     Route::prefix('logs')->group(function () {
         Route::get('/', [LogController::class, 'index'])->name('logs');
+    });
+
+    // notifications routes
+    Route::prefix('notifications')->group(function () {
+        Route::get('/', [NotificationController::class, 'index'])->name('notifications');
     });
 
     // TODO routes

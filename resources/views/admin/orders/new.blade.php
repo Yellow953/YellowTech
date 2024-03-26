@@ -61,7 +61,7 @@
                                                 <th>Add</th>
                                             </tr>
 
-                                            @foreach ($category->products as $product)
+                                            @forelse ($category->products as $product)
                                             <tr>
                                                 <td class="word-break">{{ ucfirst($product->name) }}</td>
                                                 <td>{{ number_format($product->quantity) }}</td>
@@ -77,7 +77,11 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                            @empty
+                                            <tr>
+                                                <td colspan="4">No Data Yet ...</td>
+                                            </tr>
+                                            @endforelse
 
                                         </table><!-- end of table -->
 
@@ -124,6 +128,7 @@
                                 </div>
                                 <div class="col-9">
                                     <select name="client_id" id="client_id" required class="form-control py-0">
+                                        <option value=""></option>
                                         @foreach ($clients as $client)
                                         <option value="{{$client->id}}">{{$client->name}}</option>
                                         @endforeach

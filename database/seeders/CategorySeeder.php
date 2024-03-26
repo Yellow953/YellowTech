@@ -12,12 +12,14 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             'name' => 'Software',
+            'description' => 'This is a software category',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Hardware',
+            'description' => 'This is a hardware category',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

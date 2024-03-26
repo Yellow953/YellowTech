@@ -95,7 +95,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($invoice->items as $index => $item)
+                            @forelse ($invoice->items as $index => $item)
                             <tr>
                                 <td class="center">{{ $index }}</td>
                                 <td class="left strong">{{ ucwords($item->item) }}</td>
@@ -105,7 +105,11 @@
                                     }}
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="5">No Data Yet ...</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -120,7 +124,7 @@
                         <table class="table">
                             <tr>
                                 <th>Subtotal:</th>
-                                <td>${{ number_format($invoice->total_price,2) }}</td>
+                                <td>${{ number_format($invoice->sub_total,2) }}</td>
                             </tr>
                             <tr>
                                 <th>Shipping:</th>
@@ -128,7 +132,7 @@
                             </tr>
                             <tr>
                                 <th>Discount:</th>
-                                <td>$0.00</td>
+                                <td>%{{ $invoice->discount }}</td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
@@ -140,6 +144,9 @@
             </div><!-- /.row -->
         </section><!-- /.content -->
     </div>
+
+    400->100
+    100->25
 
     <!-- jQuery 2.1.3 -->
     <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>

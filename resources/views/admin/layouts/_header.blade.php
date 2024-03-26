@@ -92,7 +92,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa-solid fa-user"></i>
-                        <span class="mr-4 hidden-xs">{{ ucwords(auth()->user()->name) }}</span>
+                        <span class="mx-3 hidden-xs">{{ ucwords(auth()->user()->name) }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->

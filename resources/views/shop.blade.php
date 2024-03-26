@@ -143,7 +143,7 @@ yellowtech hardware shop, yellowtech software shop')
             <section class="py-2">
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        @foreach ($products as $product)
+                        @forelse ($products as $product)
                         <!-- Product card -->
                         <div class="col-md-4 mb-5">
                             <div class="card product-card h-100">
@@ -177,7 +177,9 @@ yellowtech hardware shop, yellowtech software shop')
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        <p>No Products Found ...</p>
+                        @endforelse
                     </div>
                     <div class="row">
                         {{ $products->links() }}

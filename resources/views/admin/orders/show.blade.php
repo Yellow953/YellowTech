@@ -88,7 +88,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($order->products as $index => $product)
+                            @forelse ($order->products as $index => $product)
                             <tr>
                                 <td class="center">{{ $index }}</td>
                                 <td class="left strong">{{ ucwords($product->name) }}</td>
@@ -98,7 +98,11 @@
                                     }}
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="5">No Data Yet ...</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div><!-- /.col -->
