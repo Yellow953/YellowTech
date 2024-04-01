@@ -3,20 +3,6 @@
 @section('title', 'calendar')
 
 @section('content')
-<!-- Main content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Calendar
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Calendar</li>
-      </ol>
-    </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -68,7 +54,7 @@
               <div class="input-group">
                 <input id="new-event" type="text" class="form-control" placeholder="Event Title">
                 <div class="input-group-btn">
-                  <button id="add-new-event" type="button" class="btn btn-primary btn-flat">Add</button>
+                  <button id="add-new-event" type="button" class="btn btn-primary ">Add</button>
                 </div><!-- /btn-group -->
               </div><!-- /input-group -->
             </div>
@@ -83,11 +69,8 @@
           </div><!-- /. box -->
         </div><!-- /.col -->
       </div><!-- /.row -->
-    </section><!-- /.content -->
-  </div><!-- /.content-wrapper -->
-</div><!-- ./wrapper -->
+    </section>
 
-<
 <!-- Page specific script -->
 <script type="text/javascript">
   $(function () {
