@@ -145,9 +145,6 @@
         </section><!-- /.content -->
     </div>
 
-    400->100
-    100->25
-
     <!-- jQuery 2.1.3 -->
     <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
     <!-- Bootstrap 3.3.2 JS -->
