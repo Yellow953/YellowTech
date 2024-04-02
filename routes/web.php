@@ -104,6 +104,7 @@ Route::prefix('app')->group(function () {
     Route::prefix('calendar')->group(function () {
         Route::get('/', [CalendarController::class, 'index'])->name('calendar');
         Route::get('/events', [CalendarController::class, 'events'])->name('calendar.events');
+        Route::post('/store', [CalendarController::class, 'events'])->name('calendar.store');
     });
 
     // Categories
