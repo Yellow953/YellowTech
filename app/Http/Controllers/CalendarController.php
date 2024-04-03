@@ -15,10 +15,7 @@ class CalendarController extends Controller
 
     public function index()
     {
-        // Fetch events from the database or wherever they are stored
         $events = Event::select('id', 'title', 'date', 'color', 'time')->get();
-
-        // Pass the events to the view
         return view('admin.calendar.index', compact('events'));
     }
 
@@ -28,22 +25,18 @@ class CalendarController extends Controller
 
         return response()->json($events);
     }
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'title' => 'required|string',
             'color' => 'required|string',
-            'date' => 'required|date',
-            'time' => 'nullable|date_format:H:i',
         ]);
 
-        $event = new Event();
-        $event->title = $request->title;
-        $event->color = $request->color;
-        $event->date = $request->date;
-        $event->time = $request->time;
-        $event->user_id = Auth::id();
-        $event->save();
+        $event = Event::create([
+            'user_id' => auth()->user()->id,
+            'title' => $request->title,
+            'color' => $request->color,
+        ]);
 
         return response()->json(['message' => 'Event created successfully', 'event' => $event]);
     }

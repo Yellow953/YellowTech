@@ -506,3 +506,77 @@ input.form-control {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+/* Scroller */
+body {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+  
+body::-webkit-scrollbar {
+    width: 12px;
+}
+  
+body::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #eee;
+}
+/* end scroller */
+
+.bg-aqua {
+    background-color: #00c0ef !important;
+}
+
+.bg-blue {
+    background-color: #0073b7 !important;
+}
+
+.bg-light-blue {
+    background-color: #3c8dbc !important;
+}
+
+.bg-teal {
+    background-color: #39cccc !important;
+}
+
+.bg-yellow {
+    background-color: #f39c12 !important;
+}
+
+.bg-orange {
+    background-color: #ff851b !important;
+}
+
+.bg-green {
+    background-color: #00a65a !important;
+}
+
+.bg-lime {
+    background-color: #00c0ef !important;
+}
+
+.bg-red {
+    background-color: #f56954 !important;
+}
+
+.bg-purple {
+    background-color: #605ca8 !important;
+}
+
+.bg-fuchsia {
+    background-color: #f012be !important;
+}
+
+.bg-muted {
+    background-color: #6c757d !important;
+}
+
+.bg-navy {
+    background-color: #001f3f !important;
+}

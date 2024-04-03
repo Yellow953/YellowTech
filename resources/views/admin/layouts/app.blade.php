@@ -9,7 +9,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {{-- Favicon --}}
-  <link rel="shortcut icon" href="{{ asset('assets/logo/yellowtech.ico') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('assets/logo/yellowtech.png') }}" type="image/x-icon">
 
   <title>YellowTech | @yield('title')</title>
 
@@ -19,7 +19,7 @@
   <!-- FontAwesome -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
     type="text/css" />
-    <script src="https://kit.fontawesome.com/c09f3917c9.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/c09f3917c9.js" crossorigin="anonymous"></script>
 
   <!-- Ionicons -->
   <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
@@ -30,8 +30,8 @@
 
   <!-- jQuery -->
   <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
-   <!-- jQuery UI -->
-   <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+  <!-- jQuery UI -->
+  <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
   <script>
     $.widget.bridge('uibutton', $.ui.button);
   </script>
@@ -46,7 +46,8 @@
 
   <!-- FullCalendar -->
   <link href="{{ asset('admin/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('admin/plugins/fullcalendar/fullcalendar.print.css')}}" rel="stylesheet" type="text/css" media='print' />
+  <link href="{{ asset('admin/plugins/fullcalendar/fullcalendar.print.css')}}" rel="stylesheet" type="text/css"
+    media='print' />
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
   <script src="{{ asset('admin/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
 
@@ -63,7 +64,8 @@
   <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>
 
   <!-- wysihtml5 -->
-  <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" />
+  <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
+    type="text/css" />
   <script src="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
 
   <!-- jvectormap -->
@@ -123,4 +125,5 @@
     </div>
   </div>
 </body>
+
 </html>

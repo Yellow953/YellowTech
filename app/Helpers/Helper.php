@@ -50,4 +50,9 @@ class Helper
     {
         return Product::find($productID);
     }
+
+    public static function get_event_colors()
+    {
+        return ['aqua', 'blue', 'light-blue', 'teal', 'yellow', 'orange', 'green', 'lime', 'red', 'purple', 'fuchsia', 'muted', 'navy'];
+    }
 }
