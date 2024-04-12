@@ -161,14 +161,14 @@
           console.log("Add button clicked");
 
           var title = $("#new-event").val();
-          var date = ''; 
-          var time = ''; 
+          var date = '';
+          var time = '';
 
           if (title.trim() === "") {
               alert("Please enter an event title.");
               return;
           }
-          alert(color);
+
 
           $.ajax({
               url: "{{ route('calendar.create') }}",
