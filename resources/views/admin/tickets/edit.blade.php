@@ -34,6 +34,18 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
+              <label for="user_id">User Name: *</label>
+              <select name="user_id" class="form-control" required>
+                <option value=""></option>
+                @foreach ($users as $user)
+                <option value="{{ $user->id }}" {{ $user->user_id==$user->id ? 'selected' :
+                    '' }}>{{ ucwords($user->name) }}</option>
+                @endforeach
+            </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
               <label for="description">Description *</label>
               <input name="description" type="text" class="form-control" placeholder="Enter ticket description"  value="{{ $ticket->description }}" required>
             </div>

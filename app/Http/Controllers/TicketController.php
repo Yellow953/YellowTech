@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\User;
 
 class TicketController extends Controller
 {
@@ -20,7 +22,10 @@ class TicketController extends Controller
 
     public function new()
     {
-        return view('admin.tickets.new');
+        $projects = Project::all();
+        $users = User::all();
+        $tickets = Ticket::all();
+        return view('admin.tickets.new', compact('projects', 'users', 'tickets'));
     }
 
     public function create(Request $request)
@@ -34,13 +39,18 @@ class TicketController extends Controller
         ]);
 
         Ticket::create($request->all());
-
-        return redirect()->route('tickets')->with('success', 'Ticket created successfully.');
+        $projects = Project::all();
+        $users = User::all();
+        $tickets = Ticket::all();
+        return view('admin.tickets.index', compact('projects', 'users', 'tickets'))->with('success', 'Ticket created successfully.');
     }
 
     public function edit(Ticket $ticket)
     {
-        return view('admin.tickets.edit', compact('ticket'));
+        $projects = Project::all();
+        $users = User::all();
+        $tickets = Ticket::all();
+        return view('admin.tickets.edit', compact('projects', 'users', 'ticket'));
     }
 
     public function update(Request $request, Ticket $ticket)
@@ -54,8 +64,11 @@ class TicketController extends Controller
         ]);
 
         $ticket->update($request->all());
+        $projects = Project::all();
+        $users = User::all();
+        $tickets = Ticket::all();
 
-        return redirect()->route('tickets')->with('success', 'Ticket updated successfully.');
+        return view('admin.tickets.index', compact('projects', 'users', 'tickets'))->with('success', 'Ticket updated successfully.');
     }
 
     public function destroy(Ticket $ticket)
