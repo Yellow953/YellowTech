@@ -77,6 +77,7 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{ticket}', [TicketController::class, 'edit'])->name('tickets.edit');
         Route::post('/update/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
         Route::get('/delete/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
+        Route::get('/images/{ticket}', [TicketController::class, 'images'])->name('tickets.images');
     });
 
     // logs routes

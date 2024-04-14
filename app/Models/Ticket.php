@@ -25,4 +25,8 @@ class Ticket extends Model
     {
         return $this->hasMany(Attachement::class);
     }
+    public function images()
+    {
+        return $this->hasMany(Attachement::class);
+    }
 }

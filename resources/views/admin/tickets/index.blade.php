@@ -24,8 +24,8 @@
                     <table id="example1" class="table table-bordered table-striped text-center border">
                         <thead>
                             <tr>
-                                <th>Ticket Name</th>
-                                <th>Project Name</th>
+                                <th>Name</th>
+                                <th>Project</th>
                                 <th>Description</th>
                                 <th>Status</th>
 
@@ -41,6 +41,9 @@
 
                                 <td>
                                     <div class="action-buttons">
+                                        <a href="{{ route('tickets.images', $ticket->id) }}" class="btn btn-primary">
+                                            <i class="fas fa-image"></i>
+                                        </a>
                                         <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>

@@ -76,4 +76,10 @@ class TicketController extends Controller
         $ticket->delete();
         return redirect()->route('tickets')->with('success', 'Ticket deleted successfully.');
     }
+
+    public function images(Ticket $ticket)
+    {
+
+        return view('admin.tickets.images', compact('ticket'));
+    }
 }

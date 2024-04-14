@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'products')
+@section('title', 'tickets')
 
 @section('sub-title', 'images')
 
@@ -16,7 +16,7 @@
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        @forelse ($project->images as $attachement)
+                        @forelse ($ticket->images as $attachement)
                         <form method="GET" action="{{ route('attachements.destroy', $attachement->id) }}">
                             @csrf
                             <a class="image-wrapper show_confirm">
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('attachements.create') }}" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="project_id" value="{{ $project->id }}">
+                        <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
 
                         <div class="input-group input-group-outline row  my-1">
                             <label for="pictures" class="col-md-5 col-form-label text-md-end">{{ __('Pictures')
