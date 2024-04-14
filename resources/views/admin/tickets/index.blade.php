@@ -28,7 +28,6 @@
                                 <th>Project</th>
                                 <th>Description</th>
                                 <th>Status</th>
-
                             </tr>
                         </thead>
                         <tbody>

@@ -40,4 +40,18 @@ class CalendarController extends Controller
 
         return response()->json(['message' => 'Event created successfully', 'event' => $event]);
     }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer',
+            'date' => 'required|date',
+        ]);
+
+        $event = Event::findOrFail($request->id);
+        $event->date = $request->date;
+        $event->save();
+
+        return response()->json(['message' => 'Event date updated successfully', 'event' => $event]);
+    }
 }
