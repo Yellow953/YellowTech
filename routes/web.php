@@ -189,4 +189,6 @@ Route::post('/checkout', [CartController::class, 'order'])->name('checkout.order
 
 Route::get('/custom_logout', [HomeController::class, 'custom_logout'])->name('custom_logout');
 
+Route::get('/test', [HomeController::class, 'test'])->name('test');
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
