@@ -217,7 +217,7 @@ ul.pagination{
 }
 
 .m-3 {
-    margin: 1rem !important;
+    margin: 2rem !important;
 }
 
 .text-center {
@@ -579,4 +579,12 @@ body::-webkit-scrollbar-thumb {
 
 .bg-navy {
     background-color: #001f3f !important;
+}
+
+.card{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.text-white{
+    color: white;
 }
