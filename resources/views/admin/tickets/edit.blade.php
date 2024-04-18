@@ -13,52 +13,55 @@
       <div class="box-body">
         <form method="POST" action="{{ route('tickets.update', $ticket->id) }}" enctype="multipart/form-data">
           @csrf
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="title">Ticket Name *</label>
-              <input name="title" type="text" class="form-control" placeholder="Enter your name" required
-                value="{{ $ticket->title }}">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="title">Ticket Name *</label>
+                <input name="title" type="text" class="form-control" placeholder="Enter your name" required
+                  value="{{ $ticket->title }}">
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="project_id">Project Name: *</label>
-              <select name="project_id" class="form-control" required>
-                <option value=""></option>
-                @foreach ($projects as $project)
-                <option value="{{ $project->id }}" {{ $project->project_id==$project->id ? 'selected' :
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="project_id">Project Name: *</label>
+                <select name="project_id" class="form-control select2" required>
+                  <option value=""></option>
+                  @foreach ($projects as $project)
+                  <option value="{{ $project->id }}" {{ $project->project_id==$project->id ? 'selected' :
                     '' }}>{{ ucwords($project->name) }}</option>
-                @endforeach
-            </select>
+                  @endforeach
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="user_id">User Name: *</label>
-              <select name="user_id" class="form-control" required>
-                <option value=""></option>
-                @foreach ($users as $user)
-                <option value="{{ $user->id }}" {{ $user->user_id==$user->id ? 'selected' :
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="user_id">User Name: *</label>
+                <select name="user_id" class="form-control select2" required>
+                  <option value=""></option>
+                  @foreach ($users as $user)
+                  <option value="{{ $user->id }}" {{ $user->user_id==$user->id ? 'selected' :
                     '' }}>{{ ucwords($user->name) }}</option>
-                @endforeach
-            </select>
+                  @endforeach
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="description">Description *</label>
-              <input name="description" type="text" class="form-control" placeholder="Enter ticket description"  value="{{ $ticket->description }}" required>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="status">Status *</label>
+                <input type="text" name="status" class="form-control select2" id="status"
+                  placeholder="Enter ticket status" required value="{{ $ticket->status }}">
+              </div>
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="status">Status *</label>
-              <input type="text" name="status" class="form-control" id="status" placeholder="Enter ticket status" required
-                value="{{ $ticket->status }}">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="description">Description *</label>
+                <textarea name="description" class="form-control" placeholder="Enter ticket description" rows="5"
+                  required>{{ $ticket->description }}</textarea>
+              </div>
             </div>
-          </div>
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-primary btn-block btn-custom">Submit</button>
+            </div>
           </div>
         </form>
       </div>

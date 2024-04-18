@@ -105,7 +105,7 @@
                             <input type="checkbox" name="public" class="form-check">
                             <label for="public">Public</label>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">
+                        <button type="submit" class="btn btn-success btn-block btn-custom">
                             <i class="fa fa-plus"></i>
                             Add</button>
                     </form>

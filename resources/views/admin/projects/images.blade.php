@@ -11,7 +11,7 @@
         <div class="col-12 col-md-8 offset-md-2">
             <div class="card m-3">
                 <div class="card-header">
-                    <h4 class="font-weight-bolder text-center text-info">Attachements<small class="mx-3 text-danger">
+                    <h4 class="font-weight-bolder text-center">Attachements<small class="mx-3 text-danger">
                             (click to remove)</small></h4>
                 </div>
                 <div class="card-body">
@@ -31,10 +31,11 @@
                     </div>
                 </div>
             </div>
+            <br>
 
             <div class="card m-3">
                 <div class="card-header">
-                    <h4 class="font-weight-bolder text-center text-info">New Attachement</h4>
+                    <h4 class="font-weight-bolder text-center">New Attachement</h4>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('attachements.create') }}" enctype="multipart/form-data">
@@ -57,7 +58,7 @@
                         </div>
 
                         <div class="row mt-4">
-                            <button type="submit" class="btn btn-info btn-block">
+                            <button type="submit" class="btn btn-info btn-block text-white">
                                 {{ __('Upload') }}
                             </button>
                         </div>

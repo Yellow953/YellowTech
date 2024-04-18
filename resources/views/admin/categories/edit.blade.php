@@ -14,22 +14,25 @@
                 <form method="POST" action="{{ route('categories.update', $category->id) }}"
                     enctype="multipart/form-data">
                     @csrf
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input name="name" type="text" class="form-control" placeholder="Enter your name" required
-                                value="{{ $category->name }}">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input name="name" type="text" class="form-control" placeholder="Enter your name"
+                                    required value="{{ $category->name }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="description">Description *</label>
-                            <input name="description" type="text" class="form-control" placeholder="Enter description"
-                                value="{{ $category->description }}" required>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="description">Description *</label>
+                                <textarea name="description" class="form-control" rows="5"
+                                    placeholder="Enter description" required>{{ $category->description }}</textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block btn-custom">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>

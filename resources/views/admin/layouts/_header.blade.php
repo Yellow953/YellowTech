@@ -13,10 +13,10 @@
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success">4</span>
+                        <span class="label label-success">0</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
+                        <li class="header">You have 0 messages</li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
@@ -105,16 +105,13 @@
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-4 text-center">
-                                <a href="{{ route('users.edit', ['user' => Auth::user()]) }}">Edit</a>
+                                <a href="{{ route('users.edit', auth()->user()->id) }}">Edit</a>
                             </div>
                             <div class="col-xs-4 text-center">
                                 <a href="{{ route('password.request') }}">Change Password</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#" onclick="logout()">Log out</a>
-                                <form id="logoutForm" action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                </form>
+                                <a href="{{ route('custom_logout') }}">Log out</a>
                             </div>
                         </li>
                     </ul>

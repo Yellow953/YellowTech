@@ -38,6 +38,12 @@
                     <span>Clients</span>
                 </a>
             </li>
+            <li class="treeview {{ request()->routeIs('notifications*') ? 'active' : '' }}">
+                <a href="{{ route('notifications') }}">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+            </li>
 
             <li class="header">SYSTEM</li>
             <li class="treeview {{ request()->routeIs('todo*') ? 'active' : '' }}">
@@ -50,12 +56,6 @@
                 <a href="{{ route('calendar')}}">
                     <i class="fa-solid fa-calendar-days"></i>
                     <span>Calendar</span>
-                </a>
-            </li>
-            <li class="treeview {{ request()->routeIs('users*') ? 'active' : '' }}">
-                <a href="{{ route('users') }}">
-                    <i class="fa-solid fa-users"></i>
-                    <span> Users</span>
                 </a>
             </li>
             <li class="treeview {{ request()->routeIs('projects*') ? 'active' : '' }}">
@@ -76,16 +76,16 @@
                     <span>Tickets</span>
                 </a>
             </li>
+            <li class="treeview {{ request()->routeIs('users*') ? 'active' : '' }}">
+                <a href="{{ route('users') }}">
+                    <i class="fa-solid fa-users"></i>
+                    <span> Users</span>
+                </a>
+            </li>
             <li class="treeview {{ request()->routeIs('logs*') ? 'active' : '' }}">
                 <a href="{{ route('logs')}}">
                     <i class="fa-regular fa-note-sticky"></i>
                     <span>Logs</span>
-                </a>
-            </li>
-            <li class="treeview {{ request()->routeIs('notifications*') ? 'active' : '' }}">
-                <a href="{{ route('notifications') }}">
-                    <i class="fa-solid fa-bell"></i>
-                    <span>Notifications</span>
                 </a>
             </li>
         </ul>

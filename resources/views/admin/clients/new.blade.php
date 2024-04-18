@@ -13,43 +13,45 @@
             <div class="box-body">
                 <form method="POST" action="{{ route('clients.create') }}" enctype="multipart/form-data">
                     @csrf
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input name="name" type="text" class="form-control" placeholder="Enter your name" required
-                                value="{{ old('name') }}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input name="name" type="text" class="form-control" placeholder="Enter your name"
+                                    required value="{{ old('name') }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="email">Email address *</label>
-                            <input name="email" type="email" class="form-control" placeholder="Enter email"
-                                value="{{ old('email') }}" required>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email address *</label>
+                                <input name="email" type="email" class="form-control" placeholder="Enter email"
+                                    value="{{ old('email') }}" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" name="phone" class="form-control" id="phone"
-                                placeholder="Enter phone number" required value="{{ old('phone') }}">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" name="phone" class="form-control" id="phone"
+                                    placeholder="Enter phone number" required value="{{ old('phone') }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="city">City *</label>
-                            <input type="text" name="city" class="form-control" id="city" placeholder="Enter City"
-                                required value="{{ old('city') }}">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" name="city" class="form-control" id="city" placeholder="Enter City"
+                                    required value="{{ old('city') }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="address">Address *</label>
-                            <input type="text" name="address" class="form-control" id="address"
-                                placeholder="Enter Address" required value="{{ old('address') }}">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="address">Address *</label>
+                                <textarea name="address" class="form-control" id="address" placeholder="Enter Address"
+                                    rows="5" required>{{ old('address') }}</textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary btn-block btn-custom">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>

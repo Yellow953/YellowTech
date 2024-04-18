@@ -22,7 +22,7 @@
                                 *') }}</label>
 
                             <div class="col-md-9">
-                                <select name="client_id" id="client_id" required class="form-control form-select">
+                                <select name="client_id" id="client_id" required class="form-control select2">
                                     <option value=""></option>
                                     @foreach ($clients as $client)
                                     <option value="{{ $client->id }}" {{ $client->id == old('client_id') ?
@@ -38,7 +38,7 @@
                                 *') }}</label>
 
                             <div class="col-md-9">
-                                <select name="project_id" id="project_id" required class="form-control form-select">
+                                <select name="project_id" id="project_id" required class="form-control select2">
                                     <option value=""></option>
                                     @foreach ($projects as $project)
                                     <option value="{{ $project->id }}" {{ $project->id == old('project_id') ?
@@ -57,7 +57,7 @@
                                 *') }}</label>
 
                             <div class="col-md-9">
-                                <select name="currency" id="currency" required class="form-control form-select">
+                                <select name="currency" id="currency" required class="form-control select2">
                                     <option value=""></option>
                                     @foreach (Helper::get_currencies() as $currency)
                                     <option value="{{ $currency }}" {{ $currency==old('currency') ? 'selected' :'' }}>{{
@@ -131,7 +131,7 @@
                                 *') }}</label>
 
                             <div class="col-md-9">
-                                <select name="status" id="status" required class="form-control form-select">
+                                <select name="status" id="status" required class="form-control select2">
                                     <option value=""></option>
                                     @foreach (Helper::get_invoice_statuses() as $status)
                                     <option value="{{ $status }}" {{ $status==old('status') ? 'selected' :'' }}>{{
@@ -212,7 +212,7 @@
 
                 <br><br>
                 <div class="w-100 my-3">
-                    <button type="submit" class="btn btn-info btn-block mx-3" id="submitBtn">
+                    <button type="submit" class="btn btn-info btn-block btn-custom" id="submitBtn">
                         {{ __('Create') }}
                     </button>
                 </div>

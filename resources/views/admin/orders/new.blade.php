@@ -127,7 +127,7 @@
                                     <label for="client_id" class="mt-1">Client</label>
                                 </div>
                                 <div class="col-9">
-                                    <select name="client_id" id="client_id" required class="form-control py-0">
+                                    <select name="client_id" id="client_id" required class="form-control select2 py-0">
                                         <option value=""></option>
                                         @foreach ($clients as $client)
                                         <option value="{{$client->id}}">{{$client->name}}</option>
@@ -162,7 +162,7 @@
                                 <span class="my-auto">$</span>
                             </div>
 
-                            <button class="btn btn-primary btn-block my-3" id="add-order-form-btn"><i
+                            <button class="btn btn-primary btn-block my-3 btn-custom" id="add-order-form-btn"><i
                                     class="fa fa-plus"></i> Add Order</button>
 
                         </form>

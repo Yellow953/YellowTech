@@ -123,7 +123,7 @@
                                     <label for="client_id" class="mt-1">Client</label>
                                 </div>
                                 <div class="col-9">
-                                    <select name="client_id" id="client_id" required class="form-control py-0">
+                                    <select name="client_id" id="client_id" required class="form-control select2 py-0">
                                         <option value=""></option>
                                         @foreach ($clients as $client)
                                         <option value="{{$client->id}}" {{$order->client_id == $client->id ? 'selected'
@@ -179,7 +179,7 @@
                                 <span class="my-auto">$</span>
                             </div>
 
-                            <button class="btn btn-primary btn-block" id="form-btn">Save</button>
+                            <button class="btn btn-primary btn-block btn-custom" id="add-order-form-btn">Save</button>
 
                         </form><!-- end of form -->
 
