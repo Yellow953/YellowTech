@@ -46,3 +46,15 @@ $(document).ready(function() {
     $('.select2').select2();
 });
 // end select2
+
+$(function () {
+    $("#example1").dataTable();
+    $('#example2').dataTable({
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort": true,
+        "bInfo": true,
+        "bAutoWidth": false
+    });
+});
