@@ -8,34 +8,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-8 offset-md-2">
+        <div class="col-12 col-md-10 offset-md-1">
             <div class="card m-3">
                 <div class="card-header">
-                    <h4 class="font-weight-bolder text-center">Attachements<small class="mx-3 text-danger">
-                            (click to remove)</small></h4>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-center">
-                        @forelse ($product->secondary_images as $attachement)
-                        <form method="GET" action="{{ route('attachements.destroy', $attachement->id) }}">
-                            @csrf
-                            <a class="image-wrapper show_confirm">
-                                <img src="{{asset($attachement->path)}}" alt="" class="img-fluid m-1"
-                                    style="width:150px; height:150px">
-                                <span class="delete-overlay text-danger">Delete</span>
-                            </a>
-                        </form>
-                        @empty
-                        No Attachements yet...
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <div class="card m-3">
-                <div class="card-header">
-                    <h4 class="font-weight-bolder text-center">New Attachement</h4>
+                    <h3 class="font-weight-bolder text-center my-2">New Attachement</h3>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('attachements.create') }}" enctype="multipart/form-data">
@@ -63,6 +39,26 @@
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div class="card m-3">
+                <div class="card-header">
+                    <h3 class="font-weight-bolder my-2 text-center">Attachements<small class="mx-3 text-danger">
+                            (click to remove)</small></h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-center ">
+                        @forelse ($product->secondary_images as $attachement)
+                        <a class="image-wrapper" href="{{ route('attachements.destroy', $attachement->id) }}">
+                            <img src="{{asset($attachement->path)}}" alt="" class="img-fluid m-1"
+                                style="width:200px!important; height:200px!important;">
+                            <span class="delete-overlay text-danger">Delete</span>
+                        </a>
+                        @empty
+                        No Attachements yet...
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>
