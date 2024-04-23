@@ -59,11 +59,6 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-6 px-0">
-                                    <div class="img-box">
-                                        <img src="{{ asset('assets/images/slider-img.png') }}" alt="Slider 2" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="detail-box">
                                         <h2>
                                             Web
@@ -77,6 +72,11 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                                         <a href="{{ route('contact') }}">
                                             Contact Us
                                         </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="img-box">
+                                        <img src="{{ asset('assets/images/web-design.png') }}" alt="Slider 2" />
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img3" role="tabpanel">
-                        <img src="{{ asset('assets/images/seo.png') }}" alt="SEO ICON" />
+                        <img src="{{ asset('assets/images/web-design.png') }}" alt="SEO ICON" />
                         <div class="service-description">
                             <p>
                                 Crafting responsive websites with intuitive user interfaces for optimal experiences.

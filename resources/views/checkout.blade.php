@@ -131,31 +131,30 @@
     $(document).ready(function () {
         $('#apply').click(function () {
             const promoCode = $('#promo').val();
-            
-            $.ajax({
-                method: 'POST',
-                url: '{{ route("check_promo") }}',
-                data: { promo: promoCode, _token: '{{ csrf_token() }}' },
-                success: function (response) {
-                    if (response.exists) {
-                        let promoValue = response.value;
-                        const subtotal = parseFloat($('#total').text().replace(/\$/g, '').replace(/,/g, ''));
-                        const total = calculateNewTotal(subtotal, promoValue);
+            if(promoCode != ''){
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route("check_promo") }}',
+                    data: { promo: promoCode, _token: '{{ csrf_token() }}' },
+                    success: function (response) {
+                        if (response.exists) {
+                            let promoValue = response.value;
+                            const subtotal = parseFloat($('#total').text().replace(/\$/g, '').replace(/,/g, ''));
+                            const total = calculateNewTotal(subtotal, promoValue);
 
-                        $('#promo').hide();
-                        $('#apply').hide();
-                        $('.promo-value').show();
-                        $('#promoValue').text(promoValue.toString() + "%");
-                        
-                        $('#total').text(total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
-                    } else {
+                            $('#promo').hide();
+                            $('#apply').hide();
+                            $('.promo-value').show();
+                            $('#promoValue').text(promoValue.toString() + "%");
+                            
+                            $('#total').text(total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+                        }
+                    },
+                    error: function (error) {
                         alert('Invalid promo code.');
                     }
-                },
-                error: function (error) {
-                    console.error(error);
-                }
-            });
+                });
+            }
         });
 
         function calculateNewTotal(subtotal, promoValue) {

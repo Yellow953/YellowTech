@@ -925,6 +925,9 @@ a:focus {
 
 /* end info section */
 /* footer section*/
+footer{
+  border-top: 5px solid #f6dc00;
+}
 .footer_section {
   margin-top: 45px;
   font-weight: 500;

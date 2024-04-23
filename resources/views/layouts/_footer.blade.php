@@ -1,10 +1,5 @@
 <!-- footer section -->
-<footer>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="#2d2d2d" fill-opacity="1"
-            d="M0,64L48,69.3C96,75,192,85,288,122.7C384,160,480,224,576,245.3C672,267,768,245,864,208C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-        </path>
-    </svg>
+<footer class="mt-5">
     <section class="info_section m-0 layout_padding2-top">
         <div class="info_container ">
             <div class="container">

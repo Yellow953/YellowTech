@@ -55,7 +55,7 @@ solutions, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowt
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img3" role="tabpanel">
-                        <img src="{{ asset('assets/images/seo.png') }}" alt="SEO ICON" />
+                        <img src="{{ asset('assets/images/web-design.png') }}" alt="SEO ICON" />
                         <div class="service-description">
                             <p>
                                 Crafting responsive websites with intuitive user interfaces for optimal experiences.
