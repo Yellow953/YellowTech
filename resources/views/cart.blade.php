@@ -19,8 +19,6 @@
 <section class="mt-5">
     <div class="container">
         <div class="cart">
-            @include('admin.layouts._flash')
-
             <div class="table-responsive">
                 <table class="table">
                     <thead class="thead-dark text-white">
@@ -50,14 +48,13 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="col-2 pt-4">$<span id="cartItem{{ $productID }}Price">{{
-                                    number_format($product->unit_price, 2) }}</span></td>
+                            <td class="col-2 pt-4">$<span id="cartItem{{ $productID }}Price">{{ $product->unit_price
+                                    }}</span></td>
                             <td class="col-2 pt-4">
                                 {{ $cart_item['quantity'] }}
                             </td>
-                            <td class="col-2 pt-4">${{ number_format($product->unit_price *
-                                $cart_item['quantity'], 2)
-                                }}
+                            <td class="col-2 pt-4">${{ $product->unit_price *
+                                $cart_item['quantity'] }}
                             </td>
                             <td class="col-2 pt-4">
                                 <a href="#" class="btn btn-danger text-dark px-2"

@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderMailer;
 use App\Models\Client;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Promo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
-    public function __construct()
-    {
-        // $this->middleware('auth')->only(['order', 'checkout']);
-    }
-
     public function cart()
     {
         try {
@@ -110,6 +107,8 @@ class CartController extends Controller
 
         $order->save();
         $cookie = cookie()->forget('cart');
+
+        Mail::to([env('MAIL_USERNAME'), $client->email])->send(new OrderMailer($order));
 
         return redirect()->route('cart')->with('success', 'Order Submitted, Please check your email for confirmation. Thank You For Choosing Us!')->cookie($cookie);
     }
