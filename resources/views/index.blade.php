@@ -87,7 +87,7 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                             <div class="row">
                                 <div class="col-md-6 px-0">
                                     <div class="img-box">
-                                        <img src="{{ asset('assets/images/ai.png') }}" alt="Slider 3" />
+                                        <img src="{{ asset('assets/images/ai-image.png') }}" alt="Slider 3" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -159,7 +159,7 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img2" role="tabpanel">
-                        <img src="{{ asset('assets/images/ai.png') }}" alt="AI Icon" />
+                        <img src="{{ asset('assets/images/ai-image.png') }}" alt="AI Icon" />
                         <div class="service-description">
                             <p>
                                 Implementing artificial intelligence to enhance services and customer interactions.
@@ -622,22 +622,23 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                 </div>
             </div>
             <div class="col-md-4 px-0">
-                <form action="/contact" method="GET" enctype="multipart/form-data">
+                <form action="{{ route('contact.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <input type="text" placeholder="Name" />
+                        <input type="text" name="name" value="{{ old('name') }}" required placeholder="Name *" />
                     </div>
                     <div>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" value="{{ old('email') }}" required placeholder="Email *" />
                     </div>
                     <div>
-                        <input type="text" placeholder="Phone" />
+                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone" />
                     </div>
                     <div>
-                        <input type="text" class="message-box" placeholder="Message" />
+                        <input type="text" class="message-box" name="message" value="{{ old('message') }}" required
+                            placeholder="Message *" />
                     </div>
-                    <div class="d-flex ">
-                        <button>
+                    <div class="d-flex">
+                        <button type="submit" class="w-100">
                             SEND
                         </button>
                     </div>

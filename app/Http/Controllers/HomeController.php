@@ -29,6 +29,17 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function contact_create(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'email|required|max:255',
+            'message' => 'required'
+        ]);
+
+        return redirect()->back()->with('success', 'Thank you for your message...');
+    }
+
     public function portfolio()
     {
         return view('portfolio');

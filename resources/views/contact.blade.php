@@ -31,22 +31,23 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                 </div>
             </div>
             <div class="col-md-4 px-0">
-                <form action="/contact" method="GET" enctype="multipart/form-data">
+                <form action="{{ route('contact.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <input type="text" placeholder="Name" />
+                        <input type="text" name="name" value="{{ old('name') }}" required placeholder="Name *" />
                     </div>
                     <div>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" name="email" value="{{ old('email') }}" required placeholder="Email *" />
                     </div>
                     <div>
-                        <input type="text" placeholder="Phone" />
+                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="Phone" />
                     </div>
                     <div>
-                        <input type="text" class="message-box" placeholder="Message" />
+                        <input type="text" class="message-box" name="message" value="{{ old('message') }}" required
+                            placeholder="Message *" />
                     </div>
-                    <div class="d-flex ">
-                        <button>
+                    <div class="d-flex">
+                        <button type="submit" class="w-100">
                             SEND
                         </button>
                     </div>

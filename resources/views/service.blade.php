@@ -43,7 +43,7 @@ solutions, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowt
                         </div>
                     </div>
                     <div class="img-box tab-pane fade" id="img2" role="tabpanel">
-                        <img src="{{ asset('assets/images/ai.png') }}" alt="AI Icon" />
+                        <img src="{{ asset('assets/images/ai-image.png') }}" alt="AI Icon" />
                         <div class="service-description">
                             <p>
                                 Implementing artificial intelligence to enhance services and customer interactions.
