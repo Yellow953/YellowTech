@@ -42,7 +42,7 @@ class TicketController extends Controller
         $projects = Project::all();
         $users = User::all();
         $tickets = Ticket::all();
-        return view('admin.tickets.index', compact('projects', 'users', 'tickets'))->with('success', 'Ticket created successfully.');
+        return view('ticket.create', compact('projects', 'users', 'tickets'))->with('success', 'Ticket created successfully.');
     }
 
     public function edit(Ticket $ticket)

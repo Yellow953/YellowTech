@@ -50,6 +50,14 @@
     <!-- responsive style -->
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" />
 
+    <!-- tickets styles -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- css for tickets -->
+    <link href="{{ asset('assets/css/tickets.css') }}" rel="stylesheet" />
+
     {{-- custom styles --}}
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
@@ -76,6 +84,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
     <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+    
+    <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script  type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

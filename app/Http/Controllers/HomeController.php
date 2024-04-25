@@ -84,8 +84,8 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
-    public function test()
+    public function ticket()
     {
-        return view('test');
+        return view('ticket');
     }
 }
