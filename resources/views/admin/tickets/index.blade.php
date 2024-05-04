@@ -27,6 +27,7 @@
                                 <th>Name</th>
                                 <th>Project</th>
                                 <th>Description</th>
+                                <th>Subject</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -35,6 +36,7 @@
                             <tr>
                                 <td>{{ ucwords($ticket->title) }}</td>
                                 <td>{{ $ticket->project->name }}</td>
+                                <td>{{ $ticket->subject }}</td>
                                 <td>{{ $ticket->description }}</td>
                                 <td>{{ ucwords($ticket->status) }}</td>
 

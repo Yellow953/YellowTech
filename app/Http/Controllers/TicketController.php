@@ -25,7 +25,11 @@ class TicketController extends Controller
         $projects = Project::all();
         $users = User::all();
         $tickets = Ticket::all();
-        return view('admin.tickets.new', compact('projects', 'users', 'tickets'));
+
+        $user = auth()->user();
+        $project_id = $user->project_id;
+        $user_id = $user->id;
+        return view('admin.tickets.new', compact('projects', 'users', 'tickets', 'project_id', 'user_id'));
     }
 
     public function create(Request $request)
@@ -33,16 +37,20 @@ class TicketController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'subject' => 'required|string',
             'user_id' => 'required|exists:users,id',
             'project_id' => 'required|exists:projects,id',
-            'status' => 'required|string',
+            'status' => 'string',
         ]);
 
         Ticket::create($request->all());
         $projects = Project::all();
         $users = User::all();
         $tickets = Ticket::all();
-        return view('ticket.create', compact('projects', 'users', 'tickets'))->with('success', 'Ticket created successfully.');
+        $user = auth()->user();
+        $project_id = $user->project_id;
+        $user_id = $user->id;
+        return view('ticket', compact('projects', 'users', 'tickets','project_id', 'user_id'))->with('success', 'Ticket created successfully.');
     }
 
     public function edit(Ticket $ticket)
@@ -58,15 +66,20 @@ class TicketController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'subject' => 'required|string',
             'user_id' => 'required|exists:users,id',
             'project_id' => 'required|exists:projects,id',
-            'status' => 'required|string',
+            'status' => 'string',
         ]);
 
         $ticket->update($request->all());
         $projects = Project::all();
         $users = User::all();
         $tickets = Ticket::all();
+
+        $user = auth()->user();
+        $project_id = $user->project_id;
+        $user_id = $user->id;
 
         return view('admin.tickets.index', compact('projects', 'users', 'tickets'))->with('success', 'Ticket updated successfully.');
     }

@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->text('subject');
             $table->bigInteger("user_id")->unsigned();
             $table->bigInteger("project_id")->unsigned();
             $table->string('status')->default('open');
