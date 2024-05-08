@@ -19,11 +19,9 @@
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
-
+              @include ('admin.layouts._flash')
               <form method="POST" action="{{ route('tickets.create') }}" enctype="multipart/form-data">
-          @csrf
-     
-
+                @csrf
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -33,17 +31,17 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your ticket here</h5>
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="form2Example17" class="form-control form-control-lg"  value="{{ old('title') }}" required/>
+                    <input name="name" type="text" id="form2Example17" class="form-control form-control-lg"  value="{{ old('name') }}" required/>
                     <label class="form-label" for="form2Example17">Name*</label>
                   </div>
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="text" id="form2Example27" class="form-control form-control-lg"  value="{{ old('subject') }}" required />
+                    <input  name="subject" type="text" id="form2Example27" class="form-control form-control-lg"  value="{{ old('subject') }}" required />
                     <label class="form-label" for="form2Example27">Subject*</label>
                   </div>
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <textarea type="text" id="form2Example27" class="form-control form-control-lg" required>{{ old('description') }}</textarea>
+                    <textarea  name="description" type="text" id="form2Example27" class="form-control form-control-lg" required>{{ old('description') }}</textarea>
                     <label class="form-label" for="form2Example27">Description*</label>
                   </div>
 
@@ -51,17 +49,9 @@
                     <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block"  type="submit">Submit</button>
                   </div>
 
-                  @auth
-        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-        <input type="hidden" name="project_id" value="{{ Auth::user()->project_id }}">
-    @endauth
-
-
-          
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
+                  <a href="{{ route('terms_and_conditions') }}" class="small text-muted">Terms of use.</a>
+                  <a href="{{ route('privacy_policy') }}" class="small text-muted">Privacy policy</a>
                 </form>
-
               </div>
             </div>
           </div>

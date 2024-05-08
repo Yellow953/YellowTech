@@ -25,17 +25,15 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Project</th>
-                                <th>Description</th>
                                 <th>Subject</th>
+                                <th>Description</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($tickets as $ticket)
                             <tr>
-                                <td>{{ ucwords($ticket->title) }}</td>
-                                <td>{{ $ticket->project->name }}</td>
+                                <td>{{ ucwords($ticket->name) }}</td>
                                 <td>{{ $ticket->subject }}</td>
                                 <td>{{ $ticket->description }}</td>
                                 <td>{{ ucwords($ticket->status) }}</td>

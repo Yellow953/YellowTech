@@ -16,43 +16,31 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="title">Ticket Name *</label>
-                <input name="title" type="text" class="form-control" placeholder="Enter your name" required
-                  value="{{ $ticket->title }}">
+                <label for="name">Name *</label>
+                <input name="name" type="text" class="form-control" placeholder="Enter name" required
+                  value="{{ $ticket->name }}">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="project_id">Project Name: *</label>
-                <select name="project_id" class="form-control select2" required>
-                  <option value=""></option>
-                  @foreach ($projects as $project)
-                  <option value="{{ $project->id }}" {{ $project->project_id==$project->id ? 'selected' :
-                    '' }}>{{ ucwords($project->name) }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="user_id">User Name: *</label>
-                <select name="user_id" class="form-control select2" required>
-                  <option value=""></option>
-                  @foreach ($users as $user)
-                  <option value="{{ $user->id }}" {{ $user->user_id==$user->id ? 'selected' :
-                    '' }}>{{ ucwords($user->name) }}</option>
-                  @endforeach
-                </select>
+                <label for="subject">Subject *</label>
+                <input name="subject" type="text" class="form-control" placeholder="Enter subject" required
+                  value="{{ $ticket->subject }}">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="status">Status *</label>
-                <input type="text" name="status" class="form-control select2" id="status"
-                  placeholder="Enter ticket status" required value="{{ $ticket->status }}">
+                <select name="status" class="form-control select2" required>
+                  <option value=""></option>
+                  @foreach (Helper::get_project_statuses() as $status)
+                  <option value="{{ $status }}" {{ old('status')==$status ? 'selected' : '' }}>{{
+                    ucwords($status) }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="description">Description *</label>
                 <textarea name="description" class="form-control" placeholder="Enter ticket description" rows="5"

@@ -10,16 +10,11 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->text('description');
-            $table->text('subject');
-            $table->bigInteger("user_id")->unsigned();
-            $table->bigInteger("project_id")->unsigned();
+            $table->string('subject');
             $table->string('status')->default('open');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
     }
 

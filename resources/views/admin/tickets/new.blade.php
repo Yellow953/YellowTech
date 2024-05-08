@@ -16,33 +16,16 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="title">Ticket Name *</label>
-                <input name="title" type="text" class="form-control" placeholder="Enter ticket name" required
-                  value="{{ old('title') }}">
+                <label for="name">Name *</label>
+                <input name="name" type="text" class="form-control" placeholder="Enter ticket name" required
+                  value="{{ old('name') }}">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="user_id">User Name *</label>
-                <select name="user_id" class="form-control select2" required>
-                  <option value=""></option>
-                  @foreach ($users as $user)
-                  <option value="{{ $user->id }}" {{ old('project_id')==$user->id ? 'selected' :
-                    '' }}>{{ ucwords($user->name) }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="project_id">Project Name *</label>
-                <select name="project_id" class="form-control select2" required>
-                  <option value=""></option>
-                  @foreach ($projects as $project)
-                  <option value="{{ $project->id }}" {{ old('project_id')==$project->id ? 'selected' :
-                    '' }}>{{ ucwords($project->name) }}</option>
-                  @endforeach
-                </select>
+                <label for="subject">Subject *</label>
+                <input name="subject" type="text" class="form-control" placeholder="Enter subject" required
+                  value="{{ old('subject') }}">
               </div>
             </div>
             <div class="col-md-6">
@@ -57,7 +40,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="description">Description *</label>
                 <textarea name="description" class="form-control" id="description" rows="5"
