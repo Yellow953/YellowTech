@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
-use App\Models\User;
 use App\Models\Log;
 
 class TicketController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->except('create');
     }
 
     public function index()
@@ -37,9 +35,15 @@ class TicketController extends Controller
         ]);
 
         Ticket::create($request->all());
-        $text = ucwords(auth()->user()->name) .  " created Ticket: " . $request->name . ", datetime: " . now();
+
+        $text = ucwords(auth()->user()->name ?? $request->name) .  " created Ticket: " . $request->subject . ", datetime: " . now();
         Log::create(['text' => $text]);
-        return redirect()->route('tickets')->with('success', 'Ticket created successfully.');
+
+        if (auth()->user()) {
+            return redirect()->route('tickets')->with('success', 'Ticket created successfully.');
+        } else {
+            return redirect()->back()->with('success', 'Ticket created successfully.');
+        }
     }
 
     public function edit(Ticket $ticket)
@@ -57,22 +61,25 @@ class TicketController extends Controller
         ]);
 
         $ticket->update($request->all());
-        $text = ucwords(auth()->user()->name) .  " updated Ticket: " . $request->name . ", datetime: " . now();
+
+        $text = ucwords(auth()->user()->name) .  " updated Ticket: " . $request->subject . ", datetime: " . now();
         Log::create(['text' => $text]);
+
         return  redirect()->route('tickets')->with('success', 'Ticket updated successfully.');
     }
 
     public function destroy(Ticket $ticket)
     {
         $ticket->delete();
-        $text = ucwords(auth()->user()->name) .  " deleted Ticket: " . $request->name . ", datetime: " . now();
+
+        $text = ucwords(auth()->user()->name) .  " deleted Ticket: " . $ticket->name . ", datetime: " . now();
         Log::create(['text' => $text]);
+
         return redirect()->route('tickets')->with('success', 'Ticket deleted successfully.');
     }
 
     public function images(Ticket $ticket)
     {
-
         return view('admin.tickets.images', compact('ticket'));
     }
 }

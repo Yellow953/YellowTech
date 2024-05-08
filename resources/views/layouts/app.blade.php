@@ -16,8 +16,6 @@
     <!-- MY CSS STYLES -->
     <link href="{{ asset('assets/css/mystyles.css') }}" rel="stylesheet" type="text/css" />
 
-    <meta name="google-site-verification" content="BeAs6nmdgCTXSjnLMq_pfDksaT12n0uZ7Im9_E2Eliw" />
-
     {{-- Meta --}}
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
@@ -50,10 +48,11 @@
     <!-- responsive style -->
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" />
 
-   
-
     {{-- custom styles --}}
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+
+    {{-- Google Analytics --}}
+    <meta name="google-site-verification" content="BeAs6nmdgCTXSjnLMq_pfDksaT12n0uZ7Im9_E2Eliw" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CKZFK5R5G"></script>
@@ -78,9 +77,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
     </script>
     <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
-    
-    <script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script  type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
 </body>
 
 </html>
