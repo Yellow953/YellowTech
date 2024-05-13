@@ -20,12 +20,13 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             Check out our portfolio for a glimpse of our past projects.
         </p>
     </div>
+
     <div class="portfolio_container mx-0 layout_padding">
         <div class="box-1">
             <div class="img-box b-1">
                 <img src="{{ asset('assets/images/portfolio/mecanix1.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://mecanixstocksystem.com" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -33,7 +34,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-2">
                 <img src="{{ asset('assets/images/portfolio/mecanix2.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://mecanixstocksystem.com" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -43,7 +44,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-3">
                 <img src="{{ asset('assets/images/portfolio/philippefarhat1.png') }}" alt="Philippe Farhat Website">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://philippefarhat.com" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -51,7 +52,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-4">
                 <img src="{{ asset('assets/images/portfolio/philippefarhat2.png') }}" alt="Philippe Farhat Website">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://philippefarhat.com" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -61,7 +62,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-1">
                 <img src="{{ asset('assets/images/portfolio/sports1.png') }}" alt="Sports System">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://www.athleticsperformance.org/" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -69,7 +70,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-2">
                 <img src="{{ asset('assets/images/portfolio/sports2.png') }}" alt="Sports System">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://www.athleticsperformance.org/" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -79,7 +80,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-3">
                 <img src="{{ asset('assets/images/portfolio/zspecial1.png') }}" alt="ZSpecial Website">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://z-special.com" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -87,7 +88,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
             <div class="img-box b-4">
                 <img src="{{ asset('assets/images/portfolio/zspecial2.png') }}" alt="ZSpecial Website">
                 <div class="btn-box">
-                    <a href="#" class="btn text-yellow">
+                    <a href="https://z-special.com" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
@@ -95,6 +96,7 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
         </div>
     </div>
 </section>
+
 <!-- end portfolio section -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#2d2d2d" fill-opacity="1"

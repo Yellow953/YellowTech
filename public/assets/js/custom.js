@@ -8,7 +8,6 @@ function getYear() {
 getYear();
 
 // owl carousel 
-
 $('.owl-carousel').owlCarousel({
     loop: true,
     margin: 10,
@@ -27,7 +26,6 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
-
 
 // start fixed header
 window.onscroll = function () {
