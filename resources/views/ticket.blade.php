@@ -63,6 +63,11 @@
                         required>{{ old('description') }}</textarea>
                     </div>
 
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="image">Attach Image</label>
+                      <input type="file" id="image" name="image" class="form-control-file" accept="image/*">
+                    </div>
+
                     <div class="pt-1 mb-4">
                       <button class="btn btn-dark btn-lg btn-block" type="submit">Submit</button>
                     </div>

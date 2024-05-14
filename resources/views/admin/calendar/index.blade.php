@@ -95,39 +95,67 @@ $(function () {
         editable: true,
         droppable: true,
         drop: function (date, allDay) {
-    var originalEventObject = $(this).data('eventObject');
-    var copiedEventObject = $.extend({}, originalEventObject);
-    copiedEventObject.start = date;
-    copiedEventObject.allDay = allDay;
+            var originalEventObject = $(this).data('eventObject');
+            var copiedEventObject = $.extend({}, originalEventObject);
+            copiedEventObject.start = date;
+            copiedEventObject.allDay = allDay;
 
-    // Retrieve the event's id from the data attribute
-    var eventId = $(this).data('event-id');
-    copiedEventObject.id = eventId;
+            // Retrieve the event's id from the data attribute
+            var eventId = $(this).data('event-id');
+            copiedEventObject.id = eventId;
 
-    // Proceed with the AJAX request
-    $.ajax({
-        url: "{{ route('calendar.update') }}",
-        method: 'POST',
-        data: {
-            id: copiedEventObject.id,
-            date: date.format(),
-            _token: '{{ csrf_token() }}'
+            // Proceed with the AJAX request
+            $.ajax({
+                url: "{{ route('calendar.update') }}",
+                method: 'POST',
+                data: {
+                    id: copiedEventObject.id,
+                    date: date.format(),
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function (response) {
+                    copiedEventObject.id = response.event.id;
+                    copiedEventObject.start = response.event.date;
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+
+            if ($('#drop-remove').is(':checked')) {
+                $(this).remove();
+            }
         },
-        success: function (response) {
-            copiedEventObject.id = response.event.id;
-            copiedEventObject.start = response.event.date;
-            $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-        },
-        error: function (xhr, status, error) {
-            console.error(xhr.responseText);
+        events: function (start, end, timezone, callback) {
+            $.ajax({
+                url: "{{ route('calendar.events') }}",
+                method: 'GET',
+                dataType: 'json',
+                data: {
+                    // Pass any additional parameters if needed
+                },
+                success: function (response) {
+    console.log(response); // Log the response to verify its structure
+    var events = [];
+    $.each(response, function (index, event) {
+        var eventDate = new Date(event.date); // Convert date string to Date object
+        events.push({
+            id: event.id,
+            title: event.title,
+            start: eventDate, // Use the converted Date object
+            color: event.color // Optionally include color if needed
+        });
+    });
+    callback(events);
+},
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
         }
     });
 
-    if ($('#drop-remove').is(':checked')) {
-        $(this).remove();
-    }
-}
-    });
     /* ADDING EVENTS */
     $("#add-new-event").click(function (e) {
         e.preventDefault();
@@ -159,5 +187,6 @@ $(function () {
         $("#new-event").val("");
     });
 });
+
 </script>
 @endsection
