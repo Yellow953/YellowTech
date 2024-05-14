@@ -22,9 +22,9 @@ class CalendarController extends Controller
     public function events(Request $request)
     {
         $events = Event::select('id', 'title', 'date', 'color', 'time')->get();
-
         return response()->json($events);
     }
+
     public function create(Request $request)
     {
         $request->validate([
@@ -36,6 +36,7 @@ class CalendarController extends Controller
             'user_id' => auth()->user()->id,
             'title' => $request->title,
             'color' => $request->color,
+            'time' => now()->format('H:i:s'),
         ]);
 
         return response()->json(['message' => 'Event created successfully', 'event' => $event]);
@@ -45,13 +46,27 @@ class CalendarController extends Controller
     {
         $request->validate([
             'id' => 'required|integer',
-            'date' => 'required|date',
+            'date' => 'required|date_format:Y-m-d',
+            'time' => 'required|date_format:H:i:s',
         ]);
 
         $event = Event::findOrFail($request->id);
         $event->date = $request->date;
+        $event->time = $request->time;
         $event->save();
 
-        return response()->json(['message' => 'Event date updated successfully', 'event' => $event]);
+        return response()->json(['message' => 'Event date and time updated successfully', 'event' => $event]);
+    }
+
+    public function delete(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer',
+        ]);
+
+        $event = Event::findOrFail($request->id);
+        $event->delete();
+
+        return response()->json(['message' => 'Event deleted successfully']);
     }
 }
