@@ -37,8 +37,10 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
+            'city' => $request->city,
+            'address' => $request->address,
             'password' => Hash::make($request->password),
-            'role' => $request->has('role') ? 'admin' : 'user',
+            'role' => $request->role,
         ]);
 
         Log::create([
@@ -64,8 +66,10 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
-            'role' => $request->has('role') ? 'admin' : 'user',
+            'role' => $request->role,
             'phone' => $request->phone,
+            'city' => $request->city,
+            'address' => $request->address,
         ]);
 
         Log::create([

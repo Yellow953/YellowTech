@@ -10,12 +10,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('client_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->string('status')->default('new');
             $table->double('total_price')->unsigned()->nullable();
             $table->timestamps();
 
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

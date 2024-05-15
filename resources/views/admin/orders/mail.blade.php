@@ -31,14 +31,14 @@
                 <h3 class="mb-4">Shipping Address</h3>
                 <div class="row">
                     <div class="col-md-6">
-                        <p>Name: {{ $order->client->name }}</p>
-                        <p>Email: {{ $order->client->email }}</p>
-                        <p>Phone Number: {{ $order->client->phone }}</p>
+                        <p>Name: {{ $order->user->name }}</p>
+                        <p>Email: {{ $order->user->email }}</p>
+                        <p>Phone Number: {{ $order->user->phone }}</p>
                     </div>
                     <div class="col-md-6">
                         <p>Payment Method: Cash On Delivery</p>
-                        <p>City: {{ $order->client->city }}</p>
-                        <p>Address: {{ $order->client->address }}</p>
+                        <p>City: {{ $order->user->city }}</p>
+                        <p>Address: {{ $order->user->address }}</p>
                     </div>
                 </div>
             </div>

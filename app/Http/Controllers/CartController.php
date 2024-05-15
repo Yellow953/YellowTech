@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OrderMailer;
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Promo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
@@ -73,18 +74,20 @@ class CartController extends Controller
 
         $order = new Order();
 
-        $client = Client::where('email', $request->email)->first();
-        if ($client == null) {
-            $client = Client::create([
+        $user = User::where('email', $request->email)->first();
+        if ($user == null) {
+            $user = User::create([
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'city' => $request->city,
                 'address' => $request->address,
+                'password' => Hash::make('qwe123'),
+                'role' => 'client',
             ]);
         }
 
-        $order->client_id = $client->id;
+        $order->user_id = $user->id;
         $order->status = 'new';
         $order->save();
 
@@ -108,7 +111,7 @@ class CartController extends Controller
         $order->save();
         $cookie = cookie()->forget('cart');
 
-        Mail::to([env('MAIL_USERNAME'), $client->email])->send(new OrderMailer($order));
+        Mail::to([env('MAIL_USERNAME'), $user->email])->send(new OrderMailer($order));
 
         return redirect()->route('cart')->with('success', 'Order Submitted, Please check your email for confirmation. Thank You For Choosing Us!')->cookie($cookie);
     }

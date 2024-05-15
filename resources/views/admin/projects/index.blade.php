@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Client</th>
+                                <th>User</th>
                                 <th>Status</th>
                                 <th>Delivery Date</th>
                                 <th>Actions</th>
@@ -35,7 +35,7 @@
                             @foreach($projects as $project)
                             <tr>
                                 <td>{{ ucwords($project->name) }}</td>
-                                <td>{{ ucwords($project->client->name) }}</td>
+                                <td>{{ ucwords($project->user->name) }}</td>
                                 <td>{{ ucwords($project->status) }}</td>
                                 <td>{{ ucwords($project->delivery_date) }}</td>
                                 <td>

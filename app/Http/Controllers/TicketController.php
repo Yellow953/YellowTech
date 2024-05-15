@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TicketMailer;
+use App\Models\Attachment;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Log;
+use Illuminate\Support\Facades\Mail;
 
 class TicketController extends Controller
 {
@@ -29,21 +32,38 @@ class TicketController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'email' => 'required|email',
             'description' => 'required|string',
             'subject' => 'required|string',
-            'status' => 'string',
+            'attachments.*' => 'nullable|file|max:20048',
+
         ]);
 
-        Ticket::create($request->all());
+        $ticket = Ticket::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'description' => $request->description,
+            'status' => 'new',
+        ]);
+
+        if ($request->hasFile('attachments')) {
+            foreach ($request->file('attachments') as $attachment) {
+                $filename = $attachment->getClientOriginalName();
+                $attachment->move(public_path('uploads/attachments'), $filename);
+                Attachment::create([
+                    'ticket_id' => $ticket->id,
+                    'path' => 'uploads/attachments/' . $filename,
+                ]);
+            }
+        }
+
+        Mail::to([env('MAIL_USERNAME'), $ticket->email])->send(new TicketMailer($ticket));
 
         $text = ucwords(auth()->user()->name ?? $request->name) .  " created Ticket: " . $request->subject . ", datetime: " . now();
         Log::create(['text' => $text]);
 
-        if (auth()->user()) {
-            return redirect()->route('tickets')->with('success', 'Ticket created successfully.');
-        } else {
-            return redirect()->back()->with('success', 'Ticket created successfully.');
-        }
+        return redirect()->back()->with('success', 'Ticket created successfully.');
     }
 
     public function edit(Ticket $ticket)
@@ -55,12 +75,30 @@ class TicketController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'email' => 'required|email',
             'description' => 'required|string',
             'subject' => 'required|string',
             'status' => 'string',
         ]);
 
-        $ticket->update($request->all());
+        $ticket->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'description' => $request->description,
+            'status' => $request->status,
+        ]);
+
+        if ($request->hasFile('attachments')) {
+            foreach ($request->file('attachments') as $attachment) {
+                $filename = $attachment->getClientOriginalName();
+                $attachment->move(public_path('uploads/attachments'), $filename);
+                Attachment::create([
+                    'ticket_id' => $ticket->id,
+                    'path' => 'uploads/attachments/' . $filename,
+                ]);
+            }
+        }
 
         $text = ucwords(auth()->user()->name) .  " updated Ticket: " . $request->subject . ", datetime: " . now();
         Log::create(['text' => $text]);
@@ -78,8 +116,8 @@ class TicketController extends Controller
         return redirect()->route('tickets')->with('success', 'Ticket deleted successfully.');
     }
 
-    public function images(Ticket $ticket)
+    public function attachments(Ticket $ticket)
     {
-        return view('admin.tickets.images', compact('ticket'));
+        return view('admin.tickets.attachments', compact('ticket'));
     }
 }

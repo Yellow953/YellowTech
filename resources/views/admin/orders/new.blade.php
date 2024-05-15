@@ -124,13 +124,13 @@
 
                             <div class="row w-100 my-4">
                                 <div class="col-3 pl-3">
-                                    <label for="client_id" class="mt-1">Client</label>
+                                    <label for="user_id" class="mt-1">User</label>
                                 </div>
                                 <div class="col-9">
-                                    <select name="client_id" id="client_id" required class="form-control select2 py-0">
+                                    <select name="user_id" id="user_id" required class="form-control select2 py-0">
                                         <option value=""></option>
-                                        @foreach ($clients as $client)
-                                        <option value="{{$client->id}}">{{$client->name}}</option>
+                                        @foreach ($users as $user)
+                                        <option value="{{$user->id}}">{{$user->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

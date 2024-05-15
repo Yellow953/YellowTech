@@ -17,8 +17,13 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="name">Name *</label>
-                <input name="name" type="text" class="form-control" placeholder="Enter name" required
-                  value="{{ $ticket->name }}">
+                <input name="name" type="text" class="form-control" required value="{{ $ticket->name }}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Email *</label>
+                <input name="email" type="email" class="form-control" required value="{{ $ticket->email }}">
               </div>
             </div>
             <div class="col-md-6">
@@ -34,13 +39,21 @@
                 <select name="status" class="form-control select2" required>
                   <option value=""></option>
                   @foreach (Helper::get_project_statuses() as $status)
-                  <option value="{{ $status }}" {{ old('status')==$status ? 'selected' : '' }}>{{
+                  <option value="{{ $status }}" {{ $ticket->status==$status ? 'selected' : '' }}>{{
                     ucwords($status) }}</option>
                   @endforeach
                 </select>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="attachments">Attachments
+                  <small>(Max:20MB, Screenshots/Images/File...)</small></label>
+                <input type="file" id="attachments" name="attachments[]" class="form-control-file form-control"
+                  multiple>
+              </div>
+            </div>
+            <div class="col-md-12">
               <div class="form-group">
                 <label for="description">Description *</label>
                 <textarea name="description" class="form-control" placeholder="Enter ticket description" rows="5"

@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>Invoice Number</th>
-                                <th>Client</th>
+                                <th>User</th>
                                 <th>Date</th>
                                 <th>Currency</th>
                                 <th>Status</th>
@@ -38,7 +38,7 @@
                             <tr>
                                 <td>{{ $invoice->invoice_number }}</td>
                                 <td>
-                                    {{ ucwords($invoice->client->name) }} <br>
+                                    {{ ucwords($invoice->user->name) }} <br>
                                 </td>
                                 <td>{{ $invoice->date }}</td>
                                 <td>{{ $invoice->currency }}</td>

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('currency')->default('USD');
             $table->double('rate')->default('1');
             $table->bigInteger("project_id")->unsigned();
-            $table->bigInteger("client_id")->unsigned();
+            $table->bigInteger("user_id")->unsigned();
             $table->string('status')->default('new');
             $table->double('sub_total')->default(0);
             $table->double('total_price')->default(0);
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

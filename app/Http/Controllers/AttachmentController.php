@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attachement;
+use App\Models\Attachment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class AttachementController extends Controller
+class AttachmentController extends Controller
 {
     public function __construct()
     {
@@ -24,10 +24,10 @@ class AttachementController extends Controller
         foreach ($request->file('images') as $image) {
             $ext = $image->getClientOriginalExtension();
             $filename = time() . '-' . $counter . '.' . $ext;
-            $image->move('uploads/attachements/', $filename);
-            $path = '/uploads/attachements/' . $filename;
+            $image->move('uploads/attachments/', $filename);
+            $path = '/uploads/attachments/' . $filename;
 
-            Attachement::create([
+            Attachment::create([
                 'project_id' => $request->project_id ?? null,
                 'ticket_id' => $request->ticket_id ?? null,
                 'product_id' => $request->product_id ?? null,
@@ -39,15 +39,25 @@ class AttachementController extends Controller
             $counter++;
         }
 
-        return redirect()->back()->with('success', 'Attachements uploaded successfully...');
+        return redirect()->back()->with('success', 'Attachments uploaded successfully...');
     }
 
-    public function destroy(Attachement $attachement)
+    public function destroy(Attachment $attachment)
     {
-        $path = public_path($attachement->path);
+        $path = public_path($attachment->path);
         File::delete($path);
-        $attachement->delete();
+        $attachment->delete();
 
-        return redirect()->back()->with('danger', 'Attachement deleted...');
+        return redirect()->back()->with('danger', 'Attachment deleted...');
+    }
+
+    public function download(Attachment $attachment)
+    {
+        $path = public_path($attachment->path);
+        if (file_exists($path)) {
+            return response()->download($path);
+        } else {
+            return response()->json(['error' => 'File not found.'], 404);
+        }
     }
 }

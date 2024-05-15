@@ -608,3 +608,10 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     text-transform: uppercase;
 }
+
+.fc-day-grid-event, .fc-time-grid-event{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 5px;
+}

@@ -11,9 +11,9 @@ class Order extends Model
 
     protected $guarded = [];
 
-    public function client()
+    public function user()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(User::class);
     }
 
     public function products()

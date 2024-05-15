@@ -18,15 +18,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group input-group-outline row my-3">
-                            <label for="client_id" class="col-md-3 col-form-label text-md-end">{{ __('Client
+                            <label for="user_id" class="col-md-3 col-form-label text-md-end">{{ __('Usr
                                 *') }}</label>
 
                             <div class="col-md-9">
-                                <select name="client_id" id="client_id" required class="form-control select2">
+                                <select name="user_id" id="user_id" required class="form-control select2">
                                     <option value=""></option>
-                                    @foreach ($clients as $client)
-                                    <option value="{{ $client->id }}" {{ $client->id == old('client_id') ?
-                                        'selected':'' }}>{{ $client->name }}</option>
+                                    @foreach ($users as $user)
+                                    <option value="{{ $user->id }}" {{ $user->id == old('user_id') ?
+                                        'selected':'' }}>{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

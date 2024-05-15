@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('attachements', function (Blueprint $table) {
+        Schema::create('attachments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("project_id")->unsigned()->nullable();
             $table->bigInteger("ticket_id")->unsigned()->nullable();
@@ -24,6 +24,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('attachements');
+        Schema::dropIfExists('attachments');
     }
 };

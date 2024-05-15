@@ -28,10 +28,10 @@
         <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>{{ $clients_count }}</h3>
-                    <p>Clients</p>
+                    <h3>{{ $users_count }}</h3>
+                    <p>Users</p>
                 </div>
-                <a href="{{ route('clients') }}" class="small-box-footer">More info <i
+                <a href="{{ route('users') }}" class="small-box-footer">More info <i
                         class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>

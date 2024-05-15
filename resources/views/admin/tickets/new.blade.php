@@ -17,8 +17,15 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="name">Name *</label>
-                <input name="name" type="text" class="form-control" placeholder="Enter ticket name" required
+                <input name="name" type="text" class="form-control" placeholder="Enter client name" required
                   value="{{ old('name') }}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="name">Email *</label>
+                <input name="email" type="email" class="form-control" placeholder="Enter client email" required
+                  value="{{ old('email') }}">
               </div>
             </div>
             <div class="col-md-6">
@@ -40,7 +47,15 @@
                 </select>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="form-label" for="attachments">Attachments
+                  <small>(Max:20MB, Screenshots/Images/File...)</small></label>
+                <input type="file" id="attachments" name="attachments[]" class="form-control-file form-control"
+                  multiple>
+              </div>
+            </div>
+            <div class="col-md-12">
               <div class="form-group">
                 <label for="description">Description *</label>
                 <textarea name="description" class="form-control" id="description" rows="5"

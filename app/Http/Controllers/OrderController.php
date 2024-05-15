@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Log;
 use App\Models\Order;
 use App\Models\Product;
@@ -25,9 +25,9 @@ class OrderController extends Controller
     public function new()
     {
         $categories = Category::with('products')->get();
-        $clients = Client::select('id', 'name')->get();
+        $users = User::select('id', 'name')->get();
 
-        $data = compact('categories', 'clients');
+        $data = compact('categories', 'users');
         return view('admin.orders.new', $data);
     } //end of new
 
@@ -52,9 +52,9 @@ class OrderController extends Controller
     public function edit(Order $order)
     {
         $categories = Category::with('products')->get();
-        $clients = Client::select('id', 'name')->get();
+        $users = User::select('id', 'name')->get();
 
-        $data = compact('categories', 'order', 'clients');
+        $data = compact('categories', 'order', 'users');
         return view('admin.orders.edit', $data);
     } //end of edit
 
@@ -109,8 +109,8 @@ class OrderController extends Controller
 
     private function attach_order($request)
     {
-        $client = Client::findOrFail($request->client_id);
-        $order = $client->orders()->create([]);
+        $user = User::findOrFail($request->user_id);
+        $order = $user->orders()->create([]);
 
         $text = "Order " . $order->id . " : ";
         $total_price = 0;

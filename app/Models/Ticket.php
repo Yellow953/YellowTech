@@ -21,12 +21,8 @@ class Ticket extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function attachements()
+    public function attachments()
     {
-        return $this->hasMany(Attachement::class);
-    }
-    public function images()
-    {
-        return $this->hasMany(Attachement::class);
+        return $this->hasMany(Attachment::class);
     }
 }

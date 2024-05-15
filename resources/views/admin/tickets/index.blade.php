@@ -24,7 +24,7 @@
                     <table id="example1" class="table table-bordered table-striped text-center border">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>User</th>
                                 <th>Subject</th>
                                 <th>Description</th>
                                 <th>Status</th>
@@ -34,15 +34,18 @@
                         <tbody>
                             @foreach($tickets as $ticket)
                             <tr>
-                                <td>{{ ucwords($ticket->name) }}</td>
-                                <td>{{ $ticket->subject }}</td>
+                                <td>
+                                    {{ ucwords($ticket->name) }} <br>
+                                    {{ $ticket->email }}
+                                </td>
+                                <td>{{ ucwords($ticket->subject) }}</td>
                                 <td>{{ $ticket->description }}</td>
                                 <td>{{ ucwords($ticket->status) }}</td>
-
                                 <td>
                                     <div class="action-buttons">
-                                        <a href="{{ route('tickets.images', $ticket->id) }}" class="btn btn-primary">
-                                            <i class="fas fa-image"></i>
+                                        <a href="{{ route('tickets.attachments', $ticket->id) }}"
+                                            class="btn btn-primary">
+                                            <i class="fa-solid fa-paperclip"></i>
                                         </a>
                                         <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-warning">
                                             <i class="fas fa-edit"></i>

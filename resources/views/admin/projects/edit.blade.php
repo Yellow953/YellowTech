@@ -24,12 +24,12 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="client_id">Client *</label>
-                                <select name="client_id" class="form-control select2" required>
+                                <label for="user_id">User *</label>
+                                <select name="user_id" class="form-control select2" required>
                                     <option value=""></option>
-                                    @foreach ($clients as $client)
-                                    <option value="{{ $client->id }}" {{ $project->client_id==$client->id ? 'selected' :
-                                        '' }}>{{ ucwords($client->name) }}</option>
+                                    @foreach ($users as $user)
+                                    <option value="{{ $user->id }}" {{ $project->user_id==$user->id ? 'selected' :
+                                        '' }}>{{ ucwords($user->name) }}</option>
                                     @endforeach
                                 </select>
                             </div>

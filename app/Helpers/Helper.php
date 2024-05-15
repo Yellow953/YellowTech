@@ -34,9 +34,15 @@ class Helper
         return $conditions;
     }
 
+    public static function get_user_roles()
+    {
+        $roles = ['client', 'staff', 'admin'];
+        return $roles;
+    }
+
     public static function get_project_statuses()
     {
-        $statuses = ['active', 'pending', 'hold'];
+        $statuses = ['new', 'hold', 'closed'];
         return $statuses;
     }
 

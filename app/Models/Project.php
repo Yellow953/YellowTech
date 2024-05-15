@@ -11,9 +11,9 @@ class Project extends Model
 
     protected $guarded = [];
 
-    public function client()
+    public function user()
     {
-        return $this->belongsTo(Client::class);
+        return $this->belongsTo(User::class);
     }
 
     public function invoices()
@@ -28,6 +28,6 @@ class Project extends Model
 
     public function images()
     {
-        return $this->hasMany(Attachement::class);
+        return $this->hasMany(Attachment::class);
     }
 }

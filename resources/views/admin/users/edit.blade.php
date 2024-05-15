@@ -30,6 +30,38 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number" required
+                  value="{{ $user->phone }}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="role">Role *</label>
+                <select name="role" id="role" class="form-control select2" required>
+                  <option value=""></option>
+                  @foreach (Helper::get_user_roles() as $role)
+                  <option value="{{ $role }}" {{ $role==$user->role ? 'selected' : '' }}>{{ ucwords($role) }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" name="city" class="form-control" id="city" placeholder="Enter City"
+                  value="{{ $user->city }}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" class="form-control" id="address" placeholder="Enter Address"
+                  value="{{ $user->address }}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
                 <label for="password">Password</label>
                 <input name="password" type="password" class="form-control" placeholder="Password">
               </div>
@@ -37,24 +69,10 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="password_confirmation">Password Confirmation</label>
-                <input name="password_confirmation" type="password" class="form-control"
-                  placeholder="Password Confirmation">
+                <input name="password_confirmation" type="password" class="form-control" placeholder="Password">
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number" required
-                  value="{{ $user->phone }}">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="checkbox">
-                <label>
-                  <input name="role" type="checkbox" {{ $user->role == 'admin' ? 'checked' : '' }}>Admin
-                </label>
-              </div>
-            </div>
+
             <div class="col-md-12">
               <button type="submit" class="btn btn-primary btn-block btn-custom">Submit</button>
             </div>

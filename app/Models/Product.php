@@ -23,7 +23,7 @@ class Product extends Model
 
     public function secondary_images()
     {
-        return $this->hasMany(Attachement::class, 'product_id');
+        return $this->hasMany(Attachment::class, 'product_id');
     }
 
     // Filter

@@ -5,60 +5,62 @@
 @section('content')
 <!-- Main content -->
 <section class="content">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <h4 class="box-title">Draggable Events</h4>
-        </div>
-        <div class="box-body">
-          <!-- the events -->
-          <div id='external-events'>
-            @foreach($events as $event)
-            <div class='external-event' style='background-color: {{ $event->color }}' data-event-id='{{ $event->id }}'> {{ $event->title }} </div>
-            @endforeach
-            <div class="checkbox">
-              <label for='drop-remove'>
-                <input type='checkbox' id='drop-remove' checked />
-                remove after drop
-              </label>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Draggable Events</h4>
+                </div>
+                <div class="box-body">
+                    <!-- the events -->
+                    <div id='external-events'>
+                        @foreach($events as $event)
+                        <div class='external-event' style='background-color: {{ $event->color }}'
+                            data-event-id='{{ $event->id }}'> {{ $event->title }} </div>
+                        @endforeach
+                        <div class="checkbox">
+                            <label for='drop-remove'>
+                                <input type='checkbox' id='drop-remove' checked />
+                                remove after drop
+                            </label>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Create Event</h3>
+                </div>
+                <div class="box-body">
+                    <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+                        <ul class="fc-color-picker" id="color-chooser">
+                            @foreach (Helper::get_event_colors() as $color)
+                            <li><a class="text-{{ $color }}" data-color="{{ $color }}" href="#"><i
+                                        class="fa fa-square"></i></a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="d-flex">
+                        <input id="new-event" type="text" class="form-control" placeholder="Event Title">
+                        <button id="add-new-event" type="button" class="btn btn-primary ">Add</button>
+                    </div><!-- /input-group -->
+                </div>
             </div>
-          </div>
-        </div><!-- /.box-body -->
-      </div><!-- /. box -->
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <h3 class="box-title">Create Event</h3>
-        </div>
-        <div class="box-body">
-          <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-            <ul class="fc-color-picker" id="color-chooser">
-              @foreach (Helper::get_event_colors() as $color)
-              <li><a class="text-{{ $color }}" data-color="{{ $color }}" href="#"><i class="fa fa-square"></i></a></li>
-              @endforeach
-            </ul>
-          </div>
-          <div class="d-flex">
-            <input id="new-event" type="text" class="form-control" placeholder="Event Title">
-            <button id="add-new-event" type="button" class="btn btn-primary ">Add</button>
-          </div><!-- /input-group -->
-        </div>
-      </div>
-    </div><!-- /.col -->
-    <div class="col-md-9">
-      <div class="box box-primary">
-        <div class="box-body no-padding">
-          <!-- THE CALENDAR -->
-          <div id="calendar"></div>
-        </div><!-- /.box-body -->
-      </div><!-- /. box -->
-    </div><!-- /.col -->
-  </div><!-- /.row -->
+        </div><!-- /.col -->
+        <div class="col-md-9">
+            <div class="box box-primary">
+                <div class="box-body no-padding">
+                    <!-- THE CALENDAR -->
+                    <div id="calendar"></div>
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
 </section>
 
 <!-- Page script -->
 <script type="text/javascript">
-$(function () {
+    $(function () {
     /* initialize the external events */
     function ini_events(ele) {
         ele.each(function () {
@@ -96,7 +98,7 @@ $(function () {
         editable: true,
         droppable: true,
         eventRender: function(event, element) {
-            element.append('<span class="closeon"><i class="fa-solid fa-trash-can"></i></span>');
+            element.append('<span class="closeon text-danger"><i class="fa-solid fa-trash-can"></i></span>');
             element.find(".closeon").click(function() {
                 if (confirm("Are you sure you want to delete this event?")) {
                     $.ajax({

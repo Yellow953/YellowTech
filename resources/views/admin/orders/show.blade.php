@@ -62,10 +62,10 @@
                 <div class="col-sm-4 invoice-col">
                     To
                     <address>
-                        <strong>{{ $order->client->name }}</strong><br>
-                        {{ $order->client->city }}, {{ $order->client->address }}<br>
-                        Phone: {{ $order->client->phone }}<br />
-                        Email: {{ $order->client->email }}
+                        <strong>{{ $order->user->name }}</strong><br>
+                        {{ $order->user->city }}, {{ $order->user->address }}<br>
+                        Phone: {{ $order->user->phone }}<br />
+                        Email: {{ $order->user->email }}
                     </address>
                 </div><!-- /.col -->
                 <div class="col-sm-4 invoice-col">

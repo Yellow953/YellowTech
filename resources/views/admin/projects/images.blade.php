@@ -11,10 +11,10 @@
         <div class="col-12 col-md-8 offset-md-2">
             <div class="card m-3">
                 <div class="card-header">
-                    <h3 class="font-weight-bolder text-center my-2">New Attachement</h3>
+                    <h3 class="font-weight-bolder text-center my-2">New Attachment</h3>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('attachements.create') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('attachments.create') }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="project_id" value="{{ $project->id }}">
 
@@ -44,19 +44,19 @@
 
             <div class="card m-3">
                 <div class="card-header">
-                    <h3 class="font-weight-bolder text-center my-2">Attachements<small class="mx-3 text-danger">
+                    <h3 class="font-weight-bolder text-center my-2">Attachments<small class="mx-3 text-danger">
                             (click to remove)</small></h3>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
-                        @forelse ($project->images as $attachement)
-                        <a class="image-wrapper" href="{{ route('attachements.destroy', $attachement->id) }}">
-                            <img src="{{asset($attachement->path)}}" alt="" class="img-fluid m-1"
+                        @forelse ($project->images as $attachment)
+                        <a class="image-wrapper" href="{{ route('attachments.destroy', $attachment->id) }}">
+                            <img src="{{asset($attachment->path)}}" alt="" class="img-fluid m-1"
                                 style="width:150px; height:150px">
                             <span class="delete-overlay text-danger">Delete</span>
                         </a>
                         @empty
-                        No Attachements yet...
+                        No Attachments yet...
                         @endforelse
                     </div>
                 </div>

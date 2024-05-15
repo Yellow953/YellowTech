@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th>Order Number</th>
-                                <th>Client</th>
+                                <th>User</th>
                                 <th>Status</th>
                                 <th>Total Price</th>
                                 <th>Actions</th>
@@ -36,9 +36,9 @@
                             <tr>
                                 <td>{{ $order->id }}</td>
                                 <td>
-                                    {{ ucwords($order->client->name) }} <br>
-                                    {{ $order->client->email }} <br>
-                                    {{ $order->client->phone }} <br>
+                                    {{ ucwords($order->user->name) }} <br>
+                                    {{ $order->user->email }} <br>
+                                    {{ $order->user->phone }} <br>
                                 </td>
                                 <td><span class="status {{ $order->status == 'completed' ? 'completed' : '' }}">{{
                                         ucwords($order->status) }}</span></td>

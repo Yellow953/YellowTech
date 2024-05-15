@@ -30,13 +30,23 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function tickets()
-    {
-        return $this->hasMany(Ticket::class);
-    }
-
     public function events()
     {
         return $this->hasMany(Event::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class);
     }
 }

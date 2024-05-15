@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\Log;
@@ -18,15 +18,15 @@ class InvoiceController extends Controller
 
     public function index()
     {
-        $invoices = Invoice::select('id', 'invoice_number', 'date', 'client_id', 'currency', 'project_id', 'status', 'total_price')->orderBy('id', 'desc')->get();
+        $invoices = Invoice::select('id', 'invoice_number', 'date', 'user_id', 'currency', 'project_id', 'status', 'total_price')->orderBy('id', 'desc')->get();
         return view('admin.invoices.index', compact('invoices'));
     }
 
     public function new()
     {
         $projects = Project::select('id', 'name')->get();
-        $clients = Client::select('id', 'name')->get();
-        return view('admin.invoices.new', compact('projects', 'clients'));
+        $usres = User::select('id', 'name')->get();
+        return view('admin.invoices.new', compact('projects', 'usres'));
     }
 
     public function create(Request $request)
@@ -37,7 +37,7 @@ class InvoiceController extends Controller
             'currency' => 'required|string',
             'rate' => 'required|numeric|min:0',
             'project_id' => 'required|exists:projects,id',
-            'client_id' => 'required|exists:clients,id',
+            'user_id' => 'required|exists:users,id',
             'status' => 'required|string',
             'note' => 'nullable|string',
         ]);
@@ -47,7 +47,7 @@ class InvoiceController extends Controller
             'date' => $request->date,
             'due_date' => $request->due_date,
             'currency' => $request->currency,
-            'client_id' => $request->input('client_id'),
+            'user_id' => $request->input('user_id'),
             'project_id' => $request->input('project_id'),
             'rate' => $request->rate,
             'status' => $request->status,
@@ -89,9 +89,9 @@ class InvoiceController extends Controller
 
     public function edit(Invoice $invoice)
     {
-        $clients = Client::select('id', 'name')->get();
+        $users = User::select('id', 'name')->get();
         $projects = Project::select('id', 'name')->get();
-        $data = compact('clients', 'projects', 'invoice');
+        $data = compact('users', 'projects', 'invoice');
 
         return view('admin.invoices.edit', $data);
     }
@@ -104,7 +104,7 @@ class InvoiceController extends Controller
             'currency' => 'required|string',
             'rate' => 'required|numeric|min:0',
             'project_id' => 'required|exists:projects,id',
-            'client_id' => 'required|exists:clients,id',
+            'user_id' => 'required|exists:users,id',
             'status' => 'required|string',
             'note' => 'nullable|string',
         ]);
@@ -113,7 +113,7 @@ class InvoiceController extends Controller
             'date' => $request->date,
             'due_date' => $request->due_date,
             'currency' => $request->currency,
-            'client_id' => $request->input('client_id'),
+            'user_id' => $request->input('user_id'),
             'project_id' => $request->input('project_id'),
             'rate' => $request->rate,
             'status' => $request->status,

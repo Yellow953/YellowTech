@@ -32,12 +32,6 @@
                     <span>Promos</span>
                 </a>
             </li>
-            <li class="treeview {{ request()->routeIs('clients*') ? 'active' : '' }}">
-                <a href="{{ route('clients') }}">
-                    <i class="fa-solid fa-address-book"></i>
-                    <span>Clients</span>
-                </a>
-            </li>
             <li class="treeview {{ request()->routeIs('notifications*') ? 'active' : '' }}">
                 <a href="{{ route('notifications') }}">
                     <i class="fa-solid fa-bell"></i>

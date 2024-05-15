@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\User;
 use App\Models\Log;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -16,27 +16,27 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::select('id', 'name', 'description', 'client_id', 'status', 'delivery_date')->get();
+        $projects = Project::select('id', 'name', 'description', 'user_id', 'status', 'delivery_date')->get();
         return view('admin.projects.index', compact('projects'));
     }
 
     public function new()
     {
-        $clients = Client::select('id', 'name')->get();
-        return view('admin.projects.new', compact('clients'));
+        $users = User::select('id', 'name')->get();
+        return view('admin.projects.new', compact('users'));
     }
 
     public function create(Request $request)
     {
         $request->validate([
             'name' => 'required|max:255|unique:projects',
-            'client_id' => 'required|numeric',
+            'user_id' => 'required|numeric',
             'status' => 'required',
         ]);
 
         Project::create([
             'name' => $request->name,
-            'client_id' => $request->client_id,
+            'user_id' => $request->user_id,
             'status' => $request->status,
             'description' => $request->description,
             'delivery_date' => $request->delivery_date,
@@ -50,8 +50,8 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-        $clients = Client::select('id', 'name')->get();
-        $data = compact('project', 'clients');
+        $users = User::select('id', 'name')->get();
+        $data = compact('project', 'users');
 
         return view('admin.projects.edit', $data);
     }
@@ -60,13 +60,13 @@ class ProjectController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'client_id' => 'required|numeric',
+            'user_id' => 'required|numeric',
             'status' => 'required',
         ]);
 
         $project->update([
             'name' => $request->name,
-            'client_id' => $request->client_id,
+            'user_id' => $request->user_id,
             'status' => $request->status,
             'description' => $request->description,
             'delivery_date' => $request->delivery_date,

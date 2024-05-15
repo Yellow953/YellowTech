@@ -1,14 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AttachementController;
+use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\NotificationController;
@@ -35,16 +34,6 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-    });
-
-    // clients routes
-    Route::prefix('clients')->group(function () {
-        Route::get('/', [ClientController::class, 'index'])->name('clients');
-        Route::get('/new', [ClientController::class, 'new'])->name('clients.new');
-        Route::post('/create', [ClientController::class, 'create'])->name('clients.create');
-        Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
-        Route::post('/update/{client}', [ClientController::class, 'update'])->name('clients.update');
-        Route::get('/delete/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
     });
 
     // invoices routes
@@ -77,7 +66,7 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{ticket}', [TicketController::class, 'edit'])->name('tickets.edit');
         Route::post('/update/{ticket}', [TicketController::class, 'update'])->name('tickets.update');
         Route::get('/delete/{ticket}', [TicketController::class, 'destroy'])->name('tickets.destroy');
-        Route::get('/images/{ticket}', [TicketController::class, 'images'])->name('tickets.images');
+        Route::get('/attachments/{ticket}', [TicketController::class, 'attachments'])->name('tickets.attachments');
     });
 
     // logs routes
@@ -108,7 +97,6 @@ Route::prefix('app')->group(function () {
         Route::post('/create', [CalendarController::class, 'create'])->name('calendar.create');
         Route::post('/update', [CalendarController::class, 'update'])->name('calendar.update');
         Route::post('/calendar/delete', [CalendarController::class, 'delete'])->name('calendar.delete');
-
     });
 
     // Categories
@@ -159,10 +147,11 @@ Route::prefix('app')->group(function () {
         Route::get('/', [PromoController::class, 'index'])->name('promos');
     });
 
-    // Attachements Routes
-    Route::prefix('attachements')->group(function () {
-        Route::post('/create', [AttachementController::class, 'create'])->name('attachements.create');
-        Route::get('/destroy/{attachement}', [AttachementController::class, 'destroy'])->name('attachements.destroy');
+    // Attachments Routes
+    Route::prefix('attachments')->group(function () {
+        Route::post('/create', [AttachmentController::class, 'create'])->name('attachments.create');
+        Route::get('/destroy/{attachment}', [AttachmentController::class, 'destroy'])->name('attachments.destroy');
+        Route::get('/download/{attachment}', [AttachmentController::class, 'download'])->name('attachments.download');
     });
 });
 
