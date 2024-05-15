@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Log;
 use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
@@ -39,6 +40,10 @@ class CalendarController extends Controller
             'time' => now()->format('H:i:s'),
         ]);
 
+        Log::create([
+            'text' => ucwords(auth()->user()->name) .  ' created a new event: ' . $request->title . ' status: ' . $request->status . ' datetime: ' . now(),
+        ]);
+
         return response()->json(['message' => 'Event created successfully', 'event' => $event]);
     }
 
@@ -55,6 +60,10 @@ class CalendarController extends Controller
         $event->time = $request->time;
         $event->save();
 
+        Log::create([
+            'text' => ucwords(auth()->user()->name) .  ' updated event: ' . $request->title . ' status: ' . $request->status . ' datetime: ' . now(),
+        ]);
+
         return response()->json(['message' => 'Event date and time updated successfully', 'event' => $event]);
     }
 
@@ -66,6 +75,10 @@ class CalendarController extends Controller
 
         $event = Event::findOrFail($request->id);
         $event->delete();
+
+        Log::create([
+            'text' => ucwords(auth()->user()->name) .  ' deleted event: ' . $event->title . ' status: ' . $event->status . ' datetime: ' . now(),
+        ]);
 
         return response()->json(['message' => 'Event deleted successfully']);
     }
