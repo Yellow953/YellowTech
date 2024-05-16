@@ -13,7 +13,7 @@ class InvoiceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->except('show');
     }
 
     public function index()
@@ -165,4 +165,31 @@ class InvoiceController extends Controller
     {
         return view('admin.invoices.show', compact('invoice'));
     }
+
+    public function send(Invoice $invoice)
+{
+    // Instantiate the mailer with the invoice instance
+    $mailer = new ClientMailer($invoice);
+
+    // Send the email
+    Mail::to($invoice->user->email)->send($mailer);
+
+    //  check if the email was sent successfully
+    if (Mail::failures()) {
+        // Handle failure
+        return redirect()->back()->with('error', 'Failed to send invoice email.');
+    }
+
+    // Log successful email sending
+    $text = ucwords(auth()->user()->name) . " sent Invoice : " . $invoice->invoice_number . " to " . $invoice->user->name . ", datetime :   " . now();
+    Log::create(['text' => $text]);
+
+    return redirect()->back()->with('success', 'Invoice email sent successfully.');
+}
+
+    public function generate(Invoice $invoice)
+    {
+       // TODO: GENERATE PDF
+    }
+
 }

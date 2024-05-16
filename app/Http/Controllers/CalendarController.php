@@ -11,7 +11,7 @@ class CalendarController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('staff');
     }
 
     public function index()

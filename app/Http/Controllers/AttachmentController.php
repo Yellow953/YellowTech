@@ -10,7 +10,8 @@ class AttachmentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('staff')->except('create');
+        $this->middleware('admin')->only('destroy');
     }
 
     public function create(Request $request)

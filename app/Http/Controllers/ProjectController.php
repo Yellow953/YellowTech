@@ -11,7 +11,8 @@ class ProjectController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('staff');
+        $this->middleware('admin')->only('destroy');
     }
 
     public function index()
