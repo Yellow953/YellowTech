@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="input-group input-group-outline row my-3">
-                            <label for="user_id" class="col-md-3 col-form-label text-md-end">{{ __('Usr
+                            <label for="user_id" class="col-md-3 col-form-label text-md-end">{{ __('User
                                 *') }}</label>
 
                             <div class="col-md-9">

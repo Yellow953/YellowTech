@@ -5,7 +5,7 @@
 @section('content')
 <section class="content">
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-4">
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>{{ $orders_count }}</h3>
@@ -15,7 +15,7 @@
                         class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-4">
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>{{ $products_count }}</h3>
@@ -25,7 +25,7 @@
                         class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-4">
             <div class="small-box bg-yellow">
                 <div class="inner">
                     <h3>{{ $users_count }}</h3>
@@ -35,13 +35,33 @@
                         class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-2 col-xs-4">
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>{{ $projects_count }}</h3>
                     <p>Projects</p>
                 </div>
                 <a href="{{ route('projects') }}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-xs-4">
+            <div class="small-box bg-maroon">
+                <div class="inner">
+                    <h3>{{ $tickets_count }}</h3>
+                    <p>Tickets</p>
+                </div>
+                <a href="{{ route('tickets') }}" class="small-box-footer">More info <i
+                        class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-xs-4">
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h3>{{ $invoices_count }}</h3>
+                    <p>Invoices</p>
+                </div>
+                <a href="{{ route('invoices') }}" class="small-box-footer">More info <i
                         class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>

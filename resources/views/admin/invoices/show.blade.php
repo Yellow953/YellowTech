@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>YellowTech | Invoice</title>
+    <title>YellowTech | Invoice {{ $invoice->id }}</title>
 
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
@@ -18,6 +18,32 @@
     <link href="{{ asset('admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('admin/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <style>
+        .mb-4 {
+            margin-bottom: 20px;
+        }
+
+        @media print {
+
+            .breadcrumb,
+            .btn {
+                display: none !important;
+            }
+
+            .container {
+                background-color: #fff !important;
+            }
+
+            @page {
+                margin: 0;
+            }
+
+            body {
+                margin: 1.6cm;
+            }
+        }
+    </style>
 </head>
 
 <body class="skin-blue">
@@ -48,42 +74,42 @@
                 </div>
             </div>
             <!-- info row -->
-            <div class="row invoice-info">
-                <div class="col-sm-3 invoice-col">
-                    From
+            <div class="row mb-4 invoice-info">
+                <div class="col-md-3 my-auto invoice-col">
+                    <strong>From</strong>
                     <address>
-                        <strong>YellowTech</strong><br>
+                        YellowTech<br>
                         werkstrasse 2<br>
                         Gronau Leine, 31028<br>
                         Phone: +961 70 285 659<br />
                         Email: yellow.tech.953@gmail.com
                     </address>
                 </div><!-- /.col -->
-                <div class="col-sm-3 invoice-col">
-                    To
+                <div class="col-md-3 my-auto invoice-col">
+                    <strong> To</strong>
                     <address>
-                        <strong>{{ $invoice->user->name }}</strong><br>
-                        {{ $invoice->user->city }}, {{ $invoice->user->address }}<br>
+                        {{ ucwords($invoice->user->name) }}<br>
+                        {{ ucwords($invoice->user->city) }}, {{ $invoice->user->address }}<br>
                         Phone: {{ $invoice->user->phone }}<br />
                         Email: {{ $invoice->user->email }}
                     </address>
                 </div>
-                <div class="col-sm-3 invoice-col">
-                    Project
+                <div class="col-md-3 my-auto invoice-col">
+                    <strong>Project</strong>
                     <address>
-                        <strong>{{ $invoice->project->name }}</strong><br>
+                        {{ ucwords($invoice->project->name) }}<br>
                         {{ $invoice->project->description }}
                     </address>
                 </div>
-                <div class="col-sm-3 invoice-col">
-                    <b>Invoice #:</b> {{ $invoice->invoice_number }}<br />
-                    <b>Payment Due:</b> {{ $invoice->date }}<br />
+                <div class="col-md-3 my-auto invoice-col">
+                    <strong>Invoice #:</strong> {{ $invoice->invoice_number }}<br />
+                    <strong>Payment Due:</strong> {{ $invoice->date }}<br />
                 </div>
-            </div><!-- /.row -->
+            </div>
 
             <!-- Table row -->
             <div class="row">
-                <div class="col-xs-12 table-responsive">
+                <div class="col-md-12 table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -143,6 +169,9 @@
                 </div>
             </div><!-- /.row -->
         </section><!-- /.content -->
+
+        <a href="{{ route('invoices.send', $invoice->id) }}" class="btn btn-success"
+            style="position: fixed; bottom: 5%; right: 1%;">Send</a>
     </div>
 
     <!-- jQuery 2.1.3 -->

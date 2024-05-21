@@ -178,7 +178,8 @@
                             </tr>
                             @foreach ($invoice->items as $item)
                             <tr class="invoice-item-row">
-                                <td></td>
+                                <td><a href="{{ route('invoice_item.destroy', $item->id) }}"
+                                        class="btn btn-danger py-2 px-3"><i class="fa fa-minus"></i></a></td>
                                 <td>{{ $item->item }}</td>
                                 <td>{{ number_format($item->quantity, 2) }}</td>
                                 <td>{{ number_format($item->unit_price, 2) }}</td>
@@ -193,19 +194,19 @@
                                         onclick="addInvoiceItemRow()"><i class="fa fa-plus"></i></button>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" name="item[]" required>
+                                    <input type="text" class="form-control" name="item[]">
                                 </td>
                                 <td>
-                                    <input type="number" name="quantity[]" class="form-control" required min="1"
-                                        value="1" step="any">
+                                    <input type="number" name="quantity[]" class="form-control" min="1" value="1"
+                                        step="any">
                                 </td>
                                 <td>
-                                    <input type="number" name="unit_price[]" class="form-control" required min="0"
-                                        value="0" step="any">
+                                    <input type="number" name="unit_price[]" class="form-control" min="0" value="0"
+                                        step="any">
                                 </td>
                                 <td>
-                                    <input type="number" name="total_price[]" class="form-control" required min="0"
-                                        value="0" step="any" disabled>
+                                    <input type="number" name="total_price[]" class="form-control" min="0" value="0"
+                                        step="any" disabled>
                                 </td>
                             </tr>
                         </tbody>

@@ -150,12 +150,6 @@
                             </table><!-- end of table -->
 
                             <div class="d-flex justify-content-end mb-3">
-                                <h4 class="my-auto">Shipping Cost:</h4>
-                                <input type="number" class="shipping-cost form-control mx-3" value="0"
-                                    style="width: 100px" name="shipping_cost">
-                                <span class="my-auto">$</span>
-                            </div>
-                            <div class="d-flex justify-content-end mb-3">
                                 <h4 class="my-auto">Total Price:</h4>
                                 <input type="number" class="total-price form-control mx-3" value="0"
                                     style="width: 100px" name="total_price">

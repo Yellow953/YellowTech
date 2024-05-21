@@ -2,20 +2,21 @@
 
 namespace App\Mail;
 
+use App\Models\Invoice;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
-class ClientMailer extends Mailable
+class InvoiceMailer extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $invoice;
 
-    public function __construct(invoice $invoice)
+    public function __construct(Invoice $invoice)
     {
         $this->invoice = $invoice;
     }
@@ -24,14 +25,14 @@ class ClientMailer extends Mailable
     {
         return new Envelope(
             from: new Address('no-reply@yellowtech.dev', 'YellowTech'),
-            subject: 'Invoice',
+            subject: 'Invoice From YellowTech',
         );
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'admin.invoice.mail',
+            view: 'admin.invoices.mail',
             with: ['invoice' => $this->invoice],
         );
     }

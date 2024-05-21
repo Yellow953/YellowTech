@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InvoiceMailer;
 use App\Models\User;
 use App\Models\Invoice;
 use App\Models\InvoiceItem;
 use App\Models\Log;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
@@ -25,8 +27,8 @@ class InvoiceController extends Controller
     public function new()
     {
         $projects = Project::select('id', 'name')->get();
-        $usres = User::select('id', 'name')->get();
-        return view('admin.invoices.new', compact('projects', 'usres'));
+        $users = User::select('id', 'name')->get();
+        return view('admin.invoices.new', compact('projects', 'users'));
     }
 
     public function create(Request $request)
@@ -121,18 +123,23 @@ class InvoiceController extends Controller
             'note' => $request->note,
         ]);
 
-        $total_price = $invoice->total_price;
         foreach ($request->input('item') as $key => $item) {
-            $tp = $request->input('quantity')[$key] * $request->input('unit_price')[$key];
+            if ($item != '') {
+                $tp = $request->input('quantity')[$key] * $request->input('unit_price')[$key];
 
-            InvoiceItem::create([
-                'invoice_id' => $invoice->id,
-                'item' => $item,
-                'quantity' => $request->input('quantity')[$key],
-                'unit_price' => $request->input('unit_price')[$key],
-                'total_price' => $tp,
-            ]);
-            $total_price += $tp;
+                InvoiceItem::create([
+                    'invoice_id' => $invoice->id,
+                    'item' => $item,
+                    'quantity' => $request->input('quantity')[$key],
+                    'unit_price' => $request->input('unit_price')[$key],
+                    'total_price' => $tp,
+                ]);
+            }
+        }
+
+        $total_price = 0;
+        foreach ($invoice->items as $item) {
+            $total_price += $item->total_price;
         }
 
         $subtotal = $total_price;
@@ -166,30 +173,29 @@ class InvoiceController extends Controller
         return view('admin.invoices.show', compact('invoice'));
     }
 
-    public function send(Invoice $invoice)
-{
-    // Instantiate the mailer with the invoice instance
-    $mailer = new ClientMailer($invoice);
+    public function invoice_item_destroy(InvoiceItem $invoice_item)
+    {
+        $text = ucwords(auth()->user()->name) . " deleted Invoice Item : " . $invoice_item->item . " in Invoice: " . $invoice_item->invoice->invoice_number . ", datetime :   " . now();
+        Log::create(['text' => $text]);
 
-    // Send the email
-    Mail::to($invoice->user->email)->send($mailer);
+        $invoice_item->delete();
 
-    //  check if the email was sent successfully
-    if (Mail::failures()) {
-        // Handle failure
-        return redirect()->back()->with('error', 'Failed to send invoice email.');
+        return redirect()->back()->with('success', 'Invoice email sent successfully.');
     }
 
-    // Log successful email sending
-    $text = ucwords(auth()->user()->name) . " sent Invoice : " . $invoice->invoice_number . " to " . $invoice->user->name . ", datetime :   " . now();
-    Log::create(['text' => $text]);
+    public function send(Invoice $invoice)
+    {
+        $mailer = new InvoiceMailer($invoice);
+        Mail::to($invoice->user->email)->send($mailer);
 
-    return redirect()->back()->with('success', 'Invoice email sent successfully.');
-}
+        $text = ucwords(auth()->user()->name) . " sent Invoice : " . $invoice->invoice_number . " to " . $invoice->user->name . ", datetime :   " . now();
+        Log::create(['text' => $text]);
+
+        return redirect()->back()->with('success', 'Invoice email sent successfully.');
+    }
 
     public function generate(Invoice $invoice)
     {
-       // TODO: GENERATE PDF
+        // TODO: GENERATE PDF
     }
-
 }

@@ -45,7 +45,9 @@ Route::prefix('app')->group(function () {
         Route::post('/update/{invoice}', [InvoiceController::class, 'update'])->name('invoices.update');
         Route::get('/delete/{invoice}', [InvoiceController::class, 'destroy'])->name('invoices.destroy');
         Route::get('/show/{invoice}', [InvoiceController::class, 'show'])->name('invoices.show');
+        Route::get('/send/{invoice}', [InvoiceController::class, 'send'])->name('invoices.send');
     });
+    Route::get('/delete/{invoice_item}', [InvoiceController::class, 'invoice_item_destroy'])->name('invoice_item.destroy');
 
     // projects routes
     Route::prefix('projects')->group(function () {

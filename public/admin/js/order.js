@@ -45,10 +45,6 @@ $(document).ready(function () {
     updateProductPrice($(this));
     calculateTotal();
   });
-
-  $(".shipping-cost").on("keyup change", function () {
-    calculateTotal();
-  });
 });
 
 function updateProductPrice(input) {
@@ -68,15 +64,12 @@ function updateProductPrice(input) {
 
 function calculateTotal() {
   var total = 0;
-  var shipping_cost = parseFloat($(".shipping-cost").val()) || 0;
-
+  
   $(".order-list .product-price").each(function () {
     var priceString = $(this).html().replace(/,/g, "");
     var price = parseFloat(priceString) || 0;
     total += price;
   });
-
-  total += shipping_cost;
 
   $(".total-price").val(total.toFixed(2));
 }

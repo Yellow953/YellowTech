@@ -15,8 +15,10 @@
                     <!-- the events -->
                     <div id='external-events'>
                         @foreach($events as $event)
+                        @if (!$event->date)
                         <div class='external-event' style='background-color: {{ $event->color }}'
                             data-event-id='{{ $event->id }}'> {{ $event->title }} </div>
+                        @endif
                         @endforeach
                         <div class="checkbox">
                             <label for='drop-remove'>
