@@ -67,141 +67,118 @@
         </div>
     </div>
     <div class="row">
-        <section class="col-lg-6 connectedSortable">
-            <!-- TO DO List -->
-            <div class="box box-primary">
-                <div class="box-header">
-                    <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">To Do List</h3>
-                    <div class="box-tools pull-right">
-                        <ul class="pagination pagination-sm inline">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
+        <!-- To Do List -->
+        <div class=" col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <i class="ion ion-clipboard"></i>
+                            <h3 class="box-title">Ongoing Tasks</h3>
+                        </div>
+                        <div class="box-body">
+                            <ul class="todo-list">
+                                @forelse($ongoing_todos as $todo)
+                                <li>
+                                    <span class="text text-muted">
+                                        @if ($todo->user_id != auth()->user()->id)
+                                        <b class="text-dark">{{ ucwords($todo->user->name) }}</b> (Public)<br>
+                                        @endif
+                                        {{ $todo->text}}</span>
+
+                                    <div class="tools">
+                                        <form action="{{ route('todo.complete', $todo->id) }}" method="GET"
+                                            style="display: inline;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-xs btn-success"><i
+                                                    class="fa fa-check"></i></button>
+                                        </form>
+                                        <a href="{{ route('todo.edit', $todo->id) }}">
+                                            <button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button>
+                                        </a>
+                                        <form action="{{ route('todo.destroy', $todo->id) }}" method="GET"
+                                            style="display: inline;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-xs btn-danger" style="margin-right: 5px;"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </li>
+                                @empty
+                                <li>No Tasks Yet...</li>
+                                @endforelse
+                                <li><span>{{ $ongoing_todos->links() }}</span></li>
+                                <br>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="box-body">
-                    <ul class="todo-list">
-                        <li>
-                            <span class="handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="" />
-                            <span class="text">Design a nice theme</span>
-                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="" />
-                            <span class="text">Make the theme responsive</span>
-                            <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="" />
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="" />
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="" />
-                            <span class="text">Check your messages and notifications</span>
-                            <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="handle">
-                                <i class="fa fa-ellipsis-v"></i>
-                                <i class="fa fa-ellipsis-v"></i>
-                            </span>
-                            <input type="checkbox" value="" name="" />
-                            <span class="text">Let theme shine like a star</span>
-                            <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                            <div class="tools">
-                                <i class="fa fa-edit"></i>
-                                <i class="fa fa-trash-o"></i>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="box-footer clearfix no-border">
-                    <a class="btn btn-default pull-right" href="{{ route('todo.new') }}"><i class="fa fa-plus"></i> Add
-                        todo</a>
+
+                <!-- To Do Form -->
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <i class="ion ion-compose"></i>
+                            <h3 class="box-title">Create Todo</h3>
+                        </div>
+                        <div class="box-body">
+                            <form action="{{ route('todo.create') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" name="text" class="form-control" placeholder="Create a Todo ..."
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" name="public" class="form-check">
+                                    <label for="public">Public</label>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block btn-custom">
+                                    <i class="fa fa-plus"></i>
+                                    Add</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="col-lg-6 connectedSortable">
+        </div>
+        <div class=" col-md-6">
             <div class="box box-info">
                 <div class="box-header">
                     <i class="fa fa-envelope"></i>
                     <h3 class="box-title">Quick Email</h3>
+
                     <div class="pull-right box-tools">
-                        <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i
-                                class="fa fa-times"></i></button>
+                        <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+                            <i class="fa fa-times"></i>
+                        </button>
                     </div>
                 </div>
+                <form action="{{ route('send.quick.email') }}" method="POST">
+                            @csrf
                 <div class="box-body">
-                    <form action="#" method="post">
+
                         <div class="form-group">
-                            <input type="email" class="form-control" name="emailto" placeholder="Email to:" />
+                        <input type="email" name="recipient" class="form-control" id="recipient" placeholder="Email to:">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject" />
+                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
                         </div>
                         <div>
-                            <textarea class="textarea" placeholder="Message"
-                                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                        <textarea name="message" class="form-control" id="message" placeholder="Message"
+                                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                         </div>
-                    </form>
+
                 </div>
                 <div class="box-footer clearfix">
-                    <button class="pull-right btn btn-default" id="sendEmail">Send <i
-                            class="fa fa-arrow-circle-right"></i></button>
+                    <button class="pull-right btn btn-default"  type="submit">Send
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </button>
                 </div>
+                </form>
             </div>
-        </section>
+        </div>
+    </div>
     </div>
 </section>
 @endsection

@@ -7,7 +7,7 @@
     padding: 15px;
 }
 
-.navbar-header h2, .navbar-header .navigation{    
+.navbar-header h2, .navbar-header .navigation{
     margin: 0;
     width: 50%;
     padding: 0 25px;
@@ -94,7 +94,7 @@ ul.pagination{
         padding: 15px;
     }
 
-    .navbar-header h2, .navbar-header .navigation{    
+    .navbar-header h2, .navbar-header .navigation{
         margin: 0;
         width: 100%;
         padding: 0 25px;
@@ -230,6 +230,14 @@ ul.pagination{
 
 .m-3 {
     margin: 2rem !important;
+}
+
+.p-0{
+    padding: 0 !important;
+}
+
+.m-0{
+    margin: 0 !important;
 }
 
 .text-center {
@@ -485,7 +493,7 @@ input.form-control {
 }
 
 .card-body {
-    padding: 1.25rem; 
+    padding: 1.25rem;
 }
 
 .table-bordered {
@@ -505,13 +513,13 @@ input.form-control {
 }
 
 .btn-danger {
-    background-color: #dc3545; 
+    background-color: #dc3545;
     border-color: #dc3545;
     color: #fff;
 }
 
 .btn-danger:hover {
-    opacity: 0.8; 
+    opacity: 0.8;
 }
 
 .my-3{
@@ -529,11 +537,11 @@ body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
-  
+
 body::-webkit-scrollbar {
     width: 12px;
 }
-  
+
 body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);

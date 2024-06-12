@@ -19,6 +19,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 
 Auth::routes(['register' => false]);
 
@@ -35,6 +36,9 @@ Route::prefix('app')->group(function () {
         Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
+
+    // Email route
+    Route::post('/send-quick-email', [EmailController::class, 'sendQuickEmail'])->name('send.quick.email');
 
     // invoices routes
     Route::prefix('invoices')->group(function () {
@@ -187,3 +191,5 @@ Route::get('/ticket', [HomeController::class, 'ticket'])->name('ticket');
 Route::post('/create', [TicketController::class, 'create'])->name('ticket.create');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
