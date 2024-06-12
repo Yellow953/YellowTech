@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>YellowTech | Quick Email</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,7 +16,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="header text-center">
             <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="">
@@ -23,14 +23,12 @@
 
         <div class="body">
             <div class="message text-center my-5">
-            <h2>{{ $details['subject'] }}</h2>
-    <p>{{ $details['message'] }}</p>
+                <h2>{{ $details['subject'] }}</h2>
+                <p>{{ $details['message'] }}</p>
             </div>
-
             <br><br><br>
         </div>
     </div>
-    
 </body>
 
 </html>

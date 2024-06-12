@@ -29,7 +29,7 @@
     color: #6c757d !important;
 }
 .content{
-    margin: 0 25px;
+    margin: 0px 25px;
 }
 .alert-dismissable{
     padding: 15px;
@@ -82,27 +82,6 @@ ul.pagination{
 
 .login-title{
     color: white!important;
-}
-
-@media only screen and (max-width: 600px) {
-    .navbar-header{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        align-items: center;
-        padding: 15px;
-    }
-
-    .navbar-header h2, .navbar-header .navigation{
-        margin: 0;
-        width: 100%;
-        padding: 0 25px;
-    }
-
-    .navbar-header h2{
-        text-align: start;
-    }
 }
 
 .alert {
@@ -166,6 +145,11 @@ ul.pagination{
 .col-12 {
     flex: 0 0 100%;
     max-width: 100%;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 
 .col-md-8 {
@@ -302,6 +286,10 @@ ul.pagination{
     margin-top: 0.25rem;
     font-size: 80%;
     color: #dc3545;
+}
+
+.btn, button{
+    border-radius: 8px !important;
 }
 
 .btn-info {
@@ -464,7 +452,7 @@ input.form-control {
 }
 
 .no-print{
-    top: 25%!important;
+    top: 20%!important;
     padding: 5px 10px !important;
 }
 
@@ -627,4 +615,30 @@ body::-webkit-scrollbar-thumb {
 .small-box{
     border-radius: 10px;
     overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .navbar-header h2, .navbar-header .navigation{
+        margin: 0;
+        width: 100%;
+        padding: 0 25px;
+    }
+
+    .navbar-header h2{
+        text-align: start;
+    }
+
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }

@@ -1,10 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\QuickEmail;
-
-
 
 class EmailController extends Controller
 {
@@ -21,7 +21,7 @@ class EmailController extends Controller
             'message' => $validated['message']
         ];
 
-        Mail::to($validated['recipient'])->send(new \App\Mail\QuickEmail($details));
+        Mail::to($validated['recipient'])->send(new QuickEmail($details));
 
         return redirect()->back()->with('success', 'Email sent successfully!');
     }

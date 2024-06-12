@@ -8,8 +8,7 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\Ticket;
 use App\Models\User;
-use App\Models\ToDo;
-use Illuminate\Http\Request;
+use App\Models\Todo;
 
 class AdminController extends Controller
 {
@@ -20,13 +19,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        $user = auth()->user();
         $orders_count = Order::count();
         $products_count = Product::count();
         $users_count = User::count();
         $projects_count = Project::count();
         $invoices_count = Invoice::count();
         $tickets_count = Ticket::count();
+
+        $user = auth()->user();
         $ongoing_todos = Todo::where('status', 'ongoing')
             ->where(function ($query) use ($user) {
                 $query->where('public', true)
@@ -37,7 +37,7 @@ class AdminController extends Controller
             })
             ->paginate(10);
 
-        $data = compact('orders_count', 'products_count', 'users_count', 'projects_count', 'invoices_count', 'tickets_count','ongoing_todos');
+        $data = compact('orders_count', 'products_count', 'users_count', 'projects_count', 'invoices_count', 'tickets_count', 'ongoing_todos');
 
         return view('admin.dashboard', $data);
     }
