@@ -20,6 +20,8 @@ use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\SubscriptionController;
+
 
 Auth::routes(['register' => false]);
 
@@ -191,5 +193,9 @@ Route::get('/ticket', [HomeController::class, 'ticket'])->name('ticket');
 Route::post('/create', [TicketController::class, 'create'])->name('ticket.create');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Subscription route
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+
 
 

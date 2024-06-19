@@ -72,6 +72,69 @@
 
     @include('layouts._footer')
 
+    <div id="emailPopup" class="email-popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2 class="subTitle">Subscribe to our Newsletter</h2>
+            <form id="emailForm">
+                @csrf
+                <div class="input-group mb-3">
+                <input type="email" class="form-control"  id="emailAddress" name="email" placeholder="Enter your email" required aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2">@example.com</span>
+                </div>
+                <button class="btn btn-primary " type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="popupButton" class="popup-button">
+        <button onclick="showPopup()">Subscribe</button>
+    </div>
+
+    <style>
+        .email-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            padding: 50px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .popup-content {
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .popup-button {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+
+        }
+        .popup-button button {
+            border-radius: 20px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    </style>
+
     <script type="text/javascript" src="{{ asset('assets/js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
@@ -80,6 +143,59 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var emailPopup = document.getElementById('emailPopup');
+            var closePopup = document.getElementById('closePopup');
+            var popupButton = document.getElementById('popupButton');
+
+            // Check if the user is already subscribed
+            if (!{{ session('subscribed') ? 'true' : 'false' }}) {
+                // Show the popup after 10 seconds
+                setTimeout(function() {
+                    emailPopup.style.display = 'block';
+                }, 10000);
+            }
+
+            // Close the popup and show the button
+            closePopup.onclick = function() {
+                emailPopup.style.display = 'none';
+                popupButton.style.display = 'block';
+            }
+
+            // Show the popup when the button is clicked
+            window.showPopup = function() {
+                emailPopup.style.display = 'block';
+                popupButton.style.display = 'none';
+            }
+
+            // Handle form submission
+            document.getElementById('emailForm').onsubmit = function(e) {
+                e.preventDefault();
+                var emailAddress = document.getElementById('emailAddress').value;
+
+                $.ajax({
+                    url: '{{ route("subscribe") }}',
+                    method: 'POST',
+                    data: {
+                        _token: $('input[name="_token"]').val(),
+                        email: emailAddress
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            alert('Thank you for subscribing!');
+                            emailPopup.style.display = 'none';
+                            popupButton.style.display = 'none';
+                        }
+                    },
+                    error: function(response) {
+                        alert('An error occurred. Please try again.');
+                    }
+                });
+            }
+        });
     </script>
 </body>
 
