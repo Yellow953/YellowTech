@@ -72,4 +72,15 @@ class CategoryController extends Controller
 
         return redirect()->back()->with('danger', 'Category was successfully deleted');
     }
+
+    public function bulkDelete(Request $request)
+{
+    $ids = $request->input('ids');
+    if ($ids && is_array($ids)) {
+        Category::whereIn('id', $ids)->delete();
+        return response()->json(['success' => true]);
+    }
+    return response()->json(['success' => false]);
+}
+
 }

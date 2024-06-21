@@ -116,6 +116,8 @@ Route::prefix('app')->group(function () {
         Route::get('/{category}/destroy', [CategoryController::class, 'destroy'])->name('categories.destroy');
         Route::get('/{category}/switch', [CategoryController::class, 'switch'])->name('categories.switch');
         Route::get('/', [CategoryController::class, 'index'])->name('categories');
+        Route::post('/bulk-delete', [CategoryController::class, 'bulkDelete'])->name('categories.bulkDelete');
+
     });
 
     // Products
