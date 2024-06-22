@@ -13,10 +13,18 @@
                             <h3 class="box-title">Users Table</h3>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{ route('users.new') }}" class="btn btn-primary">
-                                <span><i class="fa fa-plus"></i></span>
-                                User
-                            </a>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  Actions
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                  <li><a href="#" id="deleteSelected">Delete</a></li>
+                                  <li> <a href="{{ route('users.new') }}">
+                                    Add
+                                </a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -24,6 +32,7 @@
                     <table id="example1" class="table table-bordered table-striped text-center border">
                         <thead>
                             <tr>
+                                <th><input type="checkbox" id="checkAll"></th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
@@ -35,6 +44,7 @@
                         <tbody>
                             @foreach($users as $user)
                             <tr>
+                                <td><input type="checkbox" class="row-checkbox" data-id="{{ $user->id }}"></td>
                                 <td>{{ ucwords($user->name) }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>

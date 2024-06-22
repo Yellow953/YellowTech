@@ -13,10 +13,18 @@
                             <h3 class="box-title">Orders Table</h3>
                         </div>
                         <div class="col-md-6 text-right">
-                            <a href="{{ route('orders.new') }}" class="btn btn-primary">
-                                <span><i class="fa fa-plus"></i></span>
-                                Order
-                            </a>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  Actions
+                                  <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                  <li><a href="#" id="deleteSelected">Delete</a></li>
+                                  <li>   <a href="{{ route('orders.new') }}">
+                                    Add
+                                </a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -24,6 +32,7 @@
                     <table id="example1" class="table table-bordered table-striped text-center border">
                         <thead>
                             <tr>
+                                <th><input type="checkbox" id="checkAll"></th>
                                 <th>Order Number</th>
                                 <th>User</th>
                                 <th>Status</th>
@@ -34,6 +43,7 @@
                         <tbody>
                             @foreach($orders as $order)
                             <tr>
+                                <td><input type="checkbox" class="row-checkbox" data-id="{{ $order->id }}"></td>
                                 <td>{{ $order->id }}</td>
                                 <td>
                                     {{ ucwords($order->user->name) }} <br>
