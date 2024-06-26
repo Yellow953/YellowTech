@@ -44,35 +44,17 @@ function myFunction() {
 }
 // end fixed header
 
-// check all and delete all
-    document.getElementById('checkAll').addEventListener('click', function() {
-        console.log('Check all clicked');
-        let checkboxes = document.querySelectorAll('.row-checkbox');
-        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
-    });
+// Start multiple selection form
+function setAction(action){
+    var form = document.getElementById('multipleSelectionForm');
+    var actionInput = document.getElementById('action');
+    actionInput.value = action;
+    form.submit();
+}
 
-    document.getElementById('deleteSelected').addEventListener('click', function(e) {
-        e.preventDefault();
-        let selectedIds = Array.from(document.querySelectorAll('.row-checkbox:checked')).map(cb => cb.dataset.id);
+document.getElementById('checkAllOne').addEventListener('click', function() {
+    let checkboxes = document.querySelectorAll('.row-checkbox');
+    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+});
+// End multiple selection form
 
-        if (selectedIds.length > 0) {
-            if (confirm('Are you sure you want to delete the selected categories?')) {
-                fetch("{{ route('categories.bulkDelete') }}", {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({ ids: selectedIds })
-                }).then(response => response.json()).then(data => {
-                    if (data.success) {
-                        location.reload();
-                    } else {
-                        alert('An error occurred while deleting the categories.');
-                    }
-                });
-            }
-        } else {
-            alert('Please select at least one category to delete.');
-        }
-    });

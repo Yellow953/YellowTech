@@ -17,6 +17,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\MultipleSelectionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
@@ -163,6 +164,9 @@ Route::prefix('app')->group(function () {
         Route::get('/destroy/{attachment}', [AttachmentController::class, 'destroy'])->name('attachments.destroy');
         Route::get('/download/{attachment}', [AttachmentController::class, 'download'])->name('attachments.download');
     });
+
+    // Multiple Selection
+    Route::post('/multipleSelection', [MultipleSelectionController::class, 'multipleSelection'])->name('multipleSelection');
 });
 
 //Reset Pass
@@ -198,6 +202,3 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Subscription route
 Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
-
-
-
