@@ -44,17 +44,3 @@ function myFunction() {
 }
 // end fixed header
 
-// Start multiple selection form
-function setAction(action){
-    var form = document.getElementById('multipleSelectionForm');
-    var actionInput = document.getElementById('action');
-    actionInput.value = action;
-    form.submit();
-}
-
-document.getElementById('checkAllOne').addEventListener('click', function() {
-    let checkboxes = document.querySelectorAll('.row-checkbox');
-    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
-});
-// End multiple selection form
-

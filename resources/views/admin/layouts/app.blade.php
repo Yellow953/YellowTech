@@ -44,24 +44,9 @@
   <script src="{{ asset('admin/plugins/datatables/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('admin/plugins/datatables/dataTables.bootstrap.js') }}"></script>
 
-  <!-- FullCalendar -->
-  <link href="{{ asset('admin/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
-  <link href="{{ asset('admin/plugins/fullcalendar/fullcalendar.print.css')}}" rel="stylesheet" type="text/css"
-    media='print' />
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
-  <script src="{{ asset('admin/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
-
   <!-- iCheck -->
   <link href="{{ asset('admin/plugins/iCheck/flat/blue.css') }}" rel="stylesheet" type="text/css" />
   <script src="{{ asset('admin/plugins/iCheck/icheck.min.js') }}"></script>
-
-  <!-- Date Picker -->
-  <link href="{{ asset('admin/plugins/datepicker/datepicker3.css') }}" rel="stylesheet" type="text/css" />
-  <script src="{{ asset('admin/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-
-  <!-- Daterange picker -->
-  <link href="{{ asset('admin/plugins/daterangepicker/daterangepicker-bs3.css') }}" rel="stylesheet" type="text/css" />
-  <script src="{{ asset('admin/plugins/daterangepicker/daterangepicker.js') }}"></script>
 
   <!-- wysihtml5 -->
   <link href="{{ asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet"
@@ -102,11 +87,6 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-  <!-- Sweet Alert -->
-  <script src="{{asset('admin/js/sweetalert.min.js')}}"></script>
-
-  <!-- Custom JS -->
-  <script src="{{ asset('admin/js/custom.js') }}"></script>
 </head>
 
 <body class="skin-blue">
@@ -115,7 +95,6 @@
 
     @include('admin.layouts._sidebar')
 
-    <!-- Right side column. Contains the navbar and content of the page -->
     <div class="content-wrapper">
       @include('admin.layouts._navbar')
       <br><br><br>
@@ -124,6 +103,14 @@
       @yield('content')
     </div>
   </div>
+
+  <!-- Sweet Alert -->
+  <script src="{{asset('admin/js/sweetalert.min.js')}}"></script>
+
+  <!-- Custom JS -->
+  <script src="{{ asset('admin/js/custom.js') }}"></script>
+
+  @include('admin.scripts._multiple_select')
 </body>
 
 </html>

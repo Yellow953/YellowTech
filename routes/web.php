@@ -118,7 +118,6 @@ Route::prefix('app')->group(function () {
         Route::get('/{category}/switch', [CategoryController::class, 'switch'])->name('categories.switch');
         Route::get('/', [CategoryController::class, 'index'])->name('categories');
         Route::post('/bulk-delete', [CategoryController::class, 'bulkDelete'])->name('categories.bulkDelete');
-
     });
 
     // Products
@@ -195,10 +194,10 @@ Route::post('/checkout', [CartController::class, 'order'])->name('checkout.order
 
 Route::get('/custom_logout', [HomeController::class, 'custom_logout'])->name('custom_logout');
 
+// Subscription route
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+
 Route::get('/ticket', [HomeController::class, 'ticket'])->name('ticket');
 Route::post('/create', [TicketController::class, 'create'])->name('ticket.create');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// Subscription route
-Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');

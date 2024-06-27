@@ -61,4 +61,9 @@ class Helper
     {
         return ['aqua', 'blue', 'light-blue', 'teal', 'yellow', 'orange', 'green', 'lime', 'red', 'purple', 'fuchsia', 'muted', 'navy'];
     }
+
+    public static function get_muliple_select_routes()
+    {
+        return ['categories', 'products', 'orders', 'promos', 'projects', 'invoices', 'tickets', 'users'];
+    }
 }

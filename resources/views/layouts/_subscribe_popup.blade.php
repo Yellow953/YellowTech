@@ -27,7 +27,7 @@
         if (!{{ session('subscribed') ? 'true' : 'false' }}) {
             setTimeout(function() {
                 emailPopup.style.display = 'block';
-            }, 60000);
+            }, 10000);
         }
 
         // Close the popup and show the button

@@ -139,12 +139,6 @@
                 <div class="box-header">
                     <i class="fa fa-envelope"></i>
                     <h3 class="box-title">Quick Email</h3>
-
-                    <div class="pull-right box-tools">
-                        <button class="btn btn-danger btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
                 </div>
                 <form action="{{ route('send.quick.email') }}" method="POST">
                     @csrf
