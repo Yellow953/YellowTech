@@ -617,6 +617,20 @@ body::-webkit-scrollbar-thumb {
     overflow: hidden;
 }
 
+.actions-dropdown{
+    top: 110%;
+    right: 0;
+    left: auto;
+    width: 200px;
+    text-align: center;
+    border: solid 2px #337ab7;
+    margin: 0;
+    padding: 0;
+}
+.actions-dropdown > li{
+    border: solid 1px lightblue;
+}
+
 @media only screen and (max-width: 600px) {
     .navbar-header{
         display: flex;

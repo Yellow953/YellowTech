@@ -23,13 +23,10 @@
 
                             <div class="col-md-6 text-right">
                                 <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown">
                                         Actions
-                                        <span class="caret"></span>
-                                    </button>
-
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    </a>
+                                    <ul class="dropdown-menu actions-dropdown">
                                         <li><a href="#" id="exportSelected" onclick="setAction('export')">Export
                                                 Selected</a>
                                         </li>
@@ -48,7 +45,7 @@
                         <table id="example1" class="table table-bordered table-striped text-center border">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" id="checkAllOne"></th>
+                                    <th><input type="checkbox" id="checkAll"></th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Actions</th>
@@ -58,7 +55,8 @@
 
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td><input type="checkbox" class="row-checkbox" data-id="{{ $category->id }}"></td>
+                                    <td><input type="checkbox" class="row-checkbox" name="ids[]"
+                                            value="{{ $category->id }}"></td>
                                     <td>{{ ucwords($category->name) }}</td>
                                     <td>{{ $category->description }}</td>
                                     <td>

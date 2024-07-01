@@ -1,4 +1,4 @@
-@if (in_array(Request::path(), Helper::get_muliple_select_routes()))
+@if (in_array(Request::route()->getName(), Helper::get_muliple_select_routes()))
 <script>
     // Start multiple selection form
     function setAction(action){
@@ -8,9 +8,11 @@
         form.submit();
     }
 
-    document.getElementById('checkAllOne').addEventListener('click', function() {
-        let checkboxes = document.querySelectorAll('.row-checkbox');
-        checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('checkAll').addEventListener('click', function() {
+            let checkboxes = document.querySelectorAll('.row-checkbox');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
     });
     // End multiple selection form
 </script>

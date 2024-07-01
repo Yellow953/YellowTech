@@ -19,9 +19,11 @@ class MultipleSelectionController extends Controller
         $this->middleware('admin');
     }
 
-    public function multipleSelection( Request $request ){
+    public function multipleSelection(Request $request)
+    {
         $action = $request->action;
         $page = $request->page;
+
         switch ($page) {
             case 'categories':
                 switch ($action) {
@@ -140,112 +142,142 @@ class MultipleSelectionController extends Controller
                 break;
         }
 
+        return redirect()->back()->with('success', 'Action Successfully executed...');
     }
 
-// Categories
-private function deleteCategories($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Category::whereIn('id', $ids)->delete();
+    // Categories
+    private function deleteCategories($request)
+    {
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            Category::whereIn('id', $ids)->delete();
+        }
+
+        return;
     }
-    return redirect()->back()->with('success','Categories deleted...');
-}
 
-private function exportCategories($request){
-
-    return redirect()->back()->with('success','Categories exported...');
-}
-
-// Products
-private function deleteProducts($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Product::whereIn('id', $ids)->delete();
+    private function exportCategories($request)
+    {
+        return;
     }
-    return redirect()->back()->with('success', 'Products deleted...');
-}
 
-private function exportProducts($request){
-    return redirect()->back()->with('success', 'Products exported...');
-}
+    // Products
+    private function deleteProducts($request)
+    {
+        $ids = $request->input('ids');
 
-// Orders
-private function deleteOrders($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Order::whereIn('id', $ids)->delete();
+        if ($ids && is_array($ids)) {
+            Product::whereIn('id', $ids)->delete();
+        }
+
+        return;
     }
-    return redirect()->back()->with('success', 'Orders deleted...');
-}
 
-private function exportOrders($request){
-    return redirect()->back()->with('success', 'Orders exported...');
-}
-
-// Promos
-private function deletePromos($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Promo::whereIn('id', $ids)->delete();
+    private function exportProducts($request)
+    {
+        return;
     }
-    return redirect()->back()->with('success', 'Promos deleted...');
-}
 
-private function exportPromos($request){
-    return redirect()->back()->with('success', 'Promos exported...');
-}
+    // Orders
+    private function deleteOrders($request)
+    {
+        $ids = $request->input('ids');
 
-// Projects
-private function deleteProjects($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Project::whereIn('id', $ids)->delete();
+        if ($ids && is_array($ids)) {
+            Order::whereIn('id', $ids)->delete();
+        }
+
+        return;
     }
-    return redirect()->back()->with('success', 'Projects deleted...');
-}
 
-private function exportProjects($request){
-    return redirect()->back()->with('success', 'Projects exported...');
-}
-
-// Invoices
-private function deleteInvoices($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Invoice::whereIn('id', $ids)->delete();
+    private function exportOrders($request)
+    {
+        return;
     }
-    return redirect()->back()->with('success', 'Invoices deleted...');
-}
 
-private function exportInvoices($request){
-    return redirect()->back()->with('success', 'Invoices exported...');
-}
+    // Promos
+    private function deletePromos($request)
+    {
+        $ids = $request->input('ids');
 
-// Tickets
-private function deleteTickets($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Ticket::whereIn('id', $ids)->delete();
+        if ($ids && is_array($ids)) {
+            Promo::whereIn('id', $ids)->delete();
+        }
+
+        return;
     }
-    return redirect()->back()->with('success', 'Tickets deleted...');
-}
 
-private function exportTickets($request){
-    return redirect()->back()->with('success', 'Tickets exported...');
-}
-
-// Users
-private function deleteUsers($request){
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        User::whereIn('id', $ids)->delete();
+    private function exportPromos($request)
+    {
+        return;
     }
-    return redirect()->back()->with('success', 'Users deleted...');
-}
 
-private function exportUsers($request){
-    return redirect()->back()->with('success', 'Users exported...');
-}
+    // Projects
+    private function deleteProjects($request)
+    {
+        $ids = $request->input('ids');
 
-}
+        if ($ids && is_array($ids)) {
+            Project::whereIn('id', $ids)->delete();
+        }
 
+        return;
+    }
+
+    private function exportProjects($request)
+    {
+        return;
+    }
+
+    // Invoices
+    private function deleteInvoices($request)
+    {
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            Invoice::whereIn('id', $ids)->delete();
+        }
+
+        return;
+    }
+
+    private function exportInvoices($request)
+    {
+        return;
+    }
+
+    // Tickets
+    private function deleteTickets($request)
+    {
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            Ticket::whereIn('id', $ids)->delete();
+        }
+
+        return;
+    }
+
+    private function exportTickets($request)
+    {
+        return;
+    }
+
+    // Users
+    private function deleteUsers($request)
+    {
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            User::whereIn('id', $ids)->delete();
+        }
+
+        return;
+    }
+
+    private function exportUsers($request)
+    {
+        return;
+    }
+}
