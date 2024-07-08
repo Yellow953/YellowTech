@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
@@ -28,9 +29,7 @@ Auth::routes(['register' => false]);
 
 // Admin Panel
 Route::prefix('app')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
-
-    // users routes
+    // Users
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users');
         Route::get('/new', [UserController::class, 'new'])->name('users.new');
@@ -40,10 +39,10 @@ Route::prefix('app')->group(function () {
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 
-    // Email route
+    // Quick Mail
     Route::post('/send-quick-email', [EmailController::class, 'sendQuickEmail'])->name('send.quick.email');
 
-    // invoices routes
+    // Invoices
     Route::prefix('invoices')->group(function () {
         Route::get('/', [InvoiceController::class, 'index'])->name('invoices');
         Route::get('/new', [InvoiceController::class, 'new'])->name('invoices.new');
@@ -56,7 +55,7 @@ Route::prefix('app')->group(function () {
     });
     Route::get('/delete/{invoice_item}', [InvoiceController::class, 'invoice_item_destroy'])->name('invoice_item.destroy');
 
-    // projects routes
+    // Projects
     Route::prefix('projects')->group(function () {
         Route::get('/', [ProjectController::class, 'index'])->name('projects');
         Route::get('/new', [ProjectController::class, 'new'])->name('projects.new');
@@ -67,7 +66,7 @@ Route::prefix('app')->group(function () {
         Route::get('/images/{project}', [ProjectController::class, 'images'])->name('projects.images');
     });
 
-    // tickets routes
+    // Tickets
     Route::prefix('tickets')->group(function () {
         Route::get('/', [TicketController::class, 'index'])->name('tickets');
         Route::get('/new', [TicketController::class, 'new'])->name('tickets.new');
@@ -78,20 +77,19 @@ Route::prefix('app')->group(function () {
         Route::get('/attachments/{ticket}', [TicketController::class, 'attachments'])->name('tickets.attachments');
     });
 
-    // logs routes
+    // Logs
     Route::prefix('logs')->group(function () {
         Route::get('/', [LogController::class, 'index'])->name('logs');
     });
 
-    // notifications routes
+    // Notifications
     Route::prefix('notifications')->group(function () {
         Route::get('/', [NotificationController::class, 'index'])->name('notifications');
     });
 
-    // TODO routes
+    // Todos
     Route::prefix('todo')->group(function () {
         Route::get('/', [TodoController::class, 'index'])->name('todo');
-        Route::get('/new', [TodoController::class, 'new'])->name('todo.new');
         Route::post('/create', [TodoController::class, 'create'])->name('todo.create');
         Route::get('/edit/{todo}', [TodoController::class, 'edit'])->name('todo.edit');
         Route::post('/update/{todo}', [TodoController::class, 'update'])->name('todo.update');
@@ -99,7 +97,7 @@ Route::prefix('app')->group(function () {
         Route::get('/complete/{todo}', [TodoController::class, 'complete'])->name('todo.complete');
     });
 
-    //calendar routes
+    // Calendar
     Route::prefix('calendar')->group(function () {
         Route::get('/', [CalendarController::class, 'index'])->name('calendar');
         Route::get('/events', [CalendarController::class, 'events'])->name('calendar.events');
@@ -157,7 +155,7 @@ Route::prefix('app')->group(function () {
         Route::get('/', [PromoController::class, 'index'])->name('promos');
     });
 
-    // Attachments Routes
+    // Attachments
     Route::prefix('attachments')->group(function () {
         Route::post('/create', [AttachmentController::class, 'create'])->name('attachments.create');
         Route::get('/destroy/{attachment}', [AttachmentController::class, 'destroy'])->name('attachments.destroy');
@@ -166,6 +164,19 @@ Route::prefix('app')->group(function () {
 
     // Multiple Selection
     Route::post('/multipleSelection', [MultipleSelectionController::class, 'multipleSelection'])->name('multipleSelection');
+
+    // Backup 
+    Route::prefix('backup')->group(function () {
+        Route::get('/export', [BackupController::class, 'export'])->name('backup.export');
+        Route::post('/import', [BackupController::class, 'import'])->name('backup.import');
+        Route::get('/', [BackupController::class, 'index'])->name('backup');
+    });
+
+    // Navigation
+    Route::post('/navigate', [AdminController::class, 'navigate'])->name('navigate');
+
+    // Dashboard
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 });
 
 //Reset Pass
@@ -192,12 +203,12 @@ Route::get('/cart', [CartController::class, 'cart'])->name('cart');
 Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [CartController::class, 'order'])->name('checkout.order');
 
-Route::get('/custom_logout', [HomeController::class, 'custom_logout'])->name('custom_logout');
-
 // Subscription route
 Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
 
+// Ticket Portal
 Route::get('/ticket', [HomeController::class, 'ticket'])->name('ticket');
-Route::post('/create', [TicketController::class, 'create'])->name('ticket.create');
+Route::post('/ticket/create', [TicketController::class, 'create'])->name('ticket.create');
 
+Route::get('/custom_logout', [HomeController::class, 'custom_logout'])->name('custom_logout');
 Route::get('/', [HomeController::class, 'index'])->name('home');

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Log;
-use Illuminate\Support\Facades\Auth;
 
 class CalendarController extends Controller
 {

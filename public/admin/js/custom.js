@@ -58,3 +58,22 @@ $(function () {
         "bAutoWidth": false
     });
 });
+
+// start adjust sidenav scroll
+document.addEventListener("DOMContentLoaded", function () {
+    var activeElement = document.querySelector(".treeview.active");
+    
+    if (activeElement) {
+        var sidebar = document.getElementById("sidenav-main");
+        var sidebarRect = sidebar.getBoundingClientRect();
+        var elementRect = activeElement.getBoundingClientRect();
+    
+        var offset =
+            elementRect.top -
+            sidebarRect.top -
+            (sidebarRect.height - elementRect.height) / 2;
+    
+        sidebar.scrollTo({ top: offset, behavior: "smooth" });
+    }
+});
+//   end adjust sidenav scroll

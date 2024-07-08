@@ -6,9 +6,11 @@ use App\Models\Invoice;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Project;
+use App\Models\SearchRoute;
 use App\Models\Ticket;
 use App\Models\User;
 use App\Models\Todo;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -40,5 +42,11 @@ class AdminController extends Controller
         $data = compact('orders_count', 'products_count', 'users_count', 'projects_count', 'invoices_count', 'tickets_count', 'ongoing_todos');
 
         return view('admin.dashboard', $data);
+    }
+
+    public function navigate(Request $request)
+    {
+        $res = SearchRoute::where('name', $request->route)->first();
+        return redirect()->route($res->link);
     }
 }

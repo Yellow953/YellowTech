@@ -87,6 +87,16 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+  {{-- Typeahead --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"
+    integrity="sha512-qOBWNAMfkz+vXXgbh0Wz7qYSLZp6c14R0bZeVX2TdQxWpuKr6yHjBIM69fcF8Ve4GUX6B6AKRQJqiiAmwvmUmQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/bloodhound.min.js"
+    integrity="sha512-kC/4GX7MxhslxDVyJOuyMVjr0uc3c/qp9S/E2ORxkttE07pdeImi5LhdRc5aX6sxnhFuRW/tQrRMjTlxZYC8SQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.jquery.min.js"
+    integrity="sha512-AnBkpfpJIa1dhcAiiNTK3JzC3yrbox4pRdrpw+HAI3+rIcfNGFbVXWNJI0Oo7kGPb8/FG+CMSG8oADnfIbYLHw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="skin-blue">
@@ -97,7 +107,6 @@
 
     <div class="content-wrapper">
       @include('admin.layouts._navbar')
-      <br><br><br>
       @include('admin.layouts._flash')
 
       @yield('content')
@@ -111,6 +120,8 @@
   <script src="{{ asset('admin/js/custom.js') }}"></script>
 
   @include('admin.scripts._multiple_select')
+
+  @include('admin.scripts._typeahead')
 </body>
 
 </html>

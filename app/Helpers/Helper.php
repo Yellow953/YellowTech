@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\SearchRoute;
 
 class Helper
 {
@@ -65,5 +66,10 @@ class Helper
     public static function get_muliple_select_routes()
     {
         return ['categories', 'products', 'orders', 'promos', 'projects', 'invoices', 'tickets', 'users'];
+    }
+
+    public static function get_route_names()
+    {
+        return SearchRoute::pluck('name')->toArray();
     }
 }

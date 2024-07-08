@@ -1,4 +1,4 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar" id="sidenav-main" style="position: fixed">
     <section class="sidebar">
         <ul class="sidebar-menu">
             <li class="header">SHOP</li>
@@ -80,6 +80,12 @@
                 <a href="{{ route('logs')}}">
                     <i class="fa-regular fa-note-sticky"></i>
                     <span>Logs</span>
+                </a>
+            </li>
+            <li class="treeview {{ request()->routeIs('backup*') ? 'active' : '' }}">
+                <a href="{{ route('backup')}}">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Backup</span>
                 </a>
             </li>
         </ul>
