@@ -81,13 +81,18 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-        $text = ucwords(auth()->user()->name) .  " deleted Project: " . $project->name . " deleted, datetime: " . now();
-
+       if ($project->can_delete()){
+        $text = ucwords(auth()->user()->name) .  " deleted project " . $project->name . ", datetime: " . now();
         $project->delete();
         Log::create(['text' => $text]);
 
-        return redirect()->back()->with('danger', 'Project was successfully deleted');
+        return redirect()->back()->with('danger', 'project was successfully deleted');
+       }
+       else{
+        return redirect()->back()->with('danger', 'Unable to delete');
+       }
     }
+
 
     public function images(Project $project)
     {

@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function can_delete()
+    {
+       return $this->products->count()==0;
+    }
 }

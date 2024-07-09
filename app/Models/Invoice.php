@@ -26,6 +26,11 @@ class Invoice extends Model
         return $this->hasMany(InvoiceItem::class);
     }
 
+    public function can_delete()
+    {
+       return auth()->user()->role=='admin';
+    }
+
     public static function generate_number()
     {
         $lastInvoice = Invoice::latest()->first();

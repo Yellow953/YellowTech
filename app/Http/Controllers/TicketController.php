@@ -108,12 +108,16 @@ class TicketController extends Controller
 
     public function destroy(Ticket $ticket)
     {
+       if ($ticket->can_delete()){
+        $text = ucwords(auth()->user()->name) .  " deleted ticket " . $ticket->name . ", datetime: " . now();
         $ticket->delete();
-
-        $text = ucwords(auth()->user()->name) .  " deleted Ticket: " . $ticket->name . ", datetime: " . now();
         Log::create(['text' => $text]);
 
-        return redirect()->route('tickets')->with('success', 'Ticket deleted successfully.');
+        return redirect()->back()->with('danger', 'ticket was successfully deleted');
+       }
+       else{
+        return redirect()->back()->with('danger', 'Unable to delete');
+       }
     }
 
     public function attachments(Ticket $ticket)

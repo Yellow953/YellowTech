@@ -86,12 +86,21 @@ class OrderController extends Controller
 
     public function destroy(Order $order)
     {
+       if($order->can_delete()){
         $text = ucwords(auth()->user()->name) .  " deleted Order " . $order->id . ", datetime: " . now();
         Log::create(['text' => $text]);
+
+        foreach ($order->products() as $product) {
+            $product->delete();
+        }
 
         $order->delete();
         session()->flash('success', "Order successfully deleted!");
         return redirect()->back();
+    }
+    else {
+       return redirect()->back()->with('danger', 'Unable to delete');
+    }
     } //end of order
 
     public function complete(Order $order)
@@ -106,7 +115,7 @@ class OrderController extends Controller
         return redirect()->back()->with('success', 'Order successfully completed!');
     }
 
-    // Private 
+    // Private
 
     private function attach_order($request)
     {

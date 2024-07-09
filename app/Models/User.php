@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Invoice::class);
     }
+
+    public function can_delete()
+    {
+       return $this->events->count()==0 && $this->projects->count()==0 && $this->orders->count()==0 && $this->invoices->count()==0 && auth()->user()->role=='admin';
+    }
 }

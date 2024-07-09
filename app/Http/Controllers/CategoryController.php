@@ -66,21 +66,17 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+       if ($category->can_delete()){
         $text = ucwords(auth()->user()->name) .  " deleted Category " . $category->name . ", datetime: " . now();
         $category->delete();
         Log::create(['text' => $text]);
 
         return redirect()->back()->with('danger', 'Category was successfully deleted');
-    }
+       }
+       else{
+        return redirect()->back()->with('danger', 'Unable to delete');
+       }
 
-    public function bulkDelete(Request $request)
-{
-    $ids = $request->input('ids');
-    if ($ids && is_array($ids)) {
-        Category::whereIn('id', $ids)->delete();
-        return response()->json(['success' => true]);
     }
-    return response()->json(['success' => false]);
-}
 
 }

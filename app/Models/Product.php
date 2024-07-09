@@ -48,4 +48,9 @@ class Product extends Model
 
         return $q;
     }
+
+    public function can_delete()
+    {
+       return true;
+    }
 }

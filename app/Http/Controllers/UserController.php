@@ -81,12 +81,16 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+       if ($user->can_delete()){
+        $text = ucwords(auth()->user()->name) .  " deleted user " . $user->name . ", datetime: " . now();
         $user->delete();
+        Log::create(['text' => $text]);
 
-        Log::create([
-            'text' => ucwords(auth()->user()->name) .  ' deleted user: ' . $user->name . ', datetime: ' . now(),
-        ]);
-
-        return redirect()->back()->with('danger', 'User deleted successfully');
+        return redirect()->back()->with('danger', 'user was successfully deleted');
+       }
+       else{
+        return redirect()->back()->with('danger', 'Unable to delete');
+       }
     }
+
 }

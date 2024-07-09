@@ -20,4 +20,9 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'product_order')->withPivot('quantity');
     }
+
+    public function can_delete()
+    {
+       return auth()->user()->role=='admin';
+    }
 }

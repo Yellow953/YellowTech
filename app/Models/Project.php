@@ -30,4 +30,9 @@ class Project extends Model
     {
         return $this->hasMany(Attachment::class);
     }
+
+    public function can_delete()
+    {
+       return true;
+    }
 }

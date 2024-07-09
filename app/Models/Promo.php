@@ -10,4 +10,9 @@ class Promo extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function can_delete()
+    {
+       return true;
+    }
 }

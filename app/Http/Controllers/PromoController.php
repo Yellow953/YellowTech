@@ -67,11 +67,16 @@ class PromoController extends Controller
 
     public function destroy(Promo $promo)
     {
-        $text = ucwords(auth()->user()->name) .  " deleted Promo: " . $promo->name . ", datetime: " . now();
+       if ($promo->can_delete()){
+        $text = ucwords(auth()->user()->name) .  " deleted promo " . $promo->name . ", datetime: " . now();
         $promo->delete();
         Log::create(['text' => $text]);
 
-        return redirect()->back()->with('danger', 'Promo was successfully deleted');
+        return redirect()->back()->with('danger', 'promo was successfully deleted');
+       }
+       else{
+        return redirect()->back()->with('danger', 'Unable to delete');
+       }
     }
 
     public function check(Request $request)

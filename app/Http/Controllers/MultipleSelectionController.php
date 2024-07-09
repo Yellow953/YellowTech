@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Log;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Invoice;
@@ -11,6 +11,15 @@ use App\Models\Project;
 use App\Models\Promo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Exports\CategoriesExport;
+use App\Exports\ProductsExport;
+use App\Exports\OrdersExport;
+use App\Exports\PromosExport;
+use App\Exports\ProjectsExport;
+use App\Exports\InvoicesExport;
+use App\Exports\TicketsExport;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MultipleSelectionController extends Controller
 {
@@ -151,15 +160,27 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            Category::whereIn('id', $ids)->delete();
+            foreach ($ids as $id) {
+                $category = Category::find($id);
+                if ($category->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted Category " . $category->name . ", datetime: " . now();
+                    $category->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
         }
-
         return;
     }
 
     private function exportCategories($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new CategoriesExport($ids), 'categories.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No categories selected for export.');
     }
 
     // Products
@@ -176,7 +197,13 @@ class MultipleSelectionController extends Controller
 
     private function exportProducts($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new ProductsExport($ids), 'products.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No products selected for export.');
     }
 
     // Orders
@@ -193,7 +220,13 @@ class MultipleSelectionController extends Controller
 
     private function exportOrders($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new OrdersExport($ids), 'orders.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No orders selected for export.');
     }
 
     // Promos
@@ -210,7 +243,13 @@ class MultipleSelectionController extends Controller
 
     private function exportPromos($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new PromosExport($ids), 'promos.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No promos selected for export.');
     }
 
     // Projects
@@ -227,7 +266,13 @@ class MultipleSelectionController extends Controller
 
     private function exportProjects($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new ProjectsExport($ids), 'projects.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No projects selected for export.');
     }
 
     // Invoices
@@ -244,7 +289,13 @@ class MultipleSelectionController extends Controller
 
     private function exportInvoices($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new InvoicesExport($ids), 'invoices.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No invoices selected for export.');
     }
 
     // Tickets
@@ -261,7 +312,13 @@ class MultipleSelectionController extends Controller
 
     private function exportTickets($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new TicketsExport($ids), 'tickets.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No tickets selected for export.');
     }
 
     // Users
@@ -278,6 +335,13 @@ class MultipleSelectionController extends Controller
 
     private function exportUsers($request)
     {
-        return;
+        $ids = $request->input('ids');
+
+        if ($ids && is_array($ids)) {
+            return Excel::download(new UsersExport($ids), 'users.xlsx');
+        }
+
+        return redirect()->back()->with('error', 'No users selected for export.');
     }
 }
+
