@@ -107,9 +107,11 @@
 
     <div class="content-wrapper">
       @include('admin.layouts._navbar')
-      @include('admin.layouts._flash')
+      <div class="main-container">
+        @include('admin.layouts._flash')
 
-      @yield('content')
+        @yield('content')
+      </div>
     </div>
   </div>
 
