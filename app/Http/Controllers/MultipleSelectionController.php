@@ -44,9 +44,6 @@ class MultipleSelectionController extends Controller
                     case 'export':
                         $this->exportCategories($request);
                         break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
-                        break;
                 }
                 break;
 
@@ -57,9 +54,6 @@ class MultipleSelectionController extends Controller
                         break;
                     case 'export':
                         $this->exportProducts($request);
-                        break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
                         break;
                 }
                 break;
@@ -72,9 +66,6 @@ class MultipleSelectionController extends Controller
                     case 'export':
                         $this->exportOrders($request);
                         break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
-                        break;
                 }
                 break;
 
@@ -85,9 +76,6 @@ class MultipleSelectionController extends Controller
                         break;
                     case 'export':
                         $this->exportPromos($request);
-                        break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
                         break;
                 }
                 break;
@@ -100,9 +88,6 @@ class MultipleSelectionController extends Controller
                     case 'export':
                         $this->exportProjects($request);
                         break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
-                        break;
                 }
                 break;
 
@@ -113,9 +98,6 @@ class MultipleSelectionController extends Controller
                         break;
                     case 'export':
                         $this->exportInvoices($request);
-                        break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
                         break;
                 }
                 break;
@@ -128,9 +110,6 @@ class MultipleSelectionController extends Controller
                     case 'export':
                         $this->exportTickets($request);
                         break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
-                        break;
                 }
                 break;
 
@@ -142,14 +121,7 @@ class MultipleSelectionController extends Controller
                     case 'export':
                         $this->exportUsers($request);
                         break;
-                    default:
-                        return redirect()->back()->with('error', 'No action selected...');
-                        break;
                 }
-                break;
-
-            default:
-                return redirect()->back()->with('error', 'No action selected...');
                 break;
         }
 

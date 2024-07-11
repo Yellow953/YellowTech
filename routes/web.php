@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\BackupController;
@@ -171,6 +172,9 @@ Route::prefix('app')->group(function () {
         Route::post('/import', [BackupController::class, 'import'])->name('backup.import');
         Route::get('/', [BackupController::class, 'index'])->name('backup');
     });
+
+    // Analytics
+    Route::get('/analytics', [AnalyticsController::class, 'index'])->name('analytics');
 
     // Navigation
     Route::post('/navigate', [AdminController::class, 'navigate'])->name('navigate');
