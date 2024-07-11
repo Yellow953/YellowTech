@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -31,17 +33,23 @@ class HomeController extends Controller
     }
 
     public function contact_create(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'email|required|max:255',
-            'message' => 'required'
-        ]);
+{
+    $validated = $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'email|required|max:255',
+        'message' => 'required'
+    ]);
 
-        // TODO: send email to admin with the content of the contact form
+    $data = [
+        'name' => $validated['name'],
+        'message' => $validated['message'],
+        'email' => $validated['email'],
+    ];
 
-        return redirect()->back()->with('success', 'Thank you for your message...');
-    }
+    Mail::to($validated['recipient'])->send(new ContactFormMail($data));
+
+    return redirect()->back()->with('success', 'Thank you for your message...');
+}
 
     public function portfolio()
     {
