@@ -18,6 +18,6 @@ class Category extends Model
 
     public function can_delete()
     {
-       return $this->products->count()==0;
+        return $this->products->count() == 0 && auth()->user()->role == 'admin';
     }
 }

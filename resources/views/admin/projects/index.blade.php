@@ -70,6 +70,7 @@
                                                 class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+                                            @if ($project->can_delete())
                                             <form action="{{ route('projects.destroy', $project->id) }}" method="GET">
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger show_confirm"
@@ -77,6 +78,7 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

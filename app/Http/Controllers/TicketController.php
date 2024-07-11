@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\File;
 
 class TicketController extends Controller
 {
@@ -108,16 +109,23 @@ class TicketController extends Controller
 
     public function destroy(Ticket $ticket)
     {
-       if ($ticket->can_delete()){
-        $text = ucwords(auth()->user()->name) .  " deleted ticket " . $ticket->name . ", datetime: " . now();
-        $ticket->delete();
-        Log::create(['text' => $text]);
+        if ($ticket->can_delete()) {
+            $text = ucwords(auth()->user()->name) .  " deleted ticket " . $ticket->name . ", datetime: " . now();
 
-        return redirect()->back()->with('danger', 'ticket was successfully deleted');
-       }
-       else{
-        return redirect()->back()->with('danger', 'Unable to delete');
-       }
+            foreach ($ticket->attachments as $attachment) {
+                $path = public_path($attachment->path);
+                File::delete($path);
+
+                $attachment->delete();
+            }
+
+            $ticket->delete();
+            Log::create(['text' => $text]);
+
+            return redirect()->back()->with('danger', 'ticket was successfully deleted');
+        } else {
+            return redirect()->back()->with('danger', 'Unable to delete');
+        }
     }
 
     public function attachments(Ticket $ticket)

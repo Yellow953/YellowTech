@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -20,6 +21,7 @@ use App\Exports\InvoicesExport;
 use App\Exports\TicketsExport;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\File;
 
 class MultipleSelectionController extends Controller
 {
@@ -188,8 +190,26 @@ class MultipleSelectionController extends Controller
     {
         $ids = $request->input('ids');
 
-        if ($ids && is_array($ids)) {
-            Product::whereIn('id', $ids)->delete();
+        foreach ($ids as $id) {
+            $product = Product::find($id);
+            if ($product->can_delete()) {
+                $text = ucwords(auth()->user()->name) .  " deleted Product: " . $product->name . " deleted, datetime: " . now();
+
+                if ($product->image != '/assets/images/no_img.png') {
+                    $path = public_path($product->image);
+                    File::delete($path);
+                }
+
+                foreach ($product->secondary_images as $attachment) {
+                    $path = public_path($attachment->path);
+                    File::delete($path);
+
+                    $attachment->delete();
+                }
+
+                $product->delete();
+                Log::create(['text' => $text]);
+            }
         }
 
         return;
@@ -212,9 +232,20 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            Order::whereIn('id', $ids)->delete();
-        }
+            foreach ($ids as $id) {
+                $order = Order::find($id);
+                if ($order->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted Order " . $order->id . ", datetime: " . now();
 
+                    foreach ($order->products() as $product) {
+                        $product->delete();
+                    }
+
+                    $order->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
+        }
         return;
     }
 
@@ -235,7 +266,15 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            Promo::whereIn('id', $ids)->delete();
+            foreach ($ids as $id) {
+                $promo = Promo::find($id);
+                if ($promo->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted promo " . $promo->name . ", datetime: " . now();
+
+                    $promo->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
         }
 
         return;
@@ -258,7 +297,22 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            Project::whereIn('id', $ids)->delete();
+            foreach ($ids as $id) {
+                $project = Project::find($id);
+                if ($project->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted project " . $project->name . ", datetime: " . now();
+
+                    foreach ($project->images as $attachment) {
+                        $path = public_path($attachment->path);
+                        File::delete($path);
+
+                        $attachment->delete();
+                    }
+
+                    $project->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
         }
 
         return;
@@ -281,7 +335,19 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            Invoice::whereIn('id', $ids)->delete();
+            foreach ($ids as $id) {
+                $invoice = Invoice::find($id);
+                if ($invoice->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted invoice " . $invoice->name . ", datetime: " . now();
+
+                    foreach ($invoice->items as $item) {
+                        $item->delete();
+                    }
+
+                    $invoice->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
         }
 
         return;
@@ -304,7 +370,22 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            Ticket::whereIn('id', $ids)->delete();
+            foreach ($ids as $id) {
+                $ticket = Ticket::find($id);
+                if ($ticket->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted ticket " . $ticket->name . ", datetime: " . now();
+
+                    foreach ($ticket->attachments as $attachment) {
+                        $path = public_path($attachment->path);
+                        File::delete($path);
+
+                        $attachment->delete();
+                    }
+
+                    $ticket->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
         }
 
         return;
@@ -327,7 +408,15 @@ class MultipleSelectionController extends Controller
         $ids = $request->input('ids');
 
         if ($ids && is_array($ids)) {
-            User::whereIn('id', $ids)->delete();
+            foreach ($ids as $id) {
+                $user = User::find($id);
+                if ($user->can_delete()) {
+                    $text = ucwords(auth()->user()->name) .  " deleted user " . $user->name . ", datetime: " . now();
+
+                    $user->delete();
+                    Log::create(['text' => $text]);
+                }
+            }
         }
 
         return;
@@ -344,4 +433,3 @@ class MultipleSelectionController extends Controller
         return redirect()->back()->with('error', 'No users selected for export.');
     }
 }
-

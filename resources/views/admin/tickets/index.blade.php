@@ -72,6 +72,7 @@
                                             <a href="{{ route('tickets.edit', $ticket->id) }}" class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+                                            @if ($ticket->can_delete())
                                             <form action="{{ route('tickets.destroy', $ticket->id) }}" method="GET">
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger show_confirm"
@@ -79,6 +80,7 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

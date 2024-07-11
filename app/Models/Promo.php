@@ -13,6 +13,6 @@ class Promo extends Model
 
     public function can_delete()
     {
-       return true;
+        return auth()->user()->role == 'admin';
     }
 }

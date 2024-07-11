@@ -21,11 +21,6 @@ class Project extends Model
         return $this->hasMany(Invoice::class);
     }
 
-    public function tickets()
-    {
-        return $this->hasMany(Ticket::class);
-    }
-
     public function images()
     {
         return $this->hasMany(Attachment::class);
@@ -33,6 +28,6 @@ class Project extends Model
 
     public function can_delete()
     {
-       return true;
+        return $this->invoices->count() == 0 && auth()->user()->role == 'admin';
     }
 }

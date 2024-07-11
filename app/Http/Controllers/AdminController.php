@@ -46,7 +46,7 @@ class AdminController extends Controller
 
     public function navigate(Request $request)
     {
-        $res = SearchRoute::where('name', $request->route)->first();
-        return redirect()->route($res->link);
+        $search_route = SearchRoute::where('name', $request->route)->first();
+        return redirect()->route($search_route->link);
     }
 }

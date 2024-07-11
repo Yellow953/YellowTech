@@ -61,6 +61,7 @@
                                             <a href="{{ route('promos.edit', $promo->id) }}" class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+                                            @if ($promo->can_delete())
                                             <form action="{{ route('promos.destroy', $promo->id) }}" method="GET">
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger show_confirm"
@@ -68,6 +69,7 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>

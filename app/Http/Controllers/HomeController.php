@@ -37,6 +37,8 @@ class HomeController extends Controller
             'message' => 'required'
         ]);
 
+        // TODO: send email to admin with the content of the contact form
+
         return redirect()->back()->with('success', 'Thank you for your message...');
     }
 

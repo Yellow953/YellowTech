@@ -11,16 +11,6 @@ class Ticket extends Model
 
     protected $guarded = [];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function project()
-    {
-        return $this->belongsTo(Project::class);
-    }
-
     public function attachments()
     {
         return $this->hasMany(Attachment::class);
@@ -28,6 +18,6 @@ class Ticket extends Model
 
     public function can_delete()
     {
-       return true;
+        return auth()->user()->role == 'admin';
     }
 }

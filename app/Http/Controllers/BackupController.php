@@ -29,7 +29,7 @@ class BackupController extends Controller
     public function import(Request $request)
     {
         $request->validate([
-            'file' => 'required|file|mimetypes:text/plain,application/octet-stream',
+            'file' => 'required|file',
         ]);
 
         $file = $request->file('file');

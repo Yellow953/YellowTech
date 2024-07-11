@@ -125,17 +125,28 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $text = ucwords(auth()->user()->name) .  " deleted Product: " . $product->name . " deleted, datetime: " . now();
+        if ($product->can_delete()) {
+            $text = ucwords(auth()->user()->name) .  " deleted Product: " . $product->name . " deleted, datetime: " . now();
 
-        if ($product->image != '/assets/images/no_img.png') {
-            $path = public_path($product->image);
-            File::delete($path);
+            if ($product->image != '/assets/images/no_img.png') {
+                $path = public_path($product->image);
+                File::delete($path);
+            }
+
+            foreach ($product->secondary_images as $attachment) {
+                $path = public_path($attachment->path);
+                File::delete($path);
+
+                $attachment->delete();
+            }
+
+            $product->delete();
+            Log::create(['text' => $text]);
+
+            return redirect()->back()->with('danger', 'Product was successfully deleted...');
+        } else {
+            return redirect()->back()->with('danger', 'Unable to delete Product...');
         }
-
-        $product->delete();
-        Log::create(['text' => $text]);
-
-        return redirect()->back()->with('danger', 'Product was successfully deleted');
     }
 
     public function images(Product $product)

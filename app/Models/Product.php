@@ -18,7 +18,7 @@ class Product extends Model
 
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsToMany(Order::class, 'product_order');
     }
 
     public function secondary_images()
@@ -51,6 +51,6 @@ class Product extends Model
 
     public function can_delete()
     {
-       return true;
+        return $this->orders()->count() == 0 && auth()->user()->role == 'admin';
     }
 }

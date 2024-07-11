@@ -73,12 +73,16 @@ class CalendarController extends Controller
         ]);
 
         $event = Event::findOrFail($request->id);
-        $event->delete();
+        if ($event->can_delete()) {
+            $event->delete();
 
-        Log::create([
-            'text' => ucwords(auth()->user()->name) .  ' deleted event: ' . $event->title . ' status: ' . $event->status . ' datetime: ' . now(),
-        ]);
+            Log::create([
+                'text' => ucwords(auth()->user()->name) .  ' deleted event: ' . $event->title . ' status: ' . $event->status . ' datetime: ' . now(),
+            ]);
 
-        return response()->json(['message' => 'Event deleted successfully']);
+            return response()->json(['message' => 'Event deleted successfully...']);
+        } else {
+            return response()->json(['message' => 'Event Unable to delete...']);
+        }
     }
 }

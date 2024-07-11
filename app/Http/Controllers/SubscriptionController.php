@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -13,19 +14,16 @@ class SubscriptionController extends Controller
             'email' => 'required|unique:users,email',
         ]);
 
-
-        // Create a new user with default values
         User::create([
             'name' => 'Default Name',
             'email' => $request->email,
-            'password' => Hash::make('defaultpassword'), // Use a default password
+            'password' => Hash::make('password'),
             'phone' => '000-000-0000',
             'city' => 'Default City',
             'address' => 'Default Address',
             'role' => 'client',
         ]);
 
-        // Set a session variable to prevent popup reappearance
         session(['subscribed' => true]);
 
         return response()->json(['success' => true]);

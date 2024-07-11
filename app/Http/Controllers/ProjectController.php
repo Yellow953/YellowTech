@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Log;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
 {
@@ -81,16 +82,23 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-       if ($project->can_delete()){
-        $text = ucwords(auth()->user()->name) .  " deleted project " . $project->name . ", datetime: " . now();
-        $project->delete();
-        Log::create(['text' => $text]);
+        if ($project->can_delete()) {
+            $text = ucwords(auth()->user()->name) .  " deleted project " . $project->name . ", datetime: " . now();
 
-        return redirect()->back()->with('danger', 'project was successfully deleted');
-       }
-       else{
-        return redirect()->back()->with('danger', 'Unable to delete');
-       }
+            foreach ($project->images as $attachment) {
+                $path = public_path($attachment->path);
+                File::delete($path);
+
+                $attachment->delete();
+            }
+
+            $project->delete();
+            Log::create(['text' => $text]);
+
+            return redirect()->back()->with('danger', 'Project was successfully deleted...');
+        } else {
+            return redirect()->back()->with('danger', 'Unable to delete Project...');
+        }
     }
 
 

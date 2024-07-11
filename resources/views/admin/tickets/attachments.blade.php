@@ -2,7 +2,7 @@
 
 @section('title', 'tickets')
 
-@section('sub-title', 'attachements')
+@section('sub-title', 'attachments')
 
 @section('content')
 

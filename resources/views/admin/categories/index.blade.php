@@ -65,6 +65,7 @@
                                                 class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+                                            @if ($category->can_delete())
                                             <form action="{{ route('categories.destroy', $category->id) }}" method="GET"
                                                 class="d-inline">
                                                 @csrf
@@ -73,6 +74,7 @@
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
+                                            @endif
                                         </div>
                                     </td>
                                 </tr>
@@ -84,6 +86,4 @@
             </div>
         </div>
     </form>
-</section
-
-@endsection
+</section @endsection
