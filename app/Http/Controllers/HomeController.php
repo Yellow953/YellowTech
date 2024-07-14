@@ -33,23 +33,23 @@ class HomeController extends Controller
     }
 
     public function contact_create(Request $request)
-{
-    $validated = $request->validate([
-        'name' => 'required|max:255',
-        'email' => 'email|required|max:255',
-        'message' => 'required'
-    ]);
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'email|required|max:255',
+            'message' => 'required'
+        ]);
 
-    $data = [
-        'name' => $validated['name'],
-        'message' => $validated['message'],
-        'email' => $validated['email'],
-    ];
+        $data = [
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'message' => $validated['message'],
+        ];
 
-    Mail::to($validated['recipient'])->send(new ContactFormMail($data));
+        Mail::to(env('MAIL_USERNAME'))->send(new ContactFormMail($data));
 
-    return redirect()->back()->with('success', 'Thank you for your message...');
-}
+        return redirect()->back()->with('success', 'Thank you for your message! We will contact you as soon as we can...');
+    }
 
     public function portfolio()
     {

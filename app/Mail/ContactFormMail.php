@@ -12,25 +12,15 @@ class ContactFormMail extends Mailable
 
     public $data;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
     public function __construct($data)
     {
         $this->data = $data;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
     public function build()
     {
         return $this->subject('New Contact Form Submission')
-                    ->view('emails.contact')
-                    ->with('data', $this->data);
+            ->view('admin.emails.contact')
+            ->with('data', $this->data);
     }
 }

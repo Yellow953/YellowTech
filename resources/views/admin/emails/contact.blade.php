@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>YellowTech | Quick Email</title>
+    <title>YellowTech | New Contact Email</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -14,6 +14,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </head>
+
 <body>
     <div class="container">
         <div class="header text-center">
@@ -22,14 +23,14 @@
 
         <div class="body">
             <div class="message text-center my-5">
-    <h2>Contact Form Submission</h2>
-    <p><strong>Name:</strong> {{ $data['name'] }}</p>
-    <p><strong>Email:</strong> {{ $data['email'] }}</p>
-    <p><strong>Phone:</strong> {{ $data['phone'] }}</p>
-    <p><strong>Message:</strong> {{ $data['message'] }}</p>
-</div>
-<br><br><br>
-</div>
-</div>
+                <h2>Contact Form Submission</h2>
+                <p><strong>Name:</strong> {{ $data['name'] }}</p>
+                <p><strong>Email:</strong> {{ $data['email'] }}</p>
+                <p><strong>Message:</strong> {{ $data['message'] }}</p>
+            </div>
+            <br><br><br>
+        </div>
+    </div>
 </body>
+
 </html>
