@@ -27,15 +27,19 @@
                                         Actions
                                     </a>
                                     <ul class="dropdown-menu actions-dropdown">
-                                        <li><a href="#" id="exportSelected" onclick="setAction('export')">Export
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="{{ route('categories.new') }}">
+                                        <li>
+                                            <a href="{{ route('categories.new') }}">
                                                 New Category
-                                            </a></li>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="exportSelected" onclick="setAction('export')">Export
+                                                Selected</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
+                                                Selected</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -66,14 +70,11 @@
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             @if ($category->can_delete())
-                                            <form action="{{ route('categories.destroy', $category->id) }}" method="GET"
-                                                class="d-inline">
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger show_confirm"
-                                                    data-toggle="tooltip" data-original-title="Delete category">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
+                                            <a href="{{ route('categories.destroy', $category->id) }}"
+                                                class="btn btn-danger show_confirm" data-toggle="tooltip"
+                                                data-original-title="Delete Category">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
                                             @endif
                                         </div>
                                     </td>

@@ -25,15 +25,19 @@
                                         Actions
                                     </a>
                                     <ul class="dropdown-menu actions-dropdown">
-                                        <li><a href="#" id="exportSelected" onclick="setAction('export')">Export
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="{{ route('users.new') }}">
+                                        <li>
+                                            <a href="{{ route('users.new') }}">
                                                 New User
-                                            </a></li>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="exportSelected" onclick="setAction('export')">Export
+                                                Selected</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
+                                                Selected</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -68,13 +72,11 @@
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             @if ($user->can_delete())
-                                            <form action="{{ route('users.destroy', $user->id) }}" method="GET">
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger show_confirm"
-                                                    data-toggle="tooltip" data-original-title="Delete user">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
+                                            <a href="{{ route('users.destroy', $user->id) }}"
+                                                class="btn btn-danger show_confirm" data-toggle="tooltip"
+                                                data-original-title="Delete User">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
                                             @endif
                                         </div>
                                     </td>

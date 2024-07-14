@@ -24,6 +24,6 @@ class AnalyticsController extends Controller
         $topBrowsers = $this->analyticsService->getTopBrowsers($startDate, $endDate);
         $topLocations = $this->analyticsService->getTopLocations($startDate, $endDate);
 
-        return view('analytics.index', compact('uniqueVisits', 'topBrowsers', 'topLocations'));
+        return view('admin.analytics.index', compact('uniqueVisits', 'topBrowsers', 'topLocations'));
     }
 }

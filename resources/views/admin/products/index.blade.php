@@ -25,15 +25,19 @@
                                         Actions
                                     </a>
                                     <ul class="dropdown-menu actions-dropdown">
-                                        <li><a href="#" id="exportSelected" onclick="setAction('export')">Export
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="{{ route('products.new') }}">
+                                        <li>
+                                            <a href="{{ route('products.new') }}">
                                                 New Product
-                                            </a></li>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="exportSelected" onclick="setAction('export')">Export
+                                                Selected</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
+                                                Selected</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -77,13 +81,11 @@
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             @if ($product->can_delete())
-                                            <form action="{{ route('products.destroy', $product->id) }}" method="GET">
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger show_confirm"
-                                                    data-toggle="tooltip" data-original-title="Delete product">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
+                                            <a href="{{ route('products.destroy', $product->id) }}"
+                                                class="btn btn-danger show_confirm" data-toggle="tooltip"
+                                                data-original-title="Delete Product">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
                                             @endif
                                         </div>
                                     </td>

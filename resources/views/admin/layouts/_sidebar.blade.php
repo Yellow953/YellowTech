@@ -88,6 +88,12 @@
                     <span>Backup</span>
                 </a>
             </li>
+            <li class="treeview {{ request()->routeIs('analytics*') ? 'active' : '' }}">
+                <a href="{{ route('analytics')}}">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Analytics</span>
+                </a>
+            </li>
         </ul>
     </section>
 </aside>

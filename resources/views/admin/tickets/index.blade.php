@@ -25,15 +25,20 @@
                                         Actions
                                     </a>
                                     <ul class="dropdown-menu actions-dropdown">
-                                        <li><a href="#" id="exportSelected" onclick="setAction('export')">Export
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
-                                                Selected</a>
-                                        </li>
-                                        <li><a href="{{ route('tickets.new') }}">
+                                        <li>
+                                            <a href="{{ route('tickets.new') }}">
                                                 New Ticket
-                                            </a></li>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="exportSelected" onclick="setAction('export')">Export
+                                                Selected</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="deleteSelected" onclick="setAction('delete')">Delete
+                                                Selected</a>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -73,13 +78,11 @@
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             @if ($ticket->can_delete())
-                                            <form action="{{ route('tickets.destroy', $ticket->id) }}" method="GET">
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger show_confirm"
-                                                    data-toggle="tooltip" data-original-title="Delete ticket">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
+                                            <a href="{{ route('tickets.destroy', $ticket->id) }}"
+                                                class="btn btn-danger show_confirm" data-toggle="tooltip"
+                                                data-original-title="Delete Ticket">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
                                             @endif
                                         </div>
                                     </td>
