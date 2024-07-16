@@ -5,7 +5,7 @@
 
 #sidenav-main{
     position: fixed;
-    height: 100vh; 
+    height: 100vh;
     overflow-y: scroll;
 }
 
@@ -151,6 +151,59 @@ ul.pagination{
     flex: 0 0 100%;
     max-width: 100%;
 }
+
+/* col-md-6 */
+@media (min-width: 768px) {
+    .col-md-6 {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  /* Media query for extra small devices */
+  @media (max-width: 767.98px) {
+    .col-md-6 {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+
+
+/* col-md-9 */
+@media (min-width: 768px) {
+    .col-md-9 {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+  }
+
+  /* col-md-3 */
+  @media (min-width: 768px) {
+    .col-md-3 {
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+
+  /* Media query for extra small devices */
+  @media (max-width: 767.98px) {
+    .col-md-9, .col-md-3 {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
 
 .col-md-6 {
     flex: 0 0 50%;
@@ -737,6 +790,10 @@ body::-webkit-scrollbar-thumb, #sidenav-main::-webkit-scrollbar-thumb {
     height: 300px;
 }
 
+#example1_wrapper{
+    width: 100%;
+    overflow-x: scroll !important;
+}
 @media only screen and (max-width: 600px) {
     .navbar-header{
         display: flex;

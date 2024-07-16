@@ -43,7 +43,7 @@
                     </div> <!-- End of box body -->
 
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-custom">Submit</button>
                     </div>
                 </div>
             </div>

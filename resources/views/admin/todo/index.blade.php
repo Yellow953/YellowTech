@@ -7,7 +7,7 @@
 <section class="content">
     <div class="row">
         <!-- To Do List -->
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="ion ion-clipboard"></i>
@@ -88,7 +88,7 @@
         </div>
 
         <!-- To Do Form -->
-        <div class="col-lg-6">
+        <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="ion ion-compose"></i>

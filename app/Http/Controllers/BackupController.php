@@ -34,7 +34,7 @@ class BackupController extends Controller
 
         $file = $request->file('file');
 
-        $sql = file_get_contents($file->getRealPath());
+        $sql = file_get_contents($file);
 
         DB::unprepared($sql);
 

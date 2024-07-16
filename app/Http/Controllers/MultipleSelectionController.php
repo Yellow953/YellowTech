@@ -42,7 +42,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteCategories($request);
                         break;
                     case 'export':
-                        $this->exportCategories($request);
+                        return $this->exportCategories($request);
                         break;
                 }
                 break;
@@ -53,7 +53,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteProducts($request);
                         break;
                     case 'export':
-                        $this->exportProducts($request);
+                        return $this->exportProducts($request);
                         break;
                 }
                 break;
@@ -64,7 +64,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteOrders($request);
                         break;
                     case 'export':
-                        $this->exportOrders($request);
+                        return $this->exportOrders($request);
                         break;
                 }
                 break;
@@ -75,7 +75,7 @@ class MultipleSelectionController extends Controller
                         $this->deletePromos($request);
                         break;
                     case 'export':
-                        $this->exportPromos($request);
+                        return $this->exportPromos($request);
                         break;
                 }
                 break;
@@ -86,7 +86,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteProjects($request);
                         break;
                     case 'export':
-                        $this->exportProjects($request);
+                        return $this->exportProjects($request);
                         break;
                 }
                 break;
@@ -97,7 +97,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteInvoices($request);
                         break;
                     case 'export':
-                        $this->exportInvoices($request);
+                        return $this->exportInvoices($request);
                         break;
                 }
                 break;
@@ -108,7 +108,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteTickets($request);
                         break;
                     case 'export':
-                        $this->exportTickets($request);
+                        return $this->exportTickets($request);
                         break;
                 }
                 break;
@@ -119,7 +119,7 @@ class MultipleSelectionController extends Controller
                         $this->deleteUsers($request);
                         break;
                     case 'export':
-                        $this->exportUsers($request);
+                        return $this->exportUsers($request);
                         break;
                 }
                 break;

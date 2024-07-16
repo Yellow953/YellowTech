@@ -41,12 +41,12 @@
                                 <form action="{{ route('backup.import') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-9 my-auto px-2">
+                                        <div class="col-md-9 my-auto px-2">
                                             <input type="file" name="file" required class="form-control"
                                                 id="inputGroupFile">
                                         </div>
-                                        <div class="col-3 my-auto">
-                                            <button type="submit" class="btn bg-blue btn-lg">
+                                        <div class=" col-md-3 my-auto">
+                                            <button type="submit" class="text-center btn bg-blue btn-lg">
                                                 <i class="fas fa-upload mr-2"></i>Import
                                             </button>
                                         </div>

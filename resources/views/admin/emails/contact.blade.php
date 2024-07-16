@@ -24,9 +24,9 @@
         <div class="body">
             <div class="message text-center my-5">
                 <h2>Contact Form Submission</h2>
-                <p><strong>Name:</strong> {{ $data['name'] }}</p>
-                <p><strong>Email:</strong> {{ $data['email'] }}</p>
-                <p><strong>Message:</strong> {{ $data['message'] }}</p>
+                <p><strong>Name:</strong> {{ $details ['name'] }}</p>
+                <p><strong>Email:</strong> {{ $details ['email'] }}</p>
+                <p><strong>Message:</strong> {{ $details ['message'] }}</p>
             </div>
             <br><br><br>
         </div>
