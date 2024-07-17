@@ -80,6 +80,8 @@
   <!-- jQuery Knob Chart -->
   <script src="{{ asset('admin/plugins/knob/jquery.knob.js') }}"></script>
 
+  <!-- ChartJS 1.0.1 -->
+  <script src="{{ asset('admin/plugins/chartjs/Chart.min.js') }}" type="text/javascript"></script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('admin/css/admin.css') }}">
 
