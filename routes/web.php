@@ -166,7 +166,7 @@ Route::prefix('app')->group(function () {
     // Multiple Selection
     Route::post('/multipleSelection', [MultipleSelectionController::class, 'multipleSelection'])->name('multipleSelection');
 
-    // Backup 
+    // Backup
     Route::prefix('backup')->group(function () {
         Route::get('/export', [BackupController::class, 'export'])->name('backup.export');
         Route::post('/import', [BackupController::class, 'import'])->name('backup.import');

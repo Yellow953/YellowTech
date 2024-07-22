@@ -84,19 +84,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 $(function () {
+    // Ensure data is available
+    if (!uniqueVisits || !topBrowsers || !topLocations) {
+        console.error('Data is not available');
+        return;
+    }
+
     // Convert PHP data to format suitable for Chart.js
     var areaChartLabels = Object.keys(uniqueVisits);
     var areaChartDataValues = Object.values(uniqueVisits);
 
     var pieChartLabels = Object.keys(topBrowsers);
-    var pieChartDataValues = Object.values(topBrowsers).map(function (browser) {
-        return browser.count;
-    });
+    var pieChartDataValues = Object.values(topBrowsers);
 
     var barChartLabels = Object.keys(topLocations);
-    var barChartDataValues = Object.values(topLocations).map(function (location) {
-        return location.count;
-    });
+    var barChartDataValues = Object.values(topLocations);
+
+    console.log('Area Chart Labels:', areaChartLabels);
+    console.log('Area Chart Data Values:', areaChartDataValues);
+    console.log('Pie Chart Labels:', pieChartLabels);
+    console.log('Pie Chart Data Values:', pieChartDataValues);
+    console.log('Bar Chart Labels:', barChartLabels);
+    console.log('Bar Chart Data Values:', barChartDataValues);
 
     // Area Chart
     var areaChartCanvas = $("#areaChart").get(0).getContext("2d");
@@ -136,13 +145,13 @@ $(function () {
         responsive: true
     };
 
-    var areaChart = new Chart(areaChartCanvas).Line(areaChartData, areaChartOptions);
+    new Chart(areaChartCanvas).Line(areaChartData, areaChartOptions);
 
-    // Line Chart
+    // Line Chart (reusing area chart data)
     var lineChartCanvas = $("#lineChart").get(0).getContext("2d");
     var lineChartOptions = areaChartOptions;
     lineChartOptions.datasetFill = false;
-    var lineChart = new Chart(lineChartCanvas).Line(areaChartData, lineChartOptions);
+    new Chart(lineChartCanvas).Line(areaChartData, lineChartOptions);
 
     // Pie Chart
     var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
@@ -168,7 +177,7 @@ $(function () {
         maintainAspectRatio: false
     };
 
-    var pieChart = new Chart(pieChartCanvas).Doughnut(pieData, pieOptions);
+    new Chart(pieChartCanvas).Doughnut(pieData, pieOptions);
 
     // Bar Chart
     var barChartCanvas = $("#barChart").get(0).getContext("2d");
@@ -200,5 +209,5 @@ $(function () {
         maintainAspectRatio: false
     };
 
-    var barChart = new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
+    new Chart(barChartCanvas).Bar(barChartData, barChartOptions);
 });

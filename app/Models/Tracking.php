@@ -12,4 +12,8 @@ class Tracking extends Model
     protected $guarded = [];
 
     public $timestamps = false;
+
+    protected $casts = [
+        'visited_at' => 'datetime',
+    ];
 }
