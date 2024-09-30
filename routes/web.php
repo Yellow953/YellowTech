@@ -38,6 +38,8 @@ Route::prefix('app')->group(function () {
         Route::get('/edit/{user}', [UserController::class, 'edit'])->name('users.edit');
         Route::post('/update/{user}', [UserController::class, 'update'])->name('users.update');
         Route::get('/delete/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+        Route::get('/calls/{user}', [UserController::class, 'calls'])->name('users.calls');
+        Route::post('/calls/{user}/create', [UserController::class, 'calls_create'])->name('users.calls.create');
     });
 
     // Quick Mail

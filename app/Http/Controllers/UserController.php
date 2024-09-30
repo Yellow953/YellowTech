@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Call;
 use App\Models\Log;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -91,5 +93,39 @@ class UserController extends Controller
         } else {
             return redirect()->back()->with('danger', 'Unable to delete');
         }
+    }
+
+    public function calls(User $user)
+    {
+        $calls = $user->calls;
+        $data = compact('calls', 'user');
+
+        return view('admin.users.calls', $data);
+    }
+
+    public function calls_create(User $user, Request $request)
+    {
+        $request->validate([
+            'call_time' => 'required|date',
+            'response' => 'nullable|string',
+            'reschedule_time' => 'nullable|date|after:call_time',
+            'notes' => 'nullable|string',
+        ]);
+
+        $call = Call::create([
+            'staff_id' => auth()->user()->id,
+            'client_id' => $user->id,
+            'response' => $request->input('response'),
+            'call_time' => Carbon::parse($request->input('call_time')),
+            'reschedule' => $request->input('reschedule') ? true : false,
+            'reschedule_time' => $request->input('reschedule_time') ? Carbon::parse($request->input('reschedule_time')) : null,
+            'notes' => $request->input('notes'),
+        ]);
+
+        Log::create([
+            'text' => ucwords(auth()->user()->name) .  ' called ' . ucwords($user->name) . ' at ' . $call->call_time . ' with the results of ' . $call->response . ', datetime: ' . now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Call Saved Successfully...');
     }
 }

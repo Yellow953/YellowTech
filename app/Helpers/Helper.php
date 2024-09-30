@@ -72,4 +72,9 @@ class Helper
     {
         return SearchRoute::pluck('name')->toArray();
     }
+
+    public static function get_call_responses()
+    {
+        return ['No Answer', 'Reschedule', 'Meeting'];
+    }
 }

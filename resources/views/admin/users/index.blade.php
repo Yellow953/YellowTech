@@ -68,6 +68,11 @@
                                     <td>{{ $user->created_at }}</td>
                                     <td>
                                         <div class="action-buttons">
+                                            @if ($user->role == 'client')
+                                            <a href="{{ route('users.calls', $user->id) }}" class="btn btn-success">
+                                                <i class="fas fa-phone"></i>
+                                            </a>
+                                            @endif
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>

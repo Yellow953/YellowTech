@@ -52,8 +52,13 @@ class User extends Authenticatable
         return $this->hasMany(Invoice::class);
     }
 
+    public function calls()
+    {
+        return $this->hasMany(Call::class, 'client_id');
+    }
+
     public function can_delete()
     {
-       return $this->events->count()==0 && $this->projects->count()==0 && $this->orders->count()==0 && $this->invoices->count()==0 && auth()->user()->role=='admin';
+        return $this->events->count() == 0 && $this->projects->count() == 0 && $this->orders->count() == 0 && $this->invoices->count() == 0 && $this->calls->count() == 0 && auth()->user()->role == 'admin';
     }
 }
