@@ -14,7 +14,8 @@ class TicketController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('staff')->except('create');
+        $this->middleware('client')->only(['create', 'ticket']);
+        $this->middleware('staff')->except(['create', 'ticket']);
     }
 
     public function index()
@@ -131,5 +132,10 @@ class TicketController extends Controller
     public function attachments(Ticket $ticket)
     {
         return view('admin.tickets.attachments', compact('ticket'));
+    }
+
+    public function ticket()
+    {
+        return view('ticket');
     }
 }

@@ -213,7 +213,7 @@ Route::post('/checkout', [CartController::class, 'order'])->name('checkout.order
 Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
 
 // Ticket Portal
-Route::get('/ticket', [HomeController::class, 'ticket'])->name('ticket');
+Route::get('/ticket', [TicketController::class, 'ticket'])->name('ticket');
 Route::post('/ticket/create', [TicketController::class, 'create'])->name('ticket.create');
 
 Route::get('/custom_logout', [HomeController::class, 'custom_logout'])->name('custom_logout');
