@@ -43,7 +43,7 @@ class Helper
 
     public static function get_project_statuses()
     {
-        $statuses = ['new', 'hold', 'closed'];
+        $statuses = ['new', 'hold', 'closed', 'support'];
         return $statuses;
     }
 

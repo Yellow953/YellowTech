@@ -92,7 +92,7 @@ class HomeController extends Controller
     public function custom_logout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 
     public function ticket()
