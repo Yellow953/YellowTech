@@ -14,7 +14,7 @@ class TicketController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->except('create');
+        $this->middleware('staff')->except('create');
     }
 
     public function index()

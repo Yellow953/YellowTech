@@ -58,28 +58,29 @@
                     <span>Projects</span>
                 </a>
             </li>
-            <li class="treeview {{ request()->routeIs('invoices*') ? 'active' : '' }}">
-                <a href="{{ route('invoices')}}">
-                    <i class="fa-solid fa-file-invoice"></i>
-                    <span>Invoices</span>
-                </a>
-            </li>
             <li class="treeview {{ request()->routeIs('tickets*') ? 'active' : '' }}">
                 <a href="{{ route('tickets')}}">
                     <i class="fa-solid fa-ticket"></i>
                     <span>Tickets</span>
                 </a>
             </li>
-            <li class="treeview {{ request()->routeIs('users*') ? 'active' : '' }}">
-                <a href="{{ route('users') }}">
-                    <i class="fa-solid fa-users"></i>
-                    <span> Users</span>
-                </a>
-            </li>
             <li class="treeview {{ request()->routeIs('logs*') ? 'active' : '' }}">
                 <a href="{{ route('logs')}}">
                     <i class="fa-regular fa-note-sticky"></i>
                     <span>Logs</span>
+                </a>
+            </li>
+            @if (auth()->user()->role == 'admin')
+            <li class="treeview {{ request()->routeIs('invoices*') ? 'active' : '' }}">
+                <a href="{{ route('invoices')}}">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Invoices</span>
+                </a>
+            </li>
+            <li class="treeview {{ request()->routeIs('users*') ? 'active' : '' }}">
+                <a href="{{ route('users') }}">
+                    <i class="fa-solid fa-users"></i>
+                    <span> Users</span>
                 </a>
             </li>
             <li class="treeview {{ request()->routeIs('backup*') ? 'active' : '' }}">
@@ -94,6 +95,7 @@
                     <span>Analytics</span>
                 </a>
             </li>
+            @endif
         </ul>
     </section>
 </aside>
