@@ -3,6 +3,11 @@
     width: 100%;
 }
 
+input, textarea {
+    font-size: 15px !important;
+    padding: 5px !important;
+}
+
 #sidenav-main{
     position: fixed;
     height: 100vh;
