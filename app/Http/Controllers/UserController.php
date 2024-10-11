@@ -13,7 +13,8 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('auth');
+        $this->middleware('admin')->except(['edit_profile', 'update_profile']);
     }
 
     public function index()
@@ -127,5 +128,35 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Call Saved Successfully...');
+    }
+
+    public function edit_profile()
+    {
+        $user = auth()->user();
+        return view('admin.users.edit_profile', compact('user'));
+    }
+
+    public function update_profile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+        ]);
+
+        $user = auth()->user();
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'city' => $request->city,
+            'address' => $request->address,
+        ]);
+
+        Log::create([
+            'text' => ucwords(auth()->user()->name) .  ' updated his/her Profile, datetime: ' . now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Profile updated successfully');
     }
 }

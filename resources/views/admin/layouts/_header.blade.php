@@ -34,7 +34,7 @@
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-4 text-center">
-                                <a href="{{ route('users.edit', auth()->user()->id) }}">Edit</a>
+                                <a href="{{ route('profile.edit', auth()->user()->id) }}">Edit</a>
                             </div>
                             <div class="col-xs-4 text-center">
                                 <a href="{{ route('password.request') }}">Change Password</a>
