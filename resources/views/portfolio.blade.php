@@ -94,6 +94,61 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
                 </div>
             </div>
         </div>
+        <div class="box-1">
+            <div class="img-box b-3">
+                <img src="{{ asset('assets/images/portfolio/Auth_Signup.png') }}" alt="YellowPOS Login">
+                <div class="btn-box">
+                    <a href="https://z-special.com" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-4">
+                <img src="{{ asset('assets/images/portfolio/Other_Business_Profile.png') }}" alt="YellowPOS Business Profile">
+                <div class="btn-box">
+                    <a href="https://z-special.com" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/Dashboard.png') }}" alt="YellowPOS Dashboard">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/Dashboard_Calculator.png') }}" alt="YellowPOS Dashboard Calculator">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-1">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/Logs_logs.png') }}" alt="YellowPOS Logs System">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/Other_ToDo.png') }}" alt="YellowPOS To Do System">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
