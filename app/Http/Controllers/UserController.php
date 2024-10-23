@@ -14,12 +14,17 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin')->except(['edit_profile', 'update_profile']);
+        $this->middleware('staff')->except(['edit_profile', 'update_profile']);
+        $this->middleware('admin')->only('destroy');
     }
 
     public function index()
     {
-        $users = User::select('id', 'name', 'email', 'role', 'phone', 'created_at')->get();
+        if (auth()->user()->role == 'staff') {
+            $users = User::select('id', 'name', 'email', 'role', 'phone', 'created_at')->where('role', 'client')->get();
+        } else {
+            $users = User::select('id', 'name', 'email', 'role', 'phone', 'created_at')->get();
+        }
         return view('admin.users.index', compact('users'));
     }
 
@@ -43,7 +48,7 @@ class UserController extends Controller
             'city' => $request->city,
             'address' => $request->address,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => auth()->user()->role == 'staff' ? 'client' : $request->role,
         ]);
 
         Log::create([
@@ -68,8 +73,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password ? Hash::make($request->password) : $user->password,
-            'role' => $request->role,
+            'role' => auth()->user()->role == 'staff' ? $user->role : $request->role,
             'phone' => $request->phone,
             'city' => $request->city,
             'address' => $request->address,

@@ -35,6 +35,7 @@
                                     placeholder="Enter phone number" required value="{{ $user->phone }}">
                             </div>
                         </div>
+                        @if (auth()->user()->role == 'admin')
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="role">Role *</label>
@@ -47,6 +48,7 @@
                                 </select>
                             </div>
                         </div>
+                        @endif
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="city">City</label>
@@ -59,19 +61,6 @@
                                 <label for="address">Address</label>
                                 <input type="text" name="address" class="form-control" id="address"
                                     placeholder="Enter Address" value="{{ $user->address }}">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input name="password" type="password" class="form-control" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="password_confirmation">Password Confirmation</label>
-                                <input name="password_confirmation" type="password" class="form-control"
-                                    placeholder="Password">
                             </div>
                         </div>
 

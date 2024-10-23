@@ -52,6 +52,12 @@
                     <span>Calendar</span>
                 </a>
             </li>
+            <li class="treeview {{ request()->routeIs('users*') ? 'active' : '' }}">
+                <a href="{{ route('users') }}">
+                    <i class="fa-solid fa-users"></i>
+                    <span> Users</span>
+                </a>
+            </li>
             <li class="treeview {{ request()->routeIs('projects*') ? 'active' : '' }}">
                 <a href="{{ route('projects')}}">
                     <i class="fa-solid fa-diagram-project"></i>
@@ -75,12 +81,6 @@
                 <a href="{{ route('invoices')}}">
                     <i class="fa-solid fa-file-invoice"></i>
                     <span>Invoices</span>
-                </a>
-            </li>
-            <li class="treeview {{ request()->routeIs('users*') ? 'active' : '' }}">
-                <a href="{{ route('users') }}">
-                    <i class="fa-solid fa-users"></i>
-                    <span> Users</span>
                 </a>
             </li>
             <li class="treeview {{ request()->routeIs('backup*') ? 'active' : '' }}">
