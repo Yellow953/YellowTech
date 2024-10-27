@@ -132,17 +132,53 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
         </div>
         <div class="box-1">
             <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/Logs_logs.png') }}" alt="YellowPOS Logs System">
+                <img src="{{ asset('assets/images/portfolio/Bestsellers.png') }}" alt="Deutschefahrrad Bestsellers display">
                 <div class="btn-box">
-                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                    <a href="https://deutschefahrrad.de/" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
             </div>
             <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/Other_ToDo.png') }}" alt="YellowPOS To Do System">
+                <img src="{{ asset('assets/images/portfolio/Tracking.png') }}" alt="Deutschefahrrad Tracking System">
                 <div class="btn-box">
-                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                    <a href="https://deutschefahrrad.de/pages/verfolgen-sie-ihre-bestellung" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/BestsellerDress.png') }}" alt="Vestelle BestSellers">
+                <div class="btn-box">
+                    <a href="https://vestelle.eu/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/Checkout.png') }}" alt="Vestelle Payment System">
+                <div class="btn-box">
+                    <a href="https://vestelle.eu/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-1">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/AloeVera.png') }}" alt="Aloe Vera Front Page">
+                <div class="btn-box">
+                    <a href="https://aloeveranaturale.it//" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/NewsLetter.png') }}" alt="Aloe Vera NewsLetter">
+                <div class="btn-box">
+                    <a href="https://aloeveranaturale.it/" class="btn text-yellow">
                         <i class="fa-solid fa-link"></i>
                     </a>
                 </div>
