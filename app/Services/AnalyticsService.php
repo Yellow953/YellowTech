@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Models\Tracking;
@@ -12,6 +13,8 @@ class AnalyticsService
         $ip = $request->ip();
         $userAgent = $request->userAgent();
         $url = $request->fullUrl();
+
+        $userAgent = strlen($userAgent) > 255 ? 'unavailable' : $userAgent;
 
         // Get location data
         $location = Location::get($ip);
