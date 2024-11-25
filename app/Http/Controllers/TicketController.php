@@ -26,7 +26,6 @@ class TicketController extends Controller
 
     public function new()
     {
-
         return view('admin.tickets.new');
     }
 

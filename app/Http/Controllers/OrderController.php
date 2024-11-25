@@ -30,7 +30,7 @@ class OrderController extends Controller
 
         $data = compact('categories', 'users');
         return view('admin.orders.new', $data);
-    } //end of new
+    }
 
     public function create(Request $request)
     {
@@ -48,7 +48,7 @@ class OrderController extends Controller
 
         session()->flash('success', "Order created successfully");
         return redirect()->route('orders');
-    } //end of create
+    }
 
     public function edit(Order $order)
     {
@@ -57,7 +57,7 @@ class OrderController extends Controller
 
         $data = compact('categories', 'order', 'users');
         return view('admin.orders.edit', $data);
-    } //end of edit
+    }
 
     public function update(Request $request, Order $order)
     {
@@ -77,7 +77,7 @@ class OrderController extends Controller
 
         session()->flash('success', "Order updated successfully");
         return redirect()->route('orders');
-    } //end of update
+    }
 
     public function show(Order $order)
     {
@@ -100,7 +100,7 @@ class OrderController extends Controller
         } else {
             return redirect()->back()->with('danger', 'Unable to delete');
         }
-    } //end of order
+    }
 
     public function complete(Order $order)
     {
@@ -141,7 +141,7 @@ class OrderController extends Controller
             $product->update([
                 'quantity' => $product->quantity - $item['quantity']
             ]);
-        } //end of foreach
+        }
 
         $order->update([
             'total_price' => $total_price
@@ -150,7 +150,7 @@ class OrderController extends Controller
 
         $text .= ", datetime: " . now();
         Log::create(['text' => $text]);
-    } //end of attach order
+    }
 
     private function detach_order($order)
     {
@@ -159,8 +159,8 @@ class OrderController extends Controller
             $product->update([
                 'quantity' => $product->quantity + $product->pivot->quantity
             ]);
-        } //end of for each
+        }
 
         $order->delete();
-    } //end of detach order
+    }
 }

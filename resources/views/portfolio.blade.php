@@ -24,6 +24,117 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
     <div class="portfolio_container mx-0 layout_padding">
         <div class="box-1">
             <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/Dashboard.png') }}" alt="YellowPOS Dashboard">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/Dashboard_Calculator.png') }}"
+                    alt="YellowPOS Dashboard Calculator">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="img-box b-3">
+                <img src="{{ asset('assets/images/portfolio/Auth_Signup.png') }}" alt="YellowPOS Login">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-4">
+                <img src="{{ asset('assets/images/portfolio/Other_Business_Profile.png') }}"
+                    alt="YellowPOS Business Profile">
+                <div class="btn-box">
+                    <a href="https://yellowpos.yellowtech.dev" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-1">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/Bestsellers.png') }}"
+                    alt="Deutschefahrrad Bestsellers display">
+                <div class="btn-box">
+                    <a href="https://deutschefahrrad.de/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/Tracking.png') }}" alt="Deutschefahrrad Tracking System">
+                <div class="btn-box">
+                    <a href="https://deutschefahrrad.de/pages/verfolgen-sie-ihre-bestellung" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/BestsellerDress.png') }}" alt="Vestelle BestSellers">
+                <div class="btn-box">
+                    <a href="https://vestelle.eu/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/Checkout.png') }}" alt="Vestelle Payment System">
+                <div class="btn-box">
+                    <a href="https://vestelle.eu/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-1">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/AloeVera.png') }}" alt="Aloe Vera Front Page">
+                <div class="btn-box">
+                    <a href="https://aloeveranaturale.it/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/NewsLetter.png') }}" alt="Aloe Vera NewsLetter">
+                <div class="btn-box">
+                    <a href="https://aloeveranaturale.it/" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-2">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/sellieretbellot.png') }}" alt="Sellier & Bellot System">
+                <div class="btn-box">
+                    <a href="#" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/sellieretbellot2.png') }}" alt="Sellier & Bellot System">
+                <div class="btn-box">
+                    <a href="#" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-1">
+            <div class="img-box b-1">
                 <img src="{{ asset('assets/images/portfolio/mecanix1.png') }}" alt="Mecanix Stock Management System">
                 <div class="btn-box">
                     <a href="https://mecanixstocksystem.com" class="btn text-yellow">
@@ -94,96 +205,8 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
                 </div>
             </div>
         </div>
-        <div class="box-1">
-            <div class="img-box b-3">
-                <img src="{{ asset('assets/images/portfolio/Auth_Signup.png') }}" alt="YellowPOS Login">
-                <div class="btn-box">
-                    <a href="https://z-special.com" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="img-box b-4">
-                <img src="{{ asset('assets/images/portfolio/Other_Business_Profile.png') }}" alt="YellowPOS Business Profile">
-                <div class="btn-box">
-                    <a href="https://z-special.com" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="box-2">
-            <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/Dashboard.png') }}" alt="YellowPOS Dashboard">
-                <div class="btn-box">
-                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/Dashboard_Calculator.png') }}" alt="YellowPOS Dashboard Calculator">
-                <div class="btn-box">
-                    <a href="https://yellowpos.yellowtech.dev/" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="box-1">
-            <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/Bestsellers.png') }}" alt="Deutschefahrrad Bestsellers display">
-                <div class="btn-box">
-                    <a href="https://deutschefahrrad.de/" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/Tracking.png') }}" alt="Deutschefahrrad Tracking System">
-                <div class="btn-box">
-                    <a href="https://deutschefahrrad.de/pages/verfolgen-sie-ihre-bestellung" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="box-2">
-            <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/BestsellerDress.png') }}" alt="Vestelle BestSellers">
-                <div class="btn-box">
-                    <a href="https://vestelle.eu/" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/Checkout.png') }}" alt="Vestelle Payment System">
-                <div class="btn-box">
-                    <a href="https://vestelle.eu/" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="box-1">
-            <div class="img-box b-1">
-                <img src="{{ asset('assets/images/portfolio/AloeVera.png') }}" alt="Aloe Vera Front Page">
-                <div class="btn-box">
-                    <a href="https://aloeveranaturale.it//" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="img-box b-2">
-                <img src="{{ asset('assets/images/portfolio/NewsLetter.png') }}" alt="Aloe Vera NewsLetter">
-                <div class="btn-box">
-                    <a href="https://aloeveranaturale.it/" class="btn text-yellow">
-                        <i class="fa-solid fa-link"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+
+
 
     </div>
 </section>

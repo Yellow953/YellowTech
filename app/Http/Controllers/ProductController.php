@@ -25,7 +25,7 @@ class ProductController extends Controller
 
     public function new()
     {
-        $categories = Category::select('id', 'name')->get();
+        $categories = Category::select('id', 'name')->get()->sortByDesc('id');
         return view('admin.products.new', compact('categories'));
     }
 
@@ -75,7 +75,7 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories = Category::select('id', 'name')->get();
+        $categories = Category::select('id', 'name')->get()->sortByDesc('id');
         $data = compact('categories', 'product');
 
         return view('admin.products.edit', $data);

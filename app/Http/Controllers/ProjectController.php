@@ -24,7 +24,7 @@ class ProjectController extends Controller
 
     public function new()
     {
-        $users = User::select('id', 'name')->get();
+        $users = User::select('id', 'name')->get()->sortByDesc('id');
         return view('admin.projects.new', compact('users'));
     }
 
@@ -52,7 +52,7 @@ class ProjectController extends Controller
 
     public function edit(Project $project)
     {
-        $users = User::select('id', 'name')->get();
+        $users = User::select('id', 'name')->get()->sortByDesc('id');
         $data = compact('project', 'users');
 
         return view('admin.projects.edit', $data);

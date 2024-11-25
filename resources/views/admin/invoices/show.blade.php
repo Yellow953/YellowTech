@@ -9,15 +9,13 @@
 
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
-    <!-- Ionicons -->
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+
     <!-- Theme style -->
     <link href="{{ asset('admin/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
-
-    <link href="{{ asset('admin/css/skins/_all-skins.min.css') }}" rel="stylesheet" type="text/css" />
 
     <style>
         .mb-4 {
@@ -170,7 +168,8 @@
             </div><!-- /.row -->
         </section><!-- /.content -->
 
-        <a href="{{ route('invoices.send', $invoice->id) }}" class="btn btn-success"
+        <a href="#" id="print" class="btn btn-sm btn-primary" style="position: fixed; bottom: 10%; right: 1%;">Print</a>
+        <a href="{{ route('invoices.send', $invoice->id) }}" id="send" class="btn btn-sm btn-success"
             style="position: fixed; bottom: 5%; right: 1%;">Send</a>
     </div>
 
@@ -178,12 +177,22 @@
     <script src="{{ asset('admin/plugins/jQuery/jQuery-2.1.3.min.js') }}"></script>
     <!-- Bootstrap 3.3.2 JS -->
     <script src="{{ asset('admin/js/bootstrap.min.js') }}" type="text/javascript"></script>
-    <!-- FastClick -->
-    <script src="{{ asset('admin/plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin/js/app.min.js') }}" type="text/javascript"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('admin/js/demo.js') }}" type="text/javascript"></script>
+
+    <script>
+        // Print
+        document.getElementById('print').addEventListener('click', ()=>{
+            window.print();
+        })
+
+        // Send
+        document.getElementById('send').addEventListener('click', function (event) {
+            if (!confirm('This will send this Invoice to the Client via Gmail. Are you sure you want to proceed?')) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 
 </html>

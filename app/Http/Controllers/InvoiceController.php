@@ -26,8 +26,8 @@ class InvoiceController extends Controller
 
     public function new()
     {
-        $projects = Project::select('id', 'name')->get();
-        $users = User::select('id', 'name')->get();
+        $projects = Project::select('id', 'name')->get()->sortByDesc('id');
+        $users = User::select('id', 'name')->get()->sortByDesc('id');
         return view('admin.invoices.new', compact('projects', 'users'));
     }
 

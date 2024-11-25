@@ -66,17 +66,14 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-       if ($category->can_delete()){
-        $text = ucwords(auth()->user()->name) .  " deleted Category " . $category->name . ", datetime: " . now();
-        $category->delete();
-        Log::create(['text' => $text]);
+        if ($category->can_delete()) {
+            $text = ucwords(auth()->user()->name) .  " deleted Category " . $category->name . ", datetime: " . now();
+            $category->delete();
+            Log::create(['text' => $text]);
 
-        return redirect()->back()->with('danger', 'Category was successfully deleted');
-       }
-       else{
-        return redirect()->back()->with('danger', 'Unable to delete');
-       }
-
+            return redirect()->back()->with('danger', 'Category was successfully deleted');
+        } else {
+            return redirect()->back()->with('danger', 'Unable to delete');
+        }
     }
-
 }
