@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="{{ asset('assets/logo/logo_B_vector.png') }}" alt="YellowTech Logo" class="img-fluid">
+                        <img src="{{ asset('assets/logo/logo.png') }}" alt="YellowTech Logo" class="img-fluid">
                     </div>
                     <div class="col-md-9 my-auto">
                         <h6>

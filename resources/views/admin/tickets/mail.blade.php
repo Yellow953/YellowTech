@@ -18,7 +18,7 @@
 
     <div class="container">
         <div class="header text-center">
-            <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="">
+            <img src="{{ asset('assets/logo/logo.png') }}" alt="">
         </div>
 
         <div class="body">

@@ -3,7 +3,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg custom_nav-container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" />
+                <img src="{{ asset('assets/logo/logo.png') }}" alt="YellowTech Logo" />
                 <h1 class="text-dark nav-link h1-header">YellowTech</h1>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

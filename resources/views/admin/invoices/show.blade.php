@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>YellowTech | Invoice {{ $invoice->id }}</title>
-
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <link rel="shortcut icon" href="{{ asset('assets/logo/favicon.png') }}" type="image/x-icon">
+
+    <title>YellowTech | Invoice {{ $invoice->id }}</title>
 
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -65,7 +67,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h2 class="page-header">
-                        <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" width="100">
+                        <img src="{{ asset('assets/logo/logo.png') }}" alt="YellowTech Logo" width="100">
                         <small class="pull-right" style="margin-top: 25px">Date: {{
                             $invoice->date }}</small>
                     </h2>
@@ -76,9 +78,8 @@
                 <div class="col-md-3 my-auto invoice-col">
                     <strong>From</strong>
                     <address>
-                        YellowTech<br>
-                        werkstrasse 2<br>
-                        Gronau Leine, 31028<br>
+                        Joe Mazloum <br>
+                        Beirut, Lebanon<br>
                         Phone: +961 70 285 659<br />
                         Email: yellow.tech.953@gmail.com
                     </address>

@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h2 class="page-header">
-                        <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech Logo" width="100">
+                        <img src="{{ asset('assets/logo/logo.png') }}" alt="YellowTech Logo" width="100">
                         <small class="pull-right" style="margin-top: 25px">Date: {{ $order->created_at->format('d/m/Y')
                             }}</small>
                     </h2>

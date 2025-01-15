@@ -9,7 +9,7 @@
     <title>Yellowtech</title>
 
     {{-- Favicon --}}
-    <link rel="icon" type="image/png" href="{{asset('assets/logo/yellowtech.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('assets/logo/favicon.png')}}">
 
     {{-- Coding Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
 
 <body>
     <div class="section">
-        <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="yellowtech logo" class="logo">
+        <img src="{{ asset('assets/logo/logo.png') }}" alt="yellowtech logo" class="logo">
         <h1 class="error">404</h1>
         <div class="page">Ooops!!! Page Not Found...</div>
         <a class="back-home" href="{{ route('home') }}">Back</a>

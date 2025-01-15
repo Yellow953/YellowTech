@@ -18,7 +18,7 @@
             <div style="margin-bottom: 20px;">
                 <div style="width: 50%; float: left;">
                     <h2 style="margin: 0;">
-                        <img src="{{ asset('assets/logo/logo_Y_vector.png') }}" alt="YellowTech" style="width: 100px;">
+                        <img src="{{ asset('assets/logo/logo.png') }}" alt="YellowTech" style="width: 100px;">
                     </h2>
                 </div>
                 <div style="width: 50%; float: right; text-align: right;">
