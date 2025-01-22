@@ -22,6 +22,24 @@ apps, Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech l
     </div>
 
     <div class="portfolio_container mx-0 layout_padding">
+        <div class="box-1">
+            <div class="img-box b-1">
+                <img src="{{ asset('assets/images/portfolio/calories_1.png') }}" alt="Calories">
+                <div class="btn-box">
+                    <a href="https://calories-shop.com" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="img-box b-2">
+                <img src="{{ asset('assets/images/portfolio/calories_2.png') }}" alt="Calories">
+                <div class="btn-box">
+                    <a href="https://calories-shop.com" class="btn text-yellow">
+                        <i class="fa-solid fa-link"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
         <div class="box-2">
             <div class="img-box b-1">
                 <img src="{{ asset('assets/images/portfolio/Mira24K_1.png') }}" alt="Mira24K">
