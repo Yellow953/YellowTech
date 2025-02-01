@@ -9,55 +9,9 @@ and software solutions to suit your needs.")
 yellowtech hardware shop, yellowtech software shop')
 
 @section('content')
-
-<div class="container-fluid my-4">
+<div class="container mt-4">
     <div class="row">
-        <div class="col-12">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active shop-banner"
-                        style="background-image: url({{ asset('assets/images/shop_banner1.png') }})">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Offer 1 Heading</h5>
-                            <p>Offer 1 Description</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item shop-banner"
-                        style="background-image: url({{ asset('assets/images/shop_banner2.png') }})">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Offer 2 Heading</h5>
-                            <p>Offer 2 Description</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item shop-banner"
-                        style="background-image: url({{ asset('assets/images/shop_banner3.png') }})">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Offer 3 Heading</h5>
-                            <p>Offer 3 Description</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container my-4">
-    <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6">
             <div class="row">
                 <div class="col-2 p-0 d-flex justify-content-center my-auto">
                     <i class="fa-solid fa-truck"></i>
@@ -88,9 +42,7 @@ yellowtech hardware shop, yellowtech software shop')
             </div>
         </div>
     </div>
-</div>
 
-<div class="container">
     <div class="row">
         <div class="col-md-3 order-1 order-md-0 p-0">
             <h4 class="my-4 mx-2">Filter Products</h4>

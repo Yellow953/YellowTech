@@ -23,20 +23,6 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="email">Email address *</label>
-                                <input name="email" type="email" class="form-control" placeholder="Enter email"
-                                    value="{{ old('email') }}" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" name="phone" class="form-control" id="phone"
-                                    placeholder="Enter phone number" required value="{{ old('phone') }}">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
                                 <label for="role">Role *</label>
                                 <select name="role" id="role" class="form-control select2" required>
                                     @if (auth()->user()->role == 'staff')
@@ -49,6 +35,20 @@
                                     @endforeach
                                     @endif
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input name="email" type="email" class="form-control" placeholder="Enter email"
+                                    value="{{ old('email') }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" name="phone" class="form-control" id="phone"
+                                    placeholder="Enter phone number" value="{{ old('phone') }}">
                             </div>
                         </div>
                         <div class="col-md-6">

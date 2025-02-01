@@ -21,20 +21,6 @@
                                     required value="{{ $user->name }}">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="email">Email address *</label>
-                                <input name="email" type="email" class="form-control" placeholder="Enter email"
-                                    value="{{ $user->email }}" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Phone Number *</label>
-                                <input type="tel" name="phone" class="form-control" id="phone"
-                                    placeholder="Enter phone number" required value="{{ $user->phone }}">
-                            </div>
-                        </div>
                         @if (auth()->user()->role == 'admin')
                         <div class="col-md-6">
                             <div class="form-group">
@@ -49,6 +35,20 @@
                             </div>
                         </div>
                         @endif
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input name="email" type="email" class="form-control" placeholder="Enter email"
+                                    value="{{ $user->email }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" name="phone" class="form-control" id="phone"
+                                    placeholder="Enter phone number" value="{{ $user->phone }}">
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="city">City</label>
