@@ -4,7 +4,7 @@
         <div class="info_container ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-3">
                         <img src="{{ asset('assets/logo/logo.png') }}" alt="YellowTech Logo" class="img-fluid">
                     </div>
                     <div class="col-md-9 my-auto">

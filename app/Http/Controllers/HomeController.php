@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ContactFormMail;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -37,8 +38,24 @@ class HomeController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:255',
             'email' => 'email|required|max:255',
-            'message' => 'required'
+            'message' => 'required',
+            'g-recaptcha-response' => 'required',
         ]);
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $validated['g-recaptcha-response'],
+            'remoteip' => $request->ip()
+        ]);
+
+        $responseBody = $response->json();
+
+        if (!$responseBody['success'] || $responseBody['score'] < 0.5) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors(['recaptcha' => 'Failed reCAPTCHA verification. Please try again.']);
+        }
 
         $data = [
             'name' => $validated['name'],

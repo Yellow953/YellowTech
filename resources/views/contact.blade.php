@@ -9,16 +9,32 @@ consultations, or inquiries. Let's shape the future of your business together.")
 Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon')
 
 @section('content')
-
 <!-- contact section -->
 <section class="contact_section layout_padding">
+    <div class="container">
+        @if ($errors->any())
+        <div class="alert alert-danger mb-3">
+            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </div>
+        @endif
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success mb-3">
+            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+            {{ $message }}
+        </div>
+        @endif
+    </div>
+
     <div class="container px-0">
         <div class="heading_container">
             <h2>
                 Contact <span>Us</span>
             </h2>
         </div>
-
     </div>
     <div class="container container-bg">
         <div class="row">
@@ -31,7 +47,8 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                 </div>
             </div>
             <div class="col-md-4 px-0">
-                <form action="{{ route('contact.create') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('contact.create') }}" method="POST" enctype="multipart/form-data"
+                    id="contact-form">
                     @csrf
                     <div>
                         <input type="text" name="name" value="{{ old('name') }}" required placeholder="Name *" />
@@ -46,10 +63,10 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                         <input type="text" class="message-box" name="message" value="{{ old('message') }}" required
                             placeholder="Message *" />
                     </div>
+
                     <div class="d-flex">
-                        <button type="submit" class="w-100">
-                            SEND
-                        </button>
+                        <button class="g-recaptcha w-100" data-sitekey="{{ config('services.recaptcha.key') }}"
+                            data-callback='onSubmit' data-action='submit'>SEND</button>
                     </div>
                 </form>
             </div>
@@ -58,5 +75,11 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
 </section>
 <!-- end contact section -->
 
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
+<script>
+    function onSubmit(token) {
+      document.getElementById("contact-form").submit();
+    }
+</script>
 @endsection
