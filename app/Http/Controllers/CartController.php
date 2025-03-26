@@ -30,22 +30,29 @@ class CartController extends Controller
         $subtotal = 0;
         $total = 0;
 
-        try {
-            $cart_items = json_decode($_COOKIE['cart'], true);
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'No Items in your Cart!');
+        if (!isset($_COOKIE['cart']) || empty($_COOKIE['cart'])) {
+            return redirect()->back()->with('danger', 'No Items in your Cart!');
         }
 
-        if ($cart_items != []) {
-            foreach ($cart_items as $productID => $cart_item) {
-                $item = Product::find($productID);
+        try {
+            $cart_items = json_decode($_COOKIE['cart'], true);
+
+            if (empty($cart_items)) {
+                return redirect()->back()->with('danger', 'No Items in your Cart!');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('danger', 'Invalid cart data!');
+        }
+
+        foreach ($cart_items as $productID => $cart_item) {
+            $item = Product::find($productID);
+            if ($item) {
                 $subtotal += $item->unit_price * $cart_item['quantity'];
             }
         }
 
         $total = $subtotal;
-        $data = compact('cart_items', 'subtotal', 'total');
-        return view('checkout', $data);
+        return view('checkout', compact('cart_items', 'subtotal', 'total'));
     }
 
     public function order(Request $request)
@@ -61,10 +68,18 @@ class CartController extends Controller
         $discount = 0;
         $total_price = 0;
 
+        if (!isset($_COOKIE['cart']) || empty($_COOKIE['cart'])) {
+            return redirect()->back()->with('danger', 'No Items in your Cart!');
+        }
+
         try {
             $cart_items = json_decode($_COOKIE['cart'], true);
+
+            if (empty($cart_items)) {
+                return redirect()->back()->with('danger', 'No Items in your Cart!');
+            }
         } catch (\Throwable $th) {
-            return redirect()->back()->with('danger', 'No Items in your Cart!');
+            return redirect()->back()->with('danger', 'Invalid cart data!');
         }
 
         if ($request->promo != null) {

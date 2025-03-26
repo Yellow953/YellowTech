@@ -21,6 +21,12 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
             @endforeach
         </div>
         @endif
+        @if ($message = Session::get('danger'))
+        <div class="alert alert-danger mb-3">
+            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+            {{ $message }}
+        </div>
+        @endif
         @if ($message = Session::get('success'))
         <div class="alert alert-success mb-3">
             <h4><i class="icon fa fa-ban"></i> Alert!</h4>
@@ -62,6 +68,13 @@ Yellow Tech, yellowtech, yellowtech dev, yellow tech lebanon, yellowtech lebanon
                     <div>
                         <input type="text" class="message-box" name="message" value="{{ old('message') }}" required
                             placeholder="Message *" />
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="{{ asset('assets/images/spam1.png') }}" class="spam-img">
+                        <span class="mx-1">+</span>
+                        <img src="{{ asset('assets/images/spam2.png') }}" class="spam-img">
+                        <span class="mx-1">=</span>
+                        <input type="number" name="spam" class="spam-input my-auto mx-3" required />
                     </div>
 
                     <div class="d-flex">

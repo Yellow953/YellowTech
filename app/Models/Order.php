@@ -23,6 +23,6 @@ class Order extends Model
 
     public function can_delete()
     {
-        return auth()->user()->role == 'admin' && auth()->user()->role == 'admin';
+        return auth()->user()->role == 'admin';
     }
 }

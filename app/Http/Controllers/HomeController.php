@@ -40,7 +40,12 @@ class HomeController extends Controller
             'email' => 'email|required|max:255',
             'message' => 'required',
             'g-recaptcha-response' => 'required',
+            'spam' => 'required|numeric',
         ]);
+
+        if ($request->spam != 19) {
+            return redirect()->back()->with('danger', 'Something Went Wrong...');
+        }
 
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('services.recaptcha.secret'),

@@ -1,34 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('auth.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@section('title', '500')
 
-    <title>Yellowtech</title>
+@section('content')
+<div class="login-logo">
+    <img src="{{ asset('assets/logo/logo.png') }}" width="100">
+</div>
 
-    {{-- Favicon --}}
-    <link rel="icon" type="image/png" href="{{asset('assets/logo/favicon.png')}}">
-
-    {{-- Coding Font --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-
-    <meta name="google-site-verification" content="BeAs6nmdgCTXSjnLMq_pfDksaT12n0uZ7Im9_E2Eliw" />
-
-    {{-- CSS --}}
-    <link rel="stylesheet" href="{{ asset('assets/css/errors.css') }}">
-</head>
-
-<body>
-    <div class="section">
-        <img src="{{ asset('assets/logo/logo.png') }}" alt="yellowtech logo" class="logo">
-        <h1 class="error">500</h1>
-        <div class="page">Ooops!!! Internal Server Error...</div>
-        <a class="back-home" href="{{ route('home') }}">Back</a>
-    </div>
-</body>
-
-</html>
+<div class="text-center text-black">
+    <h1 class="fw-bold">500</h1>
+    <h4 class="mb-4">Ooops!!! Internal Server Error...</h4>
+    <p><a class="back-home btn btn-primary btn-block" href="{{ route('home') }}">Back</a></p>
+</div>
+@endsection

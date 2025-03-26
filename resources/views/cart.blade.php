@@ -18,6 +18,27 @@
 <!--Cart Section-->
 <section class="mt-5">
     <div class="container">
+        @if ($errors->any())
+        <div class="alert alert-danger mb-3">
+            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </div>
+        @endif
+        @if ($message = Session::get('danger'))
+        <div class="alert alert-danger mb-3">
+            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+            {{ $message }}
+        </div>
+        @endif
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success mb-3">
+            <h4><i class="icon fa fa-ban"></i> Alert!</h4>
+            {{ $message }}
+        </div>
+        @endif
         <div class="cart">
             <div class="table-responsive">
                 <table class="table">
@@ -105,7 +126,7 @@
             var price = parseFloat(row.querySelector('.col-2:nth-child(2)').innerText.replace('$', ''));
             var quantity = parseInt(row.querySelector('.col-2:nth-child(3)').innerText);
             var total = price * quantity;
-            
+
             row.querySelector('.col-2:nth-child(4)').innerText = '$' + total.toFixed(2);
 
             subtotal += total;
@@ -129,7 +150,7 @@
         var cartItemElement = document.getElementById('cartItem' + productId);
         if (cartItemElement) {
             cartItemElement.remove();
-            calculateTotals(); 
+            calculateTotals();
         }
 
         try {

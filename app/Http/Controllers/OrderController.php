@@ -87,13 +87,14 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         if ($order->can_delete()) {
-            $text = ucwords(auth()->user()->name) .  " deleted Order " . $order->id . ", datetime: " . now();
+            $text = ucwords(auth()->user()->name) . " deleted Order " . $order->id . ", datetime: " . now();
 
-            foreach ($order->products() as $product) {
-                $product->delete();
+            foreach ($order->products as $product) {
+                $order->products()->detach($product->id);
             }
 
             $order->delete();
+
             Log::create(['text' => $text]);
 
             return redirect()->back()->with('success', "Order successfully deleted!");
