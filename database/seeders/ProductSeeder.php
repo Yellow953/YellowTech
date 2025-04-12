@@ -83,7 +83,7 @@ class ProductSeeder extends Seeder
                 'image' => 'uploads/products/3d_barcode_scanner.png',
             ],
             [
-                'name' => 'Receipt Printer USB/Bluetooth',
+                'name' => 'Receipt Printer USB Bluetooth',
                 'category_id' => 2,
                 'quantity' => 1000,
                 'unit_cost' => 34,

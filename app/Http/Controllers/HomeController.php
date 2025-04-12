@@ -85,7 +85,7 @@ class HomeController extends Controller
 
     public function shop($category_name)
     {
-        $category = Category::where('name', $category_name)->firstOrFail();
+        $category = Category::where('name', urldecode($category_name))->firstOrFail();
         $products = Product::where('category_id', $category->id)->filter()->paginate(15);
         $data = compact('products', 'category');
 
@@ -94,8 +94,8 @@ class HomeController extends Controller
 
     public function product($category_name, $product_name)
     {
-        $category = Category::where('name', $category_name)->firstOrFail();
-        $product = Product::where('name', $product_name)->firstOrFail();
+        $category = Category::where('name', urldecode($category_name))->firstOrFail();
+        $product = Product::where('name', urldecode($product_name))->firstOrFail();
         $data = compact('product', 'category');
 
         return view('product', $data);

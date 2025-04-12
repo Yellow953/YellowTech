@@ -121,7 +121,7 @@ yellowtech hardware shop, yellowtech software shop')
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center">
                                         <a class="btn btn-details mt-auto"
-                                            href="{{ route('product', [$category->name, $product->name]) }}"
+                                            href="{{ route('product', [urlencode($category->name), urlencode($product->name)]) }}"
                                             role="button"><span class="bi bi-cart4"></span>Details
                                             <i class="fa fa-arrow-right"></i>
                                         </a>
@@ -141,5 +141,4 @@ yellowtech hardware shop, yellowtech software shop')
         </div>
     </div>
 </div>
-
 @endsection

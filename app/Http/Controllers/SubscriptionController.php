@@ -14,15 +14,15 @@ class SubscriptionController extends Controller
             'email' => 'required|unique:users,email',
         ]);
 
-        User::create([
-            'name' => 'Default Name',
-            'email' => $request->email,
-            'password' => Hash::make('password'),
-            'phone' => '000-000-0000',
-            'city' => 'Default City',
-            'address' => 'Default Address',
-            'role' => 'client',
-        ]);
+        // User::create([
+        //     'name' => 'Default Name',
+        //     'email' => $request->email,
+        //     'password' => Hash::make('password'),
+        //     'phone' => '000-000-0000',
+        //     'city' => 'Default City',
+        //     'address' => 'Default Address',
+        //     'role' => 'client',
+        // ]);
 
         session(['subscribed' => true]);
 
